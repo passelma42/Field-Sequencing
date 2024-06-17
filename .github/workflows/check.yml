@@ -1,2 +1,0 @@
-- name: Check Node.js version
-  run: node --version
