@@ -1,6 +1,10 @@
 site_name: Field Sequencing
 nav:
     - index.md
+    - system-build.md
+    - wf-amplicon.md
+    - demo-field2.0.md
+    
 theme:
   name: material
   features:
@@ -21,13 +25,13 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
-      primary: deep purple
+      primary: deep blue
       accent: orange
     - scheme: slate 
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode    
-      primary: deep purple
+      primary: deep deep
       accent: orange
 markdown_extensions:
   - pymdownx.highlight:

@@ -1,17 +1,14 @@
-# Welcome to MkDocs
+# Intro  
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Field sequencing outside of a lab environment is currently made possible by [Oxford Nanopore technologies](https://nanoporetech.com/).  
+Combining the portable sequencer called 'MinION Mk1B' and a powerfull laptop with some GPU power under the hood one is able to do 'Field Sequencing'.
+The idea of this website is to setup a portable field sequencing workflow covering following topics:  
+ 
+- GPU system setup  
+- Installing software (including ONT sequencing software)  
+- Using `BLAST`and different databases for taxonomical ID  
+- Wet lab approach for barcoding applications
+- Demo of our field sequencing test at Botanic Garden Ghent  
 
-## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+This is a step by step guide that will empower you to set up a compute workstation and learn all necessary protocols for both wet and dry lab.

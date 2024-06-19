@@ -1,0 +1,746 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../wf-amplicon/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+    
+    
+      
+        <title>System setup - Field Sequencing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#system-setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Field Sequencing" class="md-header__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Field Sequencing
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              System setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-deep" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Intro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  System setup
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../wf-amplicon/" class="md-tabs__link">
+        
+  
+    
+  
+  Wf amplicon
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../demo-field2.0/" class="md-tabs__link">
+        
+  
+    
+  
+  Demo field2.0
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Field Sequencing" class="md-nav__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Field Sequencing
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    System setup
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    System setup
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operating-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operating system
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-cuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU &amp; CUDA
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GPU & CUDA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation on Ubuntu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#purge-nvidia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purge Nvidia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Software
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bioinformatic-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bioinformatic software
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python environments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conda
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wf-amplicon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wf amplicon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demo-field2.0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demo field2.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="system-setup">System setup</h1>
+<h2 id="operating-system">Operating system</h2>
+<p><strong>Release</strong>: Ubuntu 22.04.4 LTS (Jammy Jellyfish)<br />
+Follow this link to learn <a href="https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview">all you need to know on how to install ubuntu</a>.</p>
+<h2 id="gpu-cuda">GPU &amp; CUDA</h2>
+<p>GPU computational power increased ONT basecalling speed and enabled real-time data analysis. Upon writing this documentation dorado 0.7 is the current basecaller<br />
+which is also incorperated in the sequencing operating software Minknow. Before we get to the installation of dedicated sequencing software and other data analys packages we<br />
+will focus on installing a GPU and the CUDA toolkit.  </p>
+<h3 id="installation-on-ubuntu">Installation on Ubuntu</h3>
+<ul>
+<li>Add graphics drivers ppa repo<br />
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>ppa:graphics-drivers/ppa
+</code></pre></div></li>
+<li>Install Ubuntu drivers app<br />
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ubuntu-drivers-common
+</code></pre></div></li>
+<li>Check available GPUs<br />
+<div class="highlight"><pre><span></span><code>ubuntu-drivers<span class="w"> </span>devices
+</code></pre></div>
+<div class="highlight"><span class="filename">Example output</span><pre><span></span><code><span class="o">==</span><span class="w"> </span>/sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0<span class="w"> </span><span class="o">==</span>
+modalias<span class="w"> </span>:<span class="w"> </span>pci:v000010DEd000027E0sv00001025sd0000166Cbc03sc00i00
+vendor<span class="w">   </span>:<span class="w"> </span>NVIDIA<span class="w"> </span>Corporation
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-545-open<span class="w"> </span>-<span class="w"> </span>distro<span class="w"> </span>non-free
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-555-open<span class="w"> </span>-<span class="w"> </span>third-party<span class="w"> </span>non-free
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-550<span class="w"> </span>-<span class="w"> </span>third-party<span class="w"> </span>non-free
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-550-open<span class="w"> </span>-<span class="w"> </span>third-party<span class="w"> </span>non-free
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-545<span class="w"> </span>-<span class="w"> </span>distro<span class="w"> </span>non-free
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-535<span class="w"> </span>-<span class="w"> </span>third-party<span class="w"> </span>non-free
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-555<span class="w"> </span>-<span class="w"> </span>third-party<span class="w"> </span>non-free<span class="w"> </span>recommended
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-535-server<span class="w"> </span>-<span class="w"> </span>distro<span class="w"> </span>non-free
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-535-open<span class="w"> </span>-<span class="w"> </span>distro<span class="w"> </span>non-free
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-535-server-open<span class="w"> </span>-<span class="w"> </span>distro<span class="w"> </span>non-free
+driver<span class="w">   </span>:<span class="w"> </span>nvidia-driver-525<span class="w"> </span>-<span class="w"> </span>third-party<span class="w"> </span>non-free
+driver<span class="w">   </span>:<span class="w"> </span>xserver-xorg-video-nouveau<span class="w"> </span>-<span class="w"> </span>distro<span class="w"> </span>free<span class="w"> </span><span class="nb">builtin</span>
+</code></pre></div></li>
+<li>Install latest Nvidia driver (change <code>555</code> with latest version available in your case)<br />
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nvidia-driver-525
+</code></pre></div></li>
+<li>Reboot your computer  </li>
+<li>Check if Nvidia driver and CUDA is available after reboot<br />
+<div class="highlight"><pre><span></span><code>nvidia-smi
+</code></pre></div>
+<div class="highlight"><span class="filename">Example output</span><pre><span></span><code>+---------------------------------------------------------------------------------------+
+<span class="p">|</span><span class="w"> </span>NVIDIA-SMI<span class="w"> </span><span class="m">545</span>.29.06<span class="w">              </span>Driver<span class="w"> </span>Version:<span class="w"> </span><span class="m">545</span>.29.06<span class="w">    </span>CUDA<span class="w"> </span>Version:<span class="w"> </span><span class="m">12</span>.3<span class="w">     </span><span class="p">|</span>
+<span class="p">|</span>-----------------------------------------+----------------------+----------------------+
+<span class="p">|</span><span class="w"> </span>GPU<span class="w">  </span>Name<span class="w">                 </span>Persistence-M<span class="w"> </span><span class="p">|</span><span class="w"> </span>Bus-Id<span class="w">        </span>Disp.A<span class="w"> </span><span class="p">|</span><span class="w"> </span>Volatile<span class="w"> </span>Uncorr.<span class="w"> </span>ECC<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>Fan<span class="w">  </span>Temp<span class="w">   </span>Perf<span class="w">          </span>Pwr:Usage/Cap<span class="w"> </span><span class="p">|</span><span class="w">         </span>Memory-Usage<span class="w"> </span><span class="p">|</span><span class="w"> </span>GPU-Util<span class="w">  </span>Compute<span class="w"> </span>M.<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">                                         </span><span class="p">|</span><span class="w">                      </span><span class="p">|</span><span class="w">               </span>MIG<span class="w"> </span>M.<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="o">=========================================</span>+<span class="o">======================</span>+<span class="o">======================</span><span class="p">|</span>
+<span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">  </span>NVIDIA<span class="w"> </span>GeForce<span class="w"> </span>RTX<span class="w"> </span><span class="m">4080</span><span class="w"> </span>...<span class="w">    </span>Off<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">00000000</span>:01:00.0<span class="w"> </span>Off<span class="w"> </span><span class="p">|</span><span class="w">                  </span>N/A<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>N/A<span class="w">   </span>45C<span class="w">    </span>P8<span class="w">               </span>1W<span class="w"> </span>/<span class="w">  </span>90W<span class="w"> </span><span class="p">|</span><span class="w">   </span>1032MiB<span class="w"> </span>/<span class="w"> </span>12282MiB<span class="w"> </span><span class="p">|</span><span class="w">      </span><span class="m">0</span>%<span class="w">      </span>Default<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">                                         </span><span class="p">|</span><span class="w">                      </span><span class="p">|</span><span class="w">                  </span>N/A<span class="w"> </span><span class="p">|</span>
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+<span class="p">|</span><span class="w"> </span>Processes:<span class="w">                                                                            </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>GPU<span class="w">   </span>GI<span class="w">   </span>CI<span class="w">        </span>PID<span class="w">   </span>Type<span class="w">   </span>Process<span class="w"> </span>name<span class="w">                            </span>GPU<span class="w"> </span>Memory<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">        </span>ID<span class="w">   </span>ID<span class="w">                                                             </span>Usage<span class="w">      </span><span class="p">|</span>
+<span class="p">|</span><span class="o">=======================================================================================</span><span class="p">|</span>
++---------------------------------------------------------------------------------------+
+</code></pre></div></li>
+</ul>
+<p>This output tells us we have a NVIDIA GeForce RTX 4080 running (12GB virtual RAM) and CUDA Version 12.3 has been co-installed.  </p>
+<h3 id="purge-nvidia">Purge Nvidia</h3>
+<p>On some occasions you'll need to perform a fresh installation of nvidia drivers. It is important to purge all currently installed NVIDIA/CUDA before installing anew.<br />
+Here is a step by step guide on how to do this:  </p>
+<ul>
+<li>List all packages<br />
+The dpkg -l command is used in Debian-based Linux distributions to list all the installed packages.<br />
+This command provides detailed information about each package, including its status, name, version, and a brief description.
+<div class="highlight"><pre><span></span><code>dpkg<span class="w"> </span>-l
+</code></pre></div>
+The output of dpkg -l, the columns represent:  </li>
+</ul>
+<blockquote>
+<ol>
+<li>Package status (e.g., "ii" for installed, "un" for uninstalled, etc.)  </li>
+<li>Package name  </li>
+<li>Version  </li>
+<li>Architecture  </li>
+<li>Description  </li>
+</ol>
+</blockquote>
+<ul>
+<li>List and purge all NVIDIA/CUDA  </li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>purge<span class="w"> </span><span class="k">$(</span>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;^ii.*nvidia&#39;</span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Description</span><pre><span></span><code>dpkg -l | grep &#39;^ii.*nvidia&#39;    # This command lists all installed packages (output of dpkg -l) that have &quot;nvidia&quot; in their names and are in the &quot;installed&quot; state (lines starting with &quot;ii&quot;).  
+
+awk &#39;{print $2}&#39;                # This command uses awk to print the second column (package names) from the output of the previous command.  
+
+sudo apt-get purge $(...)       # This command uses command substitution to execute the inner command and pass its output (list of package names) as arguments to apt-get purge, which removes the specified packages.  
+</code></pre></div></p>
+<p>.</p>
+<h2 id="system-software">System Software</h2>
+<p>On Ubuntu system applications can be installed using the graphical user interface (GUI).<br />
+More information on how to install software on Ubuntu <a href="https://help.ubuntu.com/stable/ubuntu-help/addremove-install.html.en">click here</a>.  </p>
+<h3 id="bioinformatic-software">Bioinformatic software</h3>
+<p>Usually bioinformatic software are opensource packages with installation instructions described on Github repositories.<br />
+First thing you can do is get yourself a github account and <a href="https://github.com/git-guides">get familiarized with github</a>.<br />
+Executable scripts, often found in a <code>/bin</code>folder, can be installed in <code>/usr/local/bin</code> or in a dedicated bioinfo folder <code>/usr/local/bioinf/</code>.<br />
+The next example is to demonstrate how to install dorado, the ont basecaller, in the <code>/bioinf</code>folder and put the script on <code>PATH</code>.  </p>
+<ul>
+<li>Goto <a href="https://github.com/nanoporetech/dorado">DORADO GITHUB</a>  </li>
+<li>Download the relevant installer for your platform (like described in the instructions)  </li>
+<li>Extract the archive to the desired location<br />
+<div class="highlight"><span class="filename">Extract and put on PATH</span><pre><span></span><code><span class="m">1</span>.<span class="w"> </span>mkdir<span class="w"> </span>/usr/local/bioinf/
+<span class="m">2</span>.<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/local/bioinf/
+<span class="m">3</span>.<span class="w"> </span>wget<span class="w"> </span>https://cdn.oxfordnanoportal.com/software/analysis/dorado-0.7.2-linux-x64.tar.gz
+<span class="m">4</span>.<span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span>dorado-0.7.2-linux-x64.tar.gz
+<span class="w">    </span><span class="c1"># after unzipping, the main folder will contain a /bin and /lib folder.</span>
+<span class="m">5</span>.<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>bin<span class="w">  </span>
+<span class="m">6</span>.<span class="w"> </span>ls
+<span class="w">    </span><span class="c1"># /usr/local/bioinf/dorado/bin/dorado =&gt; this is the Executable file </span>
+<span class="m">7</span>.<span class="w"> </span>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/bioinf/dorado/bin/dorado<span class="w"> </span>/usr/local/bin/dorado
+<span class="w">    </span><span class="c1"># this will symlink the dorado script to /usr/local/bin/dorado</span>
+<span class="m">8</span>.<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=$PATH:/usr/local/bin&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/profile<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/bin
+<span class="w">    </span><span class="c1"># put in path if not by default, you can check by `echo $PATH`</span>
+</code></pre></div>
+Following these instructions you should have downloaded the dorado script and it's libraries in the designated <code>/usr/local/bioinf</code> folder. To make the executable file accessible for all users<br />
+you need to put it in PATH.</li>
+</ul>
+<h3 id="python-environments">Python environments</h3>
+<p>When you need to install packages using the command <code>pip</code> it is adviced to do so in a separate python environment to avoid issues with the already existing python installation supporting your operating system.<br />
+Detailed information on python venv can be found <a href="https://docs.python.org/3/library/venv.html">here</a>.  </p>
+<h3 id="conda">Conda</h3>
+<p>Yet another packaging and environmanagement tool is Conda. A lot of bioinformatic software has been made available in dedicated conda environments.
+Read all there is to know on <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">how to use conda here</a>. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/passelma42"  target="_blank" rel="noopener">Pieter Asselman</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/passelma42" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pieterasselman/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>
