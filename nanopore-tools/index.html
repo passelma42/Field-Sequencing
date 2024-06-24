@@ -12,7 +12,7 @@
         <link rel="prev" href="../system-build/">
       
       
-        <link rel="next" href="../wf-amplicon/">
+        <link rel="next" href="../workflows/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -256,12 +256,12 @@
   
   
     <li class="md-tabs__item">
-      <a href="../wf-amplicon/" class="md-tabs__link">
+      <a href="../workflows/" class="md-tabs__link">
         
   
     
   
-  wf-amplicon
+  Workflows
 
       </a>
     </li>
@@ -452,14 +452,20 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflows" class="md-nav__link">
+    <nav class="md-nav" aria-label="Basecalling: Dorado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dorado-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflows
+      Dorado features
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -478,11 +484,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../wf-amplicon/" class="md-nav__link">
+      <a href="../workflows/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    wf-amplicon
+    Workflows
   </span>
   
 
@@ -555,9 +561,23 @@ To enable this, you'll need to give the <code>minknow.service</code> writing pri
 <h2 id="basecalling-dorado">Basecalling: Dorado</h2>
 <p>Dorado is a high-performance, easy-to-use, open source basecaller for Oxford Nanopore reads. The tool can be installed as a stand alone tool which provides more functionalities than basecalling in Minknow.<br />
 You can find the <a href="https://github.com/nanoporetech/dorado">Dorado github repo here</a>.  </p>
-<h2 id="workflows">Workflows</h2>
-<p>EPI2ME Labs maintains a collection of bioinformatics workflows tailored to Oxford Nanopore Technologies long-read sequencing data. They are curated and actively maintained by experts in long-read sequence analysis.<br />
-Read all about <a href="https://labs.epi2me.io/wfindex/">EPI2ME workflows here</a>.</p>
+<h3 id="dorado-features">Dorado features</h3>
+<ol>
+<li><strong>Download model</strong> modules are not packed in the software<br />
+<div class="highlight"><pre><span></span><code>dordado<span class="w"> </span>download<span class="w"> </span>--list
+</code></pre></div></li>
+<li>Basecaller<br />
+<div class="highlight"><pre><span></span><code>dorado<span class="w"> </span>basecaller<span class="w"> </span>dna_r10.4.1_e82_400bps_fast@v4.1.0<span class="w"> </span>./input_pod5/<span class="w"> </span>&gt;<span class="w"> </span>output.bam
+dorado<span class="w"> </span>basecaller<span class="w"> </span>dna_r10.4.1_e82_400bps_fast@v4.1.0<span class="w"> </span>./input_pod5/<span class="w"> </span>--emit-fastq<span class="w"> </span>&gt;<span class="w"> </span>output.fastq
+dorado<span class="w"> </span>basecaller<span class="w"> </span>dna_r10.4.1_e82_400bps_fast@v4.1.0<span class="w"> </span>./input_pod5/<span class="w"> </span>--emit-sam<span class="w"> </span>&gt;<span class="w"> </span>output.sam
+</code></pre></div></li>
+<li>Aligner<br />
+<div class="highlight"><pre><span></span><code>dorado<span class="w"> </span>basecaller<span class="w"> </span>-x<span class="w"> </span>cuda:0<span class="w"> </span>--reference<span class="w"> </span>.your-reference.fasta<span class="w"> </span>dna_r10.4.1_e8_400bps_fast@v4.1.0<span class="w"> </span>./pod5<span class="w"> </span>&gt;<span class="w"> </span>aligned.bam
+</code></pre></div></li>
+<li>Sequencing summary generation<br />
+<div class="highlight"><pre><span></span><code>dorado<span class="w"> </span>summary<span class="w"> </span>./reads.bam<span class="w"> </span>&gt;<span class="w"> </span>sequencing_summary.txt
+</code></pre></div></li>
+</ol>
 
 
 

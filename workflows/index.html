@@ -20,7 +20,7 @@
     
     
       
-        <title>wf-amplicon - Field Sequencing</title>
+        <title>Workflows - Field Sequencing</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wf-amplicon" class="md-skip">
+        <a href="#workflows" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              wf-amplicon
+              Workflows
             
           </span>
         </div>
@@ -261,7 +261,7 @@
   
     
   
-  wf-amplicon
+  Workflows
 
       </a>
     </li>
@@ -396,15 +396,129 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Workflows
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    wf-amplicon
+    Workflows
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      JAVA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nextflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      NEXTFLOW
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    <span class="md-ellipsis">
+      GO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#singularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Singularity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wf-amplicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      wf-amplicon
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="wf-amplicon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-the-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run the workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -445,9 +559,110 @@
                   
 
 
-<h1 id="wf-amplicon">wf-amplicon</h1>
-<p>This workflow performs the analysis of reads generated from PCR amplicons. After some pre-processing, reads are either aligned to a reference (containing the expected sequence for each amplicon) for variant calling or the amplicon’s consensus sequence is generated <em>de novo</em>.<br />
-Installation guides for wf-amplicon can be found here: <a href="https://labs.epi2me.io/workflows/wf-amplicon/">Installation guide</a>.</p>
+<h1 id="workflows">Workflows</h1>
+<p>EPI2ME Labs maintains a collection of bioinformatics workflows tailored to Oxford Nanopore Technologies long-read sequencing data. They are curated and actively maintained by experts in long-read sequence analysis.<br />
+Read all about <a href="https://labs.epi2me.io/wfindex/">EPI2ME workflows here</a>.  </p>
+<h2 id="installation-guide">Installation guide</h2>
+<h4 id="java">JAVA</h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>default-jre<span class="w"> </span><span class="c1">#install java on ubuntu</span>
+</code></pre></div>
+<h3 id="nextflow">NEXTFLOW</h3>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>https://get.nextflow.io<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="c1"># install nextflow</span>
+</code></pre></div>
+<h3 id="go">GO</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span><span class="m">1</span>.11<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>amd64<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>wget<span class="w"> </span>https://dl.google.com/go/go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sudo<span class="w"> </span>tar<span class="w"> </span>-C<span class="w"> </span>/usr/local<span class="w"> </span>-xzvf<span class="w"> </span>go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>rm<span class="w"> </span>go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz
+
+<span class="c1"># setup GO environment</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GOPATH=${HOME}/go&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
+
+<span class="c1"># install dep for dependency resolution</span>
+<span class="w">    </span>go<span class="w"> </span>get<span class="w"> </span>-u<span class="w"> </span>github.com/golang/dep/cmd/dep
+</code></pre></div>
+<h3 id="singularity">Singularity</h3>
+<p><strong>Installation</strong>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span><span class="m">3</span>.0.3<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="c1"># adjust this as necessary \</span>
+<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$GOPATH</span>/src/github.com/sylabs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$GOPATH</span>/src/github.com/sylabs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>wget<span class="w"> </span>https://github.com/sylabs/singularity/releases/download/v<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>/singularity-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>tar<span class="w"> </span>-xzf<span class="w"> </span>singularity-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>./singularity<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./mconfig
+</code></pre></div>
+<strong>Compile</strong>
+<div class="highlight"><pre><span></span><code>./mconfig<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>make<span class="w"> </span>-C<span class="w"> </span>./builddir<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sudo<span class="w"> </span>make<span class="w"> </span>-C<span class="w"> </span>./builddir<span class="w"> </span>install
+</code></pre></div>
+<strong>Singularity cache folder</strong><br />
+If folder is not set you get this warning:<br />
+    WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /home/sequencing/Analisys/wf-amplicon-demo/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location</p>
+<p>To avoid this create cache folder to store downloaded images when running epi2me labs. For each new analysis you run with epi2me make sure to put the image in this folder.<br />
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/path/to/singularity-cache-dir
+</code></pre></div>
+<strong>Create nextflow config file</strong><br />
+This file will be checked running each wf and redirects singularity to find the images stored locally rather than download them each time.<br />
+<a href="https://www.nextflow.io/docs/latest/config.html">More info on nextflow configuration file</a>.<br />
+Process:<br />
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/home/sequencing/nextflow-config
+touch<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config
+</code></pre></div>
+<div class="highlight"><span class="filename">nextflow.config</span><pre><span></span><code>singularity<span class="w"> </span><span class="o">{</span><span class="w"> </span>
+<span class="w">    </span><span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">cacheDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/path/to/singularity-cache-dir
+<span class="o">}</span><span class="w"> </span>
+</code></pre></div></p>
+<h2 id="wf-amplicon">wf-amplicon</h2>
+<p>This workflow performs the analysis of reads generated from PCR amplicons. After some pre-processing, reads are either aligned to a reference (containing the expected sequence for each amplicon) for variant calling or the amplicon’s consensus sequence is generated <em>de novo</em>.  </p>
+<p>Installation guides for wf-amplicon can be found here: <a href="https://labs.epi2me.io/workflows/wf-amplicon/">wf-amplicon Installation guide</a>.  </p>
+<h3 id="run-the-workflow">Run the workflow</h3>
+<p><div class="highlight"><span class="filename">data layout</span><pre><span></span><code><span class="o">(</span>i<span class="o">)</span><span class="w">                     </span><span class="o">(</span>ii<span class="o">)</span><span class="w">                 </span><span class="o">(</span>iii<span class="o">)</span>
+input_reads.fastq<span class="w">   </span>───<span class="w"> </span>input_directory<span class="w">  </span>───<span class="w"> </span>input_directory
+<span class="w">                        </span>├──<span class="w"> </span>reads0.fastq<span class="w">     </span>├──<span class="w"> </span>barcode01
+<span class="w">                        </span>└──<span class="w"> </span>reads1.fastq<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
+<span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads1.fastq
+<span class="w">                                             </span>├──<span class="w"> </span>barcode02
+<span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
+<span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads1.fastq
+<span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads2.fastq
+<span class="w">                                             </span>└──<span class="w"> </span>barcode03
+<span class="w">                                              </span>└──<span class="w"> </span>reads0.fastq
+</code></pre></div>
+<div class="highlight"><span class="filename">Command to run</span><pre><span></span><code>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--fastq<span class="w"> </span>./fastq<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--reference<span class="w"> </span>./reference.fa<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--sample_sheet<span class="w"> </span>./sample-sheet.csv
+<span class="w">    </span>-c<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-profile<span class="w"> </span>singulairy
+</code></pre></div>
+<div class="highlight"><span class="filename">Example: sample-sheet.csv</span><pre><span></span><code>barcode,alias,type,ref
+barcode41,BC41,test_sample,ref1
+barcode42,BC42,test_sample
+barcode43,BC43,test_sample,ref2
+</code></pre></div>
+<div class="highlight"><span class="filename">Example: reference.fa</span><pre><span></span><code>&gt;ref1
+ATGC
+&gt;ref2
+CGTA
+</code></pre></div></p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p>When not running variant mode a reference file is not necessary. Also make sure to delete the ref column in that case.</p>
+</div>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://labs.epi2me.io/installation/#installation-on-linux">Installation EPI2ME</a></li>
+<li><a href="https://www.nextflow.io/docs/latest/install.html">Installation Nextflow</a>  </li>
+<li><a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html">Installation Singularity</a>  </li>
+<li><a href="https://docs.docker.com/engine/install/ubuntu/">Installation Docker</a></li>
+<li><a href="https://go.dev/doc/install">Installation GO</a></li>
+</ul>
 
 
 
