@@ -2,6 +2,7 @@ site_name: Field Sequencing
 nav:
     - index.md
     - system-build.md
+    - nanopore-tools.md
     - wf-amplicon.md
     - demo-field2.0.md
     

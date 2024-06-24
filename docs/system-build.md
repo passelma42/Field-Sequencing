@@ -7,9 +7,10 @@ Follow this link to learn [all you need to know on how to install ubuntu](https:
 
 ## GPU & CUDA   
 
-GPU computational power increased ONT basecalling speed and enabled real-time data analysis. Upon writing this documentation dorado 0.7 is the current basecaller  
-which is also incorperated in the sequencing operating software Minknow. Before we get to the installation of dedicated sequencing software and other data analys packages we  
-will focus on installing a GPU and the CUDA toolkit.  
+GPU computational power increased ONT basecalling speed and enabled real-time data analysis.  
+Upon writing this documentation dorado 0.7 is the current basecaller  
+which is also incorperated in the sequencing operating software Minknow.  
+Before we get to the installation of dedicated sequencing software and other data analys packages we will focus on installing a GPU and the CUDA toolkit.  
 ### Installation on Ubuntu  
 
 - Add graphics drivers ppa repo  
@@ -116,8 +117,8 @@ More information on how to install software on Ubuntu [click here](https://help.
 
 Usually bioinformatic software are opensource packages with installation instructions described on Github repositories.  
 First thing you can do is get yourself a github account and [get familiarized with github](https://github.com/git-guides).  
-Executable scripts, often found in a `/bin`folder, can be installed in `/usr/local/bin` or in a dedicated bioinfo folder `/usr/local/bioinf/`.  
-The next example is to demonstrate how to install dorado, the ont basecaller, in the `/bioinf`folder and put the script on `PATH`.  
+Executable scripts are often found in the `/bin`folder, or can be installed in `/usr/local/bin` or in a dedicated bioinfo folder `/usr/local/bioinf/`.  
+In the next section I will explain how to install the basecalling tool *Dorado* in the `/bioinf`folder and put the script on `PATH`.  
 
 - Goto [DORADO GITHUB](https://github.com/nanoporetech/dorado)  
 - Download the relevant installer for your platform (like described in the instructions)  
