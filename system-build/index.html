@@ -12,7 +12,7 @@
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../wf-amplicon/">
+        <link rel="next" href="../nanopore-tools/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -239,12 +239,29 @@
   
   
     <li class="md-tabs__item">
+      <a href="../nanopore-tools/" class="md-tabs__link">
+        
+  
+    
+  
+  Nanopore Tools
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../wf-amplicon/" class="md-tabs__link">
         
   
     
   
-  Wf amplicon
+  wf-amplicon
 
       </a>
     </li>
@@ -474,11 +491,31 @@
   
   
     <li class="md-nav__item">
+      <a href="../nanopore-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nanopore Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../wf-amplicon/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Wf amplicon
+    wf-amplicon
   </span>
   
 
@@ -527,9 +564,10 @@
 <p><strong>Release</strong>: Ubuntu 22.04.4 LTS (Jammy Jellyfish)<br />
 Follow this link to learn <a href="https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview">all you need to know on how to install ubuntu</a>.</p>
 <h2 id="gpu-cuda">GPU &amp; CUDA</h2>
-<p>GPU computational power increased ONT basecalling speed and enabled real-time data analysis. Upon writing this documentation dorado 0.7 is the current basecaller<br />
-which is also incorperated in the sequencing operating software Minknow. Before we get to the installation of dedicated sequencing software and other data analys packages we<br />
-will focus on installing a GPU and the CUDA toolkit.  </p>
+<p>GPU computational power increased ONT basecalling speed and enabled real-time data analysis.<br />
+Upon writing this documentation dorado 0.7 is the current basecaller<br />
+which is also incorperated in the sequencing operating software Minknow.<br />
+Before we get to the installation of dedicated sequencing software and other data analys packages we will focus on installing a GPU and the CUDA toolkit.  </p>
 <h3 id="installation-on-ubuntu">Installation on Ubuntu</h3>
 <ul>
 <li>Add graphics drivers ppa repo<br />
@@ -623,8 +661,8 @@ More information on how to install software on Ubuntu <a href="https://help.ubun
 <h3 id="bioinformatic-software">Bioinformatic software</h3>
 <p>Usually bioinformatic software are opensource packages with installation instructions described on Github repositories.<br />
 First thing you can do is get yourself a github account and <a href="https://github.com/git-guides">get familiarized with github</a>.<br />
-Executable scripts, often found in a <code>/bin</code>folder, can be installed in <code>/usr/local/bin</code> or in a dedicated bioinfo folder <code>/usr/local/bioinf/</code>.<br />
-The next example is to demonstrate how to install dorado, the ont basecaller, in the <code>/bioinf</code>folder and put the script on <code>PATH</code>.  </p>
+Executable scripts are often found in the <code>/bin</code>folder, or can be installed in <code>/usr/local/bin</code> or in a dedicated bioinfo folder <code>/usr/local/bioinf/</code>.<br />
+In the next section I will explain how to install the basecalling tool <em>Dorado</em> in the <code>/bioinf</code>folder and put the script on <code>PATH</code>.  </p>
 <ul>
 <li>Goto <a href="https://github.com/nanoporetech/dorado">DORADO GITHUB</a>  </li>
 <li>Download the relevant installer for your platform (like described in the instructions)  </li>

@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../wf-amplicon/">
+        <link rel="prev" href="../system-build/">
       
+      
+        <link rel="next" href="../wf-amplicon/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Demo field2.0 - Field Sequencing</title>
+        <title>Nanopore Tools - Field Sequencing</title>
       
     
     
@@ -69,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#nanopore-tools" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -99,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Demo field2.0
+              Nanopore Tools
             
           </span>
         </div>
@@ -228,9 +235,11 @@
         
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../nanopore-tools/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
     
@@ -262,11 +271,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../demo-field2.0/" class="md-tabs__link">
         
   
     
@@ -357,10 +364,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../nanopore-tools/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Nanopore Tools
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -369,6 +396,77 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sequencing-minkow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequencing: Minkow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sequencing: Minkow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-installation-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default installation directories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-minknow-as-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Minknow as root
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basecalling-dorado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basecalling: Dorado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflows
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -397,17 +495,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../demo-field2.0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -416,7 +507,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -436,9 +526,38 @@
                   
 
 
-  <h1>Demo field2.0</h1>
-
-
+<h1 id="nanopore-tools">Nanopore Tools</h1>
+<p>All nanopore proprietary software can be found in <a href="https://community.nanoporetech.com/downloads?from=support">the software &amp; Download section</a> on the website of nanopore.   </p>
+<h2 id="sequencing-minkow">Sequencing: Minkow</h2>
+<p>The basic setup for sequencing in the software package called <code>Minknow</code>. Minknow can both operate the sequencing device as well as running real time basecalling.<br />
+The installation guide provided in the <a href="https://community.nanoporetech.com/downloads?from=support">the software &amp; Download section</a> gives you an overview of all necessary commands to issue for installing the software.  </p>
+<h3 id="default-installation-directories">Default installation directories</h3>
+<ol>
+<li>For the MinKNOW software:<br />
+<code>/opt/ont/minknow</code>  </li>
+<li>For the MinKNOW user interface:<br />
+<code>/opt/ont/minknow-ui</code>  </li>
+<li>Location of the reads folder:<br />
+<code>/var/lib/minknow/data</code>  </li>
+<li>Location of the log files:<br />
+The MinKNOW logs are located in <code>/var/log/minknow</code><br />
+The Dorado basecaller logs are located in <code>/var/log/dorado</code>  </li>
+</ol>
+<h3 id="run-minknow-as-root">Run Minknow as root</h3>
+<p>When running minknow you'll notice that when issuing another path for your reads folder, minkow will issue an error. Redirecting output from the standard <code>/var/lib/minknow/data</code><br />
+might be necessary when you run out of diskspace or simply when you prefer to output your data elsewhere.<br />
+To enable this, you'll need to give the <code>minknow.service</code> writing privileges i.e. make this root.<br />
+<div class="highlight"><span class="filename">Make minknow.service root</span><pre><span></span><code><span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>minknow<span class="w"> </span>stop
+<span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>perl<span class="w"> </span>-i<span class="w"> </span>-pe<span class="w"> </span><span class="s1">&#39;s/(User|Group)=minknow/$1=root/&#39;</span>/lib/systemd/system/minknow.service
+<span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+<span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>minknow<span class="w"> </span>start
+</code></pre></div></p>
+<h2 id="basecalling-dorado">Basecalling: Dorado</h2>
+<p>Dorado is a high-performance, easy-to-use, open source basecaller for Oxford Nanopore reads. The tool can be installed as a stand alone tool which provides more functionalities than basecalling in Minknow.<br />
+You can find the <a href="https://github.com/nanoporetech/dorado">Dorado github repo here</a>.  </p>
+<h2 id="workflows">Workflows</h2>
+<p>EPI2ME Labs maintains a collection of bioinformatics workflows tailored to Oxford Nanopore Technologies long-read sequencing data. They are curated and actively maintained by experts in long-read sequence analysis.<br />
+Read all about <a href="https://labs.epi2me.io/wfindex/">EPI2ME workflows here</a>.</p>
 
 
 
