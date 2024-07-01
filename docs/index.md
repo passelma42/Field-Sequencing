@@ -1,7 +1,7 @@
 # Intro  
 
-Field sequencing outside of a lab environment is currently made possible by [Oxford Nanopore technologies](https://nanoporetech.com/).  
-Combining the portable sequencer called 'MinION Mk1B' and a powerfull laptop with some GPU power under the hood one is able to do 'Field Sequencing'.
+Field sequencing outside a lab environment has been made possible by [Oxford Nanopore technologies](https://nanoporetech.com/).  
+Combining the portable sequencer called 'MinION Mk1B' and a powerfull laptop (incl. GPU power) one is able to perform in field sequencing and real-time data analysis.
 The idea of this website is to setup a portable field sequencing workflow covering following topics:  
  
 - GPU system setup  

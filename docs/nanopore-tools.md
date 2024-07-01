@@ -29,6 +29,23 @@ To enable this, you'll need to give the `minknow.service` writing privileges i.e
 ## Basecalling: Dorado  
 Dorado is a high-performance, easy-to-use, open source basecaller for Oxford Nanopore reads. The tool can be installed as a stand alone tool which provides more functionalities than basecalling in Minknow.  
 You can find the [Dorado github repo here](https://github.com/nanoporetech/dorado).  
-## Workflows  
-EPI2ME Labs maintains a collection of bioinformatics workflows tailored to Oxford Nanopore Technologies long-read sequencing data. They are curated and actively maintained by experts in long-read sequence analysis.  
-Read all about [EPI2ME workflows here](https://labs.epi2me.io/wfindex/).
+### Dorado features  
+
+1. **Download model** modules are not packed in the software  
+```shell
+dordado download --list
+```   
+2. Basecaller  
+```shell
+dorado basecaller dna_r10.4.1_e82_400bps_fast@v4.1.0 ./input_pod5/ > output.bam
+dorado basecaller dna_r10.4.1_e82_400bps_fast@v4.1.0 ./input_pod5/ --emit-fastq > output.fastq
+dorado basecaller dna_r10.4.1_e82_400bps_fast@v4.1.0 ./input_pod5/ --emit-sam > output.sam
+```
+3. Aligner  
+```shell
+dorado basecaller -x cuda:0 --reference .your-reference.fasta dna_r10.4.1_e8_400bps_fast@v4.1.0 ./pod5 > aligned.bam
+```    
+4. Sequencing summary generation  
+```shell
+dorado summary ./reads.bam > sequencing_summary.txt
+```  
