@@ -28,21 +28,22 @@ NanoPlot --summary sequencing_summary.txt -o summary-plots
 
 #### Number of reads VS active pores  
 Number of reads over time  
-<img src="/NumberOfReads_Over_Time.png" alt="Sample Image" width="400">
+![number of reads over time](images/NumberOfReads_Over_Time.png)
+
 
 Active pores over time  
-<img src="/ActivePores_Over_Time.png" alt="Sample Image" width="400">
+![Active pores over time](images/ActivePores_Over_Time.png)
 
 #### Quality VS sequencing speed  
 Time vs Quality  
-<img src="/TimeQualityViolinPlot.png" alt="Sample Image" width="400">  
+![Time vs Quality](images/TimeQualityViolinPlot.png)  
 
 Time vs Speed  
-<img src="/TimeSequencingSpeed_ViolinPlot.png" alt="Sample Image" width="400">  
+![Time vs Speed](images/TimeSequencingSpeed_ViolinPlot.png)  
 
 #### Quality VS length  
 Quality VS length (min 200bp - max 1000bp)  
-<img src="/LengthvsQualityScatterPlot_loglength_dot.png" alt="Sample Image" width="400"> 
+![Quality VS length](images/LengthvsQualityScatterPlot_loglength_dot.png)  
 
 ## Data Processing: Create Consensus  
 ### wf-amplicon  
