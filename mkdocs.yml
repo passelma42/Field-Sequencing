@@ -3,9 +3,11 @@ nav:
     - index.md
     - system-build.md
     - nanopore-tools.md
-    - wf-amplicon.md
+    - installation.md
     - demo-field2.0.md
-    
+    - linuxcommands.md
+
+
 theme:
   name: material
   features:
