@@ -574,11 +574,152 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-validation-barcoding-blast" class="md-nav__link">
+  <a href="#blast-cli" class="md-nav__link">
     <span class="md-ellipsis">
-      Data validation: Barcoding - Blast
+      Blast-CLI
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Blast-CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-blast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Blast
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Blast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Download
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-local-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Local DB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command line
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personalized-outputformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personalized outputformat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-blast-hpc-ugent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Blast @ HPC-UGent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Blast @ HPC-UGent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#db-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      DB location
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -754,7 +895,123 @@ CGTA
 <p class="admonition-title">Notes</p>
 <p>When not running variant mode a reference file is not necessary. Also make sure to delete the ref column in that case. </p>
 </div>
-<h2 id="data-validation-barcoding-blast">Data validation: Barcoding - Blast</h2>
+<h2 id="blast-cli">Blast-CLI</h2>
+<h3 id="intro">Intro</h3>
+<p>The BLAST algorithm, which stands for <strong>B</strong>asic <strong>L</strong>ocal <strong>A</strong>lignment <strong>S</strong>earch <strong>T</strong>ool, is a widely used and highly effective algorithm in bioinformatics and computational biology. It is used to compare biological sequences, such as DNA, RNA, or protein sequences, to identify regions of similarity or homology.<br />
+The primary goal of the BLAST algorithm is to find local alignments between a query sequence and a database of sequences, which can help researchers identify genes, functional domains, and evolutionary relationships between sequences. Blast can be run at the <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI website</a>.
+Or a <strong>C</strong>ommand <strong>L</strong>ine <strong>I</strong>nterface can be downloaded to your own system.</p>
+<p>Here are the key components and steps of the BLAST algorithm:  </p>
+<blockquote>
+<ol>
+<li><strong>Query Sequence</strong>: BLAST starts with a query sequence provided by the user, which is the sequence you want to compare against a database of other sequences.  </li>
+<li><strong>Database</strong>: BLAST searches against a database containing a collection of sequences. This can be a database of known genes, genomes, proteins, or any other relevant biological sequences.  </li>
+<li><strong>Scoring System</strong>: BLAST uses a scoring system to assign a numerical score to alignments between the query sequence and sequences in the database. Common scoring systems include the substitution matrix (e.g., BLOSUM or PAM matrices) for protein sequences and scoring schemes like match/mismatch scores and gap penalties for nucleotide sequences.  </li>
+<li><strong>Seed Search</strong>: BLAST starts by identifying short, exact matches (seeds) between the query sequence and sequences in the database. These seeds serve as starting points for potential alignments.  </li>
+<li><strong>Extension</strong>: Once seeds are identified, BLAST extends these seed matches in both directions along the sequences, using dynamic programming techniques to find the optimal alignment that maximizes the alignment score. The algorithm also considers gap penalties to account for insertions and deletions.  </li>
+<li><strong>Scoring and Filtering</strong>: BLAST scores the extended alignments based on the chosen scoring system. It then applies a statistical significance threshold (usually based on E-values) to filter out alignments that could occur by chance.  </li>
+<li><strong>Reporting Hits</strong>: BLAST reports the significant alignments, known as "hits," to the user. These hits represent regions of similarity between the query sequence and sequences in the database.  </li>
+</ol>
+</blockquote>
+<p>BLAST is highly configurable, allowing users to adjust parameters such as the scoring system, gap penalties, and statistical significance thresholds to customize the search based on their specific needs. There are different versions of BLAST, including BLASTn (for nucleotide sequences), BLASTp (for protein sequences), BLASTx (translating nucleotide sequences to proteins), and more, each tailored to different types of sequence data.  </p>
+<p>Overall, BLAST is an essential tool for sequence comparison and is widely used in genomics, proteomics, and other areas of biological research. It enables researchers to quickly and effectively identify similarities between sequences and gain insights into the functional and evolutionary relationships of biological molecules.  </p>
+<p>Check out the <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI-blast page</a> for more information (and online applications)</p>
+<h3 id="local-blast">Local Blast</h3>
+<p>For more info take a look at the <a href="https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html">Download section</a> @ NCBI website.</p>
+<h4 id="installation">Installation</h4>
+<p>Running blast form the <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">webinterface</a> has it's limitations.<br />
+If you want to include your blast analysis in your own pipelines, Blast+ is the way to go.<br />
+You can <a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">download the Blast+ executables</a> and install them on your own machine.  </p>
+<ol>
+<li><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">Download the latest executable</a></li>
+<li>Unpack the download file:<br />
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>xzvf<span class="w"> </span>yourfile.tar.gz
+</code></pre></div>
+<strong>NOTE</strong>: It is always good pracktice to install bioinformatic software (if installed from source) to a designated <strong>bioinfo</strong> folder i.e. <strong>/usr/local/bionfo</strong>.<br />
+          From here you can create a symlink to a folder in your $PATH f.i. /usr/local/bin</li>
+</ol>
+<h4 id="database-download">Database Download</h4>
+<p>BLAST databases are updated daily and may be downloaded via <a href="https://ftp.ncbi.nlm.nih.gov/blast/db/">FTP</a>.
+Database sets may be retrieved automatically with update_blastdb.pl, which is part of the BLAST+ suite. (run this command in working directory, probably best in same directory at your $PATH of the database.)</p>
+<p>Please refer to the <a href="https://ftp.ncbi.nlm.nih.gov/blast/documents/blastdb.html">BLAST database documentation</a> for more details.</p>
+<ol>
+<li>Pre-fromatted BLAST db are archived <a href="https://ftp.ncbi.nlm.nih.gov/blast/db/">here</a></li>
+<li>Download all numbered files for your database of choice using the basename (eg nt.000.tar.gz =&gt; "nt"):
+      Each of these files represents a subset (volume) of that database,
+      and all of them are needed to reconstitute the database.</li>
+<li>Extract:
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.gz<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div></li>
+<li>After extraction, there is no need to concatenate the resulting files:
+      Call the database with the base name, for nr database files, use "-db nt".</li>
+</ol>
+<p><strong>NOTE</strong>: For easy download, use the update_blastdb.pl script from the blast+ package.
+     Run following command in your db folder:
+<div class="highlight"><pre><span></span><code>perl<span class="w"> </span>update_blastdb.pl<span class="w"> </span>--decompress<span class="w"> </span>nt<span class="w"> </span><span class="c1"># or any other prefix for you db of coice</span>
+</code></pre></div>
+<strong>NOTE</strong>: if the ncbi server runs slow, the update command could rise connection issues.
+  Sometimes it is easier to download manually from the <a href="https://ftp.ncbi.nlm.nih.gov/blast/db/">ftp db website</a>:
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz
+wget<span class="w"> </span>https://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz.md5
+</code></pre></div></p>
+<h4 id="build-local-db">Build Local DB</h4>
+<p>If you want to build your own database based on fasta sequences take a look <a href="https://www.ncbi.nlm.nih.gov/books/NBK569841/">here</a> for more details.<br />
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code>$<span class="w"> </span>makeblastdb<span class="w"> </span>-in<span class="w"> </span>test.fsa<span class="w"> </span>-parse_seqids<span class="w"> </span>-blastdb_version<span class="w"> </span><span class="m">5</span><span class="w"> </span>-taxid_map<span class="w"> </span>test_map.txt<span class="w"> </span>-title<span class="w"> </span><span class="s2">&quot;Cookbook demo&quot;</span><span class="w"> </span>-dbtype<span class="w"> </span>prot
+
+
+Building<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>DB,<span class="w"> </span>current<span class="w"> </span>time:<span class="w"> </span><span class="m">02</span>/06/2019<span class="w"> </span><span class="m">17</span>:08:14
+New<span class="w"> </span>DB<span class="w"> </span>name:<span class="w">   </span>test.fsa
+New<span class="w"> </span>DB<span class="w"> </span>title:<span class="w">  </span>Cookbook<span class="w"> </span>demo
+Sequence<span class="w"> </span>type:<span class="w"> </span>Protein
+Keep<span class="w"> </span>MBits:<span class="w"> </span>T
+Maximum<span class="w"> </span>file<span class="w"> </span>size:<span class="w"> </span>1000000000B
+Adding<span class="w"> </span>sequences<span class="w"> </span>from<span class="w"> </span>FASTA<span class="p">;</span><span class="w"> </span>added<span class="w"> </span><span class="m">6</span><span class="w"> </span>sequences<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.00222588<span class="w"> </span>seconds.
+$
+</code></pre></div></p>
+<h4 id="configuration">Configuration</h4>
+<p>To set the env for blastn you can make a configuration file named .ncbirc (on Unix-like platforms) or ncbi.ini (on Windows) in your home directory  </p>
+<div class="highlight"><pre><span></span><code>touch<span class="w"> </span>~/.ncbirc<span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="o">[</span>BLAST<span class="o">]</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ncbirc
+<span class="nb">echo</span><span class="w"> </span><span class="o">[</span>BLASTDB<span class="o">]=</span>/path/to/databases<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ncbirc
+</code></pre></div>
+<p>More available parameters can be set in the config file.
+More detailed info on configurateion can be found <a href="https://www.ncbi.nlm.nih.gov/books/NBK569858/">here</a> </p>
+<h3 id="command-line">Command line</h3>
+<h4 id="quick-run">Quick run</h4>
+<div class="highlight"><pre><span></span><code>blastn<span class="w"> </span>–db<span class="w"> </span>nt<span class="w"> </span>–query<span class="w"> </span>nt.fsa<span class="w"> </span>–out<span class="w"> </span>results.out
+</code></pre></div>
+<h4 id="personalized-outputformat">Personalized outputformat</h4>
+<div class="highlight"><pre><span></span><code>blastn<span class="w"> </span>-db<span class="w"> </span>nt<span class="w"> </span><span class="se">\ </span><span class="c1"># nt is the name (prefix) you gave your db</span>
+<span class="w">  </span>-query<span class="w"> </span>/path/to/fastafiles<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-out<span class="w"> </span>/path/to/output/out<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-outfmt<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="m">6</span><span class="w"> </span>qseqid<span class="w"> </span>sseqid<span class="w"> </span>pident<span class="w"> </span>length<span class="w"> </span>mismatch<span class="w"> </span>gapopen<span class="w"> </span>qstart<span class="w"> </span>qend<span class="w"> </span>sstart<span class="w"> </span>send<span class="w"> </span>evalue<span class="w"> </span>bitscore<span class="w"> </span>staxids<span class="w"> </span>sscinames<span class="w"> </span>sskingdoms<span class="w"> </span>qcovs<span class="s2">&quot; \</span>
+<span class="s2">  -num_trheads </span><span class="k">$(</span>THREADS<span class="k">)</span>
+</code></pre></div>
+<h3 id="setup-blast-hpc-ugent">Setup Blast @ HPC-UGent</h3>
+<p>Blast modules are available on the HPC. 
+Databases on the other hand are installed <strong>'localy</strong>.<br />
+<strong>ALERT!</strong>: don't install databases locally, they take up a lot of space. Please contact Pieter if you need a database which is not installed yet.</p>
+<h4 id="db-location">DB location</h4>
+<p>A dedicated folder is available for our VO where we can 'locally' make pre installed databases available for us all. 
+If you need another database, please avoid installing it into your own account folder, it will take up a lot of space and others who are part of our VO cannot access.  </p>
+<p><strong>Location</strong>: /data/gent/vo/001/gvo00142/data_share_group/databases_blast/ <br />
+<strong>Configuration db</strong>: Create a ncbirc file (see above for instructions) and save in your home folder (/user/gent/433/<strong>yourvscnumber</strong>)  </p>
+<p><strong>Alternative</strong>: add this line to your .bashrc file:  </p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BLASTDB</span><span class="o">=</span>/data/gent/vo/001/gvo00142/data_share_group/databases_blast/
+</code></pre></div>
+<h4 id="updates">Updates</h4>
+<p>Instllation dates are always part of the folder where you can find the databasefiles, if you feel it is not up to date, give a shout out to Pieter or make an update yourself if you know how to.
+When you need another type of db wchich you frequently use and others might benefit from, ask for a local installation.  </p>
+<h4 id="usage">Usage</h4>
+<ol>
+<li>Make sure your env value for $BLASTDB is set correctly.<br />
+<div class="highlight"><pre><span></span><code><span class="gp">vsc43352@node3206:~$echo $</span>BLASTDB<span class="w">                                                    </span>
+<span class="go">/data/gent/vo/001/gvo00142/data_share_group/databases_blast/</span>
+</code></pre></div></li>
+<li>Use <strong>ml spider blast</strong> to list the installed blast modules</li>
+<li>Use the latest module installed in your jobscript</li>
+<li>run blast following the blast module (for instpiration look to section <a href="#Quick-run">Quick run</a> above)
+     or <a href="https://www.ncbi.nlm.nih.gov/books/NBK279690/">RTFM</a>.</li>
+</ol>
 
 
 
