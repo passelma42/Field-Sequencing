@@ -1020,9 +1020,48 @@ More detailed info on configurateion can be found <a href="https://www.ncbi.nlm.
 <div class="highlight"><pre><span></span><code>blastn<span class="w"> </span>-db<span class="w"> </span>nt<span class="w"> </span><span class="se">\ </span><span class="c1"># nt is the name (prefix) you gave your db</span>
 <span class="w">  </span>-query<span class="w"> </span>/path/to/fastafiles<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-out<span class="w"> </span>/path/to/output/out<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-max_target_seqs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-outfmt<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="m">6</span><span class="w"> </span>qseqid<span class="w"> </span>sseqid<span class="w"> </span>pident<span class="w"> </span>length<span class="w"> </span>mismatch<span class="w"> </span>gapopen<span class="w"> </span>qstart<span class="w"> </span>qend<span class="w"> </span>sstart<span class="w"> </span>send<span class="w"> </span>evalue<span class="w"> </span>bitscore<span class="w"> </span>staxids<span class="w"> </span>sscinames<span class="w"> </span>sskingdoms<span class="w"> </span>qcovs<span class="s2">&quot; \</span>
 <span class="s2">  -num_trheads </span><span class="k">$(</span>THREADS<span class="k">)</span>
 </code></pre></div>
+<ul>
+<li>
+<p><strong><code>1. qseqid</code></strong>: query or source (gene) sequence id</p>
+</li>
+<li>
+<p><strong><code>2. sseqid</code></strong>: subject or target (reference genome) sequence id</p>
+</li>
+<li>
+<p><strong><code>3. pident</code></strong>: percentage of identical positions</p>
+</li>
+<li>
+<p><strong><code>4. length</code></strong>: alignment length (sequence overlap)</p>
+</li>
+<li>
+<p><strong><code>5. mismatch</code></strong>: number of mismatches</p>
+</li>
+<li>
+<p><strong><code>6. gapopen</code></strong>: number of gap openings</p>
+</li>
+<li>
+<p><strong><code>7. qstart</code></strong>: start of alignment in query</p>
+</li>
+<li>
+<p><strong><code>8. qend</code></strong>: end of alignment in query</p>
+</li>
+<li>
+<p><strong><code>9. sstart</code></strong>: start of alignment in subject</p>
+</li>
+<li>
+<p><strong><code>10. send</code></strong>: end of alignment in subject</p>
+</li>
+<li>
+<p><strong><code>11. evalue</code></strong>: expect value</p>
+</li>
+<li>
+<p><strong><code>12. bitscore</code></strong>: bit score</p>
+</li>
+</ul>
 <h3 id="setup-blast-hpc-ugent">Setup Blast @ HPC-UGent</h3>
 <p>Blast modules are available on the HPC. 
 Databases on the other hand are installed <strong>'localy</strong>.<br />
