@@ -3,8 +3,9 @@ At UGent Botanic Garden we organized a field sequencing experiment. The setup wa
 Below you'll find an outline of the data analysis part of this setup including downloadlinks to the data icluding runcommands, so you can rerun the analysis and practice at your own pace.  
 
 ## The data  
-The original data file consists of reads for 27 accessions collected from the area around Campus Sterra at UGhent. All the QC examples below are taken from this data set. If you want to test the workflow I have provided a toy data set with reads for 3 accessions.  
-You can downlod the toy-data here:
+The original data file consists of reads for 27 accessions collected from the area around Campus Sterra at UGhent.  
+All the QC examples below are taken from this data set. If you want to test the workflow I have provided a toy data set with reads for 3 accessions.  
+You can download the toy-data here:
 ```shell
 wget https://github.com/passelma42/Field-Sequencing/blob/main/toy-data.tar.gz
 ``` 
