@@ -1,0 +1,1071 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../installation/">
+      
+      
+        <link rel="next" href="../blast/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+    
+    
+      
+        <title>Tutorial ONTdata - Field Sequencing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intro" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Field Sequencing" class="md-header__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Field Sequencing
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial ONTdata
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-deep" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Intro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../system-build/" class="md-tabs__link">
+        
+  
+    
+  
+  System setup
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../nanopore-tools/" class="md-tabs__link">
+        
+  
+    
+  
+  Nanopore Tools
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial ONTdata
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../blast/" class="md-tabs__link">
+        
+  
+    
+  
+  Blast
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../linuxcommands/" class="md-tabs__link">
+        
+  
+    
+  
+  Linuxcommands
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../github/" class="md-tabs__link">
+        
+  
+    
+  
+  Github
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Field Sequencing" class="md-nav__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Field Sequencing
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nanopore-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nanopore Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tutorial ONTdata
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial ONTdata
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      The data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sequencing-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Sequencing Run
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Sequencing Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qc-sequence-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      QC sequence run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-and-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools and Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-data-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Data Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Data Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qc-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      QC data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-a-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build a consensus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-your-data-out-of-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get your data out of here
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blast/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blast
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linuxcommands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linuxcommands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Tutorial ONTdata</h1>
+
+<h2 id="intro">Intro</h2>
+<p>At UGent Botanic Garden we organized a field sequencing experiment. The setup was to mimick field conditions i.e. sampling fungi, DNA extraction and PCR on the bentolab followed by live sequencing and basecalling on the mk1B from Oxford nanopore.<br />
+Below you'll find an outline of the data analysis part of this setup including downloadlinks to the data icluding runcommands, so you can rerun the analysis and practice at your own pace.  </p>
+<h2 id="the-data">The data</h2>
+<p>The original data file consists of reads for 27 accessions collected from the area around Campus Sterra at UGhent. All the QC examples below are taken from this data set. If you want to test the workflow I have provided a toy data set with reads for 3 accessions.<br />
+**<a href="UNDER CONSTRUCTION">DOWNLOAD TOY_DATA SET HERE</a></p>
+<h2 id="the-sequencing-run">The Sequencing Run</h2>
+<p><strong>Method</strong>: <a href="https://store.nanoporetech.com/eu/rapid-barcoding-sequencing-kit-96-v14.html">Rapid Barcoding SQK-RBK114.96</a>  <br />
+<strong>Data Analysis</strong>: <a href="https://github.com/epi2me-labs/wf-amplicon">wf-amplicon EPI2ME</a>  </p>
+<p>We chose the RBK114 kit because this kit is best applicable in the field if you don't have access to a freezer or fridge.
+The 'Field sequencing kit' from nanopore is legacy at this point (2024) and was replaced by the Rapid Sequencing kits.<br />
+In this <a href="https://community.nanoporetech.com/posts/field-sequencing-kit-repla">post</a> you can find results of a stability experiment of the kit kept at ambient temperature.</p>
+<p><strong>The sequencing data folder</strong>  </p>
+<pre><code>20240506_1258_MN35631_ASX408_61292243/
+        ├── barcode_alignment_ASX408_61292243_dc2466ae.tsv
+        ├── fastq_fail
+        ├── fastq_pass
+        ├── fastq_pass.tar.gz
+        ├── final_summary_ASX408_61292243_dc2466ae.txt
+        ├── other_reports
+        ├── pod5_fail
+        ├── pod5_pass
+        ├── pore_activity_ASX408_61292243_dc2466ae.csv
+        ├── report_ASX408_20240506_1302_61292243.json
+        ├── report_ASX408_20240506_1302_61292243.md
+        ├── sample_sheet_ASX408_20240506_1302_61292243.csv
+        ├── sequencing_summary_ASX408_61292243_dc2466ae.txt
+        └── throughput_ASX408_61292243_dc2466ae.csv
+</code></pre>
+<p><strong>Fastq_pass</strong><br />
+This folder is where you'll find your sequence reads. Basecalling at SUP means that all reads in this folder are q10 or higher.  </p>
+<div class="highlight"><pre><span></span><code>20240506_1258_MN35631_ASX408_61292243/fastq_pass/
+<span class="w">            </span>├──<span class="w"> </span>barcode41
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_0.fastq.gz
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_1.fastq.gz
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_10.fastq.gz
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_11.fastq.gz
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_12.fastq.gz
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_13.fastq.gz
+<span class="w">            </span>├──<span class="w"> </span>barcode42
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_0.fastq.gz
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_1.fastq.gz
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_10.fastq.gz
+<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_11.fastq.gz
+</code></pre></div>
+<h3 id="qc-sequence-run">QC sequence run</h3>
+<p>Validating your sequencerun requires you to look at a lot of data. Max throughput of a minion flowcell is 50Gbases! Not hard to imagine that doing this manually is not the way to go. For this job we need dedicated sotware!<br />
+There are different tools for visualizing HTS data. Nanopack is such a tool, opzimized for longread data. For validating the sequence run we can use the <strong>sequencing_summary_ASX408_61292243_dc2466ae.txt</strong> file which is generated by Minknow.  </p>
+<h3 id="tools-and-commands">Tools and Commands</h3>
+<p>Tool: <a href="https://github.com/wdecoster/nanopack">Nanopack</a><br />
+<div class="highlight"><span class="filename">Nanoplot Command</span><pre><span></span><code>NanoPlot<span class="w"> </span>--summary<span class="w"> </span>sequencing_summary_ASX408_61292243_dc2466ae.txt<span class="w"> </span>-o<span class="w"> </span>summary-plots
+</code></pre></div>
+<strong>Output</strong>  </p>
+<p>NanoPlot gives you a set of <em>.png plots</em>, <em>.txt statistics</em> and also a handy interactive <em>Report.html</em> file.<br />
+We'll take a closer look at some of the output to get grips on what we have sequenced.  </p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Active channels</td>
+<td>88.0</td>
+</tr>
+<tr>
+<td>Mean read length</td>
+<td>527.2</td>
+</tr>
+<tr>
+<td>Mean read quality</td>
+<td>12.2</td>
+</tr>
+<tr>
+<td>Median read length</td>
+<td>478.0</td>
+</tr>
+<tr>
+<td>Median read quality</td>
+<td>15.3</td>
+</tr>
+<tr>
+<td>Number of reads</td>
+<td>499,919.0</td>
+</tr>
+<tr>
+<td>Read length N50</td>
+<td>594.0</td>
+</tr>
+<tr>
+<td>STDEV read length</td>
+<td>2,745.3</td>
+</tr>
+<tr>
+<td>Total bases</td>
+<td>263,532,800.0</td>
+</tr>
+<tr>
+<td>&gt;Q5</td>
+<td>492,143 (98.4%), 252.2Mb</td>
+</tr>
+<tr>
+<td>&gt;Q7</td>
+<td>472,784 (94.6%), 238.4Mb</td>
+</tr>
+<tr>
+<td>&gt;Q10</td>
+<td>434,979 (87.0%), 218.4Mb</td>
+</tr>
+<tr>
+<td>&gt;Q12</td>
+<td>392,967 (78.6%), 198.9Mb</td>
+</tr>
+<tr>
+<td>&gt;Q15</td>
+<td>266,363 (53.3%), 137.8Mb</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Number of reads over time</strong><br />
+<img alt="number of reads over time" src="../images/NumberOfReads_Over_Time.png" /></p>
+<p><strong>Active pores over time</strong>  <br />
+<img alt="Active pores over time" src="../images/ActivePores_Over_Time.png" /></p>
+<p><strong>Quality VS sequencing speed</strong>  <br />
+<img alt="Time vs Quality" src="../images/TimeQualityViolinPlot.png" />  </p>
+<p><strong>Time vs Speed</strong><br />
+<img alt="Time vs Speed" src="../images/TimeSequencingSpeed_ViolinPlot.png" />  </p>
+<p><strong>Quality VS length log scaled (min 200bp - max 1000bp)</strong> <br />
+<img alt="Quality VS length" src="../images/LengthvsQualityScatterPlot_loglength_dot.png" />  </p>
+<p><strong>Summary</strong><br />
+From these plots and stats we can confirm that we have nearly 500.000 reads with 87% of the reads Q10 and higher. Be aware that the RB114 kit performs tagmentation to add barcodes and adapers hence the 'low' mean read length. FYI our amplicons designed with ITS1f-ITS are about 900bp of length.  </p>
+<h2 id="the-data-analysis">The Data Analysis</h2>
+<h3 id="qc-data">QC data</h3>
+<p>In the previous chapter we performed a QC on the sequencerun to validate the success of failure of the minion sequencerun. Now it is time to have a deeper look because we want to know how well our samples have performed.<br />
+For this experiment we did ITS pcr on 27 samples collected at campus Sterre at UGhent. These samples have been assigned a barcode during the libraryprep and multiplexed into 1 single library to be sequenced.<br />
+This means the data has to be demultiplexed, each unique Barcode sequence is retreived bioinformatically and assigned to a designated barcode folder (see topology above). Equimolar pooling of our barcodes during the libraryprep allows for an equal amount of reads per barcode.<br />
+At least in theory. In real life, 'Numbers tell the table', we are going to measure this. We will again use the nanopack tool but now instead of the NanoPlot command we'll use the NanoComp command. In this way all the barcode stats will lign up in a nice overview. We will also need to prep the data a little bit and run this command in a 'for loop' script. We don't want to tire ourselves too much.<br />
+If this doesn't ring a bell, don't care too much, just follow the instructions below.</p>
+<p><strong>Tool</strong>: <a href="https://github.com/wdecoster/nanopack">Nanopack</a><br />
+<strong>Script</strong>: <a href="https://raw.githubusercontent.com/passelma42/scrippets/main/nanocomp-allfastq.sh">NanoComp-allfastq.sh</a>  </p>
+<ol>
+<li>Download the script.<br />
+The script will loop over your barcode folders containing the demultiplexed fastq files.<br />
+<div class="highlight"><span class="filename">Download and test the script</span><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/passelma42/scrippets/main/nanocomp-allfastq.sh
+$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>nanocomp-allfastq.sh<span class="w">        </span><span class="c1"># Set run permissions for the user</span>
+$<span class="w"> </span>./nanocomp-allfastq.sh<span class="w"> </span>-h<span class="w">             </span><span class="c1"># Display help function</span>
+</code></pre></div></li>
+<li>Run NanoComp over your samples
+The script will concatenate all fastq files per barcode folder and run nanocomp. After the analysis has finished you'll find a .nanocompout/ folder inside the input folder you issued in the command below (under the <em>-d</em> flag).
+<div class="highlight"><span class="filename">Command</span><pre><span></span><code>./nanocomp-allfastq.sh<span class="w"> </span>-d<span class="w"> </span>./fastq_pass/<span class="w"> </span>-c
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><span class="o">(</span>nanopack<span class="o">)</span><span class="w"> </span>passelma@grover:~/Analyses/wf-amplicon/ONT-field2-greenhouse/benin-field2-greenhouse-run/testrunQC/fastq_pass/.nanocompout$<span class="w"> </span>tree
+.
+├──<span class="w"> </span>NanoComp-report.html
+├──<span class="w"> </span>NanoComp_20240823_1521.log
+├──<span class="w"> </span>NanoComp_N50.html
+├──<span class="w"> </span>NanoComp_N50.png
+├──<span class="w"> </span>NanoComp_OverlayHistogram.html
+├──<span class="w"> </span>NanoComp_OverlayHistogram.png
+├──<span class="w"> </span>NanoComp_OverlayHistogram_Normalized.html
+├──<span class="w"> </span>NanoComp_OverlayHistogram_Normalized.png
+├──<span class="w"> </span>NanoComp_OverlayHistogram_Weighted.html
+├──<span class="w"> </span>NanoComp_OverlayHistogram_Weighted.png
+├──<span class="w"> </span>NanoComp_OverlayLogHistogram.html
+├──<span class="w"> </span>NanoComp_OverlayLogHistogram.png
+├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Normalized.html
+├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Normalized.png
+├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Weighted.html
+├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Weighted.png
+├──<span class="w"> </span>NanoComp_lengths_violin.html
+├──<span class="w"> </span>NanoComp_lengths_violin.png
+├──<span class="w"> </span>NanoComp_log_length_violin.html
+├──<span class="w"> </span>NanoComp_log_length_violin.png
+├──<span class="w"> </span>NanoComp_number_of_reads.html
+├──<span class="w"> </span>NanoComp_number_of_reads.png
+├──<span class="w"> </span>NanoComp_quals_violin.html
+├──<span class="w"> </span>NanoComp_quals_violin.png
+├──<span class="w"> </span>NanoComp_total_throughput.html
+├──<span class="w"> </span>NanoComp_total_throughput.png
+└──<span class="w"> </span>NanoStats.txt
+</code></pre></div>
+<strong>NanoComp Number of reads per barcode</strong><br />
+Amongst other plots and reports we will have a look at number of reads per barcode.<br />
+Although all samples have been equimolary pooled, we can already see that BC063 is underrepresented. If only this won't give us coverage issues in downstream applications :-o ??<br />
+Take a closer look at the file <em>NanoComp-report.html</em> for more details on other stats.
+<img alt="NanoComp_number_of_reads" src="../images/NanoComp_number_of_reads.png" /><br />
+<strong>NanoComp_quals_violin</strong><br />
+In this violin plot we can confirm all our reads per barcode are of good quality. All the reads are Q10 and above.<br />
+Except again BC63 is acting up... .<br />
+<img alt="NanoComp_quals_violin" src="../images/NanoComp_quals_violin.png" /></li>
+</ol>
+<h3 id="build-a-consensus">Build a consensus</h3>
+<p>Now that we verified that we have sufficient reads per barcode and they are of good quality, it is time to start with our downstream analysis. It is time to get to buisiness!<br />
+Off course there are many workflows to have a go at this type of data, but in this tutorial we will be showcasing the EPI2ME tool called <em>wf-amplicon.</em>.<br />
+All necessary info on how to setup the necessary software and tools to run this workflow can be found on the 'installation' page of this website. In this section we will walk you through the process on how use the tool to build your consensus sequences from your raw nanopore reads.  </p>
+<p>Tool: <a href="https://github.com/epi2me-labs/wf-amplicon">wf-amplicon</a>  </p>
+<p>This workflow performs the analysis of reads generated from PCR amplicons. After some pre-processing, reads are either aligned to a reference (containing the expected sequence for each amplicon) for variant calling or the amplicon’s consensus sequence is generated <em>de novo</em>.<br />
+Running the tool in 'variant' mode it is possible to run more than one target (in this case genespecific amplicon) for the same species.<br />
+But for this tutorial we will run in the <em>de novo</em> mode.  </p>
+<p>Installation guides for wf-amplicon can be found here: <a href="https://labs.epi2me.io/workflows/wf-amplicon/">wf-amplicon Installation guide</a>.  </p>
+<p><strong>Run the workflow</strong><br />
+The workflow can handle different folder layouts. If you followed the above sections of this tutorial, we are working with structure (iii). <br />
+<div class="highlight"><span class="filename">data layout</span><pre><span></span><code><span class="o">(</span>i<span class="o">)</span><span class="w">                     </span><span class="o">(</span>ii<span class="o">)</span><span class="w">                 </span><span class="o">(</span>iii<span class="o">)</span>
+input_reads.fastq<span class="w">   </span>───<span class="w"> </span>input_directory<span class="w">  </span>───<span class="w"> </span>input_directory
+<span class="w">                        </span>├──<span class="w"> </span>reads0.fastq<span class="w">     </span>├──<span class="w"> </span>barcode01
+<span class="w">                        </span>└──<span class="w"> </span>reads1.fastq<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
+<span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads1.fastq
+<span class="w">                                             </span>├──<span class="w"> </span>barcode02
+<span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
+<span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads1.fastq
+<span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads2.fastq
+<span class="w">                                             </span>└──<span class="w"> </span>barcode03
+<span class="w">                                              </span>└──<span class="w"> </span>reads0.fastq
+</code></pre></div></p>
+<ol>
+<li>
+<p>Prepare a sample sheet<br />
+This is a comma delimited file with 3 (or 4 if you run in variant mode) sections.<br />
+The sample sheet is a CSV file with, minimally, columns named <em>barcode</em> and <em>alias</em>. Extra columns are allowed. In variant calling mode, a ref column can be added to tell the workflow which reference sequences should be used for which sample
+<div class="highlight"><span class="filename">Example: sample-sheet.csv</span><pre><span></span><code>barcode,alias,type,ref
+barcode01,BC01,test_sample,ref1
+barcode02,BC02,test_sample
+barcode03,BC03,test_sample,ref2
+</code></pre></div></p>
+</li>
+<li>
+<p>Prepare reference file when running <em>variant mode</em><br />
+When using a reference file called <em>reference.fa</em> it need to look like this. Each ref sequence would the represent a genespecific consensus sequence.  This reference will then be used to <em>fish</em> for sequences in your reads to <em>catch</em> and <em>separate</em> per gene.<br />
+For instance if you amplified ITS and rpb2, mix them per sample and used this as a template to build your library, this tool could give you 2 consensus sequences per species: one ITS consensus and one rpb2 consensus.
+<div class="highlight"><span class="filename">Example: reference.fa</span><pre><span></span><code>&gt;ref1
+ATGC
+&gt;ref2
+CGTA
+</code></pre></div></p>
+</li>
+<li>Run the wf-amplicon on your samples<br />
+The command below will run a singularity container in a nextflow run. The container beeing <em>epi2me-labs/wf-amplicon</em> and the command flags issued by the nextflow tool.<br />
+Rember you have some prepping to do to get your system up and running to be able to run EPI2ME workflows. But believe me, this way is more easier than installing the tools yourself and writing designated scripts to stitch together all data input and oututs to feed into the next program.
+<div class="highlight"><span class="filename">Command to run</span><pre><span></span><code>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--fastq<span class="w"> </span>./fastq<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--reference<span class="w"> </span>./reference.fa<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--sample_sheet<span class="w"> </span>./sample-sheet.csv
+<span class="w">    </span>-c<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-profile<span class="w"> </span>singulairy
+</code></pre></div><pre><code>--fastq: Path to Input folder which holds fastq files or barcode directories  
+--reference: Including this line invoces running in variant mode, delete if you want to run in de novo mode  
+--sample_sheet: Path to sample sheet file  
+-c: path to config file, see 'Installation' section of this website  
+-profile: We are running the container under the singularity flag, not docker because docker doesn't play nice with HPC
+</code></pre>
+</li>
+</ol>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p>When not running variant mode a reference file is not necessary. Make sure to delete the ref column in the sample sheet and leave out the <em>--reference flag</em> from the command in that case.  </p>
+</div>
+<h3 id="get-your-data-out-of-here">Get your data out of here</h3>
+<p>Once the workflow has finished, the output can be found in a folder called <em>output-wf-apmlicon</em>.<br />
+<div class="highlight"><span class="filename">Folder layout</span><pre><span></span><code>.
+├──<span class="w"> </span>output-wf-amplicon
+│<span class="w">   </span>├──<span class="w"> </span>barcode41
+│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>alignments
+│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>aligned.sorted.bam
+│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>aligned.sorted.bam.bai
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>consensus
+│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>consensus.fastq
+│<span class="w">   </span>├──<span class="w"> </span>barcode42
+│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>alignments
+│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>aligned.sorted.bam
+│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>aligned.sorted.bam.bai
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>consensus
+│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>consensus.fastq
+</code></pre></div>
+Offcourse it would be too much to ask if the consensus sequence is given to us in a nice way i.e. having a sensible discriptive name like <em>barcode41.consensus.fastq</em>. Or something similar. "Alas poor Yorick". We'll have to fidle ourselves.<br />
+<strong>Script</strong>: <a href="https://github.com/passelma42/scrippets/blob/main/rename-consensus.sh">rename-consensus.sh</a><br />
+This script will digg into each individual barcode folder and rename the <em>consensus.fastq</em> file accordingly and finally copy it to <em>output-wf-ampmicon</em> folder. Isn't that neat!  </p>
+<ol>
+<li>Download the script and set runpermissions<br />
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://raw.githubusercontent.com/passelma42/scrippets/main/rename-consensus.sh
+chmod<span class="w"> </span>u+x<span class="w"> </span>rename-consensus.sh<span class="w">       </span><span class="c1"># Set run permissions for the user</span>
+</code></pre></div></li>
+<li>Execute the script
+<div class="highlight"><pre><span></span><code>./rename-consensus.sh
+</code></pre></div></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Verify you run the script from the <em>output-wf-amplicon</em> folder  </p>
+</div>
+<p><div class="highlight"><span class="filename">Layout folder after rename script</span><pre><span></span><code>/output-wf-amlicon-nosubsample$<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
+<span class="w">    </span>.
+<span class="w">    </span>├──<span class="w"> </span>barcode41
+<span class="w">    </span>├──<span class="w"> </span>barcode41.consensus.fastq
+<span class="w">    </span>├──<span class="w"> </span>barcode42
+<span class="w">    </span>├──<span class="w"> </span>barcode42.consensus.fastq
+</code></pre></div>
+This final output gives you one consensus fastq per barcode which now you can use for blast or other alignment tools, phylogenetics,... .  </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/passelma42"  target="_blank" rel="noopener">Pieter Asselman</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/passelma42" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pieterasselman/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>
