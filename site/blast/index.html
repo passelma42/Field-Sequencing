@@ -1,0 +1,985 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Tutorial-ONTdata/">
+      
+      
+        <link rel="next" href="../linuxcommands/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+    
+    
+      
+        <title>Blast - Field Sequencing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#blast-cli" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Field Sequencing" class="md-header__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Field Sequencing
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Blast
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-deep" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Intro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../system-build/" class="md-tabs__link">
+        
+  
+    
+  
+  System setup
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../nanopore-tools/" class="md-tabs__link">
+        
+  
+    
+  
+  Nanopore Tools
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Tutorial-ONTdata/" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial ONTdata
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Blast
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../linuxcommands/" class="md-tabs__link">
+        
+  
+    
+  
+  Linuxcommands
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../github/" class="md-tabs__link">
+        
+  
+    
+  
+  Github
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Field Sequencing" class="md-nav__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Field Sequencing
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nanopore-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nanopore Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorial-ONTdata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial ONTdata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Blast
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Blast
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#blast-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blast-CLI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blast-CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-blast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Blast
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Blast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Download
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-local-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build Local DB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command line
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personalized-outputformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personalized outputformat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-blast-hpc-ugent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Blast @ HPC-UGent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Blast @ HPC-UGent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#db-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      DB location
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linuxcommands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linuxcommands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Blast</h1>
+
+<h2 id="blast-cli">Blast-CLI</h2>
+<h3 id="intro">Intro</h3>
+<p>The BLAST algorithm, which stands for <strong>B</strong>asic <strong>L</strong>ocal <strong>A</strong>lignment <strong>S</strong>earch <strong>T</strong>ool, is a widely used and highly effective algorithm in bioinformatics and computational biology. It is used to compare biological sequences, such as DNA, RNA, or protein sequences, to identify regions of similarity or homology.<br />
+The primary goal of the BLAST algorithm is to find local alignments between a query sequence and a database of sequences, which can help researchers identify genes, functional domains, and evolutionary relationships between sequences. Blast can be run at the <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI website</a>.
+Or a <strong>C</strong>ommand <strong>L</strong>ine <strong>I</strong>nterface can be downloaded to your own system.</p>
+<p>Here are the key components and steps of the BLAST algorithm:  </p>
+<blockquote>
+<ol>
+<li><strong>Query Sequence</strong>: BLAST starts with a query sequence provided by the user, which is the sequence you want to compare against a database of other sequences.  </li>
+<li><strong>Database</strong>: BLAST searches against a database containing a collection of sequences. This can be a database of known genes, genomes, proteins, or any other relevant biological sequences.  </li>
+<li><strong>Scoring System</strong>: BLAST uses a scoring system to assign a numerical score to alignments between the query sequence and sequences in the database. Common scoring systems include the substitution matrix (e.g., BLOSUM or PAM matrices) for protein sequences and scoring schemes like match/mismatch scores and gap penalties for nucleotide sequences.  </li>
+<li><strong>Seed Search</strong>: BLAST starts by identifying short, exact matches (seeds) between the query sequence and sequences in the database. These seeds serve as starting points for potential alignments.  </li>
+<li><strong>Extension</strong>: Once seeds are identified, BLAST extends these seed matches in both directions along the sequences, using dynamic programming techniques to find the optimal alignment that maximizes the alignment score. The algorithm also considers gap penalties to account for insertions and deletions.  </li>
+<li><strong>Scoring and Filtering</strong>: BLAST scores the extended alignments based on the chosen scoring system. It then applies a statistical significance threshold (usually based on E-values) to filter out alignments that could occur by chance.  </li>
+<li><strong>Reporting Hits</strong>: BLAST reports the significant alignments, known as "hits," to the user. These hits represent regions of similarity between the query sequence and sequences in the database.  </li>
+</ol>
+</blockquote>
+<p>BLAST is highly configurable, allowing users to adjust parameters such as the scoring system, gap penalties, and statistical significance thresholds to customize the search based on their specific needs. There are different versions of BLAST, including BLASTn (for nucleotide sequences), BLASTp (for protein sequences), BLASTx (translating nucleotide sequences to proteins), and more, each tailored to different types of sequence data.  </p>
+<p>Overall, BLAST is an essential tool for sequence comparison and is widely used in genomics, proteomics, and other areas of biological research. It enables researchers to quickly and effectively identify similarities between sequences and gain insights into the functional and evolutionary relationships of biological molecules.  </p>
+<p>Check out the <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI-blast page</a> for more information (and online applications)</p>
+<h3 id="local-blast">Local Blast</h3>
+<p>For more info take a look at the <a href="https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html">Download section</a> @ NCBI website.</p>
+<h4 id="installation">Installation</h4>
+<p>Running blast form the <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">webinterface</a> has it's limitations.<br />
+If you want to include your blast analysis in your own pipelines, Blast+ is the way to go.<br />
+You can <a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">download the Blast+ executables</a> and install them on your own machine.  </p>
+<ol>
+<li><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">Download the latest executable</a></li>
+<li>Unpack the download file:<br />
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>xzvf<span class="w"> </span>yourfile.tar.gz
+</code></pre></div>
+<strong>NOTE</strong>: It is always good pracktice to install bioinformatic software (if installed from source) to a designated <strong>bioinfo</strong> folder i.e. <strong>/usr/local/bionfo</strong>.<br />
+          From here you can create a symlink to a folder in your $PATH f.i. /usr/local/bin</li>
+</ol>
+<h4 id="database-download">Database Download</h4>
+<p>BLAST databases are updated daily and may be downloaded via <a href="https://ftp.ncbi.nlm.nih.gov/blast/db/">FTP</a>.
+Database sets may be retrieved automatically with update_blastdb.pl, which is part of the BLAST+ suite. (run this command in working directory, probably best in same directory at your $PATH of the database.)</p>
+<p>Please refer to the <a href="https://ftp.ncbi.nlm.nih.gov/blast/documents/blastdb.html">BLAST database documentation</a> for more details.</p>
+<ol>
+<li>Pre-fromatted BLAST db are archived <a href="https://ftp.ncbi.nlm.nih.gov/blast/db/">here</a></li>
+<li>Download all numbered files for your database of choice using the basename (eg nt.000.tar.gz =&gt; "nt"):
+      Each of these files represents a subset (volume) of that database,
+      and all of them are needed to reconstitute the database.</li>
+<li>Extract:
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.gz<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div></li>
+<li>After extraction, there is no need to concatenate the resulting files:
+      Call the database with the base name, for nr database files, use "-db nt".</li>
+</ol>
+<p><strong>NOTE</strong>: For easy download, use the update_blastdb.pl script from the blast+ package.
+     Run following command in your db folder:
+<div class="highlight"><pre><span></span><code>perl<span class="w"> </span>update_blastdb.pl<span class="w"> </span>--decompress<span class="w"> </span>nt<span class="w"> </span><span class="c1"># or any other prefix for you db of coice</span>
+</code></pre></div>
+<strong>NOTE</strong>: if the ncbi server runs slow, the update command could rise connection issues.
+  Sometimes it is easier to download manually from the <a href="https://ftp.ncbi.nlm.nih.gov/blast/db/">ftp db website</a>:
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz
+wget<span class="w"> </span>https://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz.md5
+</code></pre></div></p>
+<h4 id="build-local-db">Build Local DB</h4>
+<p>If you want to build your own database based on fasta sequences take a look <a href="https://www.ncbi.nlm.nih.gov/books/NBK569841/">here</a> for more details.<br />
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code>$<span class="w"> </span>makeblastdb<span class="w"> </span>-in<span class="w"> </span>test.fsa<span class="w"> </span>-parse_seqids<span class="w"> </span>-blastdb_version<span class="w"> </span><span class="m">5</span><span class="w"> </span>-taxid_map<span class="w"> </span>test_map.txt<span class="w"> </span>-title<span class="w"> </span><span class="s2">&quot;Cookbook demo&quot;</span><span class="w"> </span>-dbtype<span class="w"> </span>prot
+
+
+Building<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>DB,<span class="w"> </span>current<span class="w"> </span>time:<span class="w"> </span><span class="m">02</span>/06/2019<span class="w"> </span><span class="m">17</span>:08:14
+New<span class="w"> </span>DB<span class="w"> </span>name:<span class="w">   </span>test.fsa
+New<span class="w"> </span>DB<span class="w"> </span>title:<span class="w">  </span>Cookbook<span class="w"> </span>demo
+Sequence<span class="w"> </span>type:<span class="w"> </span>Protein
+Keep<span class="w"> </span>MBits:<span class="w"> </span>T
+Maximum<span class="w"> </span>file<span class="w"> </span>size:<span class="w"> </span>1000000000B
+Adding<span class="w"> </span>sequences<span class="w"> </span>from<span class="w"> </span>FASTA<span class="p">;</span><span class="w"> </span>added<span class="w"> </span><span class="m">6</span><span class="w"> </span>sequences<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.00222588<span class="w"> </span>seconds.
+$
+</code></pre></div></p>
+<h4 id="configuration">Configuration</h4>
+<p>To set the env for blastn you can make a configuration file named .ncbirc (on Unix-like platforms) or ncbi.ini (on Windows) in your home directory  </p>
+<div class="highlight"><pre><span></span><code>touch<span class="w"> </span>~/.ncbirc<span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="o">[</span>BLAST<span class="o">]</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ncbirc
+<span class="nb">echo</span><span class="w"> </span><span class="o">[</span>BLASTDB<span class="o">]=</span>/path/to/databases<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ncbirc
+</code></pre></div>
+<p>More available parameters can be set in the config file.
+More detailed info on configurateion can be found <a href="https://www.ncbi.nlm.nih.gov/books/NBK569858/">here</a> </p>
+<h3 id="command-line">Command line</h3>
+<h4 id="quick-run">Quick run</h4>
+<div class="highlight"><pre><span></span><code>blastn<span class="w"> </span>–db<span class="w"> </span>nt<span class="w"> </span>–query<span class="w"> </span>nt.fsa<span class="w"> </span>–out<span class="w"> </span>results.out
+</code></pre></div>
+<h4 id="personalized-outputformat">Personalized outputformat</h4>
+<div class="highlight"><pre><span></span><code>blastn<span class="w"> </span>-db<span class="w"> </span>nt<span class="w"> </span><span class="se">\ </span><span class="c1"># nt is the name (prefix) you gave your db</span>
+<span class="w">  </span>-query<span class="w"> </span>/path/to/fastafiles<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-out<span class="w"> </span>/path/to/output/out<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-max_target_seqs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-outfmt<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="m">6</span><span class="w"> </span>qseqid<span class="w"> </span>sseqid<span class="w"> </span>pident<span class="w"> </span>length<span class="w"> </span>mismatch<span class="w"> </span>gapopen<span class="w"> </span>qstart<span class="w"> </span>qend<span class="w"> </span>sstart<span class="w"> </span>send<span class="w"> </span>evalue<span class="w"> </span>bitscore<span class="w"> </span>staxids<span class="w"> </span>sscinames<span class="w"> </span>sskingdoms<span class="w"> </span>qcovs<span class="s2">&quot; \</span>
+<span class="s2">  -num_trheads </span><span class="k">$(</span>THREADS<span class="k">)</span>
+</code></pre></div>
+<ul>
+<li>
+<p><strong><code>1. qseqid</code></strong>: query or source (gene) sequence id</p>
+</li>
+<li>
+<p><strong><code>2. sseqid</code></strong>: subject or target (reference genome) sequence id</p>
+</li>
+<li>
+<p><strong><code>3. pident</code></strong>: percentage of identical positions</p>
+</li>
+<li>
+<p><strong><code>4. length</code></strong>: alignment length (sequence overlap)</p>
+</li>
+<li>
+<p><strong><code>5. mismatch</code></strong>: number of mismatches</p>
+</li>
+<li>
+<p><strong><code>6. gapopen</code></strong>: number of gap openings</p>
+</li>
+<li>
+<p><strong><code>7. qstart</code></strong>: start of alignment in query</p>
+</li>
+<li>
+<p><strong><code>8. qend</code></strong>: end of alignment in query</p>
+</li>
+<li>
+<p><strong><code>9. sstart</code></strong>: start of alignment in subject</p>
+</li>
+<li>
+<p><strong><code>10. send</code></strong>: end of alignment in subject</p>
+</li>
+<li>
+<p><strong><code>11. evalue</code></strong>: expect value</p>
+</li>
+<li>
+<p><strong><code>12. bitscore</code></strong>: bit score</p>
+</li>
+</ul>
+<h3 id="setup-blast-hpc-ugent">Setup Blast @ HPC-UGent</h3>
+<p>Blast modules are available on the HPC. 
+Databases on the other hand are installed <strong>'localy</strong>.<br />
+<strong>ALERT!</strong>: don't install databases locally, they take up a lot of space. Please contact Pieter if you need a database which is not installed yet.</p>
+<h4 id="db-location">DB location</h4>
+<p>A dedicated folder is available for our VO where we can 'locally' make pre installed databases available for us all. 
+If you need another database, please avoid installing it into your own account folder, it will take up a lot of space and others who are part of our VO cannot access.  </p>
+<p><strong>Location</strong>: /data/gent/vo/001/gvo00142/data_share_group/databases_blast/ <br />
+<strong>Configuration db</strong>: Create a ncbirc file (see above for instructions) and save in your home folder (/user/gent/433/<strong>yourvscnumber</strong>)  </p>
+<p><strong>Alternative</strong>: add this line to your .bashrc file:  </p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BLASTDB</span><span class="o">=</span>/data/gent/vo/001/gvo00142/data_share_group/databases_blast/
+</code></pre></div>
+<h4 id="updates">Updates</h4>
+<p>Instllation dates are always part of the folder where you can find the databasefiles, if you feel it is not up to date, give a shout out to Pieter or make an update yourself if you know how to.
+When you need another type of db wchich you frequently use and others might benefit from, ask for a local installation.  </p>
+<h4 id="usage">Usage</h4>
+<ol>
+<li>Make sure your env value for $BLASTDB is set correctly.<br />
+<div class="highlight"><pre><span></span><code><span class="gp">vsc43352@node3206:~$echo $</span>BLASTDB<span class="w">                                                    </span>
+<span class="go">/data/gent/vo/001/gvo00142/data_share_group/databases_blast/</span>
+</code></pre></div></li>
+<li>Use <strong>ml spider blast</strong> to list the installed blast modules</li>
+<li>Use the latest module installed in your jobscript</li>
+<li>run blast following the blast module (for instpiration look to section <a href="#Quick-run">Quick run</a> above)
+     or <a href="https://www.ncbi.nlm.nih.gov/books/NBK279690/">RTFM</a>.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/passelma42"  target="_blank" rel="noopener">Pieter Asselman</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/passelma42" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pieterasselman/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>

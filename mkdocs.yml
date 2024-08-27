@@ -4,8 +4,10 @@ nav:
     - system-build.md
     - nanopore-tools.md
     - installation.md
-    - demo-field2.0.md
+    - Tutorial-ONTdata.md
+    - blast.md
     - linuxcommands.md
+    - github.md
 
 
 theme:
