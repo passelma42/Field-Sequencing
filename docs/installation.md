@@ -59,17 +59,20 @@ export VERSION=3.0.3 && # adjust this as necessary \
 Save storage space on your computer.  
 When you run the singularity container (wf-amplicon for instance), a *work* directory will be created in your project folder. The wf-amplicon uses different containers without you noticing. All container *images* will be downloaded each time you run this wf. And this takes up space on your HD. 
 
-To avoid this, you can create a cache folder where singularity can store these *.img* files and use these instead of downloding them each time you run the wf.  
+To avoid this, you can create a cache folder where singularity can store these *.img* files and use these instead of downloding them each time you run the wf. The cache foler can then be specified in a nextflow.config file.  OR you can do as the error message expalains is to set the NXF_SINGULARITY_CACHEDI variable in you .bashrc file.  
+Both options will be explained below.  
+
+OPTION 1: create nextflow.config file
 Follow these steps to do just this:  
 
-1. Step 1:run the workflow for the 1st time  
+1. **Run the workflow for the 1st time**  
 	Run the workflow for the firs time and don't bother about this warning:
 
 	!!! WARNING  
 		If the cache folder is not set you get this warning:  
 		*WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /home/path-to/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location*  
 
-2. Step 2: locate the .img files  
+2. **Locate the .img files**  
 	The wf-amplicon will create a `./work/singularity` folder in your projcet folder. 
 	```shell
 	pieter@UGENT-PC:~/Analyses/wf-amplicon/work
@@ -84,7 +87,7 @@ Follow these steps to do just this:
 	```
 	In this folder you'll find the `.img` files you need later.  
 
-3. Step 3: Copy the `.img` files to a local folder  
+3. **Copy the `.img` files to a local folder**  
 	To avoid this create cache folder to store downloaded images when running epi2me labs. For each new analysis you run with epi2me make sure to put the image in this folder.  
 	```shell
 	mkdir /path/to/singularity-img
@@ -105,6 +108,35 @@ singularity {
 	cacheDir = /path/to/singularity-img
 } 
 ```  
+
+OPTION2: Set the environmental variable  
+
+The warning message indicates that the Singularity cache directory has not been set correctly, even though you specified it in your custom Nextflow configuration. To resolve this, you can explicitly set the Singularity cache directory using the `NXF_SINGULARITY_CACHEDIR` environment variable.
+
+**Steps to Set the Singularity Cache Directory**  
+
+1. **Set the Environment Variable**:
+   - You can set the environment variable in your shell before running Nextflow. For example:
+     ```bash
+     export NXF_SINGULARITY_CACHEDIR=/home/pieter/singularity-img
+     ```
+2. **Set the Environment Variable Permanently** (Optional):
+   - To make this change permanent, you can add the `export` command to your shell’s configuration file (e.g., `~/.bashrc` or `~/.bash_profile` for bash):
+     ```bash
+     echo "export NXF_SINGULARITY_CACHEDIR=/home/pieter/singularity-img" >> ~/.bashrc
+     ```
+   - Reload your shell configuration:
+     ```bash
+     source ~/.bashrc
+     ```
+
+3. **Verify the Configuration**:
+   - Run the pipeline again to ensure the warning disappears:
+     ```bash
+     nextflow run epi2me-labs/wf-amplicon --fastq ./fastq --sample_sheet ./sample-sheet.csv --porechop --discard_middle --out_dir output-wf-amlicon-toydata-bis
+     ```
+
+This should direct Nextflow to use the specified cache directory for Singularity images, avoiding the warning and ensuring images are stored in your preferred location.
 
 ## wf-amplicon  
 This workflow performs the analysis of reads generated from PCR amplicons. After some pre-processing, reads are either aligned to a reference (containing the expected sequence for each amplicon) for variant calling or the amplicon’s consensus sequence is generated *de novo*.  
@@ -130,7 +162,7 @@ nextflow run epi2me-labs/wf-amplicon \
     --fastq ./fastq \
     --reference ./reference.fa \
     --sample_sheet ./sample-sheet.csv
-    -c /home/sequencing/nextflow-config/nextflow.config \
+    -c /home/sequencing/nextflow-config/nextflow.config \ #this can be omitted if you set the variable in your .bashrc
     -profile singulairy
 ```
 ```shell title="Example: sample-sheet.csv"
