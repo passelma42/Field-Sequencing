@@ -727,11 +727,13 @@ Your container is a single file, and you don’t have to worry about how to inst
 <strong>Singularity cache folder</strong>  </p>
 <p>Save storage space on your computer.<br />
 When you run the singularity container (wf-amplicon for instance), a <em>work</em> directory will be created in your project folder. The wf-amplicon uses different containers without you noticing. All container <em>images</em> will be downloaded each time you run this wf. And this takes up space on your HD. </p>
-<p>To avoid this, you can create a cache folder where singularity can store these <em>.img</em> files and use these instead of downloding them each time you run the wf.<br />
+<p>To avoid this, you can create a cache folder where singularity can store these <em>.img</em> files and use these instead of downloding them each time you run the wf. The cache foler can then be specified in a nextflow.config file.  OR you can do as the error message expalains is to set the NXF_SINGULARITY_CACHEDI variable in you .bashrc file.<br />
+Both options will be explained below.  </p>
+<p>OPTION 1: create nextflow.config file
 Follow these steps to do just this:  </p>
 <ol>
 <li>
-<p>Step 1:run the workflow for the 1st time<br />
+<p><strong>Run the workflow for the 1st time</strong><br />
     Run the workflow for the firs time and don't bother about this warning:</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -740,7 +742,7 @@ Follow these steps to do just this:  </p>
 </div>
 </li>
 <li>
-<p>Step 2: locate the .img files<br />
+<p><strong>Locate the .img files</strong><br />
     The wf-amplicon will create a <code>./work/singularity</code> folder in your projcet folder. 
     <div class="highlight"><pre><span></span><code>pieter@UGENT-PC:~/Analyses/wf-amplicon/work
 $<span class="w"> </span>ls
@@ -755,7 +757,7 @@ ontresearch-wf-amplicon-sha3b6a08c2ed47efd85b17b98762951fffdeee5ba9.img
     In this folder you'll find the <code>.img</code> files you need later.  </p>
 </li>
 <li>
-<p>Step 3: Copy the <code>.img</code> files to a local folder<br />
+<p><strong>Copy the <code>.img</code> files to a local folder</strong><br />
     To avoid this create cache folder to store downloaded images when running epi2me labs. For each new analysis you run with epi2me make sure to put the image in this folder.<br />
     <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/path/to/singularity-img
 cp<span class="w"> </span>~/Analyses/wf-amplicon/work/singularity/*.img<span class="w"> </span>/path/to/singularity-img<span class="w"> </span><span class="c1"># this will copy all img files to your folder created in previou step, don&#39;t forget to personalize the paths  </span>
@@ -775,6 +777,31 @@ touch<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config
 </code></pre></div></p>
 </li>
 </ol>
+<p>OPTION2: Set the environmental variable  </p>
+<p>The warning message indicates that the Singularity cache directory has not been set correctly, even though you specified it in your custom Nextflow configuration. To resolve this, you can explicitly set the Singularity cache directory using the <code>NXF_SINGULARITY_CACHEDIR</code> environment variable.</p>
+<p><strong>Steps to Set the Singularity Cache Directory</strong>  </p>
+<ol>
+<li><strong>Set the Environment Variable</strong>:</li>
+<li>You can set the environment variable in your shell before running Nextflow. For example:
+     <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">NXF_SINGULARITY_CACHEDIR</span><span class="o">=</span>/home/pieter/singularity-img
+</code></pre></div></li>
+<li><strong>Set the Environment Variable Permanently</strong> (Optional):</li>
+<li>To make this change permanent, you can add the <code>export</code> command to your shell’s configuration file (e.g., <code>~/.bashrc</code> or <code>~/.bash_profile</code> for bash):
+     <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export NXF_SINGULARITY_CACHEDIR=/home/pieter/singularity-img&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</code></pre></div></li>
+<li>
+<p>Reload your shell configuration:
+     <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Verify the Configuration</strong>:</p>
+</li>
+<li>Run the pipeline again to ensure the warning disappears:
+     <div class="highlight"><pre><span></span><code>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span>--fastq<span class="w"> </span>./fastq<span class="w"> </span>--sample_sheet<span class="w"> </span>./sample-sheet.csv<span class="w"> </span>--porechop<span class="w"> </span>--discard_middle<span class="w"> </span>--out_dir<span class="w"> </span>output-wf-amlicon-toydata-bis
+</code></pre></div></li>
+</ol>
+<p>This should direct Nextflow to use the specified cache directory for Singularity images, avoiding the warning and ensuring images are stored in your preferred location.</p>
 <h2 id="wf-amplicon">wf-amplicon</h2>
 <p>This workflow performs the analysis of reads generated from PCR amplicons. After some pre-processing, reads are either aligned to a reference (containing the expected sequence for each amplicon) for variant calling or the amplicon’s consensus sequence is generated <em>de novo</em>.  </p>
 <p>Installation guides for wf-amplicon can be found here: <a href="https://labs.epi2me.io/workflows/wf-amplicon/">wf-amplicon Installation guide</a>.  </p>
@@ -795,7 +822,7 @@ input_reads.fastq<span class="w">   </span>───<span class="w"> </span>inpu
 <span class="w">    </span>--fastq<span class="w"> </span>./fastq<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--reference<span class="w"> </span>./reference.fa<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--sample_sheet<span class="w"> </span>./sample-sheet.csv
-<span class="w">    </span>-c<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-c<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config<span class="w"> </span><span class="se">\ </span><span class="c1">#this can be omitted if you set the variable in your .bashrc</span>
 <span class="w">    </span>-profile<span class="w"> </span>singulairy
 </code></pre></div>
 <div class="highlight"><span class="filename">Example: sample-sheet.csv</span><pre><span></span><code>barcode,alias,type,ref
