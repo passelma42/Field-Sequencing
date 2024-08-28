@@ -679,9 +679,17 @@ Read all about <a href="https://labs.epi2me.io/wfindex/">EPI2ME workflows here</
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>default-jre<span class="w"> </span><span class="c1">#install java on ubuntu</span>
 </code></pre></div>
 <h3 id="nextflow">NEXTFLOW</h3>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>https://get.nextflow.io<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="c1"># install nextflow</span>
-</code></pre></div>
+<p>Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages.  </p>
+<blockquote>
+<p>More information can be found on the <a href="https://www.nextflow.io/">NEXTFLOW WEBSITE</a>.
+<div class="highlight"><span class="filename">Download and install nextflow</span><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>https://get.nextflow.io<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="c1"># install nextflow</span>
+</code></pre></div></p>
+</blockquote>
 <h3 id="go">GO</h3>
+<p>Singularity 3.0 is written primarily in Go, and you will need Go installed to compile it from source.  </p>
+<blockquote>
+<p>More information can be found on the <a href="https://docs.sylabs.io/guides/3.0/user-guide/quick_start.html#quick-installation-steps">Singularity installation guide website</a>.  </p>
+</blockquote>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install</span>
 <span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span><span class="m">1</span>.11<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>amd64<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>wget<span class="w"> </span>https://dl.google.com/go/go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
@@ -697,6 +705,11 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <span class="w">    </span>go<span class="w"> </span>get<span class="w"> </span>-u<span class="w"> </span>github.com/golang/dep/cmd/dep
 </code></pre></div>
 <h3 id="singularity">Singularity</h3>
+<p>Singularity is a container platform. It allows you to create and run containers that package up pieces of software in a way that is portable and reproducible. You can build a container using Singularity on your laptop, and then run it on many of the largest HPC clusters in the world, local university or company clusters, a single server, in the cloud, or on a workstation down the hall.<br />
+Your container is a single file, and you don’t have to worry about how to install all the software you need on each different operating system and system.  </p>
+<blockquote>
+<p>More information can be found on the <a href="https://docs.sylabs.io/guides/3.5/user-guide/introduction.html">Singularity introduction page</a>.  </p>
+</blockquote>
 <p><strong>Installation</strong>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span><span class="m">3</span>.0.3<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="c1"># adjust this as necessary \</span>
 <span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$GOPATH</span>/src/github.com/sylabs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
@@ -711,24 +724,57 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <span class="w">    </span>make<span class="w"> </span>-C<span class="w"> </span>./builddir<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>sudo<span class="w"> </span>make<span class="w"> </span>-C<span class="w"> </span>./builddir<span class="w"> </span>install
 </code></pre></div>
-<strong>Singularity cache folder</strong><br />
-If folder is not set you get this warning:<br />
-    WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /home/sequencing/Analisys/wf-amplicon-demo/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location</p>
-<p>To avoid this create cache folder to store downloaded images when running epi2me labs. For each new analysis you run with epi2me make sure to put the image in this folder.<br />
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/path/to/singularity-cache-dir
+<strong>Singularity cache folder</strong>  </p>
+<p>Save storage space on your computer.<br />
+When you run the singularity container (wf-amplicon for instance), a <em>work</em> directory will be created in your project folder. The wf-amplicon uses different containers without you noticing. All container <em>images</em> will be downloaded each time you run this wf. And this takes up space on your HD. </p>
+<p>To avoid this, you can create a cache folder where singularity can store these <em>.img</em> files and use these instead of downloding them each time you run the wf.<br />
+Follow these steps to do just this:  </p>
+<ol>
+<li>
+<p>Step 1:run the workflow for the 1st time<br />
+    Run the workflow for the firs time and don't bother about this warning:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the cache folder is not set you get this warning:<br />
+<em>WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /home/path-to/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location</em>  </p>
+</div>
+</li>
+<li>
+<p>Step 2: locate the .img files<br />
+    The wf-amplicon will create a <code>./work/singularity</code> folder in your projcet folder. 
+    <div class="highlight"><pre><span></span><code>pieter@UGENT-PC:~/Analyses/wf-amplicon/work
+$<span class="w"> </span>ls
+0f<span class="w">  </span><span class="m">14</span><span class="w">  </span><span class="m">24</span><span class="w">  </span>2d<span class="w">  </span>3f<span class="w">  </span><span class="m">46</span><span class="w">  </span><span class="m">49</span><span class="w">  </span><span class="m">54</span><span class="w">  </span>5b<span class="w">  </span><span class="m">63</span><span class="w">  </span>6d<span class="w">  </span><span class="m">77</span><span class="w">  </span>7b<span class="w">  </span><span class="m">80</span><span class="w">  </span><span class="m">85</span><span class="w">  </span><span class="m">93</span><span class="w">  </span>9b<span class="w">  </span>9f<span class="w">  </span>a1<span class="w">  </span>a4<span class="w">  </span>af<span class="w">  </span>b5<span class="w">  </span>bc<span class="w">  </span>cc<span class="w">  </span>d6<span class="w">  </span>e5<span class="w">  </span>e8<span class="w">  </span>singularity
+<span class="m">11</span><span class="w">  </span>1e<span class="w">  </span>2b<span class="w">  </span>3c<span class="w">  </span><span class="m">40</span><span class="w">  </span><span class="m">47</span><span class="w">  </span>4c<span class="w">  </span><span class="m">56</span><span class="w">  </span>5d<span class="w">  </span>6b<span class="w">  </span><span class="m">71</span><span class="w">  </span><span class="m">78</span><span class="w">  </span>7f<span class="w">  </span><span class="m">82</span><span class="w">  </span><span class="m">89</span><span class="w">  </span><span class="m">96</span><span class="w">  </span>9c<span class="w">  </span>a0<span class="w">  </span>a3<span class="w">  </span>ac<span class="w">  </span>b0<span class="w">  </span>b6<span class="w">  </span>c8<span class="w">  </span>d0<span class="w">  </span>db<span class="w">  </span>e6<span class="w">  </span>ee
+<span class="o">(</span>base<span class="o">)</span>
+pieter@UGENT-PC~/Analyses/wf-amplicon/work
+$<span class="w"> </span>ls<span class="w"> </span>singularity/
+ontresearch-medaka-sha61a9438d745a78030738352e084445a2db3daa2a.img<span class="w">       </span>ontresearch-wf-common-sha91452ece4f647f62b32dac3a614635a6f0d7f8b5.img
+ontresearch-wf-amplicon-sha3b6a08c2ed47efd85b17b98762951fffdeee5ba9.img
+</code></pre></div>
+    In this folder you'll find the <code>.img</code> files you need later.  </p>
+</li>
+<li>
+<p>Step 3: Copy the <code>.img</code> files to a local folder<br />
+    To avoid this create cache folder to store downloaded images when running epi2me labs. For each new analysis you run with epi2me make sure to put the image in this folder.<br />
+    <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/path/to/singularity-img
+cp<span class="w"> </span>~/Analyses/wf-amplicon/work/singularity/*.img<span class="w"> </span>/path/to/singularity-img<span class="w"> </span><span class="c1"># this will copy all img files to your folder created in previou step, don&#39;t forget to personalize the paths  </span>
 </code></pre></div>
 <strong>Create nextflow config file</strong><br />
-This file will be checked running each wf and redirects singularity to find the images stored locally rather than download them each time.<br />
+Now it is time to configure nextflow which is used to <em>stitch</em> all the singularity containers from wf-amplicon together.<br />
+We will create a file that will be checked running each wf and redirects singularity to find the images stored locally rather than download them each time.<br />
 <a href="https://www.nextflow.io/docs/latest/config.html">More info on nextflow configuration file</a>.<br />
 Process:<br />
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/home/sequencing/nextflow-config
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/home/sequencing/nextflow-config<span class="w"> </span><span class="c1"># /home/sequencing is in this case an example of your user&#39;s home directory. User is called *sequencer* in this example.  </span>
 touch<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config
 </code></pre></div>
 <div class="highlight"><span class="filename">nextflow.config</span><pre><span></span><code>singularity<span class="w"> </span><span class="o">{</span><span class="w"> </span>
 <span class="w">    </span><span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
-<span class="w">    </span><span class="nv">cacheDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/path/to/singularity-cache-dir
+<span class="w">    </span><span class="nv">cacheDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/path/to/singularity-img
 <span class="o">}</span><span class="w"> </span>
 </code></pre></div></p>
+</li>
+</ol>
 <h2 id="wf-amplicon">wf-amplicon</h2>
 <p>This workflow performs the analysis of reads generated from PCR amplicons. After some pre-processing, reads are either aligned to a reference (containing the expected sequence for each amplicon) for variant calling or the amplicon’s consensus sequence is generated <em>de novo</em>.  </p>
 <p>Installation guides for wf-amplicon can be found here: <a href="https://labs.epi2me.io/workflows/wf-amplicon/">wf-amplicon Installation guide</a>.  </p>
