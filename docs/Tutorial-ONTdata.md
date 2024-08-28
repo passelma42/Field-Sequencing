@@ -8,12 +8,20 @@ All the QC examples below are taken from this data set. If you want to test the 
 You can download the toy-data here:
 ```shell
 wget https://github.com/passelma42/Field-Sequencing/blob/main/toy-data.tar.gz
-``` 
+```  
+
+!!! NOTES  
+	The example is ~20MB and contains reads for 2 samples: Barcode41 and Barcode63.  
+	Analysis time was 30 minutes on i7 Intel, 8 core, 16Gb Ram computer.
 
 ## The Sequencing Run  
 **Method**: [Rapid Barcoding SQK-RBK114.96](https://store.nanoporetech.com/eu/rapid-barcoding-sequencing-kit-96-v14.html)    
 **Data Analysis**: [wf-amplicon EPI2ME](https://github.com/epi2me-labs/wf-amplicon)  
 
+!!! NOTES		
+	The data and output described below was generated on the full data set. Because this is too large, I cannot share it on this platform. When you run the toy-data though you'll get for the analyzed barcodes the same output as you'll find them in the below plots.  
+	
+	
 We chose the RBK114 kit because this kit is best applicable in the field if you don't have access to a freezer or fridge.
 The 'Field sequencing kit' from nanopore is legacy at this point (2024) and was replaced by the Rapid Sequencing kits.  
 In this [post](https://community.nanoporetech.com/posts/field-sequencing-kit-repla) you can find results of a stability experiment of the kit kept at ambient temperature.
