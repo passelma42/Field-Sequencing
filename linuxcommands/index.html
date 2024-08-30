@@ -20,7 +20,7 @@
     
     
       
-        <title>Linuxcommands - Field Sequencing</title>
+        <title>Essential Linux Commands - Field Sequencing</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#copy-data" class="md-skip">
+        <a href="#essential-linux-commands" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linuxcommands
+              Essential Linux Commands
             
           </span>
         </div>
@@ -312,7 +312,7 @@
   
     
   
-  Linuxcommands
+  Essential Linux Commands
 
       </a>
     </li>
@@ -504,12 +504,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    Linuxcommands
+    Essential Linux Commands
   </span>
   
 
@@ -520,7 +522,7 @@
         
   
   <span class="md-ellipsis">
-    Linuxcommands
+    Essential Linux Commands
   </span>
   
 
@@ -532,6 +534,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -540,38 +544,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#copy-data" class="md-nav__link">
+  <a href="#file-and-directory-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      Copy data
+      File and Directory Operations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Copy data">
+    <nav class="md-nav" aria-label="File and Directory Operations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#using-cp-command" class="md-nav__link">
+  <a href="#listing-and-navigating" class="md-nav__link">
     <span class="md-ellipsis">
-      Using cp Command
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Using cp Command">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#copy-a-single-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Copy a Single File
+      Listing and Navigating
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#copy-a-directory" class="md-nav__link">
+  <a href="#creating-and-removing" class="md-nav__link">
     <span class="md-ellipsis">
-      Copy a Directory
+      Creating and Removing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copying-and-moving" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying and Moving
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Manipulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-copying-with-rsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Copying with rsync
     </span>
   </a>
   
@@ -581,21 +602,120 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#using-rsync-command" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#file-permissions-and-ownership" class="md-nav__link">
     <span class="md-ellipsis">
-      Using rsync Command
+      File Permissions and Ownership
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Using rsync Command">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-viewing-and-editing" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Viewing and Editing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Operations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-and-group-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      User and Group Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-management-example-debian-based-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Management (Example: Debian-based systems)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text Manipulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expanded-section-on-text-manipulation-for-fasta-fastq-and-bam-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expanded Section on Text Manipulation for FASTA, FASTQ, and BAM Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expanded Section on Text Manipulation for FASTA, FASTQ, and BAM Files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-rsync-usage" class="md-nav__link">
+  <a href="#fasta-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic rsync Usage
+      FASTA Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastq-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      FASTQ Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bam-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      BAM Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-tools-for-advanced-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combining Tools for Advanced Manipulation
     </span>
   </a>
   
@@ -605,30 +725,57 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#using-mv-command" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#archiving-and-compression" class="md-nav__link">
     <span class="md-ellipsis">
-      Using mv Command
+      Archiving and Compression
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Using mv Command">
+    <nav class="md-nav" aria-label="Archiving and Compression">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#move-a-single-file" class="md-nav__link">
+  <a href="#tar" class="md-nav__link">
     <span class="md-ellipsis">
-      Move a Single File
+      tar
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#move-a-directory" class="md-nav__link">
+  <a href="#gzip" class="md-nav__link">
     <span class="md-ellipsis">
-      Move a Directory
+      gzip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bzip2" class="md-nav__link">
+    <span class="md-ellipsis">
+      bzip2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zip" class="md-nav__link">
+    <span class="md-ellipsis">
+      zip
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7z" class="md-nav__link">
+    <span class="md-ellipsis">
+      7z
     </span>
   </a>
   
@@ -638,60 +785,22 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#examples-in-detail" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#finding-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Examples in Detail
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples in Detail">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#copying-multiple-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Copying Multiple Files
+      Finding Files
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#copying-all-files-with-a-specific-extension" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#system-monitoring-and-performance" class="md-nav__link">
     <span class="md-ellipsis">
-      Copying All Files with a Specific Extension
+      System Monitoring and Performance
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#additional-tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Tips
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#combining-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Combining Commands
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -738,72 +847,375 @@
                   
 
 
-  <h1>Linuxcommands</h1>
-
-<p>Copying data from one location to another on a Linux system can be done using several commands depending on your specific needs. Here are a few common methods:</p>
-<h2 id="copy-data">Copy data</h2>
-<h3 id="using-cp-command">Using <code>cp</code> Command</h3>
-<p>The <code>cp</code> (copy) command is the most basic way to copy files and directories.</p>
-<h4 id="copy-a-single-file">Copy a Single File</h4>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/path/to/source/file<span class="w"> </span>/path/to/destination/
-</code></pre></div>
-<p>Example:
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/home/user/file.txt<span class="w"> </span>/home/user/Documents/
-</code></pre></div></p>
-<h4 id="copy-a-directory">Copy a Directory</h4>
-<p>To copy a directory and its contents, use the <code>-r</code> (recursive) option:</p>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/path/to/source/directory<span class="w"> </span>/path/to/destination/
-</code></pre></div>
-<p>Example:
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/home/user/folder<span class="w"> </span>/home/user/Documents/
-</code></pre></div></p>
-<h3 id="using-rsync-command">Using <code>rsync</code> Command</h3>
-<p>The <code>rsync</code> command is more advanced and powerful, often used for synchronizing directories and copying large amounts of data efficiently.</p>
-<h4 id="basic-rsync-usage">Basic <code>rsync</code> Usage</h4>
-<div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-av<span class="w"> </span>/path/to/source/<span class="w"> </span>/path/to/destination/
-</code></pre></div>
+<h1 id="essential-linux-commands">Essential Linux Commands</h1>
+<h2 id="file-and-directory-operations">File and Directory Operations</h2>
+<h3 id="listing-and-navigating">Listing and Navigating</h3>
 <ul>
+<li><strong><code>ls</code></strong>: List the contents of a directory.
+  <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/path/to/directory
+</code></pre></div></li>
+<li><strong><code>cd</code></strong>: Change the current directory.
+  <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/directory
+</code></pre></div></li>
+<li><strong><code>pwd</code></strong>: Display the current working directory.
+  <div class="highlight"><pre><span></span><code><span class="nb">pwd</span>
+</code></pre></div></li>
+</ul>
+<h3 id="creating-and-removing">Creating and Removing</h3>
+<ul>
+<li><strong><code>mkdir</code></strong>: Create a new directory.
+  <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>new_directory
+</code></pre></div></li>
+<li><strong><code>rmdir</code></strong>: Remove an empty directory.
+  <div class="highlight"><pre><span></span><code>rmdir<span class="w"> </span>empty_directory
+</code></pre></div></li>
+<li><strong><code>rm</code></strong>: Remove files or directories.
+  <div class="highlight"><pre><span></span><code>rm<span class="w"> </span>file_name<span class="w">   </span><span class="c1"># for files</span>
+rm<span class="w"> </span>-r<span class="w"> </span>directory_name<span class="w">   </span><span class="c1"># for directories</span>
+</code></pre></div></li>
+</ul>
+<h3 id="copying-and-moving">Copying and Moving</h3>
+<ul>
+<li><strong><code>cp</code></strong>: Copy files or directories.
+  <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/path/to/source/file<span class="w"> </span>/path/to/destination/
+</code></pre></div>
+  Example:
+  <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/home/user/file.txt<span class="w"> </span>/home/user/Documents/
+</code></pre></div></li>
+<li>Copy a directory and its contents:
+  <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/path/to/source/directory<span class="w"> </span>/path/to/destination/
+</code></pre></div>
+  Example:
+  <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/home/user/folder<span class="w"> </span>/home/user/Documents/
+</code></pre></div></li>
+<li><strong><code>mv</code></strong>: Move or rename files or directories.
+  <div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/path/to/source/file<span class="w"> </span>/path/to/destination/
+</code></pre></div>
+  Example:
+  <div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/home/user/file.txt<span class="w"> </span>/home/user/Documents/
+</code></pre></div></li>
+</ul>
+<h3 id="file-manipulation">File Manipulation</h3>
+<ul>
+<li><strong><code>touch</code></strong>: Create an empty file or update the timestamp of an existing file.
+  <div class="highlight"><pre><span></span><code>touch<span class="w"> </span>file_name
+</code></pre></div></li>
+<li><strong><code>cat</code></strong>: Concatenate and display the content of files.
+  <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>file_name
+</code></pre></div></li>
+</ul>
+<h3 id="advanced-copying-with-rsync">Advanced Copying with <code>rsync</code></h3>
+<ul>
+<li><strong><code>rsync</code></strong>: Synchronize directories and copy large amounts of data efficiently.
+  <div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-av<span class="w"> </span>/path/to/source/<span class="w"> </span>/path/to/destination/
+</code></pre></div></li>
 <li><code>-a</code>: Archive mode, preserves permissions, times, symbolic links, etc.</li>
 <li><code>-v</code>: Verbose, shows the progress of the transfer.</li>
 </ul>
-<p>Example:
-<div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-av<span class="w"> </span>/home/user/folder/<span class="w"> </span>/home/user/Documents/folder/
-</code></pre></div></p>
-<h3 id="using-mv-command">Using <code>mv</code> Command</h3>
-<p>If you want to move (rather than copy) files or directories, use the <code>mv</code> command:</p>
-<h4 id="move-a-single-file">Move a Single File</h4>
-<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/path/to/source/file<span class="w"> </span>/path/to/destination/
-</code></pre></div>
-<p>Example:
-<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/home/user/file.txt<span class="w"> </span>/home/user/Documents/
-</code></pre></div></p>
-<h4 id="move-a-directory">Move a Directory</h4>
-<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/path/to/source/directory<span class="w"> </span>/path/to/destination/
-</code></pre></div>
-<p>Example:
-<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/home/user/folder<span class="w"> </span>/home/user/Documents/
-</code></pre></div></p>
-<h3 id="examples-in-detail">Examples in Detail</h3>
-<h4 id="copying-multiple-files">Copying Multiple Files</h4>
-<p>You can copy multiple files by specifying them one after the other:</p>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/home/user/file1.txt<span class="w"> </span>/home/user/file2.txt<span class="w"> </span>/home/user/Documents/
-</code></pre></div>
-<h4 id="copying-all-files-with-a-specific-extension">Copying All Files with a Specific Extension</h4>
-<p>Use wildcards to copy all files with a certain extension:</p>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/home/user/*.txt<span class="w"> </span>/home/user/Documents/
-</code></pre></div>
-<h3 id="additional-tips">Additional Tips</h3>
+<h2 id="file-permissions-and-ownership">File Permissions and Ownership</h2>
 <ul>
-<li>Use <code>cp -i</code> to prompt before overwriting files.</li>
-<li>Use <code>cp -u</code> to copy only when the source file is newer than the destination file or when the destination file is missing.</li>
-<li>Use <code>cp -p</code> to preserve the file attributes like mode, ownership, and timestamps.</li>
+<li><strong><code>chmod</code></strong>: Change the permissions of a file or directory.
+  <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>file_name
+</code></pre></div></li>
+<li><strong><code>chown</code></strong>: Change the ownership of a file or directory.
+  <div class="highlight"><pre><span></span><code>chown<span class="w"> </span>user:group<span class="w"> </span>file_name
+</code></pre></div></li>
 </ul>
-<h3 id="combining-commands">Combining Commands</h3>
-<p>You can combine these commands with other Linux utilities for more complex tasks. For example, using <code>find</code> to copy files based on specific criteria:</p>
-<div class="highlight"><pre><span></span><code>find<span class="w"> </span>/home/user/source/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.txt&quot;</span><span class="w"> </span>-exec<span class="w"> </span>cp<span class="w"> </span><span class="o">{}</span><span class="w"> </span>/home/user/destination/<span class="w"> </span><span class="se">\;</span>
+<h2 id="file-viewing-and-editing">File Viewing and Editing</h2>
+<ul>
+<li><strong><code>nano</code>/<code>vim</code></strong>: Text editors for creating and editing files directly in the terminal.
+  <div class="highlight"><pre><span></span><code>nano<span class="w"> </span>file_name
+vim<span class="w"> </span>file_name
+</code></pre></div></li>
+<li><strong><code>less</code></strong>: Display the content of a file one screen at a time.
+  <div class="highlight"><pre><span></span><code>less<span class="w"> </span>file_name
+</code></pre></div></li>
+<li><strong><code>head</code></strong>: Show the first few lines of a file.
+  <div class="highlight"><pre><span></span><code>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>file_name<span class="w">   </span><span class="c1"># shows the first 10 lines</span>
+</code></pre></div></li>
+<li><strong><code>tail</code></strong>: Show the last few lines of a file.
+  <div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>file_name<span class="w">   </span><span class="c1"># shows the last 10 lines</span>
+</code></pre></div></li>
+<li><strong><code>grep</code></strong>: Search for a specific pattern within files.
+  <div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;pattern&quot;</span><span class="w"> </span>file_name
+</code></pre></div></li>
+</ul>
+<h2 id="system-information">System Information</h2>
+<ul>
+<li><strong><code>uname</code></strong>: Display basic information about the system.
+  <div class="highlight"><pre><span></span><code>uname<span class="w"> </span>-a<span class="w">   </span><span class="c1"># shows all system information</span>
+</code></pre></div></li>
+<li><strong><code>df</code></strong>: Show disk space usage.
+  <div class="highlight"><pre><span></span><code>df<span class="w"> </span>-h<span class="w">   </span><span class="c1"># human-readable format</span>
+</code></pre></div></li>
+<li><strong><code>du</code></strong>: Display the disk usage of files and directories.
+  <div class="highlight"><pre><span></span><code>du<span class="w"> </span>-sh<span class="w"> </span>directory_name
+</code></pre></div></li>
+<li><strong><code>free</code></strong>: Show the amount of free and used memory in the system.
+  <div class="highlight"><pre><span></span><code>free<span class="w"> </span>-h
+</code></pre></div></li>
+<li><strong><code>top</code></strong>: Display real-time system processes and resource usage.
+  <div class="highlight"><pre><span></span><code>top
+</code></pre></div></li>
+<li><strong><code>ps</code></strong>: Display the currently running processes.
+  <div class="highlight"><pre><span></span><code>ps<span class="w"> </span>aux
+</code></pre></div></li>
+</ul>
+<h2 id="network-operations">Network Operations</h2>
+<ul>
+<li><strong><code>ping</code></strong>: Test connectivity to a network host.
+  <div class="highlight"><pre><span></span><code>ping<span class="w"> </span>google.com
+</code></pre></div></li>
+<li><strong><code>ifconfig</code></strong>: Display or configure network interfaces.
+  <div class="highlight"><pre><span></span><code>ifconfig<span class="w">   </span><span class="c1"># use `ip addr` in newer systems</span>
+</code></pre></div></li>
+<li><strong><code>netstat</code></strong>: Show network connections, routing tables, and more.
+  <div class="highlight"><pre><span></span><code>netstat<span class="w"> </span>-tuln<span class="w">   </span><span class="c1"># shows listening ports</span>
+</code></pre></div></li>
+<li><strong><code>ssh</code></strong>: Connect to another machine securely over the network.
+  <div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>user@hostname
+</code></pre></div></li>
+</ul>
+<h2 id="process-management">Process Management</h2>
+<ul>
+<li><strong><code>kill</code></strong>: Send a signal to terminate a process.
+  <div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span>PID<span class="w">   </span><span class="c1"># where PID is the process ID</span>
+</code></pre></div></li>
+<li><strong><code>killall</code></strong>: Terminate all processes by name.
+  <div class="highlight"><pre><span></span><code>killall<span class="w"> </span>process_name
+</code></pre></div></li>
+<li><strong><code>bg</code></strong>: Resume a suspended job in the background.
+  <div class="highlight"><pre><span></span><code><span class="nb">bg</span><span class="w"> </span>job_number
+</code></pre></div></li>
+<li><strong><code>fg</code></strong>: Bring a job to the foreground.
+  <div class="highlight"><pre><span></span><code><span class="nb">fg</span><span class="w"> </span>job_number
+</code></pre></div></li>
+</ul>
+<h2 id="user-and-group-management">User and Group Management</h2>
+<ul>
+<li><strong><code>adduser</code>/<code>useradd</code></strong>: Add a new user to the system.
+  <div class="highlight"><pre><span></span><code>adduser<span class="w"> </span>username
+useradd<span class="w"> </span>username
+</code></pre></div></li>
+<li><strong><code>passwd</code></strong>: Change a user’s password.
+  <div class="highlight"><pre><span></span><code>passwd<span class="w"> </span>username
+</code></pre></div></li>
+<li><strong><code>su</code></strong>: Switch to another user account.
+  <div class="highlight"><pre><span></span><code>su<span class="w"> </span>-<span class="w"> </span>username
+</code></pre></div></li>
+<li><strong><code>sudo</code></strong>: Execute a command with superuser privileges.
+  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span><span class="nb">command</span>
+</code></pre></div></li>
+</ul>
+<h2 id="package-management-example-debian-based-systems">Package Management (Example: Debian-based systems)</h2>
+<ul>
+<li><strong><code>apt-get update</code></strong>: Update the package lists.
+  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</code></pre></div></li>
+<li><strong><code>apt-get install</code></strong>: Install a new package.
+  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>package_name
+</code></pre></div></li>
+<li><strong><code>apt-get upgrade</code></strong>: Upgrade all installed packages.
+  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
+</code></pre></div></li>
+</ul>
+<h2 id="text-manipulation">Text Manipulation</h2>
+<ul>
+<li><strong><code>echo</code></strong>: Display a line of text.
+  <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
+</code></pre></div></li>
+<li><strong><code>grep</code></strong>: Search for text patterns in files.
+  <div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w"> </span>file_name
+</code></pre></div></li>
+<li><strong><code>sed</code></strong>: Stream editor for filtering and transforming text.
+  <div class="highlight"><pre><span></span><code>sed<span class="w"> </span><span class="s1">&#39;s/old/new/&#39;</span><span class="w"> </span>file_name
+</code></pre></div></li>
+<li><strong><code>awk</code></strong>: A powerful text processing language.
+  <div class="highlight"><pre><span></span><code>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span>file_name
+</code></pre></div></li>
+</ul>
+<h2 id="expanded-section-on-text-manipulation-for-fasta-fastq-and-bam-files">Expanded Section on Text Manipulation for FASTA, FASTQ, and BAM Files</h2>
+<p>When working with bioinformatics data formats like FASTA, FASTQ, and BAM files, text manipulation tools like <code>echo</code>, <code>grep</code>, <code>sed</code>, and <code>awk</code> become essential. Below are examples and explanations of how these tools can be used effectively.</p>
+<h3 id="fasta-files">FASTA Files</h3>
+<p><strong>FASTA</strong> files store nucleotide or protein sequences with a header line starting with <code>&gt;</code> followed by sequence data. </p>
+<p><strong>Examples:</strong>  </p>
+<ul>
+<li>
+<p><strong><code>grep</code></strong>: Extract sequence identifiers (headers) from a FASTA file.
+  <div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;^&gt;&quot;</span><span class="w"> </span>sequences.fasta
 </code></pre></div>
-<p>This command finds all <code>.txt</code> files in the source directory and copies them to the destination directory.</p>
-<p>These commands and options should cover most of your needs for copying data on a Linux system. If you have specific requirements or run into issues, feel free to ask for more details.</p>
+  This command searches for lines starting with <code>&gt;</code> and outputs them, giving you all the headers in the file.</p>
+</li>
+<li>
+<p><strong><code>awk</code></strong>: Count the number of sequences in a FASTA file.
+  <div class="highlight"><pre><span></span><code>awk<span class="w"> </span><span class="s1">&#39;/^&gt;/ {count++} END {print count}&#39;</span><span class="w"> </span>sequences.fasta
+</code></pre></div>
+  This <code>awk</code> script increments a counter for each header line and prints the total number of sequences at the end.</p>
+</li>
+<li>
+<p><strong><code>sed</code></strong>: Remove description from headers in a FASTA file.
+  <div class="highlight"><pre><span></span><code>sed<span class="w"> </span><span class="s1">&#39;s/\s.*$//&#39;</span><span class="w"> </span>sequences.fasta<span class="w"> </span>&gt;<span class="w"> </span>cleaned_sequences.fasta
+</code></pre></div>
+  This command keeps only the identifier in each header line by deleting everything after the first space.</p>
+</li>
+</ul>
+<h3 id="fastq-files">FASTQ Files</h3>
+<p><strong>FASTQ</strong> files contain sequence data with quality scores, commonly used in next-generation sequencing. </p>
+<p><strong>Examples:</strong>  </p>
+<ul>
+<li>
+<p><strong><code>grep</code></strong>: Extract all sequence headers (lines starting with <code>@</code>).
+  <div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;^@&quot;</span><span class="w"> </span>sequences.fastq
+</code></pre></div>
+  This command will output all sequence headers in a FASTQ file.</p>
+</li>
+<li>
+<p><strong><code>awk</code></strong>: Calculate the total number of reads in a FASTQ file.
+  <div class="highlight"><pre><span></span><code>awk<span class="w"> </span><span class="s1">&#39;{s++} END {print s/4}&#39;</span><span class="w"> </span>sequences.fastq
+</code></pre></div>
+  Since each read spans four lines (header, sequence, plus, quality), dividing the total line count by four gives the number of reads.</p>
+</li>
+<li>
+<p><strong><code>sed</code></strong>: Convert sequence headers to uppercase (useful if headers have mixed cases).
+  <div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;1~4s/.*/\U&amp;/&#39;</span><span class="w"> </span>sequences.fastq<span class="w"> </span>&gt;<span class="w"> </span>uppercased_headers.fastq
+</code></pre></div>
+  This command converts the headers (every 4th line, starting from line 1) to uppercase.</p>
+</li>
+</ul>
+<h3 id="bam-files">BAM Files</h3>
+<p><strong>BAM</strong> files are binary versions of SAM files and store aligned sequence data. While binary, text manipulation often applies to the SAM format (BAM converted to SAM via <code>samtools view</code>).</p>
+<p><strong>Examples:</strong>  </p>
+<ul>
+<li>
+<p><strong><code>samtools</code> &amp; <code>awk</code></strong>: Extract read names and count the total number of unique reads.
+  <div class="highlight"><pre><span></span><code>samtools<span class="w"> </span>view<span class="w"> </span>-h<span class="w"> </span>file.bam<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{if($1 !~ /^@/) print $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</code></pre></div>
+  This command extracts the read names from a BAM file, sorts them, filters out duplicates, and counts the unique entries.</p>
+</li>
+<li>
+<p><strong><code>grep</code></strong>: Filter reads mapped to a specific chromosome.
+  <div class="highlight"><pre><span></span><code>samtools<span class="w"> </span>view<span class="w"> </span>file.bam<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^chr1&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>chr1_reads.sam
+</code></pre></div>
+  This filters out reads that are mapped to chromosome 1.</p>
+</li>
+<li>
+<p><strong><code>awk</code></strong>: Extract and count reads with a specific mapping quality.
+  <div class="highlight"><pre><span></span><code>samtools<span class="w"> </span>view<span class="w"> </span>file.bam<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$5 &gt;= 30&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</code></pre></div>
+  This command counts the number of reads with a mapping quality of 30 or higher.</p>
+</li>
+</ul>
+<h3 id="combining-tools-for-advanced-manipulation">Combining Tools for Advanced Manipulation</h3>
+<p>Combining <code>grep</code>, <code>awk</code>, and <code>sed</code> can provide powerful data extraction and manipulation. Here’s an example:</p>
+<ul>
+<li><strong>Extracting and summarizing GC content from FASTA sequences</strong>:
+  <div class="highlight"><pre><span></span><code>awk<span class="w"> </span><span class="s1">&#39;/^&gt;/ {if (seqlen){print gc/seqlen*100}; print; gc=0; seqlen=0; next} {gc+=gsub(/[GgCc]/,&quot;&quot;); seqlen+=length($0)} END {print gc/seqlen*100}&#39;</span><span class="w"> </span>sequences.fasta
+</code></pre></div>
+  This script calculates the GC content for each sequence and prints it after each sequence header.</li>
+</ul>
+<p>By mastering these commands, you can efficiently manipulate and analyze bioinformatics data files. Each tool offers specific advantages depending on the task, allowing for streamlined data processing in a command-line environment.</p>
+<h2 id="archiving-and-compression">Archiving and Compression</h2>
+<h3 id="tar"><strong><code>tar</code></strong></h3>
+<p>Archive files into a tarball, which can be compressed using various algorithms.
+  - <strong>Create a tarball</strong>: 
+    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-cvf<span class="w"> </span>archive_name.tar<span class="w"> </span>directory_name
+</code></pre></div>
+  - <strong>Create a compressed tarball with gzip</strong>: 
+    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-czvf<span class="w"> </span>archive_name.tar.gz<span class="w"> </span>directory_name
+</code></pre></div>
+  - <strong>Create a compressed tarball with bzip2</strong>: 
+    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-cjvf<span class="w"> </span>archive_name.tar.bz2<span class="w"> </span>directory_name
+</code></pre></div>
+  - <strong>Create a compressed tarball with xz</strong>: 
+    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-cJvf<span class="w"> </span>archive_name.tar.xz<span class="w"> </span>directory_name
+</code></pre></div>
+  - <strong>Extract a tarball</strong>: 
+    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xvf<span class="w"> </span>archive_name.tar
+</code></pre></div>
+  - <strong>Extract a gzip-compressed tarball</strong>: 
+    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xzvf<span class="w"> </span>archive_name.tar.gz
+</code></pre></div>
+  - <strong>Extract a bzip2-compressed tarball</strong>: 
+    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xjvf<span class="w"> </span>archive_name.tar.bz2
+</code></pre></div>
+  - <strong>Extract an xz-compressed tarball</strong>: 
+    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xJvf<span class="w"> </span>archive_name.tar.xz
+</code></pre></div></p>
+<h3 id="gzip"><strong><code>gzip</code></strong></h3>
+<p>Compress files using the gzip algorithm.
+  - <strong>Compress a file</strong>: 
+    <div class="highlight"><pre><span></span><code>gzip<span class="w"> </span>file_name
+</code></pre></div>
+  - <strong>Decompress a file</strong>: 
+    <div class="highlight"><pre><span></span><code>gunzip<span class="w"> </span>file_name.gz
+</code></pre></div>
+  - <strong>Compress a file while keeping the original</strong>: 
+    <div class="highlight"><pre><span></span><code>gzip<span class="w"> </span>-c<span class="w"> </span>file_name<span class="w"> </span>&gt;<span class="w"> </span>file_name.gz
+</code></pre></div>
+  - <strong>List the contents of a gzip-compressed file</strong>: 
+    <div class="highlight"><pre><span></span><code>zcat<span class="w"> </span>file_name.gz
+</code></pre></div></p>
+<h3 id="bzip2"><strong><code>bzip2</code></strong></h3>
+<p>Compress files using the bzip2 algorithm, which typically achieves better compression than gzip.
+  - <strong>Compress a file</strong>: 
+    <div class="highlight"><pre><span></span><code>bzip2<span class="w"> </span>file_name
+</code></pre></div>
+  - <strong>Decompress a file</strong>: 
+    <div class="highlight"><pre><span></span><code>bunzip2<span class="w"> </span>file_name.bz2
+</code></pre></div>
+  - <strong>Compress a file while keeping the original</strong>: 
+    <div class="highlight"><pre><span></span><code>bzip2<span class="w"> </span>-c<span class="w"> </span>file_name<span class="w"> </span>&gt;<span class="w"> </span>file_name.bz2
+</code></pre></div>
+  - <strong>List the contents of a bzip2-compressed file</strong>: 
+    <div class="highlight"><pre><span></span><code>bzcat<span class="w"> </span>file_name.bz2
+</code></pre></div></p>
+<h3 id="zip"><strong><code>zip</code></strong></h3>
+<p>Create a ZIP archive, which can include multiple files and directories.
+  - <strong>Create a ZIP archive</strong>: 
+    <div class="highlight"><pre><span></span><code>zip<span class="w"> </span>archive_name.zip<span class="w"> </span>file1<span class="w"> </span>file2<span class="w"> </span>directory_name
+</code></pre></div>
+  - <strong>Add files to an existing ZIP archive</strong>: 
+    <div class="highlight"><pre><span></span><code>zip<span class="w"> </span>archive_name.zip<span class="w"> </span>newfile
+</code></pre></div>
+  - <strong>Extract a ZIP archive</strong>: 
+    <div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>archive_name.zip
+</code></pre></div>
+  - <strong>List the contents of a ZIP archive</strong>: 
+    <div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>-l<span class="w"> </span>archive_name.zip
+</code></pre></div></p>
+<h3 id="7z"><strong><code>7z</code></strong></h3>
+<p>Use the 7-Zip compression tool for high compression ratios and support for many formats.
+  - <strong>Create a 7z archive</strong>: 
+    <div class="highlight"><pre><span></span><code>7z<span class="w"> </span>a<span class="w"> </span>archive_name.7z<span class="w"> </span>file1<span class="w"> </span>file2<span class="w"> </span>directory_name
+</code></pre></div>
+  - <strong>Extract a 7z archive</strong>: 
+    <div class="highlight"><pre><span></span><code>7z<span class="w"> </span>x<span class="w"> </span>archive_name.7z
+</code></pre></div>
+  - <strong>List the contents of a 7z archive</strong>: 
+    <div class="highlight"><pre><span></span><code>7z<span class="w"> </span>l<span class="w"> </span>archive_name.7z
+</code></pre></div></p>
+<p>These tools and commands cover a broad range of archiving and compression needs, from simple file compression to handling more complex multi-file archives.</p>
+<h2 id="finding-files">Finding Files</h2>
+<ul>
+<li><strong><code>find</code></strong>: Search for files in a directory hierarchy.
+  <div class="highlight"><pre><span></span><code>find<span class="w"> </span>/path<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;file_name&quot;</span>
+</code></pre></div></li>
+<li><strong><code>locate</code></strong>: Quickly find files by name using an indexed database.
+  <div class="highlight"><pre><span></span><code>locate<span class="w"> </span>file_name
+</code></pre></div></li>
+</ul>
+<h2 id="system-monitoring-and-performance">System Monitoring and Performance</h2>
+<ul>
+<li><strong><code>htop</code></strong>: Interactive process viewer (more user-friendly than <code>top</code>).
+  <div class="highlight"><pre><span></span><code>htop
+</code></pre></div></li>
+<li><strong><code>vmstat</code></strong>: Report virtual memory statistics.
+  <div class="highlight"><pre><span></span><code>vmstat<span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1"># refreshes every second</span>
+</code></pre></div></li>
+<li><strong><code>iostat</code></strong>: Report CPU and I/O statistics.
+  <div class="highlight"><pre><span></span><code>iostat
+</code></pre></div></li>
+</ul>
 
 
 
