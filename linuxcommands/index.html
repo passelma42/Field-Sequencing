@@ -12,7 +12,7 @@
         <link rel="prev" href="../blast/">
       
       
-        <link rel="next" href="../github/">
+        <link rel="next" href="../linuxtutorial/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -313,6 +313,23 @@
     
   
   Essential Linux Commands
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../linuxtutorial/" class="md-tabs__link">
+        
+  
+    
+  
+  Linuxtutorial
 
       </a>
     </li>
@@ -819,6 +836,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../linuxtutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linuxtutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../github/" class="md-nav__link">
         
   
@@ -852,62 +889,62 @@
 <h3 id="listing-and-navigating">Listing and Navigating</h3>
 <ul>
 <li><strong><code>ls</code></strong>: List the contents of a directory.
-  <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/path/to/directory
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls<span class="w"> </span>/path/to/directory
 </code></pre></div></li>
 <li><strong><code>cd</code></strong>: Change the current directory.
-  <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/directory
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>/path/to/directory
 </code></pre></div></li>
 <li><strong><code>pwd</code></strong>: Display the current working directory.
-  <div class="highlight"><pre><span></span><code><span class="nb">pwd</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">pwd</span>
 </code></pre></div></li>
 </ul>
 <h3 id="creating-and-removing">Creating and Removing</h3>
 <ul>
 <li><strong><code>mkdir</code></strong>: Create a new directory.
-  <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>new_directory
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mkdir<span class="w"> </span>new_directory
 </code></pre></div></li>
 <li><strong><code>rmdir</code></strong>: Remove an empty directory.
-  <div class="highlight"><pre><span></span><code>rmdir<span class="w"> </span>empty_directory
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rmdir<span class="w"> </span>empty_directory
 </code></pre></div></li>
 <li><strong><code>rm</code></strong>: Remove files or directories.
-  <div class="highlight"><pre><span></span><code>rm<span class="w"> </span>file_name<span class="w">   </span><span class="c1"># for files</span>
-rm<span class="w"> </span>-r<span class="w"> </span>directory_name<span class="w">   </span><span class="c1"># for directories</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>rm<span class="w"> </span>file_name<span class="w">   </span><span class="c1"># for files</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>rm<span class="w"> </span>-r<span class="w"> </span>directory_name<span class="w">   </span><span class="c1"># for directories</span>
 </code></pre></div></li>
 </ul>
 <h3 id="copying-and-moving">Copying and Moving</h3>
 <ul>
 <li><strong><code>cp</code></strong>: Copy files or directories.
-  <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/path/to/source/file<span class="w"> </span>/path/to/destination/
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cp<span class="w"> </span>/path/to/source/file<span class="w"> </span>/path/to/destination/
 </code></pre></div>
   Example:
-  <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/home/user/file.txt<span class="w"> </span>/home/user/Documents/
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cp<span class="w"> </span>/home/user/file.txt<span class="w"> </span>/home/user/Documents/
 </code></pre></div></li>
 <li>Copy a directory and its contents:
-  <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/path/to/source/directory<span class="w"> </span>/path/to/destination/
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cp<span class="w"> </span>-r<span class="w"> </span>/path/to/source/directory<span class="w"> </span>/path/to/destination/
 </code></pre></div>
   Example:
-  <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/home/user/folder<span class="w"> </span>/home/user/Documents/
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cp<span class="w"> </span>-r<span class="w"> </span>/home/user/folder<span class="w"> </span>/home/user/Documents/
 </code></pre></div></li>
 <li><strong><code>mv</code></strong>: Move or rename files or directories.
-  <div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/path/to/source/file<span class="w"> </span>/path/to/destination/
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mv<span class="w"> </span>/path/to/source/file<span class="w"> </span>/path/to/destination/
 </code></pre></div>
   Example:
-  <div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/home/user/file.txt<span class="w"> </span>/home/user/Documents/
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mv<span class="w"> </span>/home/user/file.txt<span class="w"> </span>/home/user/Documents/
 </code></pre></div></li>
 </ul>
 <h3 id="file-manipulation">File Manipulation</h3>
 <ul>
 <li><strong><code>touch</code></strong>: Create an empty file or update the timestamp of an existing file.
-  <div class="highlight"><pre><span></span><code>touch<span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>touch<span class="w"> </span>file_name
 </code></pre></div></li>
 <li><strong><code>cat</code></strong>: Concatenate and display the content of files.
-  <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>cat<span class="w"> </span>file_name
 </code></pre></div></li>
 </ul>
 <h3 id="advanced-copying-with-rsync">Advanced Copying with <code>rsync</code></h3>
 <ul>
 <li><strong><code>rsync</code></strong>: Synchronize directories and copy large amounts of data efficiently.
-  <div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-av<span class="w"> </span>/path/to/source/<span class="w"> </span>/path/to/destination/
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>rsync<span class="w"> </span>-av<span class="w"> </span>/path/to/source/<span class="w"> </span>/path/to/destination/
 </code></pre></div></li>
 <li><code>-a</code>: Archive mode, preserves permissions, times, symbolic links, etc.</li>
 <li><code>-v</code>: Verbose, shows the progress of the transfer.</li>
@@ -915,123 +952,123 @@ rm<span class="w"> </span>-r<span class="w"> </span>directory_name<span class="w
 <h2 id="file-permissions-and-ownership">File Permissions and Ownership</h2>
 <ul>
 <li><strong><code>chmod</code></strong>: Change the permissions of a file or directory.
-  <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>file_name
 </code></pre></div></li>
 <li><strong><code>chown</code></strong>: Change the ownership of a file or directory.
-  <div class="highlight"><pre><span></span><code>chown<span class="w"> </span>user:group<span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>chown<span class="w"> </span>user:group<span class="w"> </span>file_name
 </code></pre></div></li>
 </ul>
 <h2 id="file-viewing-and-editing">File Viewing and Editing</h2>
 <ul>
 <li><strong><code>nano</code>/<code>vim</code></strong>: Text editors for creating and editing files directly in the terminal.
-  <div class="highlight"><pre><span></span><code>nano<span class="w"> </span>file_name
-vim<span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>nano<span class="w"> </span>file_name
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>vim<span class="w"> </span>file_name
 </code></pre></div></li>
 <li><strong><code>less</code></strong>: Display the content of a file one screen at a time.
-  <div class="highlight"><pre><span></span><code>less<span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>less<span class="w"> </span>file_name
 </code></pre></div></li>
 <li><strong><code>head</code></strong>: Show the first few lines of a file.
-  <div class="highlight"><pre><span></span><code>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>file_name<span class="w">   </span><span class="c1"># shows the first 10 lines</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>file_name<span class="w">   </span><span class="c1"># shows the first 10 lines</span>
 </code></pre></div></li>
 <li><strong><code>tail</code></strong>: Show the last few lines of a file.
-  <div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>file_name<span class="w">   </span><span class="c1"># shows the last 10 lines</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>file_name<span class="w">   </span><span class="c1"># shows the last 10 lines</span>
 </code></pre></div></li>
 <li><strong><code>grep</code></strong>: Search for a specific pattern within files.
-  <div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;pattern&quot;</span><span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>grep<span class="w"> </span><span class="s2">&quot;pattern&quot;</span><span class="w"> </span>file_name
 </code></pre></div></li>
 </ul>
 <h2 id="system-information">System Information</h2>
 <ul>
 <li><strong><code>uname</code></strong>: Display basic information about the system.
-  <div class="highlight"><pre><span></span><code>uname<span class="w"> </span>-a<span class="w">   </span><span class="c1"># shows all system information</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>uname<span class="w"> </span>-a<span class="w">   </span><span class="c1"># shows all system information</span>
 </code></pre></div></li>
 <li><strong><code>df</code></strong>: Show disk space usage.
-  <div class="highlight"><pre><span></span><code>df<span class="w"> </span>-h<span class="w">   </span><span class="c1"># human-readable format</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>df<span class="w"> </span>-h<span class="w">   </span><span class="c1"># human-readable format</span>
 </code></pre></div></li>
 <li><strong><code>du</code></strong>: Display the disk usage of files and directories.
-  <div class="highlight"><pre><span></span><code>du<span class="w"> </span>-sh<span class="w"> </span>directory_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>du<span class="w"> </span>-sh<span class="w"> </span>directory_name
 </code></pre></div></li>
 <li><strong><code>free</code></strong>: Show the amount of free and used memory in the system.
-  <div class="highlight"><pre><span></span><code>free<span class="w"> </span>-h
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>free<span class="w"> </span>-h
 </code></pre></div></li>
 <li><strong><code>top</code></strong>: Display real-time system processes and resource usage.
-  <div class="highlight"><pre><span></span><code>top
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>top
 </code></pre></div></li>
 <li><strong><code>ps</code></strong>: Display the currently running processes.
-  <div class="highlight"><pre><span></span><code>ps<span class="w"> </span>aux
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>ps<span class="w"> </span>aux
 </code></pre></div></li>
 </ul>
 <h2 id="network-operations">Network Operations</h2>
 <ul>
 <li><strong><code>ping</code></strong>: Test connectivity to a network host.
-  <div class="highlight"><pre><span></span><code>ping<span class="w"> </span>google.com
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>ping<span class="w"> </span>google.com
 </code></pre></div></li>
 <li><strong><code>ifconfig</code></strong>: Display or configure network interfaces.
-  <div class="highlight"><pre><span></span><code>ifconfig<span class="w">   </span><span class="c1"># use `ip addr` in newer systems</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>ifconfig<span class="w">   </span><span class="c1"># use `ip addr` in newer systems</span>
 </code></pre></div></li>
 <li><strong><code>netstat</code></strong>: Show network connections, routing tables, and more.
-  <div class="highlight"><pre><span></span><code>netstat<span class="w"> </span>-tuln<span class="w">   </span><span class="c1"># shows listening ports</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>netstat<span class="w"> </span>-tuln<span class="w">   </span><span class="c1"># shows listening ports</span>
 </code></pre></div></li>
 <li><strong><code>ssh</code></strong>: Connect to another machine securely over the network.
-  <div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>user@hostname
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>ssh<span class="w"> </span>user@hostname
 </code></pre></div></li>
 </ul>
 <h2 id="process-management">Process Management</h2>
 <ul>
 <li><strong><code>kill</code></strong>: Send a signal to terminate a process.
-  <div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span>PID<span class="w">   </span><span class="c1"># where PID is the process ID</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">kill</span><span class="w"> </span>PID<span class="w">   </span><span class="c1"># where PID is the process ID</span>
 </code></pre></div></li>
 <li><strong><code>killall</code></strong>: Terminate all processes by name.
-  <div class="highlight"><pre><span></span><code>killall<span class="w"> </span>process_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>killall<span class="w"> </span>process_name
 </code></pre></div></li>
 <li><strong><code>bg</code></strong>: Resume a suspended job in the background.
-  <div class="highlight"><pre><span></span><code><span class="nb">bg</span><span class="w"> </span>job_number
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nb">bg</span><span class="w"> </span>job_number
 </code></pre></div></li>
 <li><strong><code>fg</code></strong>: Bring a job to the foreground.
-  <div class="highlight"><pre><span></span><code><span class="nb">fg</span><span class="w"> </span>job_number
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nb">fg</span><span class="w"> </span>job_number
 </code></pre></div></li>
 </ul>
 <h2 id="user-and-group-management">User and Group Management</h2>
 <ul>
 <li><strong><code>adduser</code>/<code>useradd</code></strong>: Add a new user to the system.
-  <div class="highlight"><pre><span></span><code>adduser<span class="w"> </span>username
-useradd<span class="w"> </span>username
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>adduser<span class="w"> </span>username
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>useradd<span class="w"> </span>username
 </code></pre></div></li>
 <li><strong><code>passwd</code></strong>: Change a user’s password.
-  <div class="highlight"><pre><span></span><code>passwd<span class="w"> </span>username
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>passwd<span class="w"> </span>username
 </code></pre></div></li>
 <li><strong><code>su</code></strong>: Switch to another user account.
-  <div class="highlight"><pre><span></span><code>su<span class="w"> </span>-<span class="w"> </span>username
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>su<span class="w"> </span>-<span class="w"> </span>username
 </code></pre></div></li>
 <li><strong><code>sudo</code></strong>: Execute a command with superuser privileges.
-  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span><span class="nb">command</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>sudo<span class="w"> </span><span class="nb">command</span>
 </code></pre></div></li>
 </ul>
 <h2 id="package-management-example-debian-based-systems">Package Management (Example: Debian-based systems)</h2>
 <ul>
 <li><strong><code>apt-get update</code></strong>: Update the package lists.
-  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 </code></pre></div></li>
 <li><strong><code>apt-get install</code></strong>: Install a new package.
-  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>package_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>package_name
 </code></pre></div></li>
 <li><strong><code>apt-get upgrade</code></strong>: Upgrade all installed packages.
-  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
 </code></pre></div></li>
 </ul>
 <h2 id="text-manipulation">Text Manipulation</h2>
 <ul>
 <li><strong><code>echo</code></strong>: Display a line of text.
-  <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
 </code></pre></div></li>
 <li><strong><code>grep</code></strong>: Search for text patterns in files.
-  <div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>grep<span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w"> </span>file_name
 </code></pre></div></li>
 <li><strong><code>sed</code></strong>: Stream editor for filtering and transforming text.
-  <div class="highlight"><pre><span></span><code>sed<span class="w"> </span><span class="s1">&#39;s/old/new/&#39;</span><span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>sed<span class="w"> </span><span class="s1">&#39;s/old/new/&#39;</span><span class="w"> </span>file_name
 </code></pre></div></li>
 <li><strong><code>awk</code></strong>: A powerful text processing language.
-  <div class="highlight"><pre><span></span><code>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span>file_name
 </code></pre></div></li>
 </ul>
 <h2 id="expanded-section-on-text-manipulation-for-fasta-fastq-and-bam-files">Expanded Section on Text Manipulation for FASTA, FASTQ, and BAM Files</h2>
@@ -1042,19 +1079,19 @@ useradd<span class="w"> </span>username
 <ul>
 <li>
 <p><strong><code>grep</code></strong>: Extract sequence identifiers (headers) from a FASTA file.
-  <div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;^&gt;&quot;</span><span class="w"> </span>sequences.fasta
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>grep<span class="w"> </span><span class="s2">&quot;^&gt;&quot;</span><span class="w"> </span>sequences.fasta
 </code></pre></div>
   This command searches for lines starting with <code>&gt;</code> and outputs them, giving you all the headers in the file.</p>
 </li>
 <li>
 <p><strong><code>awk</code></strong>: Count the number of sequences in a FASTA file.
-  <div class="highlight"><pre><span></span><code>awk<span class="w"> </span><span class="s1">&#39;/^&gt;/ {count++} END {print count}&#39;</span><span class="w"> </span>sequences.fasta
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>awk<span class="w"> </span><span class="s1">&#39;/^&gt;/ {count++} END {print count}&#39;</span><span class="w"> </span>sequences.fasta
 </code></pre></div>
   This <code>awk</code> script increments a counter for each header line and prints the total number of sequences at the end.</p>
 </li>
 <li>
 <p><strong><code>sed</code></strong>: Remove description from headers in a FASTA file.
-  <div class="highlight"><pre><span></span><code>sed<span class="w"> </span><span class="s1">&#39;s/\s.*$//&#39;</span><span class="w"> </span>sequences.fasta<span class="w"> </span>&gt;<span class="w"> </span>cleaned_sequences.fasta
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>sed<span class="w"> </span><span class="s1">&#39;s/\s.*$//&#39;</span><span class="w"> </span>sequences.fasta<span class="w"> </span>&gt;<span class="w"> </span>cleaned_sequences.fasta
 </code></pre></div>
   This command keeps only the identifier in each header line by deleting everything after the first space.</p>
 </li>
@@ -1065,19 +1102,19 @@ useradd<span class="w"> </span>username
 <ul>
 <li>
 <p><strong><code>grep</code></strong>: Extract all sequence headers (lines starting with <code>@</code>).
-  <div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;^@&quot;</span><span class="w"> </span>sequences.fastq
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>grep<span class="w"> </span><span class="s2">&quot;^@&quot;</span><span class="w"> </span>sequences.fastq
 </code></pre></div>
   This command will output all sequence headers in a FASTQ file.</p>
 </li>
 <li>
 <p><strong><code>awk</code></strong>: Calculate the total number of reads in a FASTQ file.
-  <div class="highlight"><pre><span></span><code>awk<span class="w"> </span><span class="s1">&#39;{s++} END {print s/4}&#39;</span><span class="w"> </span>sequences.fastq
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>awk<span class="w"> </span><span class="s1">&#39;{s++} END {print s/4}&#39;</span><span class="w"> </span>sequences.fastq
 </code></pre></div>
   Since each read spans four lines (header, sequence, plus, quality), dividing the total line count by four gives the number of reads.</p>
 </li>
 <li>
 <p><strong><code>sed</code></strong>: Convert sequence headers to uppercase (useful if headers have mixed cases).
-  <div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;1~4s/.*/\U&amp;/&#39;</span><span class="w"> </span>sequences.fastq<span class="w"> </span>&gt;<span class="w"> </span>uppercased_headers.fastq
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;1~4s/.*/\U&amp;/&#39;</span><span class="w"> </span>sequences.fastq<span class="w"> </span>&gt;<span class="w"> </span>uppercased_headers.fastq
 </code></pre></div>
   This command converts the headers (every 4th line, starting from line 1) to uppercase.</p>
 </li>
@@ -1088,19 +1125,19 @@ useradd<span class="w"> </span>username
 <ul>
 <li>
 <p><strong><code>samtools</code> &amp; <code>awk</code></strong>: Extract read names and count the total number of unique reads.
-  <div class="highlight"><pre><span></span><code>samtools<span class="w"> </span>view<span class="w"> </span>-h<span class="w"> </span>file.bam<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{if($1 !~ /^@/) print $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>samtools<span class="w"> </span>view<span class="w"> </span>-h<span class="w"> </span>file.bam<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{if($1 !~ /^@/) print $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
 </code></pre></div>
   This command extracts the read names from a BAM file, sorts them, filters out duplicates, and counts the unique entries.</p>
 </li>
 <li>
 <p><strong><code>grep</code></strong>: Filter reads mapped to a specific chromosome.
-  <div class="highlight"><pre><span></span><code>samtools<span class="w"> </span>view<span class="w"> </span>file.bam<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^chr1&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>chr1_reads.sam
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>samtools<span class="w"> </span>view<span class="w"> </span>file.bam<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^chr1&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>chr1_reads.sam
 </code></pre></div>
   This filters out reads that are mapped to chromosome 1.</p>
 </li>
 <li>
 <p><strong><code>awk</code></strong>: Extract and count reads with a specific mapping quality.
-  <div class="highlight"><pre><span></span><code>samtools<span class="w"> </span>view<span class="w"> </span>file.bam<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$5 &gt;= 30&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>samtools<span class="w"> </span>view<span class="w"> </span>file.bam<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$5 &gt;= 30&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
 </code></pre></div>
   This command counts the number of reads with a mapping quality of 30 or higher.</p>
 </li>
@@ -1109,7 +1146,7 @@ useradd<span class="w"> </span>username
 <p>Combining <code>grep</code>, <code>awk</code>, and <code>sed</code> can provide powerful data extraction and manipulation. Here’s an example:</p>
 <ul>
 <li><strong>Extracting and summarizing GC content from FASTA sequences</strong>:
-  <div class="highlight"><pre><span></span><code>awk<span class="w"> </span><span class="s1">&#39;/^&gt;/ {if (seqlen){print gc/seqlen*100}; print; gc=0; seqlen=0; next} {gc+=gsub(/[GgCc]/,&quot;&quot;); seqlen+=length($0)} END {print gc/seqlen*100}&#39;</span><span class="w"> </span>sequences.fasta
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>awk<span class="w"> </span><span class="s1">&#39;/^&gt;/ {if (seqlen){print gc/seqlen*100}; print; gc=0; seqlen=0; next} {gc+=gsub(/[GgCc]/,&quot;&quot;); seqlen+=length($0)} END {print gc/seqlen*100}&#39;</span><span class="w"> </span>sequences.fasta
 </code></pre></div>
   This script calculates the GC content for each sequence and prints it after each sequence header.</li>
 </ul>
@@ -1118,102 +1155,102 @@ useradd<span class="w"> </span>username
 <h3 id="tar"><strong><code>tar</code></strong></h3>
 <p>Archive files into a tarball, which can be compressed using various algorithms.
   - <strong>Create a tarball</strong>: 
-    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-cvf<span class="w"> </span>archive_name.tar<span class="w"> </span>directory_name
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>tar<span class="w"> </span>-cvf<span class="w"> </span>archive_name.tar<span class="w"> </span>directory_name
 </code></pre></div>
   - <strong>Create a compressed tarball with gzip</strong>: 
-    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-czvf<span class="w"> </span>archive_name.tar.gz<span class="w"> </span>directory_name
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>tar<span class="w"> </span>-czvf<span class="w"> </span>archive_name.tar.gz<span class="w"> </span>directory_name
 </code></pre></div>
   - <strong>Create a compressed tarball with bzip2</strong>: 
-    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-cjvf<span class="w"> </span>archive_name.tar.bz2<span class="w"> </span>directory_name
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>tar<span class="w"> </span>-cjvf<span class="w"> </span>archive_name.tar.bz2<span class="w"> </span>directory_name
 </code></pre></div>
   - <strong>Create a compressed tarball with xz</strong>: 
-    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-cJvf<span class="w"> </span>archive_name.tar.xz<span class="w"> </span>directory_name
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>tar<span class="w"> </span>-cJvf<span class="w"> </span>archive_name.tar.xz<span class="w"> </span>directory_name
 </code></pre></div>
   - <strong>Extract a tarball</strong>: 
-    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xvf<span class="w"> </span>archive_name.tar
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>tar<span class="w"> </span>-xvf<span class="w"> </span>archive_name.tar
 </code></pre></div>
   - <strong>Extract a gzip-compressed tarball</strong>: 
-    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xzvf<span class="w"> </span>archive_name.tar.gz
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>tar<span class="w"> </span>-xzvf<span class="w"> </span>archive_name.tar.gz
 </code></pre></div>
   - <strong>Extract a bzip2-compressed tarball</strong>: 
-    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xjvf<span class="w"> </span>archive_name.tar.bz2
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>tar<span class="w"> </span>-xjvf<span class="w"> </span>archive_name.tar.bz2
 </code></pre></div>
   - <strong>Extract an xz-compressed tarball</strong>: 
-    <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xJvf<span class="w"> </span>archive_name.tar.xz
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>tar<span class="w"> </span>-xJvf<span class="w"> </span>archive_name.tar.xz
 </code></pre></div></p>
 <h3 id="gzip"><strong><code>gzip</code></strong></h3>
 <p>Compress files using the gzip algorithm.
   - <strong>Compress a file</strong>: 
-    <div class="highlight"><pre><span></span><code>gzip<span class="w"> </span>file_name
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>gzip<span class="w"> </span>file_name
 </code></pre></div>
   - <strong>Decompress a file</strong>: 
-    <div class="highlight"><pre><span></span><code>gunzip<span class="w"> </span>file_name.gz
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>gunzip<span class="w"> </span>file_name.gz
 </code></pre></div>
   - <strong>Compress a file while keeping the original</strong>: 
-    <div class="highlight"><pre><span></span><code>gzip<span class="w"> </span>-c<span class="w"> </span>file_name<span class="w"> </span>&gt;<span class="w"> </span>file_name.gz
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>gzip<span class="w"> </span>-c<span class="w"> </span>file_name<span class="w"> </span>&gt;<span class="w"> </span>file_name.gz
 </code></pre></div>
   - <strong>List the contents of a gzip-compressed file</strong>: 
-    <div class="highlight"><pre><span></span><code>zcat<span class="w"> </span>file_name.gz
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>zcat<span class="w"> </span>file_name.gz
 </code></pre></div></p>
 <h3 id="bzip2"><strong><code>bzip2</code></strong></h3>
 <p>Compress files using the bzip2 algorithm, which typically achieves better compression than gzip.
   - <strong>Compress a file</strong>: 
-    <div class="highlight"><pre><span></span><code>bzip2<span class="w"> </span>file_name
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>bzip2<span class="w"> </span>file_name
 </code></pre></div>
   - <strong>Decompress a file</strong>: 
-    <div class="highlight"><pre><span></span><code>bunzip2<span class="w"> </span>file_name.bz2
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>bunzip2<span class="w"> </span>file_name.bz2
 </code></pre></div>
   - <strong>Compress a file while keeping the original</strong>: 
-    <div class="highlight"><pre><span></span><code>bzip2<span class="w"> </span>-c<span class="w"> </span>file_name<span class="w"> </span>&gt;<span class="w"> </span>file_name.bz2
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>bzip2<span class="w"> </span>-c<span class="w"> </span>file_name<span class="w"> </span>&gt;<span class="w"> </span>file_name.bz2
 </code></pre></div>
   - <strong>List the contents of a bzip2-compressed file</strong>: 
-    <div class="highlight"><pre><span></span><code>bzcat<span class="w"> </span>file_name.bz2
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>bzcat<span class="w"> </span>file_name.bz2
 </code></pre></div></p>
 <h3 id="zip"><strong><code>zip</code></strong></h3>
 <p>Create a ZIP archive, which can include multiple files and directories.
   - <strong>Create a ZIP archive</strong>: 
-    <div class="highlight"><pre><span></span><code>zip<span class="w"> </span>archive_name.zip<span class="w"> </span>file1<span class="w"> </span>file2<span class="w"> </span>directory_name
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>zip<span class="w"> </span>archive_name.zip<span class="w"> </span>file1<span class="w"> </span>file2<span class="w"> </span>directory_name
 </code></pre></div>
   - <strong>Add files to an existing ZIP archive</strong>: 
-    <div class="highlight"><pre><span></span><code>zip<span class="w"> </span>archive_name.zip<span class="w"> </span>newfile
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>zip<span class="w"> </span>archive_name.zip<span class="w"> </span>newfile
 </code></pre></div>
   - <strong>Extract a ZIP archive</strong>: 
-    <div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>archive_name.zip
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>unzip<span class="w"> </span>archive_name.zip
 </code></pre></div>
   - <strong>List the contents of a ZIP archive</strong>: 
-    <div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>-l<span class="w"> </span>archive_name.zip
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>unzip<span class="w"> </span>-l<span class="w"> </span>archive_name.zip
 </code></pre></div></p>
 <h3 id="7z"><strong><code>7z</code></strong></h3>
 <p>Use the 7-Zip compression tool for high compression ratios and support for many formats.
   - <strong>Create a 7z archive</strong>: 
-    <div class="highlight"><pre><span></span><code>7z<span class="w"> </span>a<span class="w"> </span>archive_name.7z<span class="w"> </span>file1<span class="w"> </span>file2<span class="w"> </span>directory_name
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>7z<span class="w"> </span>a<span class="w"> </span>archive_name.7z<span class="w"> </span>file1<span class="w"> </span>file2<span class="w"> </span>directory_name
 </code></pre></div>
   - <strong>Extract a 7z archive</strong>: 
-    <div class="highlight"><pre><span></span><code>7z<span class="w"> </span>x<span class="w"> </span>archive_name.7z
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>7z<span class="w"> </span>x<span class="w"> </span>archive_name.7z
 </code></pre></div>
   - <strong>List the contents of a 7z archive</strong>: 
-    <div class="highlight"><pre><span></span><code>7z<span class="w"> </span>l<span class="w"> </span>archive_name.7z
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>7z<span class="w"> </span>l<span class="w"> </span>archive_name.7z
 </code></pre></div></p>
 <p>These tools and commands cover a broad range of archiving and compression needs, from simple file compression to handling more complex multi-file archives.</p>
 <h2 id="finding-files">Finding Files</h2>
 <ul>
 <li><strong><code>find</code></strong>: Search for files in a directory hierarchy.
-  <div class="highlight"><pre><span></span><code>find<span class="w"> </span>/path<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;file_name&quot;</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>find<span class="w"> </span>/path<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;file_name&quot;</span>
 </code></pre></div></li>
 <li><strong><code>locate</code></strong>: Quickly find files by name using an indexed database.
-  <div class="highlight"><pre><span></span><code>locate<span class="w"> </span>file_name
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>locate<span class="w"> </span>file_name
 </code></pre></div></li>
 </ul>
 <h2 id="system-monitoring-and-performance">System Monitoring and Performance</h2>
 <ul>
 <li><strong><code>htop</code></strong>: Interactive process viewer (more user-friendly than <code>top</code>).
-  <div class="highlight"><pre><span></span><code>htop
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>htop
 </code></pre></div></li>
 <li><strong><code>vmstat</code></strong>: Report virtual memory statistics.
-  <div class="highlight"><pre><span></span><code>vmstat<span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1"># refreshes every second</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>vmstat<span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1"># refreshes every second</span>
 </code></pre></div></li>
 <li><strong><code>iostat</code></strong>: Report CPU and I/O statistics.
-  <div class="highlight"><pre><span></span><code>iostat
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>iostat
 </code></pre></div></li>
 </ul>
 
@@ -1301,7 +1338,7 @@ useradd<span class="w"> </span>username
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>

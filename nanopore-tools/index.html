@@ -324,6 +324,23 @@
   
   
     <li class="md-tabs__item">
+      <a href="../linuxtutorial/" class="md-tabs__link">
+        
+  
+    
+  
+  Linuxtutorial
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../github/" class="md-tabs__link">
         
   
@@ -615,6 +632,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../linuxtutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linuxtutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../github/" class="md-nav__link">
         
   
@@ -664,10 +701,10 @@ The Dorado basecaller logs are located in <code>/var/log/dorado</code>  </li>
 <p>When running minknow you'll notice that when issuing another path for your reads folder, minkow will issue an error. Redirecting output from the standard <code>/var/lib/minknow/data</code><br />
 might be necessary when you run out of diskspace or simply when you prefer to output your data elsewhere.<br />
 To enable this, you'll need to give the <code>minknow.service</code> writing privileges i.e. make this root.<br />
-<div class="highlight"><span class="filename">Make minknow.service root</span><pre><span></span><code><span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>minknow<span class="w"> </span>stop
-<span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>perl<span class="w"> </span>-i<span class="w"> </span>-pe<span class="w"> </span><span class="s1">&#39;s/(User|Group)=minknow/$1=root/&#39;</span>/lib/systemd/system/minknow.service
-<span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
-<span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>minknow<span class="w"> </span>start
+<div class="highlight"><span class="filename">Make minknow.service root</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>minknow<span class="w"> </span>stop
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>perl<span class="w"> </span>-i<span class="w"> </span>-pe<span class="w"> </span><span class="s1">&#39;s/(User|Group)=minknow/$1=root/&#39;</span>/lib/systemd/system/minknow.service
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>minknow<span class="w"> </span>start
 </code></pre></div></p>
 <h2 id="basecalling-dorado">Basecalling: Dorado</h2>
 <p>Dorado is a high-performance, easy-to-use, open source basecaller for Oxford Nanopore reads. The tool can be installed as a stand alone tool which provides more functionalities than basecalling in Minknow.<br />
@@ -675,18 +712,18 @@ You can find the <a href="https://github.com/nanoporetech/dorado">Dorado github 
 <h3 id="dorado-features">Dorado features</h3>
 <ol>
 <li><strong>Download model</strong> modules are not packed in the software<br />
-<div class="highlight"><pre><span></span><code>dordado<span class="w"> </span>download<span class="w"> </span>--list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dordado<span class="w"> </span>download<span class="w"> </span>--list
 </code></pre></div></li>
 <li>Basecaller<br />
-<div class="highlight"><pre><span></span><code>dorado<span class="w"> </span>basecaller<span class="w"> </span>dna_r10.4.1_e82_400bps_fast@v4.1.0<span class="w"> </span>./input_pod5/<span class="w"> </span>&gt;<span class="w"> </span>output.bam
-dorado<span class="w"> </span>basecaller<span class="w"> </span>dna_r10.4.1_e82_400bps_fast@v4.1.0<span class="w"> </span>./input_pod5/<span class="w"> </span>--emit-fastq<span class="w"> </span>&gt;<span class="w"> </span>output.fastq
-dorado<span class="w"> </span>basecaller<span class="w"> </span>dna_r10.4.1_e82_400bps_fast@v4.1.0<span class="w"> </span>./input_pod5/<span class="w"> </span>--emit-sam<span class="w"> </span>&gt;<span class="w"> </span>output.sam
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dorado<span class="w"> </span>basecaller<span class="w"> </span>dna_r10.4.1_e82_400bps_fast@v4.1.0<span class="w"> </span>./input_pod5/<span class="w"> </span>&gt;<span class="w"> </span>output.bam
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>dorado<span class="w"> </span>basecaller<span class="w"> </span>dna_r10.4.1_e82_400bps_fast@v4.1.0<span class="w"> </span>./input_pod5/<span class="w"> </span>--emit-fastq<span class="w"> </span>&gt;<span class="w"> </span>output.fastq
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>dorado<span class="w"> </span>basecaller<span class="w"> </span>dna_r10.4.1_e82_400bps_fast@v4.1.0<span class="w"> </span>./input_pod5/<span class="w"> </span>--emit-sam<span class="w"> </span>&gt;<span class="w"> </span>output.sam
 </code></pre></div></li>
 <li>Aligner<br />
-<div class="highlight"><pre><span></span><code>dorado<span class="w"> </span>basecaller<span class="w"> </span>-x<span class="w"> </span>cuda:0<span class="w"> </span>--reference<span class="w"> </span>.your-reference.fasta<span class="w"> </span>dna_r10.4.1_e8_400bps_fast@v4.1.0<span class="w"> </span>./pod5<span class="w"> </span>&gt;<span class="w"> </span>aligned.bam
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dorado<span class="w"> </span>basecaller<span class="w"> </span>-x<span class="w"> </span>cuda:0<span class="w"> </span>--reference<span class="w"> </span>.your-reference.fasta<span class="w"> </span>dna_r10.4.1_e8_400bps_fast@v4.1.0<span class="w"> </span>./pod5<span class="w"> </span>&gt;<span class="w"> </span>aligned.bam
 </code></pre></div></li>
 <li>Sequencing summary generation<br />
-<div class="highlight"><pre><span></span><code>dorado<span class="w"> </span>summary<span class="w"> </span>./reads.bam<span class="w"> </span>&gt;<span class="w"> </span>sequencing_summary.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dorado<span class="w"> </span>summary<span class="w"> </span>./reads.bam<span class="w"> </span>&gt;<span class="w"> </span>sequencing_summary.txt
 </code></pre></div></li>
 </ol>
 
@@ -774,7 +811,7 @@ dorado<span class="w"> </span>basecaller<span class="w"> </span>dna_r10.4.1_e82_
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>

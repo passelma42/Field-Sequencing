@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../linuxcommands/">
+        <link rel="prev" href="../linuxtutorial/">
       
       
       
@@ -318,6 +318,23 @@
         
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../linuxtutorial/" class="md-tabs__link">
+        
+  
+    
+  
+  Linuxtutorial
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
     
   
   
@@ -513,6 +530,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../linuxtutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linuxtutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -644,8 +681,8 @@
 <ol>
 <li>
 <p><strong>Initialize a new Git repository:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/your/project
-git<span class="w"> </span>init
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>/path/to/your/project
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>init
 </code></pre></div>
 <ul>
 <li><strong><code>cd /path/to/your/project</code></strong>: Change directory to your project folder.</li>
@@ -654,7 +691,7 @@ git<span class="w"> </span>init
 </li>
 <li>
 <p><strong>Add files to the repository:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
 </code></pre></div>
 <ul>
 <li><strong><code>git add .</code></strong>: Stage all files in the current directory for the next commit.</li>
@@ -662,7 +699,7 @@ git<span class="w"> </span>init
 </li>
 <li>
 <p><strong>Commit the files:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
 </code></pre></div>
 <ul>
 <li><strong><code>git commit -m "Initial commit"</code></strong>: Commit the staged files with a message.</li>
@@ -673,7 +710,7 @@ git<span class="w"> </span>init
 <ol>
 <li>
 <p><strong>Generate an SSH key pair (if you don't have one):</strong></p>
-<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
 </code></pre></div>
 <ul>
 <li><strong><code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code></strong>: Generate a new SSH key with RSA encryption.</li>
@@ -681,8 +718,8 @@ git<span class="w"> </span>init
 </li>
 <li>
 <p><strong>Add the SSH key to your SSH agent:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>ssh-agent<span class="w"> </span>-s<span class="k">)</span><span class="s2">&quot;</span>
-ssh-add<span class="w"> </span>~/.ssh/id_rsa
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>ssh-agent<span class="w"> </span>-s<span class="k">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ssh-add<span class="w"> </span>~/.ssh/id_rsa
 </code></pre></div>
 <ul>
 <li><strong><code>eval "$(ssh-agent -s)"</code></strong>: Start the SSH agent.</li>
@@ -694,7 +731,7 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 <ul>
 <li>
 <p>Copy the SSH key to your clipboard:</p>
-<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/.ssh/id_rsa.pub
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w"> </span>~/.ssh/id_rsa.pub
 </code></pre></div>
 </li>
 <li>
@@ -707,7 +744,7 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 <ol>
 <li>
 <p><strong>Add the remote repository:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:username/repo.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:username/repo.git
 </code></pre></div>
 <ul>
 <li><strong><code>git remote add origin git@github.com:username/repo.git</code></strong>: Add a remote repository with the alias <code>origin</code>.</li>
@@ -715,7 +752,7 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 </li>
 <li>
 <p><strong>Push the local repository to the remote repository:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
 </code></pre></div>
 <ul>
 <li><strong><code>git push -u origin main</code></strong>: Push the local <code>main</code> branch to the <code>origin</code> remote repository and set it as the default upstream branch.</li>
@@ -729,7 +766,7 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 </li>
 <li>
 <p><strong>Stage the changes:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
 </code></pre></div>
 <ul>
 <li><strong><code>git add .</code></strong>: Stage all changed files for the next commit.</li>
@@ -737,7 +774,7 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 </li>
 <li>
 <p><strong>Commit the changes:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Describe your changes&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Describe your changes&quot;</span>
 </code></pre></div>
 <ul>
 <li><strong><code>git commit -m "Describe your changes"</code></strong>: Commit the staged changes with a descriptive message.</li>
@@ -745,7 +782,7 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 </li>
 <li>
 <p><strong>Push the changes to the remote repository:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>push
 </code></pre></div>
 <ul>
 <li><strong><code>git push</code></strong>: Push the committed changes to the remote repository.</li>
@@ -756,7 +793,7 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 <ol>
 <li>
 <p><strong>Fetch the latest changes from the remote repository:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>origin
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
 </code></pre></div>
 <ul>
 <li><strong><code>git fetch origin</code></strong>: Fetch the latest changes from the <code>origin</code> remote repository.</li>
@@ -764,7 +801,7 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 </li>
 <li>
 <p><strong>Merge the fetched changes into your local branch:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>origin/main
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>merge<span class="w"> </span>origin/main
 </code></pre></div>
 <ul>
 <li><strong><code>git merge origin/main</code></strong>: Merge the fetched <code>main</code> branch into your local <code>main</code> branch.</li>
@@ -772,7 +809,7 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 </li>
 <li>
 <p><strong>Pull the latest changes (fetch + merge):</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>pull
 </code></pre></div>
 <ul>
 <li><strong><code>git pull</code></strong>: Fetch and merge the latest changes from the remote repository into your local branch.</li>
@@ -783,38 +820,38 @@ ssh-add<span class="w"> </span>~/.ssh/id_rsa
 <ol>
 <li>
 <p><strong>Initialize Git repository:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/your/project
-git<span class="w"> </span>init
-git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">cd</span><span class="w"> </span>/path/to/your/project
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>git<span class="w"> </span>init
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Generate and add SSH key:</strong></p>
-<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
-<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>ssh-agent<span class="w"> </span>-s<span class="k">)</span><span class="s2">&quot;</span>
-ssh-add<span class="w"> </span>~/.ssh/id_rsa
-cat<span class="w"> </span>~/.ssh/id_rsa.pub
-<span class="c1"># Add the key to your Git hosting account settings</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>ssh-agent<span class="w"> </span>-s<span class="k">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>ssh-add<span class="w"> </span>~/.ssh/id_rsa
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>cat<span class="w"> </span>~/.ssh/id_rsa.pub
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># Add the key to your Git hosting account settings</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Add and push to remote repository:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:username/repo.git
-git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:username/repo.git
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
 </code></pre></div>
 </li>
 <li>
 <p><strong>Make changes and push:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Make changes to your files</span>
-git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Describe your changes&quot;</span>
-git<span class="w"> </span>push
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Make changes to your files</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Describe your changes&quot;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>git<span class="w"> </span>push
 </code></pre></div>
 </li>
 <li>
 <p><strong>Sync with remote repository:</strong></p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>git<span class="w"> </span>pull
 </code></pre></div>
 </li>
 </ol>
@@ -904,7 +941,7 @@ git<span class="w"> </span>push
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>

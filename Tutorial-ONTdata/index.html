@@ -324,6 +324,23 @@
   
   
     <li class="md-tabs__item">
+      <a href="../linuxtutorial/" class="md-tabs__link">
+        
+  
+    
+  
+  Linuxtutorial
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../github/" class="md-tabs__link">
         
   
@@ -647,6 +664,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../linuxtutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linuxtutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../github/" class="md-nav__link">
         
   
@@ -684,7 +721,7 @@ Below you'll find an outline of the data analysis part of this setup including d
 <p>The original data file consists of reads for 27 accessions collected from the area around Campus Sterra at UGhent.<br />
 All the QC examples below are taken from this data set. If you want to test the workflow I have provided a toy data set with reads for 3 accessions.<br />
 You can download the toy-data here:
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/passelma42/Field-Sequencing/raw/main/toy-data.tar.gz
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>https://github.com/passelma42/Field-Sequencing/raw/main/toy-data.tar.gz
 </code></pre></div></p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
@@ -702,7 +739,7 @@ Analysis time was 30 minutes on i7 Intel, 8 core, 16Gb Ram computer.</p>
 The 'Field sequencing kit' from nanopore is legacy at this point (2024) and was replaced by the Rapid Sequencing kits.<br />
 In this <a href="https://community.nanoporetech.com/posts/field-sequencing-kit-repla">post</a> you can find results of a stability experiment of the kit kept at ambient temperature.</p>
 <p><strong>The sequencing data folder</strong>  </p>
-<pre><code>20240506_1258_MN35631_ASX408_61292243/
+<div class="highlight"><pre><span></span><code>20240506_1258_MN35631_ASX408_61292243/
         ├── barcode_alignment_ASX408_61292243_dc2466ae.tsv
         ├── fastq_fail
         ├── fastq_pass
@@ -717,29 +754,29 @@ In this <a href="https://community.nanoporetech.com/posts/field-sequencing-kit-r
         ├── sample_sheet_ASX408_20240506_1302_61292243.csv
         ├── sequencing_summary_ASX408_61292243_dc2466ae.txt
         └── throughput_ASX408_61292243_dc2466ae.csv
-</code></pre>
+</code></pre></div>
 <p><strong>Fastq_pass</strong><br />
 This folder is where you'll find your sequence reads. Basecalling at SUP means that all reads in this folder are q10 or higher.  </p>
-<div class="highlight"><pre><span></span><code>20240506_1258_MN35631_ASX408_61292243/fastq_pass/
-<span class="w">            </span>├──<span class="w"> </span>barcode41
-<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_0.fastq.gz
-<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_1.fastq.gz
-<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_10.fastq.gz
-<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_11.fastq.gz
-<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_12.fastq.gz
-<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_13.fastq.gz
-<span class="w">            </span>├──<span class="w"> </span>barcode42
-<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_0.fastq.gz
-<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_1.fastq.gz
-<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_10.fastq.gz
-<span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_11.fastq.gz
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>20240506_1258_MN35631_ASX408_61292243/fastq_pass/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">            </span>├──<span class="w"> </span>barcode41
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_0.fastq.gz
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_1.fastq.gz
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_10.fastq.gz
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_11.fastq.gz
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_12.fastq.gz
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode41_61292243_dc2466ae_13.fastq.gz
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span>├──<span class="w"> </span>barcode42
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_0.fastq.gz
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_1.fastq.gz
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_10.fastq.gz
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span>│<span class="w">   </span>├──<span class="w"> </span>ASX408_pass_barcode42_61292243_dc2466ae_11.fastq.gz
 </code></pre></div>
 <h3 id="qc-sequence-run">QC sequence run</h3>
 <p>Validating your sequencerun requires you to look at a lot of data. Max throughput of a minion flowcell is 50Gbases! Not hard to imagine that doing this manually is not the way to go. For this job we need dedicated sotware!<br />
 There are different tools for visualizing HTS data. Nanopack is such a tool, opzimized for longread data. For validating the sequence run we can use the <strong>sequencing_summary_ASX408_61292243_dc2466ae.txt</strong> file which is generated by Minknow.  </p>
 <h3 id="tools-and-commands">Tools and Commands</h3>
 <p>Tool: <a href="https://github.com/wdecoster/nanopack">Nanopack</a><br />
-<div class="highlight"><span class="filename">Nanoplot Command</span><pre><span></span><code>NanoPlot<span class="w"> </span>--summary<span class="w"> </span>sequencing_summary_ASX408_61292243_dc2466ae.txt<span class="w"> </span>-o<span class="w"> </span>summary-plots
+<div class="highlight"><span class="filename">Nanoplot Command</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>NanoPlot<span class="w"> </span>--summary<span class="w"> </span>sequencing_summary_ASX408_61292243_dc2466ae.txt<span class="w"> </span>-o<span class="w"> </span>summary-plots
 </code></pre></div>
 <strong>Output</strong>  </p>
 <p>NanoPlot gives you a set of <em>.png plots</em>, <em>.txt statistics</em> and also a handy interactive <em>Report.html</em> file.<br />
@@ -834,43 +871,43 @@ If this doesn't ring a bell, don't care too much, just follow the instructions b
 <ol>
 <li>Download the script.<br />
 The script will loop over your barcode folders containing the demultiplexed fastq files.<br />
-<div class="highlight"><span class="filename">Download and test the script</span><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/passelma42/scrippets/main/nanocomp-allfastq.sh
-$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>nanocomp-allfastq.sh<span class="w">        </span><span class="c1"># Set run permissions for the user</span>
-$<span class="w"> </span>./nanocomp-allfastq.sh<span class="w"> </span>-h<span class="w">             </span><span class="c1"># Display help function</span>
+<div class="highlight"><span class="filename">Download and test the script</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/passelma42/scrippets/main/nanocomp-allfastq.sh
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>nanocomp-allfastq.sh<span class="w">        </span><span class="c1"># Set run permissions for the user</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>$<span class="w"> </span>./nanocomp-allfastq.sh<span class="w"> </span>-h<span class="w">             </span><span class="c1"># Display help function</span>
 </code></pre></div></li>
 <li>Run NanoComp over your samples
 The script will concatenate all fastq files per barcode folder and run nanocomp. After the analysis has finished you'll find a .nanocompout/ folder inside the input folder you issued in the command below (under the <em>-d</em> flag).
-<div class="highlight"><span class="filename">Command</span><pre><span></span><code>./nanocomp-allfastq.sh<span class="w"> </span>-d<span class="w"> </span>./fastq_pass/<span class="w"> </span>-c
+<div class="highlight"><span class="filename">Command</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./nanocomp-allfastq.sh<span class="w"> </span>-d<span class="w"> </span>./fastq_pass/<span class="w"> </span>-c
 </code></pre></div>
-<div class="highlight"><span class="filename">Output</span><pre><span></span><code><span class="o">(</span>nanopack<span class="o">)</span><span class="w"> </span>passelma@grover:~/Analyses/wf-amplicon/ONT-field2-greenhouse/benin-field2-greenhouse-run/testrunQC/fastq_pass/.nanocompout$<span class="w"> </span>tree
-.
-├──<span class="w"> </span>NanoComp-report.html
-├──<span class="w"> </span>NanoComp_20240823_1521.log
-├──<span class="w"> </span>NanoComp_N50.html
-├──<span class="w"> </span>NanoComp_N50.png
-├──<span class="w"> </span>NanoComp_OverlayHistogram.html
-├──<span class="w"> </span>NanoComp_OverlayHistogram.png
-├──<span class="w"> </span>NanoComp_OverlayHistogram_Normalized.html
-├──<span class="w"> </span>NanoComp_OverlayHistogram_Normalized.png
-├──<span class="w"> </span>NanoComp_OverlayHistogram_Weighted.html
-├──<span class="w"> </span>NanoComp_OverlayHistogram_Weighted.png
-├──<span class="w"> </span>NanoComp_OverlayLogHistogram.html
-├──<span class="w"> </span>NanoComp_OverlayLogHistogram.png
-├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Normalized.html
-├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Normalized.png
-├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Weighted.html
-├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Weighted.png
-├──<span class="w"> </span>NanoComp_lengths_violin.html
-├──<span class="w"> </span>NanoComp_lengths_violin.png
-├──<span class="w"> </span>NanoComp_log_length_violin.html
-├──<span class="w"> </span>NanoComp_log_length_violin.png
-├──<span class="w"> </span>NanoComp_number_of_reads.html
-├──<span class="w"> </span>NanoComp_number_of_reads.png
-├──<span class="w"> </span>NanoComp_quals_violin.html
-├──<span class="w"> </span>NanoComp_quals_violin.png
-├──<span class="w"> </span>NanoComp_total_throughput.html
-├──<span class="w"> </span>NanoComp_total_throughput.png
-└──<span class="w"> </span>NanoStats.txt
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">(</span>nanopack<span class="o">)</span><span class="w"> </span>passelma@grover:~/Analyses/wf-amplicon/ONT-field2-greenhouse/benin-field2-greenhouse-run/testrunQC/fastq_pass/.nanocompout$<span class="w"> </span>tree
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>.
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>├──<span class="w"> </span>NanoComp-report.html
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>├──<span class="w"> </span>NanoComp_20240823_1521.log
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>├──<span class="w"> </span>NanoComp_N50.html
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>├──<span class="w"> </span>NanoComp_N50.png
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>├──<span class="w"> </span>NanoComp_OverlayHistogram.html
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>├──<span class="w"> </span>NanoComp_OverlayHistogram.png
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>├──<span class="w"> </span>NanoComp_OverlayHistogram_Normalized.html
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>├──<span class="w"> </span>NanoComp_OverlayHistogram_Normalized.png
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>├──<span class="w"> </span>NanoComp_OverlayHistogram_Weighted.html
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>├──<span class="w"> </span>NanoComp_OverlayHistogram_Weighted.png
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>├──<span class="w"> </span>NanoComp_OverlayLogHistogram.html
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>├──<span class="w"> </span>NanoComp_OverlayLogHistogram.png
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Normalized.html
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Normalized.png
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Weighted.html
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>├──<span class="w"> </span>NanoComp_OverlayLogHistogram_Weighted.png
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>├──<span class="w"> </span>NanoComp_lengths_violin.html
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>├──<span class="w"> </span>NanoComp_lengths_violin.png
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>├──<span class="w"> </span>NanoComp_log_length_violin.html
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>├──<span class="w"> </span>NanoComp_log_length_violin.png
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>├──<span class="w"> </span>NanoComp_number_of_reads.html
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>├──<span class="w"> </span>NanoComp_number_of_reads.png
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>├──<span class="w"> </span>NanoComp_quals_violin.html
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>├──<span class="w"> </span>NanoComp_quals_violin.png
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>├──<span class="w"> </span>NanoComp_total_throughput.html
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>├──<span class="w"> </span>NanoComp_total_throughput.png
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>└──<span class="w"> </span>NanoStats.txt
 </code></pre></div>
 <strong>NanoComp Number of reads per barcode</strong><br />
 Amongst other plots and reports we will have a look at number of reads per barcode.<br />
@@ -893,54 +930,54 @@ But for this tutorial we will run in the <em>de novo</em> mode.  </p>
 <p>Installation guides for wf-amplicon can be found here: <a href="https://labs.epi2me.io/workflows/wf-amplicon/">wf-amplicon Installation guide</a>.  </p>
 <p><strong>Run the workflow</strong><br />
 The workflow can handle different folder layouts. If you followed the above sections of this tutorial, we are working with structure (iii). <br />
-<div class="highlight"><span class="filename">data layout</span><pre><span></span><code><span class="o">(</span>i<span class="o">)</span><span class="w">                     </span><span class="o">(</span>ii<span class="o">)</span><span class="w">                 </span><span class="o">(</span>iii<span class="o">)</span>
-input_reads.fastq<span class="w">   </span>───<span class="w"> </span>input_directory<span class="w">  </span>───<span class="w"> </span>input_directory
-<span class="w">                        </span>├──<span class="w"> </span>reads0.fastq<span class="w">     </span>├──<span class="w"> </span>barcode01
-<span class="w">                        </span>└──<span class="w"> </span>reads1.fastq<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
-<span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads1.fastq
-<span class="w">                                             </span>├──<span class="w"> </span>barcode02
-<span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
-<span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads1.fastq
-<span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads2.fastq
-<span class="w">                                             </span>└──<span class="w"> </span>barcode03
-<span class="w">                                              </span>└──<span class="w"> </span>reads0.fastq
+<div class="highlight"><span class="filename">data layout</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">(</span>i<span class="o">)</span><span class="w">                     </span><span class="o">(</span>ii<span class="o">)</span><span class="w">                 </span><span class="o">(</span>iii<span class="o">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>input_reads.fastq<span class="w">   </span>───<span class="w"> </span>input_directory<span class="w">  </span>───<span class="w"> </span>input_directory
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">                        </span>├──<span class="w"> </span>reads0.fastq<span class="w">     </span>├──<span class="w"> </span>barcode01
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">                        </span>└──<span class="w"> </span>reads1.fastq<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads1.fastq
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">                                             </span>├──<span class="w"> </span>barcode02
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads1.fastq
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads2.fastq
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">                                             </span>└──<span class="w"> </span>barcode03
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">                                              </span>└──<span class="w"> </span>reads0.fastq
 </code></pre></div></p>
 <ol>
 <li>
 <p>Prepare a sample sheet<br />
 This is a comma delimited file with 3 (or 4 if you run in variant mode) sections.<br />
 The sample sheet is a CSV file with, minimally, columns named <em>barcode</em> and <em>alias</em>. Extra columns are allowed. In variant calling mode, a ref column can be added to tell the workflow which reference sequences should be used for which sample
-<div class="highlight"><span class="filename">Example: sample-sheet.csv</span><pre><span></span><code>barcode,alias,type,ref
-barcode01,BC01,test_sample,ref1
-barcode02,BC02,test_sample
-barcode03,BC03,test_sample,ref2
+<div class="highlight"><span class="filename">Example: sample-sheet.csv</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>barcode,alias,type,ref
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>barcode01,BC01,test_sample,ref1
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>barcode02,BC02,test_sample
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>barcode03,BC03,test_sample,ref2
 </code></pre></div></p>
 </li>
 <li>
 <p>Prepare reference file when running <em>variant mode</em><br />
 When using a reference file called <em>reference.fa</em> it need to look like this. Each ref sequence would the represent a genespecific consensus sequence.  This reference will then be used to <em>fish</em> for sequences in your reads to <em>catch</em> and <em>separate</em> per gene.<br />
 For instance if you amplified ITS and rpb2, mix them per sample and used this as a template to build your library, this tool could give you 2 consensus sequences per species: one ITS consensus and one rpb2 consensus.
-<div class="highlight"><span class="filename">Example: reference.fa</span><pre><span></span><code>&gt;ref1
-ATGC
-&gt;ref2
-CGTA
+<div class="highlight"><span class="filename">Example: reference.fa</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&gt;ref1
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>ATGC
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>&gt;ref2
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>CGTA
 </code></pre></div></p>
 </li>
 <li>Run the wf-amplicon on your samples<br />
 The command below will run a singularity container in a nextflow run. The container beeing <em>epi2me-labs/wf-amplicon</em> and the command flags issued by the nextflow tool.<br />
 Rember you have some prepping to do to get your system up and running to be able to run EPI2ME workflows. But believe me, this way is more easier than installing the tools yourself and writing designated scripts to stitch together all data input and oututs to feed into the next program.
-<div class="highlight"><span class="filename">Command to run</span><pre><span></span><code>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--fastq<span class="w"> </span>./fastq<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--reference<span class="w"> </span>./reference.fa<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--sample_sheet<span class="w"> </span>./sample-sheet.csv
-<span class="w">    </span>-c<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-profile<span class="w"> </span>singulairy
-</code></pre></div><pre><code>--fastq: Path to Input folder which holds fastq files or barcode directories  
+<div class="highlight"><span class="filename">Command to run</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span>--fastq<span class="w"> </span>./fastq<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span>--reference<span class="w"> </span>./reference.fa<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span>--sample_sheet<span class="w"> </span>./sample-sheet.csv
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span>-c<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span>-profile<span class="w"> </span>singulairy
+</code></pre></div><div class="highlight"><pre><span></span><code>--fastq: Path to Input folder which holds fastq files or barcode directories  
 --reference: Including this line invoces running in variant mode, delete if you want to run in de novo mode  
 --sample_sheet: Path to sample sheet file  
--c: path to config file, see 'Installation' section of this website  
--profile: We are running the container under the singularity flag, not docker because docker doesn't play nice with HPC
-</code></pre>
+-c: path to config file, see &#39;Installation&#39; section of this website  
+-profile: We are running the container under the singularity flag, not docker because docker doesn&#39;t play nice with HPC
+</code></pre></div>
 </li>
 </ol>
 <div class="admonition notes">
@@ -949,43 +986,43 @@ Rember you have some prepping to do to get your system up and running to be able
 </div>
 <h3 id="get-your-data-out-of-here">Get your data out of here</h3>
 <p>Once the workflow has finished, the output can be found in a folder called <em>output-wf-apmlicon</em>.<br />
-<div class="highlight"><span class="filename">Folder layout</span><pre><span></span><code>.
-├──<span class="w"> </span>output-wf-amplicon
-│<span class="w">   </span>├──<span class="w"> </span>barcode41
-│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>alignments
-│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>aligned.sorted.bam
-│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>aligned.sorted.bam.bai
-│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>consensus
-│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>consensus.fastq
-│<span class="w">   </span>├──<span class="w"> </span>barcode42
-│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>alignments
-│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>aligned.sorted.bam
-│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>aligned.sorted.bam.bai
-│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>consensus
-│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>consensus.fastq
+<div class="highlight"><span class="filename">Folder layout</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>.
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>├──<span class="w"> </span>output-wf-amplicon
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>│<span class="w">   </span>├──<span class="w"> </span>barcode41
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>alignments
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>aligned.sorted.bam
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>aligned.sorted.bam.bai
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>consensus
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>consensus.fastq
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>│<span class="w">   </span>├──<span class="w"> </span>barcode42
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>alignments
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>aligned.sorted.bam
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>aligned.sorted.bam.bai
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>consensus
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>consensus.fastq
 </code></pre></div>
 Offcourse it would be too much to ask if the consensus sequence is given to us in a nice way i.e. having a sensible discriptive name like <em>barcode41.consensus.fastq</em>. Or something similar. "Alas poor Yorick". We'll have to fidle ourselves.<br />
 <strong>Script</strong>: <a href="https://github.com/passelma42/scrippets/blob/main/rename-consensus.sh">rename-consensus.sh</a><br />
 This script will digg into each individual barcode folder and rename the <em>consensus.fastq</em> file accordingly and finally copy it to <em>output-wf-ampmicon</em> folder. Isn't that neat!  </p>
 <ol>
 <li>Download the script and set runpermissions<br />
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://raw.githubusercontent.com/passelma42/scrippets/main/rename-consensus.sh
-chmod<span class="w"> </span>u+x<span class="w"> </span>rename-consensus.sh<span class="w">       </span><span class="c1"># Set run permissions for the user</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>wget<span class="w"> </span>https://raw.githubusercontent.com/passelma42/scrippets/main/rename-consensus.sh
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>chmod<span class="w"> </span>u+x<span class="w"> </span>rename-consensus.sh<span class="w">       </span><span class="c1"># Set run permissions for the user</span>
 </code></pre></div></li>
 <li>Execute the script
-<div class="highlight"><pre><span></span><code>./rename-consensus.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>./rename-consensus.sh
 </code></pre></div></li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Verify you run the script from the <em>output-wf-amplicon</em> folder  </p>
 </div>
-<p><div class="highlight"><span class="filename">Layout folder after rename script</span><pre><span></span><code>/output-wf-amlicon-nosubsample$<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
-<span class="w">    </span>.
-<span class="w">    </span>├──<span class="w"> </span>barcode41
-<span class="w">    </span>├──<span class="w"> </span>barcode41.consensus.fastq
-<span class="w">    </span>├──<span class="w"> </span>barcode42
-<span class="w">    </span>├──<span class="w"> </span>barcode42.consensus.fastq
+<p><div class="highlight"><span class="filename">Layout folder after rename script</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>/output-wf-amlicon-nosubsample$<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span>.
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span>├──<span class="w"> </span>barcode41
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span>├──<span class="w"> </span>barcode41.consensus.fastq
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span>├──<span class="w"> </span>barcode42
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span>├──<span class="w"> </span>barcode42.consensus.fastq
 </code></pre></div>
 This final output gives you one consensus fastq per barcode which now you can use for blast or other alignment tools, phylogenetics,... .  </p>
 
@@ -1073,7 +1110,7 @@ This final output gives you one consensus fastq per barcode which now you can us
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
