@@ -1,0 +1,37 @@
+vsc43352@gligar08:/dev/shm$ll -rt
+total 2097180
+-rw-rw-rw- 1 vsc45000 vsc45000       4096 Aug 17 21:04 lttng-ust-wait-6
+-rw-r----- 1 vsc45000 vsc45000       4096 Aug 17 21:04 lttng-ust-wait-6-2545000
+-rw-rw-r-- 1 vsc44685 vsc44685       1024 Aug 22 11:25 __KMP_REGISTERED_LIB_649219_2544685
+-rw-rw-r-- 1 vsc44685 vsc44685       1024 Aug 22 11:40 __KMP_REGISTERED_LIB_750335_2544685
+-rw-rw-r-- 1 vsc44685 vsc44685       1024 Aug 22 15:01 __KMP_REGISTERED_LIB_822386_2544685
+-rw-rw-r-- 1 vsc45518 vsc45518       1024 Aug 24 09:56 __KMP_REGISTERED_LIB_2578596_2545518
+-rw-rw---- 1 vsc44012 vsc44012       1024 Aug 26 02:37 __KMP_REGISTERED_LIB_3413532_2544012
+-rw-rw-r-- 1 vsc45456 vsc45456       1024 Aug 26 16:48 __KMP_REGISTERED_LIB_32631_2545456
+-rwxr-xr-x 1 vsc43352 vsc43352 2147483679 Aug 28 14:39 CentOS7_EasyBuild.img
+vsc43352@gligar08:/dev/shm$cd
+vsc43352@gligar08:~$cat apptainer-job.sh 
+#!/bin/sh
+
+#PBS -o apptainer.output
+#PBS -e apptainer.error
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=12:00:00
+
+
+apptainer exec /dev/shm/CentOS7_EasyBuild.img ~/my_script.shvsc43352@gligar08:~$cat my_script.sh 
+#!/bin/bash
+
+# prime factors
+factor 1234567
+vsc43352@gligar08:~$qsub apptainer-job.sh 
+20081989
+vsc43352@gligar08:~$qstat
+Job ID     Name             User            Time Use S Queue  
+---------- ---------------- --------------- -------- - -------
+20081988   apptainer-job.sh vsc43352        0:00:04  F donphan
+20081989   apptainer-job.sh vsc43352        0:00:04  F donphan
+
+
+vsc43352@gligar08:~$cat apptainer.error 
+FATAL:   While checking container encryption: could not open image /dev/shm/CentOS7_EasyBuild.img: failed to retrieve path for /dev/shm/CentOS7_EasyBuild.img: lstat /dev/shm/CentOS7_EasyBuild.img: no such file or directory
