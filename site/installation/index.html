@@ -290,6 +290,23 @@
   
   
     <li class="md-tabs__item">
+      <a href="../Tutorial-NanoPack/" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial NanoPack
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../blast/" class="md-tabs__link">
         
   
@@ -313,6 +330,23 @@
     
   
   Essential Linux Commands
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../linuxtutorial/" class="md-tabs__link">
+        
+  
+    
+  
+  Linuxtutorial
 
       </a>
     </li>
@@ -602,6 +636,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../Tutorial-NanoPack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial NanoPack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../blast/" class="md-nav__link">
         
   
@@ -627,6 +681,26 @@
   
   <span class="md-ellipsis">
     Essential Linux Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linuxtutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linuxtutorial
   </span>
   
 
@@ -675,14 +749,14 @@
 Read all about <a href="https://labs.epi2me.io/wfindex/">EPI2ME workflows here</a>.  </p>
 <h2 id="installation-guide">Installation guide</h2>
 <h4 id="java">JAVA</h4>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>default-jre<span class="w"> </span><span class="c1">#install java on ubuntu</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>default-jre<span class="w"> </span><span class="c1">#install java on ubuntu</span>
 </code></pre></div>
 <h3 id="nextflow">NEXTFLOW</h3>
 <p>Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages.  </p>
 <blockquote>
 <p>More information can be found on the <a href="https://www.nextflow.io/">NEXTFLOW WEBSITE</a>.
-<div class="highlight"><span class="filename">Download and install nextflow</span><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>https://get.nextflow.io<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="c1"># install nextflow</span>
+<div class="highlight"><span class="filename">Download and install nextflow</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-s<span class="w"> </span>https://get.nextflow.io<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span><span class="c1"># install nextflow</span>
 </code></pre></div></p>
 </blockquote>
 <h3 id="go">GO</h3>
@@ -690,19 +764,19 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <blockquote>
 <p>More information can be found on the <a href="https://docs.sylabs.io/guides/3.0/user-guide/quick_start.html#quick-installation-steps">Singularity installation guide website</a>.  </p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="c1"># Install</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span><span class="m">1</span>.11<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>amd64<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>wget<span class="w"> </span>https://dl.google.com/go/go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>sudo<span class="w"> </span>tar<span class="w"> </span>-C<span class="w"> </span>/usr/local<span class="w"> </span>-xzvf<span class="w"> </span>go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>rm<span class="w"> </span>go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz
-
-<span class="c1"># setup GO environment</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GOPATH=${HOME}/go&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
-
-<span class="c1"># install dep for dependency resolution</span>
-<span class="w">    </span>go<span class="w"> </span>get<span class="w"> </span>-u<span class="w"> </span>github.com/golang/dep/cmd/dep
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Install</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span><span class="m">1</span>.11<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>linux<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>amd64<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span>wget<span class="w"> </span>https://dl.google.com/go/go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span>sudo<span class="w"> </span>tar<span class="w"> </span>-C<span class="w"> </span>/usr/local<span class="w"> </span>-xzvf<span class="w"> </span>go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span>rm<span class="w"> </span>go<span class="nv">$VERSION</span>.<span class="nv">$OS</span>-<span class="nv">$ARCH</span>.tar.gz
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># setup GO environment</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export GOPATH=${HOME}/go&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># install dep for dependency resolution</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span>go<span class="w"> </span>get<span class="w"> </span>-u<span class="w"> </span>github.com/golang/dep/cmd/dep
 </code></pre></div>
 <h3 id="singularity">Singularity</h3>
 <p>Singularity is a container platform. It allows you to create and run containers that package up pieces of software in a way that is portable and reproducible. You can build a container using Singularity on your laptop, and then run it on many of the largest HPC clusters in the world, local university or company clusters, a single server, in the cloud, or on a workstation down the hall.<br />
@@ -711,18 +785,18 @@ Your container is a single file, and you don’t have to worry about how to inst
 <p>More information can be found on the <a href="https://docs.sylabs.io/guides/3.5/user-guide/introduction.html">Singularity introduction page</a>.  </p>
 </blockquote>
 <p><strong>Installation</strong>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span><span class="m">3</span>.0.3<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="c1"># adjust this as necessary \</span>
-<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$GOPATH</span>/src/github.com/sylabs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$GOPATH</span>/src/github.com/sylabs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>wget<span class="w"> </span>https://github.com/sylabs/singularity/releases/download/v<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>/singularity-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>tar<span class="w"> </span>-xzf<span class="w"> </span>singularity-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">cd</span><span class="w"> </span>./singularity<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>./mconfig
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">VERSION</span><span class="o">=</span><span class="m">3</span>.0.3<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="c1"># adjust this as necessary \</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$GOPATH</span>/src/github.com/sylabs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$GOPATH</span>/src/github.com/sylabs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span>wget<span class="w"> </span>https://github.com/sylabs/singularity/releases/download/v<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>/singularity-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span>tar<span class="w"> </span>-xzf<span class="w"> </span>singularity-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nb">cd</span><span class="w"> </span>./singularity<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span>./mconfig
 </code></pre></div>
 <strong>Compile</strong>
-<div class="highlight"><pre><span></span><code>./mconfig<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>make<span class="w"> </span>-C<span class="w"> </span>./builddir<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>sudo<span class="w"> </span>make<span class="w"> </span>-C<span class="w"> </span>./builddir<span class="w"> </span>install
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./mconfig<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span>make<span class="w"> </span>-C<span class="w"> </span>./builddir<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span>sudo<span class="w"> </span>make<span class="w"> </span>-C<span class="w"> </span>./builddir<span class="w"> </span>install
 </code></pre></div>
 <strong>Singularity cache folder</strong>  </p>
 <p>Save storage space on your computer.<br />
@@ -744,36 +818,36 @@ Follow these steps to do just this:  </p>
 <li>
 <p><strong>Locate the .img files</strong><br />
     The wf-amplicon will create a <code>./work/singularity</code> folder in your projcet folder. 
-    <div class="highlight"><pre><span></span><code>pieter@UGENT-PC:~/Analyses/wf-amplicon/work
-$<span class="w"> </span>ls
-0f<span class="w">  </span><span class="m">14</span><span class="w">  </span><span class="m">24</span><span class="w">  </span>2d<span class="w">  </span>3f<span class="w">  </span><span class="m">46</span><span class="w">  </span><span class="m">49</span><span class="w">  </span><span class="m">54</span><span class="w">  </span>5b<span class="w">  </span><span class="m">63</span><span class="w">  </span>6d<span class="w">  </span><span class="m">77</span><span class="w">  </span>7b<span class="w">  </span><span class="m">80</span><span class="w">  </span><span class="m">85</span><span class="w">  </span><span class="m">93</span><span class="w">  </span>9b<span class="w">  </span>9f<span class="w">  </span>a1<span class="w">  </span>a4<span class="w">  </span>af<span class="w">  </span>b5<span class="w">  </span>bc<span class="w">  </span>cc<span class="w">  </span>d6<span class="w">  </span>e5<span class="w">  </span>e8<span class="w">  </span>singularity
-<span class="m">11</span><span class="w">  </span>1e<span class="w">  </span>2b<span class="w">  </span>3c<span class="w">  </span><span class="m">40</span><span class="w">  </span><span class="m">47</span><span class="w">  </span>4c<span class="w">  </span><span class="m">56</span><span class="w">  </span>5d<span class="w">  </span>6b<span class="w">  </span><span class="m">71</span><span class="w">  </span><span class="m">78</span><span class="w">  </span>7f<span class="w">  </span><span class="m">82</span><span class="w">  </span><span class="m">89</span><span class="w">  </span><span class="m">96</span><span class="w">  </span>9c<span class="w">  </span>a0<span class="w">  </span>a3<span class="w">  </span>ac<span class="w">  </span>b0<span class="w">  </span>b6<span class="w">  </span>c8<span class="w">  </span>d0<span class="w">  </span>db<span class="w">  </span>e6<span class="w">  </span>ee
-<span class="o">(</span>base<span class="o">)</span>
-pieter@UGENT-PC~/Analyses/wf-amplicon/work
-$<span class="w"> </span>ls<span class="w"> </span>singularity/
-ontresearch-medaka-sha61a9438d745a78030738352e084445a2db3daa2a.img<span class="w">       </span>ontresearch-wf-common-sha91452ece4f647f62b32dac3a614635a6f0d7f8b5.img
-ontresearch-wf-amplicon-sha3b6a08c2ed47efd85b17b98762951fffdeee5ba9.img
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pieter@UGENT-PC:~/Analyses/wf-amplicon/work
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$<span class="w"> </span>ls
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>0f<span class="w">  </span><span class="m">14</span><span class="w">  </span><span class="m">24</span><span class="w">  </span>2d<span class="w">  </span>3f<span class="w">  </span><span class="m">46</span><span class="w">  </span><span class="m">49</span><span class="w">  </span><span class="m">54</span><span class="w">  </span>5b<span class="w">  </span><span class="m">63</span><span class="w">  </span>6d<span class="w">  </span><span class="m">77</span><span class="w">  </span>7b<span class="w">  </span><span class="m">80</span><span class="w">  </span><span class="m">85</span><span class="w">  </span><span class="m">93</span><span class="w">  </span>9b<span class="w">  </span>9f<span class="w">  </span>a1<span class="w">  </span>a4<span class="w">  </span>af<span class="w">  </span>b5<span class="w">  </span>bc<span class="w">  </span>cc<span class="w">  </span>d6<span class="w">  </span>e5<span class="w">  </span>e8<span class="w">  </span>singularity
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="m">11</span><span class="w">  </span>1e<span class="w">  </span>2b<span class="w">  </span>3c<span class="w">  </span><span class="m">40</span><span class="w">  </span><span class="m">47</span><span class="w">  </span>4c<span class="w">  </span><span class="m">56</span><span class="w">  </span>5d<span class="w">  </span>6b<span class="w">  </span><span class="m">71</span><span class="w">  </span><span class="m">78</span><span class="w">  </span>7f<span class="w">  </span><span class="m">82</span><span class="w">  </span><span class="m">89</span><span class="w">  </span><span class="m">96</span><span class="w">  </span>9c<span class="w">  </span>a0<span class="w">  </span>a3<span class="w">  </span>ac<span class="w">  </span>b0<span class="w">  </span>b6<span class="w">  </span>c8<span class="w">  </span>d0<span class="w">  </span>db<span class="w">  </span>e6<span class="w">  </span>ee
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="o">(</span>base<span class="o">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>pieter@UGENT-PC~/Analyses/wf-amplicon/work
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>$<span class="w"> </span>ls<span class="w"> </span>singularity/
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>ontresearch-medaka-sha61a9438d745a78030738352e084445a2db3daa2a.img<span class="w">       </span>ontresearch-wf-common-sha91452ece4f647f62b32dac3a614635a6f0d7f8b5.img
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>ontresearch-wf-amplicon-sha3b6a08c2ed47efd85b17b98762951fffdeee5ba9.img
 </code></pre></div>
     In this folder you'll find the <code>.img</code> files you need later.  </p>
 </li>
 <li>
 <p><strong>Copy the <code>.img</code> files to a local folder</strong><br />
     To avoid this create cache folder to store downloaded images when running epi2me labs. For each new analysis you run with epi2me make sure to put the image in this folder.<br />
-    <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/path/to/singularity-img
-cp<span class="w"> </span>~/Analyses/wf-amplicon/work/singularity/*.img<span class="w"> </span>/path/to/singularity-img<span class="w"> </span><span class="c1"># this will copy all img files to your folder created in previou step, don&#39;t forget to personalize the paths  </span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mkdir<span class="w"> </span>/path/to/singularity-img
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>cp<span class="w"> </span>~/Analyses/wf-amplicon/work/singularity/*.img<span class="w"> </span>/path/to/singularity-img<span class="w"> </span><span class="c1"># this will copy all img files to your folder created in previou step, don&#39;t forget to personalize the paths  </span>
 </code></pre></div>
 <strong>Create nextflow config file</strong><br />
 Now it is time to configure nextflow which is used to <em>stitch</em> all the singularity containers from wf-amplicon together.<br />
 We will create a file that will be checked running each wf and redirects singularity to find the images stored locally rather than download them each time.<br />
 <a href="https://www.nextflow.io/docs/latest/config.html">More info on nextflow configuration file</a>.<br />
 Process:<br />
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/home/sequencing/nextflow-config<span class="w"> </span><span class="c1"># /home/sequencing is in this case an example of your user&#39;s home directory. User is called *sequencer* in this example.  </span>
-touch<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mkdir<span class="w"> </span>/home/sequencing/nextflow-config<span class="w"> </span><span class="c1"># /home/sequencing is in this case an example of your user&#39;s home directory. User is called *sequencer* in this example.  </span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>touch<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config
 </code></pre></div>
-<div class="highlight"><span class="filename">nextflow.config</span><pre><span></span><code>singularity<span class="w"> </span><span class="o">{</span><span class="w"> </span>
-<span class="w">    </span><span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
-<span class="w">    </span><span class="nv">cacheDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/path/to/singularity-img
-<span class="o">}</span><span class="w"> </span>
+<div class="highlight"><span class="filename">nextflow.config</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>singularity<span class="w"> </span><span class="o">{</span><span class="w"> </span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nv">cacheDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/path/to/singularity-img
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="o">}</span><span class="w"> </span>
 </code></pre></div></p>
 </li>
 </ol>
@@ -783,22 +857,22 @@ touch<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config
 <ol>
 <li><strong>Set the Environment Variable</strong>:</li>
 <li>You can set the environment variable in your shell before running Nextflow. For example:
-     <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">NXF_SINGULARITY_CACHEDIR</span><span class="o">=</span>/home/pieter/singularity-img
+     <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NXF_SINGULARITY_CACHEDIR</span><span class="o">=</span>/home/pieter/singularity-img
 </code></pre></div></li>
 <li><strong>Set the Environment Variable Permanently</strong> (Optional):</li>
 <li>To make this change permanent, you can add the <code>export</code> command to your shell’s configuration file (e.g., <code>~/.bashrc</code> or <code>~/.bash_profile</code> for bash):
-     <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export NXF_SINGULARITY_CACHEDIR=/home/pieter/singularity-img&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+     <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export NXF_SINGULARITY_CACHEDIR=/home/pieter/singularity-img&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 </code></pre></div></li>
 <li>
 <p>Reload your shell configuration:
-     <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
+     <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </code></pre></div></p>
 </li>
 <li>
 <p><strong>Verify the Configuration</strong>:</p>
 </li>
 <li>Run the pipeline again to ensure the warning disappears:
-     <div class="highlight"><pre><span></span><code>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span>--fastq<span class="w"> </span>./fastq<span class="w"> </span>--sample_sheet<span class="w"> </span>./sample-sheet.csv<span class="w"> </span>--porechop<span class="w"> </span>--discard_middle<span class="w"> </span>--out_dir<span class="w"> </span>output-wf-amlicon-toydata-bis
+     <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span>--fastq<span class="w"> </span>./fastq<span class="w"> </span>--sample_sheet<span class="w"> </span>./sample-sheet.csv<span class="w"> </span>--porechop<span class="w"> </span>--discard_middle<span class="w"> </span>--out_dir<span class="w"> </span>output-wf-amlicon-toydata-bis
 </code></pre></div></li>
 </ol>
 <p>This should direct Nextflow to use the specified cache directory for Singularity images, avoiding the warning and ensuring images are stored in your preferred location.</p>
@@ -806,34 +880,34 @@ touch<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config
 <p>This workflow performs the analysis of reads generated from PCR amplicons. After some pre-processing, reads are either aligned to a reference (containing the expected sequence for each amplicon) for variant calling or the amplicon’s consensus sequence is generated <em>de novo</em>.  </p>
 <p>Installation guides for wf-amplicon can be found here: <a href="https://labs.epi2me.io/workflows/wf-amplicon/">wf-amplicon Installation guide</a>.  </p>
 <h3 id="run-the-workflow">Run the workflow</h3>
-<p><div class="highlight"><span class="filename">data layout</span><pre><span></span><code><span class="o">(</span>i<span class="o">)</span><span class="w">                     </span><span class="o">(</span>ii<span class="o">)</span><span class="w">                 </span><span class="o">(</span>iii<span class="o">)</span>
-input_reads.fastq<span class="w">   </span>───<span class="w"> </span>input_directory<span class="w">  </span>───<span class="w"> </span>input_directory
-<span class="w">                        </span>├──<span class="w"> </span>reads0.fastq<span class="w">     </span>├──<span class="w"> </span>barcode01
-<span class="w">                        </span>└──<span class="w"> </span>reads1.fastq<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
-<span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads1.fastq
-<span class="w">                                             </span>├──<span class="w"> </span>barcode02
-<span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
-<span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads1.fastq
-<span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads2.fastq
-<span class="w">                                             </span>└──<span class="w"> </span>barcode03
-<span class="w">                                              </span>└──<span class="w"> </span>reads0.fastq
+<p><div class="highlight"><span class="filename">data layout</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">(</span>i<span class="o">)</span><span class="w">                     </span><span class="o">(</span>ii<span class="o">)</span><span class="w">                 </span><span class="o">(</span>iii<span class="o">)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>input_reads.fastq<span class="w">   </span>───<span class="w"> </span>input_directory<span class="w">  </span>───<span class="w"> </span>input_directory
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">                        </span>├──<span class="w"> </span>reads0.fastq<span class="w">     </span>├──<span class="w"> </span>barcode01
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">                        </span>└──<span class="w"> </span>reads1.fastq<span class="w">     </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads1.fastq
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">                                             </span>├──<span class="w"> </span>barcode02
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads0.fastq
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">                                             </span>│<span class="w">   </span>├──<span class="w"> </span>reads1.fastq
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">                                             </span>│<span class="w">   </span>└──<span class="w"> </span>reads2.fastq
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">                                             </span>└──<span class="w"> </span>barcode03
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">                                              </span>└──<span class="w"> </span>reads0.fastq
 </code></pre></div>
-<div class="highlight"><span class="filename">Command to run</span><pre><span></span><code>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--fastq<span class="w"> </span>./fastq<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--reference<span class="w"> </span>./reference.fa<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--sample_sheet<span class="w"> </span>./sample-sheet.csv
-<span class="w">    </span>-c<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config<span class="w"> </span><span class="se">\ </span><span class="c1">#this can be omitted if you set the variable in your .bashrc</span>
-<span class="w">    </span>-profile<span class="w"> </span>singulairy
+<div class="highlight"><span class="filename">Command to run</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span>--fastq<span class="w"> </span>./fastq<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span>--reference<span class="w"> </span>./reference.fa<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span>--sample_sheet<span class="w"> </span>./sample-sheet.csv
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span>-c<span class="w"> </span>/home/sequencing/nextflow-config/nextflow.config<span class="w"> </span><span class="se">\ </span><span class="c1">#this can be omitted if you set the variable in your .bashrc</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span>-profile<span class="w"> </span>singulairy
 </code></pre></div>
-<div class="highlight"><span class="filename">Example: sample-sheet.csv</span><pre><span></span><code>barcode,alias,type,ref
-barcode41,BC41,test_sample,ref1
-barcode42,BC42,test_sample
-barcode43,BC43,test_sample,ref2
+<div class="highlight"><span class="filename">Example: sample-sheet.csv</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>barcode,alias,type,ref
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>barcode41,BC41,test_sample,ref1
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>barcode42,BC42,test_sample
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>barcode43,BC43,test_sample,ref2
 </code></pre></div>
-<div class="highlight"><span class="filename">Example: reference.fa</span><pre><span></span><code>&gt;ref1
-ATGC
-&gt;ref2
-CGTA
+<div class="highlight"><span class="filename">Example: reference.fa</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>&gt;ref1
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>ATGC
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>&gt;ref2
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>CGTA
 </code></pre></div></p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
@@ -932,7 +1006,7 @@ CGTA
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>

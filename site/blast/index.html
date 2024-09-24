@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../Tutorial-ONTdata/">
+        <link rel="prev" href="../Tutorial-NanoPack/">
       
       
         <link rel="next" href="../linuxcommands/">
@@ -286,6 +286,23 @@
         
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../Tutorial-NanoPack/" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial NanoPack
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
     
   
   
@@ -313,6 +330,23 @@
     
   
   Essential Linux Commands
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../linuxtutorial/" class="md-tabs__link">
+        
+  
+    
+  
+  Linuxtutorial
 
       </a>
     </li>
@@ -463,6 +497,26 @@
   
   <span class="md-ellipsis">
     Tutorial ONTdata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorial-NanoPack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial NanoPack
   </span>
   
 
@@ -704,6 +758,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../linuxtutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linuxtutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../github/" class="md-nav__link">
         
   
@@ -763,7 +837,7 @@ You can <a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">
 <ol>
 <li><a href="https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/">Download the latest executable</a></li>
 <li>Unpack the download file:<br />
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>xzvf<span class="w"> </span>yourfile.tar.gz
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tar<span class="w"> </span>xzvf<span class="w"> </span>yourfile.tar.gz
 </code></pre></div>
 <strong>NOTE</strong>: It is always good pracktice to install bioinformatic software (if installed from source) to a designated <strong>bioinfo</strong> folder i.e. <strong>/usr/local/bionfo</strong>.<br />
           From here you can create a symlink to a folder in your $PATH f.i. /usr/local/bin</li>
@@ -778,53 +852,53 @@ Database sets may be retrieved automatically with update_blastdb.pl, which is pa
       Each of these files represents a subset (volume) of that database,
       and all of them are needed to reconstitute the database.</li>
 <li>Extract:
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.gz<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.gz<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
 </code></pre></div></li>
 <li>After extraction, there is no need to concatenate the resulting files:
       Call the database with the base name, for nr database files, use "-db nt".</li>
 </ol>
 <p><strong>NOTE</strong>: For easy download, use the update_blastdb.pl script from the blast+ package.
      Run following command in your db folder:
-<div class="highlight"><pre><span></span><code>perl<span class="w"> </span>update_blastdb.pl<span class="w"> </span>--decompress<span class="w"> </span>nt<span class="w"> </span><span class="c1"># or any other prefix for you db of coice</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>perl<span class="w"> </span>update_blastdb.pl<span class="w"> </span>--decompress<span class="w"> </span>nt<span class="w"> </span><span class="c1"># or any other prefix for you db of coice</span>
 </code></pre></div>
 <strong>NOTE</strong>: if the ncbi server runs slow, the update command could rise connection issues.
   Sometimes it is easier to download manually from the <a href="https://ftp.ncbi.nlm.nih.gov/blast/db/">ftp db website</a>:
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz
-wget<span class="w"> </span>https://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz.md5
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>wget<span class="w"> </span>https://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>wget<span class="w"> </span>https://ftp.ncbi.nlm.nih.gov/blast/db/nt.???.tar.gz.md5
 </code></pre></div></p>
 <h4 id="build-local-db">Build Local DB</h4>
 <p>If you want to build your own database based on fasta sequences take a look <a href="https://www.ncbi.nlm.nih.gov/books/NBK569841/">here</a> for more details.<br />
-<div class="highlight"><span class="filename">Example</span><pre><span></span><code>$<span class="w"> </span>makeblastdb<span class="w"> </span>-in<span class="w"> </span>test.fsa<span class="w"> </span>-parse_seqids<span class="w"> </span>-blastdb_version<span class="w"> </span><span class="m">5</span><span class="w"> </span>-taxid_map<span class="w"> </span>test_map.txt<span class="w"> </span>-title<span class="w"> </span><span class="s2">&quot;Cookbook demo&quot;</span><span class="w"> </span>-dbtype<span class="w"> </span>prot
-
-
-Building<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>DB,<span class="w"> </span>current<span class="w"> </span>time:<span class="w"> </span><span class="m">02</span>/06/2019<span class="w"> </span><span class="m">17</span>:08:14
-New<span class="w"> </span>DB<span class="w"> </span>name:<span class="w">   </span>test.fsa
-New<span class="w"> </span>DB<span class="w"> </span>title:<span class="w">  </span>Cookbook<span class="w"> </span>demo
-Sequence<span class="w"> </span>type:<span class="w"> </span>Protein
-Keep<span class="w"> </span>MBits:<span class="w"> </span>T
-Maximum<span class="w"> </span>file<span class="w"> </span>size:<span class="w"> </span>1000000000B
-Adding<span class="w"> </span>sequences<span class="w"> </span>from<span class="w"> </span>FASTA<span class="p">;</span><span class="w"> </span>added<span class="w"> </span><span class="m">6</span><span class="w"> </span>sequences<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.00222588<span class="w"> </span>seconds.
-$
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>makeblastdb<span class="w"> </span>-in<span class="w"> </span>test.fsa<span class="w"> </span>-parse_seqids<span class="w"> </span>-blastdb_version<span class="w"> </span><span class="m">5</span><span class="w"> </span>-taxid_map<span class="w"> </span>test_map.txt<span class="w"> </span>-title<span class="w"> </span><span class="s2">&quot;Cookbook demo&quot;</span><span class="w"> </span>-dbtype<span class="w"> </span>prot
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Building<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>DB,<span class="w"> </span>current<span class="w"> </span>time:<span class="w"> </span><span class="m">02</span>/06/2019<span class="w"> </span><span class="m">17</span>:08:14
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>New<span class="w"> </span>DB<span class="w"> </span>name:<span class="w">   </span>test.fsa
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>New<span class="w"> </span>DB<span class="w"> </span>title:<span class="w">  </span>Cookbook<span class="w"> </span>demo
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Sequence<span class="w"> </span>type:<span class="w"> </span>Protein
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Keep<span class="w"> </span>MBits:<span class="w"> </span>T
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Maximum<span class="w"> </span>file<span class="w"> </span>size:<span class="w"> </span>1000000000B
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Adding<span class="w"> </span>sequences<span class="w"> </span>from<span class="w"> </span>FASTA<span class="p">;</span><span class="w"> </span>added<span class="w"> </span><span class="m">6</span><span class="w"> </span>sequences<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.00222588<span class="w"> </span>seconds.
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>$
 </code></pre></div></p>
 <h4 id="configuration">Configuration</h4>
 <p>To set the env for blastn you can make a configuration file named .ncbirc (on Unix-like platforms) or ncbi.ini (on Windows) in your home directory  </p>
-<div class="highlight"><pre><span></span><code>touch<span class="w"> </span>~/.ncbirc<span class="w"> </span><span class="o">&amp;&amp;</span>
-<span class="nb">echo</span><span class="w"> </span><span class="o">[</span>BLAST<span class="o">]</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ncbirc
-<span class="nb">echo</span><span class="w"> </span><span class="o">[</span>BLASTDB<span class="o">]=</span>/path/to/databases<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ncbirc
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>touch<span class="w"> </span>~/.ncbirc<span class="w"> </span><span class="o">&amp;&amp;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">echo</span><span class="w"> </span><span class="o">[</span>BLAST<span class="o">]</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ncbirc
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">echo</span><span class="w"> </span><span class="o">[</span>BLASTDB<span class="o">]=</span>/path/to/databases<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ncbirc
 </code></pre></div>
 <p>More available parameters can be set in the config file.
 More detailed info on configurateion can be found <a href="https://www.ncbi.nlm.nih.gov/books/NBK569858/">here</a> </p>
 <h3 id="command-line">Command line</h3>
 <h4 id="quick-run">Quick run</h4>
-<div class="highlight"><pre><span></span><code>blastn<span class="w"> </span>–db<span class="w"> </span>nt<span class="w"> </span>–query<span class="w"> </span>nt.fsa<span class="w"> </span>–out<span class="w"> </span>results.out
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>blastn<span class="w"> </span>–db<span class="w"> </span>nt<span class="w"> </span>–query<span class="w"> </span>nt.fsa<span class="w"> </span>–out<span class="w"> </span>results.out
 </code></pre></div>
 <h4 id="personalized-outputformat">Personalized outputformat</h4>
-<div class="highlight"><pre><span></span><code>blastn<span class="w"> </span>-db<span class="w"> </span>nt<span class="w"> </span><span class="se">\ </span><span class="c1"># nt is the name (prefix) you gave your db</span>
-<span class="w">  </span>-query<span class="w"> </span>/path/to/fastafiles<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-out<span class="w"> </span>/path/to/output/out<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-max_target_seqs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-outfmt<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="m">6</span><span class="w"> </span>qseqid<span class="w"> </span>sseqid<span class="w"> </span>pident<span class="w"> </span>length<span class="w"> </span>mismatch<span class="w"> </span>gapopen<span class="w"> </span>qstart<span class="w"> </span>qend<span class="w"> </span>sstart<span class="w"> </span>send<span class="w"> </span>evalue<span class="w"> </span>bitscore<span class="w"> </span>staxids<span class="w"> </span>sscinames<span class="w"> </span>sskingdoms<span class="w"> </span>qcovs<span class="s2">&quot; \</span>
-<span class="s2">  -num_trheads </span><span class="k">$(</span>THREADS<span class="k">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>blastn<span class="w"> </span>-db<span class="w"> </span>nt<span class="w"> </span><span class="se">\ </span><span class="c1"># nt is the name (prefix) you gave your db</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>-query<span class="w"> </span>/path/to/fastafiles<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>-out<span class="w"> </span>/path/to/output/out<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span>-max_target_seqs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span>-outfmt<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="m">6</span><span class="w"> </span>qseqid<span class="w"> </span>sseqid<span class="w"> </span>pident<span class="w"> </span>length<span class="w"> </span>mismatch<span class="w"> </span>gapopen<span class="w"> </span>qstart<span class="w"> </span>qend<span class="w"> </span>sstart<span class="w"> </span>send<span class="w"> </span>evalue<span class="w"> </span>bitscore<span class="w"> </span>staxids<span class="w"> </span>sscinames<span class="w"> </span>sskingdoms<span class="w"> </span>qcovs<span class="s2">&quot; \</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="s2">  -num_trheads </span><span class="k">$(</span>THREADS<span class="k">)</span>
 </code></pre></div>
 <ul>
 <li>
@@ -874,7 +948,7 @@ If you need another database, please avoid installing it into your own account f
 <p><strong>Location</strong>: /data/gent/vo/001/gvo00142/data_share_group/databases_blast/ <br />
 <strong>Configuration db</strong>: Create a ncbirc file (see above for instructions) and save in your home folder (/user/gent/433/<strong>yourvscnumber</strong>)  </p>
 <p><strong>Alternative</strong>: add this line to your .bashrc file:  </p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BLASTDB</span><span class="o">=</span>/data/gent/vo/001/gvo00142/data_share_group/databases_blast/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BLASTDB</span><span class="o">=</span>/data/gent/vo/001/gvo00142/data_share_group/databases_blast/
 </code></pre></div>
 <h4 id="updates">Updates</h4>
 <p>Instllation dates are always part of the folder where you can find the databasefiles, if you feel it is not up to date, give a shout out to Pieter or make an update yourself if you know how to.
@@ -882,8 +956,8 @@ When you need another type of db wchich you frequently use and others might bene
 <h4 id="usage">Usage</h4>
 <ol>
 <li>Make sure your env value for $BLASTDB is set correctly.<br />
-<div class="highlight"><pre><span></span><code><span class="gp">vsc43352@node3206:~$echo $</span>BLASTDB<span class="w">                                                    </span>
-<span class="go">/data/gent/vo/001/gvo00142/data_share_group/databases_blast/</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">vsc43352@node3206:~$echo $</span>BLASTDB<span class="w">                                                    </span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="go">/data/gent/vo/001/gvo00142/data_share_group/databases_blast/</span>
 </code></pre></div></li>
 <li>Use <strong>ml spider blast</strong> to list the installed blast modules</li>
 <li>Use the latest module installed in your jobscript</li>
@@ -975,7 +1049,7 @@ When you need another type of db wchich you frequently use and others might bene
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
