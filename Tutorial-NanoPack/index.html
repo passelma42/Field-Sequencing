@@ -1,0 +1,1367 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Tutorial-ONTdata/">
+      
+      
+        <link rel="next" href="../blast/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+    
+    
+      
+        <title>Tutorial NanoPack - Field Sequencing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#preparations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Field Sequencing" class="md-header__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Field Sequencing
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial NanoPack
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-deep" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Intro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../system-build/" class="md-tabs__link">
+        
+  
+    
+  
+  System setup
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../nanopore-tools/" class="md-tabs__link">
+        
+  
+    
+  
+  Nanopore Tools
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Tutorial-ONTdata/" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial ONTdata
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial NanoPack
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../blast/" class="md-tabs__link">
+        
+  
+    
+  
+  Blast
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../linuxcommands/" class="md-tabs__link">
+        
+  
+    
+  
+  Essential Linux Commands
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../linuxtutorial/" class="md-tabs__link">
+        
+  
+    
+  
+  Linuxtutorial
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../github/" class="md-tabs__link">
+        
+  
+    
+  
+  Github
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Field Sequencing" class="md-nav__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Field Sequencing
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nanopore-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nanopore Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorial-ONTdata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial ONTdata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tutorial NanoPack
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial NanoPack
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preparations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-test-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download test data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nanostat" class="md-nav__link">
+    <span class="md-ellipsis">
+      NanoStat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chopper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chopper
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nanocomp" class="md-nav__link">
+    <span class="md-ellipsis">
+      NanoComp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cramino" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cramino
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nanoplot" class="md-nav__link">
+    <span class="md-ellipsis">
+      NanoPlot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-twists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plot twists
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#addendum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addendum
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Addendum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pid-vs-mapq" class="md-nav__link">
+    <span class="md-ellipsis">
+      PID VS MAPQ
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blast/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blast
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linuxcommands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Essential Linux Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linuxtutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linuxtutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Tutorial NanoPack</h1>
+
+<p>Nanopack is a tool set of different long read processing and analysis tools. Below you'll find elaborate exercises explaining all the different faeatures of this toolset.<br />
+The publischer also provided a <em>test-data</em> set which can be downloaded in preparation of this tutorial.</p>
+<p><strong>Tool</strong>: <a href="https://github.com/wdecoster/nanopack">https://github.com/wdecoster/nanopack</a><br />
+<strong>Download test data</strong>: <a href="https://github.com/wdecoster/nanotest">https://github.com/wdecoster/nanotest</a><br />
+<strong>Publication</strong>: <a href="https://doi.org/10.1093/bioinformatics/bty149">NanoPack: visualizing and processing long-read sequencing data</a> </p>
+<blockquote>
+<p>Wouter De Coster, Svenn D’Hert, Darrin T Schultz, Marc Cruts, Christine Van Broeckhoven, NanoPack: visualizing and processing long-read sequencing dta, Bioinformatics, Volume 34, Issue 15, August 2018, Pages 2666–2669, https://doi.org/10.1093/bioinformatics/bty149  </p>
+</blockquote>
+<h2 id="preparations">Preparations</h2>
+<h3 id="installation">Installation</h3>
+<p>Please follow the installation instructions on the <a href="https://github.com/wdecoster/nanopack?tab=readme-ov-file">nanopack github website</a> for installing all the individual tools and modules.<br />
+If you are using <a href="https://docs.anaconda.com/">conda</a> on your local machine for installing scientific software you can use a dedicated <code>nanopack.yml</code> file and follow the instructions below.  </p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p>For more information on how to install miniconda on your system have a look here: https://docs.anaconda.com/miniconda/ </p>
+</div>
+<p>Following these instructions should craete a dedicated environment and install all necessary dependencies:  </p>
+<ol>
+<li><strong>Download</strong> environment file
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>https://raw.githubusercontent.com/passelma42/conda-envs-VM/main/nanopack.yml
+</code></pre></div></li>
+<li><strong>Create the environment and install all dependencies</strong><br />
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>nanopack.yml
+</code></pre></div></li>
+<li><strong>Activate the env</strong><br />
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>Nanopack
+</code></pre></div></li>
+<li><strong>Verify installation</strong><br />
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>conda<span class="w"> </span>list
+</code></pre></div></li>
+</ol>
+<h3 id="download-test-data">Download test data</h3>
+<p>Clone the git repo.<br />
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:wdecoster/nanotest.git
+</code></pre></div></p>
+<ul>
+<li><code>NanoStat</code>: <a href="https://github.com/wdecoster/nanotest">https://github.com/wdecoster/nanotest</a></li>
+<li><code>Cramino</code>: <a href="https://github.com/wdecoster/cramino/tree/master/test-data">https://github.com/wdecoster/cramino/tree/master/test-data</a>  </li>
+<li><code>Chopper</code>: <a href="https://github.com/wdecoster/chopper/tree/master/test-data">https://github.com/wdecoster/chopper/tree/master/test-data</a> </li>
+</ul>
+<h2 id="nanostat">NanoStat</h2>
+<p><strong>Tool for basic statistics.</strong>  </p>
+<p><strong>Exercise 1</strong><br />
+Generating Basic Statistics from a FASTQ File.<br />
+You are provided with a compressed FASTQ file (<code>reads.fastq.gz</code>). Generate a statistics report and save the output in a folder called <code>statreports</code> and filnema <code>nanostats.out</code>.</p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>NanoStat<span class="w"> </span>--fastq<span class="w"> </span>reads.fastq.gz<span class="w"> </span>--outdir<span class="w"> </span>statreports<span class="w"> </span>-n<span class="w"> </span>nanostats.out
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to calculate and store basic statistics from a FASTQ file.
+- Explore the statistical metrics NanoStat provides for sequencing data.</p>
+<hr />
+<p><strong>Exercise 2: Working with Summary Files</strong>
+You are given a sequencing summary files (<code>sequencing_summary.txt</code>). Generate a report from this summary files.</p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>NanoStat<span class="w"> </span>--summary<span class="w"> </span>sequencing_summary.txt<span class="w"> </span>--outdir<span class="w"> </span>statreports<span class="w"> </span>-n<span class="w"> </span>nanostats-seqsummary.out
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to calculate statistics from multiple summary files and filter based on specific read types (1D2 in this case).
+- Understand how NanoStat handles multiple input files and the read type filtering option.</p>
+<hr />
+<p><strong>Exercise 3: Calculating Statistics for BAM Files</strong>
+You are working with multiple BAM files (<code>alignment.bam</code>). Generate statistics for aligned reads and print the results to the terminal.</p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>NanoStat<span class="w"> </span>--bam<span class="w"> </span>alignment.bam
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Explore how NanoStat calculates statistics from BAM files containing aligned reads.
+- Understand the metrics provided for aligned data and how to handle BAM files.</p>
+<hr />
+<p><strong>Exercise 4: Exporting Statistics as TSV</strong>
+You are provided with a FASTA file (<code>reads.fasta.gz</code>). Generate a statistics report and export it as a TSV (Tab-Separated Values) file.</p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>NanoStat<span class="w"> </span>--fasta<span class="w"> </span>reads.fasta.gz<span class="w"> </span>--tsv<span class="w"> </span>--outdir<span class="w"> </span>tsv_report<span class="w"> </span>-n<span class="w"> </span>nanostat-tsv.out
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to generate and export statistics in TSV format, which can be useful for downstream analysis.
+- Explore how to work with FASTA files as input data.</p>
+<hr />
+<h2 id="chopper">Chopper</h2>
+<p><strong>A rust implementation combining NanoLyse and NanoFilt into one faster tool for filtering, trimming, and removing contaminants.</strong>  </p>
+<p><strong>Download test data:</strong><br />
+<a href="https://github.com/wdecoster/chopper/tree/master/test-data">https://github.com/wdecoster/chopper/tree/master/test-data</a></p>
+<p><strong>Exercise 1: Basic Quality Filtering</strong><br />
+You are provided with a FASTQ file (<code>reads.fastq</code>) and need to filter out reads with a Phred average quality score below 20. Use the default settings for other parameters.</p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>chopper<span class="w"> </span>-q<span class="w"> </span><span class="m">10</span><span class="w"> </span>-i<span class="w"> </span>./nanotest/reads.fastq.gz<span class="w"> </span>&gt;<span class="w"> </span>Q10_filtered.reads.fastq
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to filter reads based on minimum quality score.
+- Understand the impact of quality filtering on read data.
+- Get statistics from your reads before and after filtering and compare.</p>
+<hr />
+<p><strong>Exercise 2: Length-Based Filtering</strong><br />
+You have a FASTQ file (<code>reads.fastq</code>) and need to filter out reads shorter than 100 base pairs and longer than 1000 base pairs. Use the default settings for other parameters.</p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>chopper<span class="w"> </span>-l<span class="w"> </span><span class="m">10000</span><span class="w"> </span>--maxlength<span class="w"> </span><span class="m">250000</span><span class="w"> </span>-i<span class="w"> </span>reads.fastq<span class="w"> </span>&gt;<span class="w"> </span>length_filtered_reads.fastq
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to filter reads based on length.
+- Understand how length-based filtering affects the dataset.</p>
+<hr />
+<p><strong>Exercise 3: Quality and Length Filtering with Trimming</strong><br />
+You are working with a FASTQ file (<code>reads.fastq</code>). Set a minimum quality score of 30 and filter reads between 200 and 800 base pairs in length. Trim 10 nucleotides from both the start and end of each read.</p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>chopper<span class="w"> </span>-q<span class="w"> </span><span class="m">12</span><span class="w"> </span>-l<span class="w"> </span><span class="m">200</span><span class="w"> </span>--maxlength<span class="w"> </span><span class="m">250000</span><span class="w"> </span>--headcrop<span class="w"> </span><span class="m">10</span><span class="w"> </span>--tailcrop<span class="w"> </span><span class="m">10</span><span class="w"> </span>-i<span class="w"> </span>reads.fastq.gz<span class="w"> </span>&gt;<span class="w"> </span>filtered_trimmed_reads.fastq
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to combine quality and length filtering with trimming.
+- Explore the effects of trimming on read length and quality.</p>
+<hr />
+<p><strong>Exercise 4: Contaminant Filtering</strong><br />
+You have a FASTQ file (<code>test.fastq</code>) and a contaminant FASTA file (<code>random_contam.fa</code>). Filter out reads that match contaminants using <strong>Chopper</strong>.</p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>chopper<span class="w"> </span>-c<span class="w"> </span>chopper-random_contam.fa<span class="w"> </span>-i<span class="w"> </span>chopper.test.fastq<span class="w"> </span>&gt;<span class="w"> </span>chopper_clean_reads.fastq
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to filter reads based on contamination against a FASTA file.
+- Understand the process of removing contaminant sequences.</p>
+<hr />
+<p><strong>Exercise 5: Inverse Filtering</strong><br />
+You are provided with a FASTQ file (<code>reads.fastq</code>) and need to keep only the reads that do not match the contaminants in <code>contaminants.fasta</code>.</p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>chopper<span class="w"> </span>-c<span class="w"> </span>chopper-random_contam.fa<span class="w"> </span>--inverse<span class="w"> </span>-i<span class="w"> </span>chopper.test.fastq<span class="w"> </span>&gt;<span class="w"> </span>chopper_clean_reads_inverse.fastq
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to use inverse filtering to retain non-contaminant reads.
+- Understand the difference between standard and inverse filtering.</p>
+<hr />
+<p><strong>Exercise 6: GC Content Filtering</strong><br />
+You have a FASTQ file (<code>reads.fastq</code>) and want to filter out reads with GC content outside the range of 30% to 60%.</p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>chopper<span class="w"> </span>--mingc<span class="w"> </span><span class="m">0</span>.3<span class="w"> </span>--maxgc<span class="w"> </span><span class="m">0</span>.6<span class="w"> </span>-i<span class="w"> </span>testGC.fastq<span class="w"> </span>&gt;<span class="w"> </span>chopper_gc_filtered_reads.fastq
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to filter reads based on GC content.
+- Understand the implications of GC content filtering on read data.</p>
+<hr />
+<p><strong>Exercise 7 - Optional: Multi-threaded Processing</strong><br />
+When you have a large FASTQ file (<code>large_reads.fastq</code>) and want to speed up processing by using 8 threads. Filter reads with a minimum Phred quality score of 25 and a length between 100 and 1000 base pairs.</p>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p>You can check the number of threads available on your system in various ways depending on your OS. For Linux type the command <code>lscpu</code>.</p>
+</div>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>chopper<span class="w"> </span>-q<span class="w"> </span><span class="m">25</span><span class="w"> </span>-l<span class="w"> </span><span class="m">100</span><span class="w"> </span>--maxlength<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-t<span class="w"> </span><span class="m">8</span><span class="w"> </span>-i<span class="w"> </span>large_reads.fastq<span class="w"> </span>&gt;<span class="w"> </span>filtered_reads.fastq
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to utilize multi-threading for faster processing.
+- Explore the effect of parallel processing on large datasets.</p>
+<hr />
+<h2 id="nanocomp">NanoComp</h2>
+<p><strong>A tool for comparing multiple runs on read length and quality based on reads (fastq), alignments (bam) or albacore summary files.</strong>  </p>
+<p><strong>Exercise 1: Comparing BAM Files</strong><br />
+Compare multiple BAM files generated from different sequencing runs to assess read length distribution and other metrics.</p>
+<p><strong>Command</strong>:<br />
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>NanoComp<span class="w"> </span>--bam<span class="w"> </span>alignment.bam<span class="w"> </span>small-test-phased.bam<span class="w"> </span>--outdir<span class="w"> </span>compare_bams<span class="w"> </span>--plot<span class="w"> </span>box<span class="w"> </span>--names<span class="w"> </span>run1<span class="w"> </span>run2
+</code></pre></div>
+Make sure you downloaded the test data in the <a href="Download-test-data">Download test data</a> section.  </p>
+<p><strong>Objective</strong>:<br />
+- You will be able to visualize and interpret differences in read length distribution across sequencing runs.</p>
+<hr />
+<p><strong>Exercise 2: Filtering FASTQ Files by Read Length</strong><br />
+Compare read lengths of FASTQ files while filtering out reads that fall outside a specific length range.  </p>
+<p><strong>Command</strong>:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>NanoComp<span class="w"> </span>--fastq<span class="w"> </span>reads.fastq.gz<span class="w"> </span>chopper.test.fastq<span class="w"> </span>--minlength<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--maxlength<span class="w"> </span><span class="m">50000</span><span class="w"> </span>--outdir<span class="w"> </span>compare_filtered<span class="w"> </span>--plot<span class="w"> </span>violin
+</code></pre></div></p>
+<p><strong>Objectives</strong>:<br />
+- Learn how filtering by read length can influence data visualization and results.<br />
+- Compare without filtering.</p>
+<hr />
+<p><strong>Exercise 4: Using Different Plot Types</strong><br />
+Explore different visualization methods by generating various types of plots.<br />
+- <strong>Command</strong>:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>NanoComp<span class="w"> </span>--fastq<span class="w"> </span>reads.fastq.gz<span class="w"> </span>chopper.test.fastq<span class="w"> </span>--names<span class="w"> </span>run1<span class="w"> </span>run2<span class="w"> </span>--plot<span class="w"> </span>ridge<span class="w"> </span>--outdir<span class="w"> </span>compare_plots
+</code></pre></div></p>
+<p><strong>Objectives</strong>:<br />
+- Learn how different visualization techniques can highlight various aspects of sequencing data.<br />
+- Generate different plots (ridge plot, violin plot, box plot) by adjusting the <code>--plot</code> parameter.</p>
+<hr />
+<p><strong>Use Case: Generating a TSV Summary of Multiple Sequencing Files</strong><br />
+<strong>Objective</strong>: Create a summary TSV file with statistics for multiple sequencing files.
+- <strong>Command</strong>:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="w">  </span>NanoComp<span class="w"> </span>--fastq<span class="w"> </span>./nanotest/reads.fastq.gz<span class="w"> </span>./nanotest/chopper.test.fastq<span class="w"> </span>--names<span class="w"> </span>run1<span class="w"> </span>run2<span class="w">  </span>--tsv_stats<span class="w"> </span>--outdir<span class="w"> </span>tvs_summary
+</code></pre></div>
+- <strong>Objective</strong>:<br />
+- Learn how to generate tabular summaries that can be used in downstream analysis or reports. This can be particularly useful when comparing several datasets in a systematic way.<br />
+- To view tab delimited files issue this commant: <code>column -s $'\t' -t &lt; NanoStats.txt</code><br />
+- Get quick info out of NanoStats on longest read and it's Q score: <code>column -s $'\t' -t &lt; NanoStats.txt | grep "longest_read_(with_Q):1 "</code></p>
+<hr />
+<h2 id="cramino">Cramino</h2>
+<p><strong>A rust replacement for NanoStat - much quicker summary creation of BAM or CRAM files.</strong>   </p>
+<p><strong>Download test data:</strong><br />
+<a href="https://github.com/wdecoster/cramino/tree/master/test-data">https://github.com/wdecoster/cramino/tree/master/test-data</a></p>
+<p><strong>Exercise 1: Extract Basic QC Metrics from a BAM File</strong>
+You are provided with a BAM file (<code>alignment.bam</code>). Use <strong>Cramino</strong> to extract the basic QC metrics and use 4 parallel decompression threads (default). </p>
+<p><strong>Command</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>cramino<span class="w"> </span>alignment.bam
+</code></pre></div></p>
+<p><strong>Objective</strong>:
+- Learn how to extract quality control metrics from a BAM file.
+- Explore the default output provided by Cramino.</p>
+<hr />
+<p><strong>Exercise 2: Generate Read Length Histograms</strong>
+You are given a BAM file (<code>alignment.bam</code>) and need to generate histograms of the read lengths.</p>
+<p><strong>Command</strong>:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>cramino<span class="w"> </span>alignment.bam<span class="w"> </span>--hist
+</code></pre></div></p>
+<p><strong>Objective</strong>:<br />
+- Learn how to generate histograms of read lengths using Cramino.
+- Visualize the distribution of read lengths within the dataset.</p>
+<hr />
+<p><strong>Exercise 3: Filter Reads by Minimum Length</strong>
+You are provided with a CRAM file (<code>alignment.cram</code>) and only want to include reads that are at least 500 base pairs long.  </p>
+<p><strong>Command</strong>:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>cramino<span class="w"> </span>alignment.cram<span class="w"> </span>--min-read-len<span class="w"> </span><span class="m">500</span>
+</code></pre></div></p>
+<p><strong>Objective</strong>:<br />
+- Learn how to filter reads by minimum length when extracting QC metrics.
+- Understand how length filtering affects the output.
+- Compare histograms with and without filtering</p>
+<hr />
+<h2 id="nanoplot">NanoPlot</h2>
+<p><strong>A tool for visualizing read data.</strong>  </p>
+<p><strong>Exercise 1:</strong><br />
+Plot Read Length Distribution from FASTQ Data.</p>
+<p><strong>Command:</strong><br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>NanoPlot<span class="w"> </span>--fastq<span class="w"> </span>chopper.test.fastq<span class="w"> </span>-o<span class="w"> </span>output_ex1/
+</code></pre></div></p>
+<p><strong>Objective:</strong><br />
+Learn how to visualize the distribution of read lengths from a FASTQ file using NanoPlot.</p>
+<hr />
+<p><strong>Exercise 2:</strong><br />
+Analyzing BAM File Alignments.<br />
+This exercise will teach you how to visualize the read lengths for aligned reads from a BAM file using NanoPlot.  </p>
+<p><strong>Command:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>NanoPlot<span class="w"> </span>--bam<span class="w"> </span>small-test-phased.bam<span class="w"> </span>--alength<span class="w"> </span>-o<span class="w"> </span>output_ex2/<span class="w"> </span>--format<span class="w"> </span>pdf
+</code></pre></div>
+<strong>Objective:</strong><br />
+Visualize the aligned read lengths from BAM files.</p>
+<hr />
+<p><strong>Exercise 3: Logarithmic Transformation of Read Lengths</strong><br />
+In this exercise, you'll explore how NanoPlot can transform read length distributions using a logarithmic scale.  </p>
+<p><strong>Command:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>NanoPlot<span class="w"> </span>--fastq<span class="w"> </span>chopper.test.fastq<span class="w"> </span>--loglength<span class="w"> </span>-o<span class="w"> </span>output_ex3/
+</code></pre></div></p>
+<p><strong>Objective:</strong><br />
+Learn how to apply logarithmic scaling to read length distributions.</p>
+<hr />
+<p><strong>Exercise 4: Plotting Quality Scores</strong><br />
+This exercise focuses on generating plots to visualize the quality scores of sequencing reads.  </p>
+<p><strong>Command:</strong><br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>NanoPlot<span class="w"> </span>--fastq<span class="w"> </span>filtered_trimmed_reads.fastq<span class="w"> </span>--percentqual<span class="w"> </span>-o<span class="w"> </span>output_ex4/<span class="w"> </span>--format<span class="w"> </span>png
+</code></pre></div></p>
+<p><strong>Objective:</strong><br />
+Visualize quality scores from sequencing reads.  </p>
+<hr />
+<p><strong>Exercise 5: Downsampling Large Datasets</strong><br />
+In this exercise, you will use NanoPlot to downsample a large FASTQ file to reduce the dataset size for faster plotting.  </p>
+<p><strong>Command:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>NanoPlot<span class="w"> </span>--fastq<span class="w"> </span>reads.fastq.gz<span class="w"> </span>--downsample<span class="w"> </span><span class="m">10000</span><span class="w"> </span>-o<span class="w"> </span>output_ex5/
+</code></pre></div></p>
+<p><strong>Objective:</strong><br />
+Explore the downsampling feature of NanoPlot to work with large datasets.</p>
+<hr />
+<p><strong>Exercise 6: Filtering Reads by Quality</strong><br />
+Learn how to filter reads by their average quality scores before plotting.  </p>
+<p><strong>Command:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>NanoPlot<span class="w"> </span>--fastq<span class="w"> </span>Q10_filtered.reads.fastq<span class="w"> </span>--minqual<span class="w"> </span><span class="m">15</span><span class="w"> </span>-o<span class="w"> </span>output_ex6/
+</code></pre></div></p>
+<p><strong>Objective:</strong><br />
+Filter reads based on average quality scores and visualize the results.</p>
+<h2 id="plot-twists">Plot twists</h2>
+<p>Wouter is like the David Lynch of plots. Please find below a short description on each plot and what it tells you.  </p>
+<p><strong>Weighted Histogram of Read Lengths</strong>  </p>
+<ul>
+<li><strong>Description</strong>: This plot displays the distribution of read lengths, where each read is assigned a weight based on its abundance, quality, or other criteria. It helps to visualize which lengths contribute most significantly to the dataset.</li>
+<li><strong>X-axis</strong>: Read length (in base pairs).</li>
+<li><strong>Y-axis</strong>: Weighted frequency (number of reads multiplied by their weight).</li>
+<li><strong>Example</strong>: Imagine a sequencing run where 500 reads are 150 bp long and 50 reads are 10,000 bp long. In a weighted histogram, the long reads would have a high weight due to their length, leading to a taller bar for the 10,000 bp category even though there are fewer of them. This shows that while there are many short reads, the long reads contribute significantly to the total base pair yield.  </li>
+</ul>
+<h2 id="_1"><img alt="Weithted Histogram of Read Lengths" src="../images/nanoplot-fastq/WeightedHistogramReadlength.png" /></h2>
+<p><strong>Weighted Histogram of Read Lengths After Log Transformation</strong>  </p>
+<ul>
+<li><strong>Description</strong>: Similar to the previous plot, this histogram displays read lengths after applying a logarithmic transformation. Log transformation is useful for visualizing data that spans several orders of magnitude.</li>
+<li><strong>X-axis</strong>: Log-transformed read length (log10 of the length).</li>
+<li><strong>Y-axis</strong>: Weighted frequency.</li>
+<li><strong>Example</strong>: If your dataset contains reads ranging from 100 bp to 10,000 bp, the log transformation will allow you to visualize the distribution more clearly. In this case, short reads (100-200 bp) might dominate the histogram, but you can still see the contribution of long reads (which would appear much smaller on a linear scale).  </li>
+</ul>
+<h2 id="_2"><img alt="Weithted Histogram of Read Lengths After Log Transformation" src="../images/nanoplot-fastq/WeightedLogTransformed_HistogramReadlength.png" /></h2>
+<p><strong>Non-Weighted Histogram of Read Lengths</strong>  </p>
+<ul>
+<li><strong>Description</strong>: This plot shows the distribution of read lengths without applying any weighting, simply counting the number of reads for each length category.</li>
+<li><strong>X-axis</strong>: Read length (in base pairs).</li>
+<li><strong>Y-axis</strong>: Frequency (number of reads).</li>
+<li><strong>Example</strong>: If you have 700 reads of 150 bp and 300 reads of 300 bp, the histogram will show a higher bar for the 150 bp length. This representation is straightforward but doesn’t account for the potential importance of longer reads.  </li>
+</ul>
+<h2 id="_3"><img alt="Non-Weighted Histogram of Read Lengths" src="../images/nanoplot-fastq/Non_weightedHistogramReadlength.png" /></h2>
+<p><strong>Non-Weighted Histogram of Read Lengths After Log Transformation</strong>  </p>
+<ul>
+<li><strong>Description</strong>: A non-weighted histogram that uses log transformation on read lengths to accommodate large variances in length.</li>
+<li><strong>X-axis</strong>: Log-transformed read length (log10 of the length).</li>
+<li><strong>Y-axis</strong>: Frequency.</li>
+<li><strong>Example</strong>: This histogram could show that a large number of reads are concentrated around the short lengths (e.g., 100-500 bp, appearing as a single peak on a log scale) while still revealing how many long reads exist. The log transformation helps mitigate the influence of extremely long reads that might skew the data on a linear scale.  </li>
+</ul>
+<h2 id="_4"><img alt="Non-Weighted Histogram of Read Lengths After Log Transformation" src="../images/nanoplot-fastq/Non_weightedLogTransformed_HistogramReadlength.png" /></h2>
+<p><strong>Yield by Length</strong>  </p>
+<ul>
+<li><strong>Description</strong>: This plot illustrates how much sequencing data (yield) is generated for each read length category, providing insight into which lengths contribute most to the overall sequencing effort.</li>
+<li><strong>X-axis</strong>: Read length (in base pairs).</li>
+<li><strong>Y-axis</strong>: Yield (total base pairs sequenced).</li>
+<li><strong>Example</strong>: If the sequencing effort produced many short reads but only a few long reads that cover a significant amount of bases, the yield might be higher for long reads despite their lower count. This plot would visually show that longer reads contribute more to total yield, helping researchers decide on read length strategies.  </li>
+</ul>
+<h2 id="_5"><img alt="Yield by Length" src="../images/nanoplot-fastq/Yield_By_Length.png" /></h2>
+<p><strong>Read Lengths vs. Average Read Quality Plot</strong>  </p>
+<ul>
+<li><strong>Description</strong>: This plot compares the lengths of reads against their average quality scores (typically represented as Phred scores). It provides insights into how read length affects quality.</li>
+<li><strong>X-axis</strong>: Read length (in base pairs).</li>
+<li><strong>Y-axis</strong>: Average read quality score (e.g., Phred score).</li>
+<li><strong>Example</strong>: If you find that shorter reads tend to have higher average quality (e.g., many are Q30 or higher), while longer reads fall to Q20 or lower, this might indicate that the longer reads are more prone to errors, possibly due to the sequencing technology used.  </li>
+</ul>
+<h2 id="_6"><img alt="Read Lengths vs. Average Read Quality Plot" src="../images/nanoplot-fastq/LengthvsQualityScatterPlot_dot.png" /></h2>
+<p><strong>Aligned Read Lengths vs. Sequence Read Length</strong>  </p>
+<ul>
+<li><strong>Description</strong>: This plot compares the lengths of reads that have been aligned to a reference genome against their original lengths, highlighting the differences caused by alignment (e.g., clipping).</li>
+<li><strong>X-axis</strong>: Aligned read length (length after alignment).</li>
+<li><strong>Y-axis</strong>: Original read length (sequence read length).</li>
+<li><strong>Example</strong>: Points clustering along the diagonal indicate that reads aligned well without significant clipping. Points above the diagonal suggest soft-clipped reads, while points below might indicate that reads were trimmed significantly or poorly aligned.</li>
+</ul>
+<h2 id="_7"><img alt="Aligned Read Lengths vs. Sequence Read Length" src="../images/nanoplot-bam/AlignedReadlengthvsSequencedReadLength_dot.png" /></h2>
+<p><strong>Read Mapping Quality vs. Average Basecall Quality Plot</strong>  </p>
+<ul>
+<li><strong>Description</strong>: This plot assesses the relationship between read mapping quality (confidence that the read is correctly aligned) and average base quality (confidence in the accuracy of the base calls).</li>
+<li><strong>X-axis</strong>: Read mapping quality (often denoted as MAPQ score).</li>
+<li><strong>Y-axis</strong>: Average base quality score.</li>
+<li><strong>Example</strong>: A cluster of points in the upper right indicates high-quality reads that map confidently. If many low mapping quality reads also show high average base quality, it might suggest alignment issues, even if the bases are accurate.  </li>
+</ul>
+<h2 id="_8"><img alt="Read Mapping Quality vs. Average Basecall Quality Plot" src="../images/nanoplot-bam/MappingQualityvsAverageBaseQuality_dot.png" /></h2>
+<p><strong>Read Length vs. Read Mapping Quality</strong>  </p>
+<ul>
+<li><strong>Description</strong>: This plot explores how read length correlates with mapping quality, indicating whether longer reads tend to align better or worse than shorter ones.</li>
+<li><strong>X-axis</strong>: Read length (in base pairs).</li>
+<li><strong>Y-axis</strong>: Read mapping quality (MAPQ score).</li>
+<li><strong>Example</strong>: You might observe that shorter reads cluster in the lower mapping quality range, indicating they map ambiguously, while longer reads often show higher mapping quality, reflecting their capacity to provide unique alignments.  </li>
+</ul>
+<h2 id="_9"><img alt="Read Length vs. Read Mapping Quality" src="../images/nanoplot-bam/MappingQualityvsReadLength_dot.png" /></h2>
+<p><strong>Percent Identity vs. Average Base Quality Plot</strong>  </p>
+<ul>
+<li><strong>Description</strong>: This plot compares percent identity (how well the read matches the reference genome) against the average quality score of the bases in the read.</li>
+<li><strong>X-axis</strong>: Percent identity (percentage of bases matching the reference).</li>
+<li><strong>Y-axis</strong>: Average base quality score.</li>
+<li><strong>Example</strong>: A trend where high percent identity corresponds with high average base quality indicates that better-quality reads tend to align more accurately. If some low-quality reads also have high percent identity, it might suggest they are mismatches that coincidentally align well.  </li>
+</ul>
+<h2 id="_10"><img alt="Percent Identity vs. Average Base Quality Plot" src="../images/nanoplot-bam/PercentIdentityvsAverageBaseQuality_dot.png" /></h2>
+<p><strong>Aligned Length vs. Percent Identity</strong>  </p>
+<ul>
+<li><strong>Description</strong>: This plot compares the length of reads that have been aligned to the reference genome against their percent identity, highlighting how alignment length relates to alignment quality.</li>
+<li><strong>X-axis</strong>: Aligned read length (length after alignment).</li>
+<li><strong>Y-axis</strong>: Percent identity (percentage of matches).</li>
+<li><strong>Example</strong>: Points in the upper right show long aligned reads that match well with the reference. If some long reads have low percent identity, it might indicate challenges in aligning due to errors or complex regions in the genome.  </li>
+</ul>
+<h2 id="_11"><img alt="Aligned Length vs. Percent Identity" src="../images/nanoplot-bam/PercentIdentityvsAlignedReadLength_dot.png" /></h2>
+<p><strong>Dynamic Histogram of Percent Identity</strong>  </p>
+<ul>
+<li><strong>Description</strong>: An interactive histogram that shows how the distribution of percent identity changes based on applied filters (like read length or mapping quality). Users can adjust parameters in real-time to observe shifts in the data.</li>
+<li><strong>X-axis</strong>: Percent identity (percentage).</li>
+<li><strong>Y-axis</strong>: Frequency (or weighted frequency).</li>
+<li><strong>Example</strong>: You might start with a general view showing a broad range of percent identities. When you apply a filter to exclude low-quality reads, the histogram updates to show a concentration of higher percent identities, helping you understand the impact of quality filtering on your data.  </li>
+</ul>
+<p><img alt="Dynamic Histogram of Percent Identity" src="../images/nanoplot-bam/PercentIdentityHistogramDynamic_Histogram_percent_identity.png" />  </p>
+<h2 id="addendum">Addendum</h2>
+<h3 id="pid-vs-mapq">PID VS MAPQ</h3>
+<p>Percent Identity VS Mapping Quality. Both are important metrics used in analyzing sequencing data. But are NOT the same.</p>
+<p><strong>Percent Identity (PID)</strong>  </p>
+<ul>
+<li><strong>Definition</strong>: Percent Identity refers to the proportion of identical bases between the read and the reference sequence in an alignment. It is calculated as the number of matching bases divided by the total number of aligned bases, often expressed as a percentage.</li>
+<li><strong>Purpose</strong>: PID indicates how similar the aligned read is to the reference, providing a measure of alignment accuracy. A higher PID means the read matches the reference more closely.</li>
+<li><strong>Example</strong>: If a read aligns to the reference with 98% identical bases, the PID is 98%. PID is often used to assess how well the reads align to a reference at the sequence level.</li>
+</ul>
+<p><strong>Mapping Quality (MAPQ)</strong>  </p>
+<ul>
+<li><strong>Definition</strong>: Mapping Quality is a score assigned by an alignment algorithm (such as BWA, minimap2, etc.) that represents the confidence in the placement of the read in the genome. It quantifies how likely it is that the read is aligned to the correct location. The MAPQ score is usually derived from both the uniqueness of the alignment and the quality of the alignment itself.</li>
+<li><strong>Purpose</strong>: MAPQ reflects the reliability of the alignment in terms of positional accuracy. It considers whether the read could have aligned equally well to other locations in the genome (ambiguity), as well as the general quality of the alignment.</li>
+<li><strong>Example</strong>: A MAPQ score of 60 typically indicates that the read is uniquely aligned with high confidence, while lower MAPQ values (e.g., below 30) suggest that the read may have multiple possible alignment locations or lower confidence in its placement.</li>
+</ul>
+<p><strong>Key Differences</strong>  </p>
+<p><strong>Scope</strong>:  </p>
+<ul>
+<li><strong>PID</strong> measures the <strong>sequence similarity</strong> between the read and the reference, focusing on how many bases match.</li>
+<li><strong>MAPQ</strong> measures the <strong>confidence</strong> in the read's placement in the genome, focusing on alignment ambiguity and positional accuracy.</li>
+</ul>
+<p><strong>Calculation</strong>:  </p>
+<ul>
+<li><strong>PID</strong> is calculated from the alignment by dividing matching bases by the total number of aligned bases.</li>
+<li><strong>MAPQ</strong> is calculated by the aligner based on the alignment score and the likelihood that the read could be placed elsewhere.</li>
+</ul>
+<p><strong>Interpretation</strong>:  </p>
+<ul>
+<li>A high <strong>PID</strong> means the read is very similar to the reference in terms of its base sequence.</li>
+<li>A high <strong>MAPQ</strong> means there is high confidence that the read is placed in the correct position in the genome, indicating a unique or highly confident alignment.</li>
+</ul>
+<p><strong>Example:</strong>  </p>
+<p>A read could have a <strong>high PID</strong> (e.g., 99% identical to the reference) but a <strong>low MAPQ</strong> (e.g., 20), which would suggest that while the read sequence closely matches the reference, the read might have multiple valid alignment locations due to repetitive regions in the genome.</p>
+<p>Both metrics are used together to assess different aspects of sequencing data quality: <strong>PID</strong> for sequence matching and <strong>MAPQ</strong> for alignment confidence.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/passelma42"  target="_blank" rel="noopener">Pieter Asselman</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/passelma42" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pieterasselman/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>
