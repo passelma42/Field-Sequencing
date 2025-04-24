@@ -1,0 +1,1 @@
+pandoc Tutorial-Data-Analysis-cleaned.md -o Tutorial-Data-Analysis-cleaned.pdf   --pdf-engine=xelatex   --highlight-style espresso   -V geometry=margin=1in   -V fontsize=11pt   -V mainfont="Noto Serif"   -V monofont="DejaVu Sans Mono"   --toc   --toc-depth=2

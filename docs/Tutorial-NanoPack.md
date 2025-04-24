@@ -14,7 +14,7 @@ If you are using [conda](https://docs.anaconda.com/) on your local machine for i
 	For more information on how to install miniconda on your system have a look here: https://docs.anaconda.com/miniconda/ 
 
 
-Following these instructions should craete a dedicated environment and install all necessary dependencies:  
+Following these instructions should create a dedicated environment and install all necessary dependencies:  
 
 1. **Download** environment file
 	```bash
@@ -113,7 +113,7 @@ You are provided with a FASTQ file (`reads.fastq`) and need to filter out reads 
 
 **Command**:
 ```bash
-chopper -q 10 -i ./nanotest/reads.fastq.gz > Q10_filtered.reads.fastq
+chopper -q 20 -i ./nanotest/reads.fastq.gz > Q20_filtered.reads.fastq
 ```
 
 **Objective**:

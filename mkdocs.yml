@@ -6,9 +6,9 @@ nav:
   - installation.md
   - Tutorial-ONTdata.md
   - Tutorial-NanoPack.md
+  - Tutorial-Data-Analysis.md
   - blast.md
   - linuxcommands.md
-  - linuxtutorial.md
   - github.md
 
 theme:

@@ -1,0 +1,1620 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Tutorial-NanoPack/">
+      
+      
+        <link rel="next" href="../blast/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+    
+    
+      
+        <title>Tutorial Data Analysis - Field Sequencing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduction-to-linux-on-hpc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Field Sequencing" class="md-header__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Field Sequencing
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial Data Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-deep" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Intro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../system-build/" class="md-tabs__link">
+        
+  
+    
+  
+  System setup
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../nanopore-tools/" class="md-tabs__link">
+        
+  
+    
+  
+  Nanopore Tools
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Tutorial-ONTdata/" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial ONTdata
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Tutorial-NanoPack/" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial NanoPack
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial Data Analysis
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../blast/" class="md-tabs__link">
+        
+  
+    
+  
+  Blast
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../linuxcommands/" class="md-tabs__link">
+        
+  
+    
+  
+  Essential Linux Commands
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../github/" class="md-tabs__link">
+        
+  
+    
+  
+  Github
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Field Sequencing" class="md-nav__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Field Sequencing
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nanopore-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nanopore Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorial-ONTdata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial ONTdata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorial-NanoPack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial NanoPack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tutorial Data Analysis
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial Data Analysis
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-to-linux-on-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction to Linux on HPC
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introduction to Linux on HPC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Getting Started
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-the-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 The prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-basic-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Basic Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-manipulating-files-and-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Manipulating files and directories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-software-packages-on-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 Software packages on HPC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-nanopore-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Nanopore data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Nanopore data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-data-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Data structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-practice-with-test-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Practice with test data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Practice with test data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-nanopack-quality-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 NanoPack: Quality Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-run-nanopack-beginner" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 Run Nanopack: Beginner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-run-nanopack-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3 Run Nanopack: Advanced
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-download-actual-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Download Actual dataset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-epi2me-wf-amplicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. EPI2ME: wf-amplicon
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blast/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blast
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linuxcommands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Essential Linux Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Tutorial Data Analysis</h1>
+
+<p>Welcome to the HPC filesystem tutorial. This guide will teach you all the necessary commands and provide you with info on how to work in linux within the context of an HPC environment.  </p>
+<p>For an extended overview of HPC-documentation I refer to the HPC-DOCS:<br />
+<a href="https://hpcugent.github.io/vsc_user_docs/">https://hpcugent.github.io/vsc_user_docs/</a>  </p>
+<h2 id="1-introduction-to-linux-on-hpc">1.  Introduction to Linux on HPC</h2>
+<h3 id="11-getting-started">1.1 Getting Started</h3>
+<p>To get started with the HPC-UGent infrastructure, you need to obtain a VSC account, see <a href="https://docs.hpc.ugent.be/Linux/account/">HPC manual</a>. Keep in mind that you must keep your private key to yourself!
+You can look at your public/private key pair as a lock and a key: you give us the lock (your public key), we put it on the door, and then you can use your key to open the door and get access to the HPC infrastructure. Anyone who has your key can use your VSC account!
+Details on connecting to the HPC infrastructure are available in <a href="https://docs.hpc.ugent.be/Linux/connecting/">HPC manual connecting section</a>.  </p>
+<p>NOTE: If you plan to work in the webbrowser interface only, then you don't need to upload public/private key. For this course, the webbrowse interface only is ok.  </p>
+<h3 id="12-the-prompt">1.2 The prompt</h3>
+<p>The basic interface is the so-called shell prompt, typically ending with <code>$</code> (for bash shells).  </p>
+<p><strong>NOTE</strong>: In the <code>code</code> examples below the <code>$</code> indicates your prompt. This is for information purpose only, you don't need to type this in your commands.  </p>
+<p>You use the shell by executing commands, and hitting <code>&lt;enter&gt;</code>. For example:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>hello
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>hello
+</code></pre></div>
+While typing (long) commands in the terminal, you can go to the start or end of the command line using <code>Ctrl-A</code> or <code>Ctrl-E</code>.</p>
+<p>To go through previous commands, use <code>&lt;up&gt;</code> and <code>&lt;down&gt;</code>, rather than retyping them.  </p>
+<h3 id="13-basic-commands">1.3 Basic Commands</h3>
+<p><strong>Download example data</strong><br />
+For this exercise you'll need to connect to the HPC and open a terminal.
+I've prepared some folders and files on which you can perform following commands.</p>
+<p>Start by copying the <code>/Linux_Basics_exampledata</code> to your home folder <code>~/</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>/path/to/ONT-SEQ_PA-Benin2024_Bioinfocourse/Linux_Basics_exampledata<span class="w"> </span>~/<span class="w">  </span>
+</code></pre></div>
+<p><strong>Commands &amp; Examples</strong><br />
+<strong>NOTE:</strong> Make sure you are in your home folder before you start with the exercises.<br />
+To go to your home folder use following command:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/
+</code></pre></div>
+Example 1: Lists files and directories in the current directory.<br />
+<code>$ ls -l</code></p>
+<p>Example 2: Changes the current directory.<br />
+<code>$ cd /user/gent/433/vscXXXX/ONT-SEQ_PA-Benin2024_Bioinfocourse</code>  </p>
+<p>Example 3: Prints the current working directory.<br />
+<code>$ pwd</code></p>
+<p>Example 4: Creates a new directory.<br />
+<code>$ mkdir my_first-folder</code></p>
+<p>Example 5: Deletes a file. WARNING: There is no trash, files are permanently deleted!<br />
+<code>$ rm ./old_hello.py</code></p>
+<p>Example 6: Deletes a directory and its contents recursively.<br />
+<code>$ rm -r ./old_sequences</code></p>
+<p>Example 7: Copies files or directories.<br />
+<code>$ cp samplesheet96.txt ./my_first-folder</code></p>
+<p>Example 8: Moves or renames files or directories.<br />
+<code>$ mv ./my_first-folder/samplesheet96.txt ./my_first-folder/samplesheet96_$(date +%Y-%m-%d).txt</code></p>
+<p>Example 9: Searches for a file by name in a specified path.<br />
+<code>$ find ~/ -name "samplesheet96*"</code></p>
+<p>Example 10: Displays the contents of a file.<br />
+<code>$ cat hello.py</code></p>
+<p>Example 11: Opens a file for viewing one page at a time. Press <code>q</code> to quit.<br />
+<code>$ less manual_cp.txt</code></p>
+<p>Example 12: Shows the first 10 lines of a file.<br />
+<code>$ head manual_cp.txt</code></p>
+<p>Example 13: Shows the last 10 lines of a file.<br />
+<code>$ tail manual_cp.txt</code></p>
+<p>Example 14: Displays detailed information about files, including permissions.<br />
+<code>$ ls -lh ~/Linux_Basics_exampledata</code></p>
+<p>Example 15: Shows currently running processes.<br />
+<code>$ ps</code></p>
+<p>Example 16: Displays real-time system resource usage.<br />
+<code>$ top</code></p>
+<p>Example 17: Interactive process viewer (if installed).<br />
+<code>$ htop</code></p>
+<p>Example 18: Prints text to the terminal.<br />
+<code>$ echo "Hello, world!"</code></p>
+<p>Example 19: Displays the current date and time.<br />
+<code>$ date</code></p>
+<p>Example 20: Logs out or closes the terminal.<br />
+<code>$ exit</code></p>
+<h3 id="14-manipulating-files-and-directories">1.4 Manipulating files and directories</h3>
+<p><strong>Changing permissions: "chmod"</strong><br />
+Each file and directory has particular permissions set on it, which can be queried using ls -l.</p>
+<p>For example:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>afile.txt<span class="w"> </span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc40000<span class="w"> </span>agroup<span class="w"> </span><span class="m">2929176</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">13</span>:29<span class="w"> </span>afile.txt<span class="w"> </span>
+</code></pre></div>
+The -rwxrw-r-- specifies both the type of file (- for files, d for directories (see first character)), and the permissions for user/group/others:</p>
+<ol>
+<li>each triple of characters indicates whether the read (r), write (w), execute (x) permission bits are set or not</li>
+<li>the 1st part rwx indicates that the owner "vsc40000" of the file has all the rights</li>
+<li>the 2nd part rw- indicates the members of the group "agroup" only have read/write permissions (not execute)</li>
+<li>the 3rd part r-- indicates that other users only have read permissions</li>
+</ol>
+<p>The default permission settings for new files/directories are determined by the so-called umask setting, and are by default:</p>
+<ol>
+<li>read-write permission on files for user/group (no execute), read-only for others (no write/execute)</li>
+<li>read-write-execute permission for directories on user/group, read/execute-only for others (no write)</li>
+</ol>
+<p>Any time you run <code>ls -l</code> you'll see a familiar line of <code>-rwx------</code> or similar combination of the letters <code>r</code>, <code>w</code>, <code>x</code> and <code>-</code> (dashes). These are the permissions for the file or directory.<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>ls<span class="w"> </span>-l
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>total<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>-rw-r--r--.<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc40000<span class="w"> </span>mygroup<span class="w"> </span><span class="m">4283648</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">15</span>:13<span class="w"> </span>articleTable.csv
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>drwxr-x---.<span class="w"> </span><span class="m">2</span><span class="w"> </span>vsc40000<span class="w"> </span>mygroup<span class="w"> </span><span class="m">40</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">15</span>:00<span class="w"> </span>Project_GoldenDragon
+</code></pre></div></p>
+<blockquote>
+<p>Here, we see that <code>articleTable.csv</code> is a file (beginning the line with -) has read and write permission for the user <code>vsc40000</code> (<code>rw-</code>), and read permission for the group <code>mygroup</code> as well as all other users (<code>r--</code> and <code>r--</code>).</p>
+</blockquote>
+<p>The next entry is <code>Project_GoldenDragon</code>. We see it is a directory because the line begins with a <code>d</code>. It also has read, write, and execute permission for the <code>vsc40000</code> user (<code>rwx</code>). So that user can look into the directory and add or remove files. Users in the <code>mygroup</code> can also look into the directory and read the files. But they can't add or remove files (<code>r-x</code>). Finally, other users can read files in the directory, but other users have no permissions to look in the directory at all (<code>---</code>).</p>
+<p>Maybe we have a colleague who wants to be able to add files to the directory. We use <code>chmod</code> to change the modifiers to the directory to let people in the group write to the directory:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>chmod<span class="w"> </span>g+w<span class="w"> </span>Project_GoldenDragon
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$<span class="w"> </span>ls<span class="w"> </span>-l
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>total<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>-rw-r--r--.<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc40000<span class="w"> </span>mygroup<span class="w"> </span><span class="m">4283648</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">15</span>:13<span class="w"> </span>articleTable.csv
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>drwxrwx---.<span class="w"> </span><span class="m">2</span><span class="w"> </span>vsc40000<span class="w"> </span>mygroup<span class="w"> </span><span class="m">40</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">15</span>:00<span class="w"> </span>Project_GoldenDragon
+</code></pre></div></p>
+<blockquote>
+<p>The syntax used here is <code>g+x</code> which means group was given write permission. To revoke it again, we use <code>g-w</code>. The other roles are <code>u</code> for user and <code>o</code> for other.</p>
+</blockquote>
+<p>You can put multiple changes on the same line: <code>chmod o-rwx,g-rxw,u+rx,u-w somefile</code>.<br />
+This will take everyone's permission away except the user's ability to read or execute the file.  </p>
+<p>You can also use the <code>-R</code> flag to affect all the files within a directory, but this is dangerous. It's best to refine your search using find and then pass the resulting list to chmod since it's not usual for all files in a directory structure to have the same permissions.  </p>
+<p><strong>Example 1: Apply chmod to all files (regular files only) within a directory</strong><br />
+This will set 644 permissions for all files (not directories)
+<code>find /path/to/directory -type f -exec chmod 644 {} \;</code></p>
+<p><strong>Example 2: Apply chmod to all directories within a directory</strong>  <br />
+This will set 755 permissions for all directories (not files)
+<code>find /path/to/directory -type d -exec chmod 755 {} \;</code></p>
+<p><strong>Example 3: Apply chmod to all files modified in the last 7 days</strong><br />
+This will search for all files modified in the last 7 days and set 644 permissions
+<code>find /path/to/directory -type f -mtime -7 -exec chmod 644 {} \;</code></p>
+<p><strong>Example 4: Apply chmod to files with a specific extension (e.g., .txt)</strong><br />
+This will search for all .txt files and set 644 permissions
+<code>find /path/to/directory -type f -name "*.txt" -exec chmod 644 {} \;</code></p>
+<p><strong>Example 5: Apply chmod recursively with different permissions for files and directories</strong><br />
+First, set 644 permissions for all files (regular files)
+<code>find /path/to/directory -type f -exec chmod 644 {} \;</code></p>
+<p>Then, set 755 permissions for all directories
+<code>find /path/to/directory -type d -exec chmod 755 {} \;</code></p>
+<p>1.4.1.1 Exercises: Changing permissions with "chmod" </p>
+<p>Here are some exercises on <code>chmod</code> based on your directory structure. Try each command and observe the changes using <code>ls -l</code> before and after.</p>
+<hr />
+<p><strong>Exercise 1: Make <code>hello.sh</code> Executable</strong><br />
+<strong>Goal:</strong> Grant execute (<code>x</code>) permission to the script so it can run as a program.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>hello.sh
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>hello.sh
+</code></pre></div>
+<em>Check if the <code>x</code> permission appears for the user (<code>rwxr--r--</code>). Now try running it:</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>./hello.sh
+</code></pre></div></p>
+<hr />
+<p><strong>Exercise 2: Remove Read Permissions from <code>manual_cp.txt</code></strong><br />
+<strong>Goal:</strong> Prevent yourself and others from reading the file.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>chmod<span class="w"> </span>a-r<span class="w"> </span>manual_cp.txt
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>manual_cp.txt
+</code></pre></div>
+<em>Now try opening it:</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cat<span class="w"> </span>manual_cp.txt<span class="w">  </span><span class="c1"># Should give a &quot;Permission denied&quot; error</span>
+</code></pre></div>
+<em>Restore permissions after testing:</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>chmod<span class="w"> </span>u+r<span class="w"> </span>manual_cp.txt
+</code></pre></div></p>
+<hr />
+<p><strong>Exercise 3: Grant Full Access to <code>samplesheet96.txt</code> for Everyone</strong><br />
+<strong>Goal:</strong> Allow all users to read, write, and execute <code>samplesheet96.txt</code>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>samplesheet96.txt
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>samplesheet96.txt
+</code></pre></div>
+<em>Now everyone can modify and execute the file. This is </em><em>not recommended</em><em> for sensitive files!</em></p>
+<hr />
+<p><strong>Exercise 4: Restrict <code>old_hello.py</code> to Read and Write for Owner Only</strong><br />
+<strong>Goal:</strong> Make the file private so only the owner can read and modify it.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>old_hello.py
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>old_hello.py
+</code></pre></div>
+<em>Now other users cannot read or modify it.</em></p>
+<hr />
+<p><strong>Exercise 5: Add a Sticky Bit to <code>sequences</code></strong><br />
+<strong>Goal:</strong> Ensure that only the file owner can delete their own files inside <code>sequences</code>, even if others have write access.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>chmod<span class="w"> </span>+t<span class="w"> </span>sequences
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>ls<span class="w"> </span>-ld<span class="w"> </span>sequences<span class="w">  </span><span class="c1"># Check for the &quot;t&quot; at the end of the permissions (drwxr-xr-t)</span>
+</code></pre></div>
+<em>Now, even if other users have write permissions, they cannot delete files they don't own.</em></p>
+<hr />
+<p><strong>Exercise 6: Recursively Set Read &amp; Execute for All Users in <code>old_sequences</code></strong><br />
+<strong>Goal:</strong> Ensure all files in <code>old_sequences</code> are readable and executable but not writable by others.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>chmod<span class="w"> </span>-R<span class="w"> </span>a+rx<span class="w"> </span>old_sequences
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>old_sequences/
+</code></pre></div>
+<em>Check if all files inside now have <code>r-x</code> for everyone.</em></p>
+<hr />
+<p><strong>Exercise 7: Set Group Write Permissions for <code>Tabular-file.tab</code></strong><br />
+<strong>Goal:</strong> Allow your group members to edit the file.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>chmod<span class="w"> </span>g+w<span class="w"> </span>Tabular-file.tab
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>Tabular-file.tab
+</code></pre></div>
+<em>Now, users in the same group (<code>vsc43352</code>) can modify the file.</em></p>
+<hr />
+<p><strong>Exercise 8: Remove Execute Permission from <code>hello.py</code></strong><br />
+<strong>Goal:</strong> Prevent accidental execution of a Python script.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>chmod<span class="w"> </span>-x<span class="w"> </span>hello.py
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>hello.py
+</code></pre></div>
+<em>Now, you must explicitly use <code>python3 hello.py</code> instead of <code>./hello.py</code>.</em></p>
+<hr />
+<p><strong>Exercise 9: Convert Between Symbolic and Octal Modes</strong>  </p>
+<p><strong>Goal:</strong> Change <code>samplesheet96_2025-04-02.txt</code> to the same permissions as <code>samplesheet96.txt</code> using octal mode.  </p>
+<ol>
+<li><strong>Check the original permissions:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ls<span class="w"> </span>-l<span class="w"> </span>samplesheet96.txt
+</code></pre></div></li>
+<li><strong>Use <code>stat</code> to see the octal mode:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>stat<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;%a&quot;</span><span class="w"> </span>samplesheet96.txt
+</code></pre></div>
+   Suppose it returns <code>644</code>.</li>
+<li><strong>Apply the same mode to the new file:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>samplesheet96_2025-04-02.txt
+</code></pre></div></li>
+</ol>
+<hr />
+<p><strong>Bonus Challenge: Set <code>sequences</code> to 750</strong><br />
+<strong>Goal:</strong> Make <code>sequences</code> accessible only to the owner and group, while others have no access.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>sequences
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>ls<span class="w"> </span>-ld<span class="w"> </span>sequences
+</code></pre></div>
+<em>Now only you and your group can access it, while others are blocked.</em></p>
+<hr />
+<p><strong>Final Check</strong>
+After completing the exercises, list all files again to see the changes:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ls<span class="w"> </span>-l
+</code></pre></div></p>
+<p><strong>Compressing files (zip, unzip, tar)</strong>  </p>
+<p>Files should usually be stored in a compressed file if they're not being used frequently. This means they will use less space and thus you get more out of your quota. Some types of files (e.g., CSV files with a lot of numbers) compress as much as 9:1. The most commonly used compression format on Linux is gzip. To compress a file using gzip, we use:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>myfile
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>-rw-r--r--.<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc40000<span class="w"> </span>vsc40000<span class="w"> </span><span class="m">4</span>.1M<span class="w"> </span>Dec<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">11</span>:14<span class="w"> </span>myfile
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>$<span class="w"> </span>gzip<span class="w"> </span>myfile
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>myfile.gz
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>-rw-r--r--.<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc40000<span class="w"> </span>vsc40000<span class="w"> </span><span class="m">1</span>.1M<span class="w"> </span>Dec<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">11</span>:14<span class="w"> </span>myfile.gz
+</code></pre></div>
+<em>Note: if you zip a file, the original file will be removed. If you unzip a file, the compressed file will be removed. To keep both, we send the data to stdout and redirect it to the target file:</em>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$<span class="w"> </span>gzip<span class="w"> </span>-c<span class="w"> </span>myfile<span class="w"> </span>&gt;<span class="w"> </span>myfile.gz
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>$<span class="w"> </span>gunzip<span class="w"> </span>-c<span class="w"> </span>myfile.gz<span class="w"> </span>&gt;<span class="w"> </span>myfile
+</code></pre></div>
+<strong>"zip" and "unzip"</strong>  </p>
+<p>Windows and macOS seem to favour the zip file format, so it's also important to know how to unpack those.<br />
+We do this using unzip:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>$<span class="w"> </span>unzip<span class="w"> </span>myfile.zip
+</code></pre></div>
+If we would like to make our own zip archive, we use zip:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>$<span class="w"> </span>zip<span class="w"> </span>myfiles.zip<span class="w"> </span>myfile1<span class="w"> </span>myfile2<span class="w"> </span>myfile3
+</code></pre></div>
+<strong>Working with tarballs: "tar"</strong>  </p>
+<p>Tar stands for "tape archive" and is a way to bundle files together in a bigger file.</p>
+<p>You will normally want to unpack these files more often than you make them. To unpack a <code>.tar</code> file you use:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>tarfile.tar
+</code></pre></div>
+Often, you will find <code>gzip</code> compressed <code>.tar</code> files on the web. These are called tarballs. You can recognize them by the filename ending in <code>.tar.gz</code>. You can uncompress these using gunzip and then unpacking them using tar. But tar knows how to open them using the <code>-z</code> option:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$<span class="w"> </span>tar<span class="w"> </span>-zxf<span class="w"> </span>tarfile.tar.gz
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>$<span class="w"> </span>tar<span class="w"> </span>-zxf<span class="w"> </span>tarfile.tgz
+</code></pre></div>
+<strong>Order of arguments</strong>  </p>
+<p>Note: Archive programs like <code>zip</code>, <code>tar</code> use arguments in the "opposite direction" of copy commands.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>$<span class="w"> </span>cp<span class="w"> </span>source1<span class="w"> </span>source2<span class="w"> </span>source3<span class="w"> </span>target
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>$<span class="w"> </span>zip<span class="w"> </span>zipfile.zip<span class="w"> </span>source1<span class="w"> </span>source2<span class="w"> </span>source3
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>$<span class="w"> </span>tar<span class="w"> </span>-cf<span class="w"> </span>tarfile.tar<span class="w"> </span>source1<span class="w"> </span>source2<span class="w"> </span>source3
+</code></pre></div>
+If you use <code>tar</code> with the source files first then the first file will be overwritten. You can control the order of arguments of tar if it helps you remember:</p>
+<p>$ tar -c source1 source2 source3 -f tarfile.tar
+Exercises: Compressing files (zip, unzip, tar)</p>
+<p>Here are some <strong>zip, unzip, and tar</strong> exercises based on your directory structure. Each exercise includes commands and explanations.</p>
+<hr />
+<p><strong>Exercise 1: Create a <code>.zip</code>file from a local file.</strong><br />
+<strong>Goal:</strong> Create a <code>.zip</code> archive containing <code>manual_cp.txt</code>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>zip<span class="w"> </span>manual_cp.zip<span class="w"> </span>manual_cp.txt
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>manual_cp.zip
+</code></pre></div>
+<em>Now the file is compressed into <code>manual_cp.zip</code>.</em></p>
+<hr />
+<p><strong>Exercise 2: Extract <code>manual_cp.zip</code></strong><br />
+<strong>Goal:</strong> Extract the zipped file back to its original form.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>unzip<span class="w"> </span>manual_cp.zip
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>ls<span class="w"> </span>-l
+</code></pre></div>
+<em>The extracted file should appear in the directory.</em></p>
+<hr />
+<p><strong>Exercise 3: Compress Multiple Files into One ZIP Archive</strong><br />
+<strong>Goal:</strong> Create a <code>.zip</code> file containing <code>hello.py</code>, <code>hello.sh</code>, and <code>Tabular-file.tab</code>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>zip<span class="w"> </span>my_archive.zip<span class="w"> </span>hello.py<span class="w"> </span>hello.sh<span class="w"> </span>Tabular-file.tab
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>my_archive.zip
+</code></pre></div>
+<em>All three files are stored in <code>my_archive.zip</code>.</em></p>
+<hr />
+<p><strong>Exercise 4: Compress the <code>sequences</code> Directory Using ZIP</strong><br />
+<strong>Goal:</strong> Create a <code>.zip</code> archive of the <code>sequences</code> directory.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>zip<span class="w"> </span>-r<span class="w"> </span>sequences.zip<span class="w"> </span>sequences
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>sequences.zip
+</code></pre></div>
+<em>The <code>-r</code> flag ensures that all files inside the directory are included.</em></p>
+<hr />
+<p><strong>Exercise 5: Extract <code>sequences.zip</code></strong><br />
+<strong>Goal:</strong> Extract the entire directory from the <code>.zip</code> archive.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>unzip<span class="w"> </span>sequences.zip
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>ls<span class="w"> </span>-l
+</code></pre></div>
+<em>The <code>sequences</code> directory is restored.</em></p>
+<hr />
+<p><strong>Exercise 6: Create a Tarball (<code>.tar</code>) Without Compression</strong><br />
+<strong>Goal:</strong> Archive multiple files into a <code>.tar</code> file without compression.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>tar<span class="w"> </span>-cf<span class="w"> </span>archive.tar<span class="w"> </span>hello.py<span class="w"> </span>hello.sh<span class="w"> </span>Tabular-file.tab
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>archive.tar
+</code></pre></div>
+<em>The <code>.tar</code> file now contains all three files but is </em><em>not compressed</em><em>.</em></p>
+<hr />
+<p><strong>Exercise 7: Create a Gzipped Tarball (<code>.tar.gz</code>)</strong><br />
+<strong>Goal:</strong> Archive and compress the <code>old_sequences</code> directory.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>tar<span class="w"> </span>-czf<span class="w"> </span>old_sequences.tar.gz<span class="w"> </span>old_sequences
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>old_sequences.tar.gz
+</code></pre></div>
+<em>The <code>-z</code> flag enables gzip compression, creating a smaller file.</em></p>
+<hr />
+<p><strong>Exercise 8: Extract a <code>.tar.gz</code> File</strong><br />
+<strong>Goal:</strong> Extract the <code>old_sequences.tar.gz</code> archive.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>old_sequences.tar.gz
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>ls<span class="w"> </span>-l
+</code></pre></div>
+<em>The <code>old_sequences</code> directory is restored.</em></p>
+<hr />
+<p><strong>Exercise 9: List Contents of a <code>.tar.gz</code> File Without Extracting</strong><br />
+<strong>Goal:</strong> View files inside <code>old_sequences.tar.gz</code> without extracting.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>tar<span class="w"> </span>-tzf<span class="w"> </span>old_sequences.tar.gz
+</code></pre></div>
+<em>This shows all files inside the tarball.</em></p>
+<hr />
+<p><strong>Exercise 10: Extract Only <code>samplesheet96.txt</code> From <code>archive.tar</code></strong><br />
+<strong>Goal:</strong> Extract a single file from a tar archive.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>tar<span class="w"> </span>-xf<span class="w"> </span>archive.tar<span class="w"> </span>samplesheet96.txt
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>samplesheet96.txt
+</code></pre></div>
+<em>Only <code>samplesheet96.txt</code> is extracted.</em></p>
+<hr />
+<p><strong>Bonus Challenge: Tar a Directory and Extract It to Another Location</strong><br />
+<strong>Goal:</strong> Archive <code>sequences</code> and extract it elsewhere.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>tar<span class="w"> </span>-czf<span class="w"> </span>sequences.tar.gz<span class="w"> </span>sequences
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>mkdir<span class="w"> </span>test_restore
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>sequences.tar.gz<span class="w"> </span>-C<span class="w"> </span>test_restore
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>ls<span class="w"> </span>test_restore/
+</code></pre></div>
+<em>The <code>sequences</code> directory is extracted into <code>test_restore</code> instead of the current directory.</em></p>
+<hr />
+<p><strong>Final Check</strong><br />
+After completing the exercises, list your directory contents:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>ls<span class="w"> </span>-l
+</code></pre></div></p>
+<h3 id="15-software-packages-on-hpc">1.5 Software packages on HPC</h3>
+<p>All software on the HPC is available through <code>modules</code> which need to be activated first before you can start using them.<br />
+Follow the steps below to learn how to work with these commands.  </p>
+<p><strong>Exercise 1: Use the command <code>module</code> to list all activated modules</strong>  </p>
+<ol>
+<li>Open a terminal and an interactive session! (see "02-Day1-HPC-intro_2025.ppx" if you don't remember how to do this)</li>
+<li>Check which modules are currently loaded/activated on your system. The command ´ml´ you'll see below is short for <code>module</code>.<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>ml<span class="w"> </span>list
+</code></pre></div>
+<div class="highlight"><span class="filename">OUTPUT</span><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>Currently<span class="w"> </span>Loaded<span class="w"> </span>Modules:
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>env/vsc/doduo<span class="w"> </span><span class="o">(</span>S<span class="o">)</span><span class="w">   </span><span class="m">2</span><span class="o">)</span><span class="w"> </span>env/slurm/doduo<span class="w"> </span><span class="o">(</span>S<span class="o">)</span><span class="w">   </span><span class="m">3</span><span class="o">)</span><span class="w"> </span>env/software/doduo<span class="w"> </span><span class="o">(</span>S<span class="o">)</span><span class="w">   </span><span class="m">4</span><span class="o">)</span><span class="w"> </span>cluster/doduo<span class="w"> </span><span class="o">(</span>S<span class="o">)</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">  </span>Where:
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="w">   </span>S:<span class="w">  </span>Module<span class="w"> </span>is<span class="w"> </span>Sticky,<span class="w"> </span>requires<span class="w"> </span>--force<span class="w"> </span>to<span class="w"> </span>unload<span class="w"> </span>or<span class="w"> </span>purge
+</code></pre></div>
+<em>Note: This tells you that you are working on the doduo cluster and all basic modules are loaded but no software packages are yet activated</em>  </li>
+</ol>
+<p><strong>Exercise 2: Use the command <code>ml spider</code> to see if your favourite software package is available</strong>  </p>
+<p>Run following command to check if a nanpack module is available.<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>ml<span class="w"> </span>spider<span class="w"> </span>nanopack
+</code></pre></div></p>
+<p><div class="highlight"><span class="filename">OUTPUT</span><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">  </span>NanoPack:<span class="w"> </span>NanoPack/20230602-foss-2023a
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">    </span>Description:
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="w">      </span>Collection<span class="w"> </span>of<span class="w"> </span>long<span class="w"> </span><span class="nb">read</span><span class="w"> </span>processing<span class="w"> </span>and<span class="w"> </span>analysis<span class="w"> </span>tools.
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="w">    </span>You<span class="w"> </span>will<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>load<span class="w"> </span>all<span class="w"> </span>module<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>on<span class="w"> </span>any<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>lines<span class="w"> </span>below<span class="w"> </span>before<span class="w"> </span>the<span class="w"> </span><span class="s2">&quot;NanoPack/20230602-foss-2023a&quot;</span><span class="w"> </span>module<span class="w"> </span>is<span class="w"> </span>available<span class="w"> </span>to<span class="w"> </span>load.
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="w">      </span>env/software/accelgor
+<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="w">      </span>env/software/doduo
+<a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a><span class="w">      </span>env/software/donphan
+<a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a><span class="w">      </span>env/software/gallade
+<a id="__codelineno-44-14" name="__codelineno-44-14" href="#__codelineno-44-14"></a><span class="w">      </span>env/software/joltik
+<a id="__codelineno-44-15" name="__codelineno-44-15" href="#__codelineno-44-15"></a><span class="w">      </span>env/software/litleo
+<a id="__codelineno-44-16" name="__codelineno-44-16" href="#__codelineno-44-16"></a><span class="w">      </span>env/software/shinx
+<a id="__codelineno-44-17" name="__codelineno-44-17" href="#__codelineno-44-17"></a>
+<a id="__codelineno-44-18" name="__codelineno-44-18" href="#__codelineno-44-18"></a><span class="w">    </span>Help:
+<a id="__codelineno-44-19" name="__codelineno-44-19" href="#__codelineno-44-19"></a><span class="w">      </span><span class="nv">Description</span>
+<a id="__codelineno-44-20" name="__codelineno-44-20" href="#__codelineno-44-20"></a><span class="w">      </span><span class="o">===========</span>
+<a id="__codelineno-44-21" name="__codelineno-44-21" href="#__codelineno-44-21"></a><span class="w">      </span>Collection<span class="w"> </span>of<span class="w"> </span>long<span class="w"> </span><span class="nb">read</span><span class="w"> </span>processing<span class="w"> </span>and<span class="w"> </span>analysis<span class="w"> </span>tools.
+<a id="__codelineno-44-22" name="__codelineno-44-22" href="#__codelineno-44-22"></a>
+<a id="__codelineno-44-23" name="__codelineno-44-23" href="#__codelineno-44-23"></a>
+<a id="__codelineno-44-24" name="__codelineno-44-24" href="#__codelineno-44-24"></a><span class="w">      </span>More<span class="w"> </span><span class="nv">information</span>
+<a id="__codelineno-44-25" name="__codelineno-44-25" href="#__codelineno-44-25"></a><span class="w">      </span><span class="o">================</span>
+<a id="__codelineno-44-26" name="__codelineno-44-26" href="#__codelineno-44-26"></a><span class="w">       </span>-<span class="w"> </span>Homepage:<span class="w"> </span>https://daler.github.io/pybedtools
+</code></pre></div>
+<em>Note: Here you see the full name of the package "NanoPack/20230602-foss-2023a" and all the cluster on which you can activate this module/software package</em>  </p>
+<ol>
+<li>Activate the nanopack module<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>ml<span class="w"> </span>NanoPack/20230602-foss-2023a
+</code></pre></div></li>
+<li>Check if the module is loaded   </li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>vsc43352@gligar09:~<span class="nv">$ml</span><span class="w"> </span>list
+</code></pre></div>
+<p><div class="highlight"><span class="filename">OUTPUT</span><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>Currently<span class="w"> </span>Loaded<span class="w"> </span>Modules:
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">  </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>env/vsc/doduo<span class="w">                    </span><span class="o">(</span>S<span class="o">)</span><span class="w">  </span><span class="m">26</span><span class="o">)</span><span class="w"> </span>foss/2023a<span class="w">                                 </span><span class="m">51</span><span class="o">)</span><span class="w"> </span>statsmodels/0.14.1-gfbf-2023a<span class="w">            </span><span class="m">76</span><span class="o">)</span><span class="w"> </span>Tkinter/3.11.3-GCCcore-12.3.0
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">  </span><span class="m">2</span><span class="o">)</span><span class="w"> </span>env/slurm/doduo<span class="w">                  </span><span class="o">(</span>S<span class="o">)</span><span class="w">  </span><span class="m">27</span><span class="o">)</span><span class="w"> </span>bzip2/1.0.8-GCCcore-12.3.0<span class="w">                 </span><span class="m">52</span><span class="o">)</span><span class="w"> </span>gzip/1.12-GCCcore-12.3.0<span class="w">                 </span><span class="m">77</span><span class="o">)</span><span class="w"> </span>NASM/2.16.01-GCCcore-12.3.0
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">  </span><span class="m">3</span><span class="o">)</span><span class="w"> </span>env/software/doduo<span class="w">               </span><span class="o">(</span>S<span class="o">)</span><span class="w">  </span><span class="m">28</span><span class="o">)</span><span class="w"> </span>ncurses/6.4-GCCcore-12.3.0<span class="w">                 </span><span class="m">53</span><span class="o">)</span><span class="w"> </span>lz4/1.9.4-GCCcore-12.3.0<span class="w">                 </span><span class="m">78</span><span class="o">)</span><span class="w"> </span>libjpeg-turbo/2.1.5.1-GCCcore-12.3.0
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">  </span><span class="m">4</span><span class="o">)</span><span class="w"> </span>cluster/doduo<span class="w">                    </span><span class="o">(</span>S<span class="o">)</span><span class="w">  </span><span class="m">29</span><span class="o">)</span><span class="w"> </span>libreadline/8.2-GCCcore-12.3.0<span class="w">             </span><span class="m">54</span><span class="o">)</span><span class="w"> </span>zstd/1.5.5-GCCcore-12.3.0<span class="w">                </span><span class="m">79</span><span class="o">)</span><span class="w"> </span>jbigkit/2.1-GCCcore-12.3.0
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="w">  </span><span class="m">5</span><span class="o">)</span><span class="w"> </span>GCCcore/12.3.0<span class="w">                        </span><span class="m">30</span><span class="o">)</span><span class="w"> </span>Tcl/8.6.13-GCCcore-12.3.0<span class="w">                  </span><span class="m">55</span><span class="o">)</span><span class="w"> </span>ICU/73.2-GCCcore-12.3.0<span class="w">                  </span><span class="m">80</span><span class="o">)</span><span class="w"> </span>libdeflate/1.18-GCCcore-12.3.0
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="w">  </span><span class="m">6</span><span class="o">)</span><span class="w"> </span>zlib/1.2.13-GCCcore-12.3.0<span class="w">            </span><span class="m">31</span><span class="o">)</span><span class="w"> </span>SQLite/3.42.0-GCCcore-12.3.0<span class="w">               </span><span class="m">56</span><span class="o">)</span><span class="w"> </span>Boost/1.82.0-GCC-12.3.0<span class="w">                  </span><span class="m">81</span><span class="o">)</span><span class="w"> </span>LibTIFF/4.5.0-GCCcore-12.3.0
+<a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="w">  </span><span class="m">7</span><span class="o">)</span><span class="w"> </span>binutils/2.40-GCCcore-12.3.0<span class="w">          </span><span class="m">32</span><span class="o">)</span><span class="w"> </span>libffi/3.4.4-GCCcore-12.3.0<span class="w">                </span><span class="m">57</span><span class="o">)</span><span class="w"> </span>snappy/1.1.10-GCCcore-12.3.0<span class="w">             </span><span class="m">82</span><span class="o">)</span><span class="w"> </span>giflib/5.2.1-GCCcore-12.3.0
+<a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="w">  </span><span class="m">8</span><span class="o">)</span><span class="w"> </span>GCC/12.3.0<span class="w">                            </span><span class="m">33</span><span class="o">)</span><span class="w"> </span>Python/3.11.3-GCCcore-12.3.0<span class="w">               </span><span class="m">58</span><span class="o">)</span><span class="w"> </span>RapidJSON/1.1.0-20230928-GCCcore-12.3.0<span class="w">  </span><span class="m">83</span><span class="o">)</span><span class="w"> </span>libwebp/1.3.1-GCCcore-12.3.0
+<a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a><span class="w">  </span><span class="m">9</span><span class="o">)</span><span class="w"> </span>numactl/2.0.16-GCCcore-12.3.0<span class="w">         </span><span class="m">34</span><span class="o">)</span><span class="w"> </span>gfbf/2023a<span class="w">                                 </span><span class="m">59</span><span class="o">)</span><span class="w"> </span>Abseil/20230125.3-GCCcore-12.3.0<span class="w">         </span><span class="m">84</span><span class="o">)</span><span class="w"> </span>OpenJPEG/2.5.0-GCCcore-12.3.0
+<a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="w"> </span><span class="m">10</span><span class="o">)</span><span class="w"> </span>XZ/5.4.2-GCCcore-12.3.0<span class="w">               </span><span class="m">35</span><span class="o">)</span><span class="w"> </span>cffi/1.15.1-GCCcore-12.3.0<span class="w">                 </span><span class="m">60</span><span class="o">)</span><span class="w"> </span>RE2/2023-08-01-GCCcore-12.3.0<span class="w">            </span><span class="m">85</span><span class="o">)</span><span class="w"> </span>LittleCMS/2.15-GCCcore-12.3.0
+<a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="w"> </span><span class="m">11</span><span class="o">)</span><span class="w"> </span>libxml2/2.11.4-GCCcore-12.3.0<span class="w">         </span><span class="m">36</span><span class="o">)</span><span class="w"> </span>cryptography/41.0.1-GCCcore-12.3.0<span class="w">         </span><span class="m">61</span><span class="o">)</span><span class="w"> </span>utf8proc/2.8.0-GCCcore-12.3.0<span class="w">            </span><span class="m">86</span><span class="o">)</span><span class="w"> </span>Pillow/10.0.0-GCCcore-12.3.0
+<a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a><span class="w"> </span><span class="m">12</span><span class="o">)</span><span class="w"> </span>libpciaccess/0.17-GCCcore-12.3.0<span class="w">      </span><span class="m">37</span><span class="o">)</span><span class="w"> </span>virtualenv/20.23.1-GCCcore-12.3.0<span class="w">          </span><span class="m">62</span><span class="o">)</span><span class="w"> </span>Arrow/14.0.1-gfbf-2023a<span class="w">                  </span><span class="m">87</span><span class="o">)</span><span class="w"> </span>Qhull/2020.2-GCCcore-12.3.0
+<a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a><span class="w"> </span><span class="m">13</span><span class="o">)</span><span class="w"> </span>hwloc/2.9.1-GCCcore-12.3.0<span class="w">            </span><span class="m">38</span><span class="o">)</span><span class="w"> </span>Python-bundle-PyPI/2023.06-GCCcore-12.3.0<span class="w">  </span><span class="m">63</span><span class="o">)</span><span class="w"> </span>Kaleido/0.2.1-GCCcore-12.3.0<span class="w">             </span><span class="m">88</span><span class="o">)</span><span class="w"> </span>matplotlib/3.7.2-gfbf-2023a
+<a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a><span class="w"> </span><span class="m">14</span><span class="o">)</span><span class="w"> </span>OpenSSL/3<span class="w">                             </span><span class="m">39</span><span class="o">)</span><span class="w"> </span>pybind11/2.11.1-GCCcore-12.3.0<span class="w">             </span><span class="m">64</span><span class="o">)</span><span class="w"> </span>NanoPlot/1.43.0-foss-2023a<span class="w">               </span><span class="m">89</span><span class="o">)</span><span class="w"> </span>joypy/0.2.6-foss-2023a
+<a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a><span class="w"> </span><span class="m">15</span><span class="o">)</span><span class="w"> </span>libevent/2.1.12-GCCcore-12.3.0<span class="w">        </span><span class="m">40</span><span class="o">)</span><span class="w"> </span>SciPy-bundle/2023.07-gfbf-2023a<span class="w">            </span><span class="m">65</span><span class="o">)</span><span class="w"> </span>nodejs/18.17.1-GCCcore-12.3.0<span class="w">            </span><span class="m">90</span><span class="o">)</span><span class="w"> </span>NanoComp/1.24.0-foss-2023a
+<a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a><span class="w"> </span><span class="m">16</span><span class="o">)</span><span class="w"> </span>UCX/1.14.1-GCCcore-12.3.0<span class="w">             </span><span class="m">41</span><span class="o">)</span><span class="w"> </span>nanomath/1.4.0-foss-2023a<span class="w">                  </span><span class="m">66</span><span class="o">)</span><span class="w"> </span>plotly-orca/1.3.1-GCCcore-12.3.0<span class="w">         </span><span class="m">91</span><span class="o">)</span><span class="w"> </span>libyaml/0.2.5-GCCcore-12.3.0
+<a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a><span class="w"> </span><span class="m">17</span><span class="o">)</span><span class="w"> </span>PMIx/4.2.4-GCCcore-12.3.0<span class="w">             </span><span class="m">42</span><span class="o">)</span><span class="w"> </span>Biopython/1.83-foss-2023a<span class="w">                  </span><span class="m">67</span><span class="o">)</span><span class="w"> </span>libpng/1.6.39-GCCcore-12.3.0<span class="w">             </span><span class="m">92</span><span class="o">)</span><span class="w"> </span>PyYAML/6.0-GCCcore-12.3.0
+<a id="__codelineno-47-19" name="__codelineno-47-19" href="#__codelineno-47-19"></a><span class="w"> </span><span class="m">18</span><span class="o">)</span><span class="w"> </span>UCC/1.2.0-GCCcore-12.3.0<span class="w">              </span><span class="m">43</span><span class="o">)</span><span class="w"> </span>cURL/8.0.1-GCCcore-12.3.0<span class="w">                  </span><span class="m">68</span><span class="o">)</span><span class="w"> </span>Brotli/1.0.9-GCCcore-12.3.0<span class="w">              </span><span class="m">93</span><span class="o">)</span><span class="w"> </span>Pillow-SIMD/9.5.0-GCCcore-12.3.0
+<a id="__codelineno-47-20" name="__codelineno-47-20" href="#__codelineno-47-20"></a><span class="w"> </span><span class="m">19</span><span class="o">)</span><span class="w"> </span>OpenMPI/4.1.5-GCC-12.3.0<span class="w">              </span><span class="m">44</span><span class="o">)</span><span class="w"> </span>Pysam/0.22.0-GCC-12.3.0<span class="w">                    </span><span class="m">69</span><span class="o">)</span><span class="w"> </span>freetype/2.13.0-GCCcore-12.3.0<span class="w">           </span><span class="m">94</span><span class="o">)</span><span class="w"> </span>tornado/6.3.2-GCCcore-12.3.0
+<a id="__codelineno-47-21" name="__codelineno-47-21" href="#__codelineno-47-21"></a><span class="w"> </span><span class="m">20</span><span class="o">)</span><span class="w"> </span>OpenBLAS/0.3.23-GCC-12.3.0<span class="w">            </span><span class="m">45</span><span class="o">)</span><span class="w"> </span>nanoget/1.19.3-foss-2023a<span class="w">                  </span><span class="m">70</span><span class="o">)</span><span class="w"> </span>expat/2.5.0-GCCcore-12.3.0<span class="w">               </span><span class="m">95</span><span class="o">)</span><span class="w"> </span>bokeh/3.2.2-foss-2023a
+<a id="__codelineno-47-22" name="__codelineno-47-22" href="#__codelineno-47-22"></a><span class="w"> </span><span class="m">21</span><span class="o">)</span><span class="w"> </span>FlexiBLAS/3.3.1-GCC-12.3.0<span class="w">            </span><span class="m">46</span><span class="o">)</span><span class="w"> </span>NanoStat/1.6.0-foss-2023a<span class="w">                  </span><span class="m">71</span><span class="o">)</span><span class="w"> </span>util-linux/2.39-GCCcore-12.3.0<span class="w">           </span><span class="m">96</span><span class="o">)</span><span class="w"> </span>nanoQC/0.9.4-foss-2023a
+<a id="__codelineno-47-23" name="__codelineno-47-23" href="#__codelineno-47-23"></a><span class="w"> </span><span class="m">22</span><span class="o">)</span><span class="w"> </span>FFTW/3.3.10-GCC-12.3.0<span class="w">                </span><span class="m">47</span><span class="o">)</span><span class="w"> </span>NanoFilt/2.8.0-foss-2023a<span class="w">                  </span><span class="m">72</span><span class="o">)</span><span class="w"> </span>fontconfig/2.14.2-GCCcore-12.3.0<span class="w">         </span><span class="m">97</span><span class="o">)</span><span class="w"> </span>kyber/0.4.0-GCC-12.3.0
+<a id="__codelineno-47-24" name="__codelineno-47-24" href="#__codelineno-47-24"></a><span class="w"> </span><span class="m">23</span><span class="o">)</span><span class="w"> </span>gompi/2023a<span class="w">                           </span><span class="m">48</span><span class="o">)</span><span class="w"> </span>minimap2/2.26-GCCcore-12.3.0<span class="w">               </span><span class="m">73</span><span class="o">)</span><span class="w"> </span>xorg-macros/1.20.0-GCCcore-12.3.0<span class="w">        </span><span class="m">98</span><span class="o">)</span><span class="w"> </span>NanoPack/20230602-foss-2023a
+<a id="__codelineno-47-25" name="__codelineno-47-25" href="#__codelineno-47-25"></a><span class="w"> </span><span class="m">24</span><span class="o">)</span><span class="w"> </span>FFTW.MPI/3.3.10-gompi-2023a<span class="w">           </span><span class="m">49</span><span class="o">)</span><span class="w"> </span>NanoLyse/1.2.1-foss-2023a<span class="w">                  </span><span class="m">74</span><span class="o">)</span><span class="w"> </span>X11/20230603-GCCcore-12.3.0
+<a id="__codelineno-47-26" name="__codelineno-47-26" href="#__codelineno-47-26"></a><span class="w"> </span><span class="m">25</span><span class="o">)</span><span class="w"> </span>ScaLAPACK/2.2.0-gompi-2023a-fb<span class="w">        </span><span class="m">50</span><span class="o">)</span><span class="w"> </span>plotly.py/5.16.0-GCCcore-12.3.0<span class="w">            </span><span class="m">75</span><span class="o">)</span><span class="w"> </span>Tk/8.6.13-GCCcore-12.3.0
+<a id="__codelineno-47-27" name="__codelineno-47-27" href="#__codelineno-47-27"></a>
+<a id="__codelineno-47-28" name="__codelineno-47-28" href="#__codelineno-47-28"></a><span class="w">  </span>Where:
+<a id="__codelineno-47-29" name="__codelineno-47-29" href="#__codelineno-47-29"></a><span class="w">   </span>S:<span class="w">  </span>Module<span class="w"> </span>is<span class="w"> </span>Sticky,<span class="w"> </span>requires<span class="w"> </span>--force<span class="w"> </span>to<span class="w"> </span>unload<span class="w"> </span>or<span class="w"> </span>purge
+</code></pre></div>
+<em>Note: Besides the Nanopack/20230602-foss-2023a module you'll see a lot more is added to the list. These are all the dependencies Nanopack needs to be able to function properly.</em></p>
+<h2 id="2-nanopore-data">2. Nanopore data</h2>
+<p>Remember that each of you extracted DNA and did PCR on his/her own collectd fieldsamples in Benin last year.<br />
+You can find a more detailed list with extra information in the teams <em>General</em> channel:<br />
+<code>Document &gt; General &gt; Specieslist-overview</code>  </p>
+<p>Before we start any Analysis on this data we first need to learn how to interprete the Nanopore sequence output and learn how to use the different tools.<br />
+For this, I prepared a test data set (see below) with sequence output from 2 barcodes, i.e. 2 samples.<br />
+Once you mastered all the skills you need, we can continue with a more extensive dataset.  </p>
+<p>To keep the running time of the analysis minimal (more data is longer runtime), I suggest to select <strong>no more than 10 Barcodes</strong> each.<br />
+But first let's have a look at the data structure and start with the test data.  </p>
+<h3 id="21-data-structure">2.1 Data structure</h3>
+<p>But first things first.<br />
+Have a look at the content of the data folder <strong>PATH TO CHARED DATAFOLDER</strong>. You should be able to navigate to this folder by now.<br />
+<em>Hint: you can use the <code>ls</code> command, or <code>cd</code> to access the directory and use the command <code>tree</code> to create an overview of the content.</em>  </p>
+<p><strong>Main folder</strong><br />
+The structure looks like this:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>path/to/inputdata/ONT-SEQ_PA-Benin2024_Input-Data/
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>.
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>+--<span class="w"> </span>ONT-SEQ-24_PA-01
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>fastq_pass
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>barcode01
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>...
+<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="se">\-</span>-<span class="w"> </span>barcode24
+<a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>reference.fa
+<a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>report_AMF003_20241018_1203_c8d4ac6d.html
+<a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a><span class="p">|</span><span class="w">   </span><span class="se">\-</span>-<span class="w"> </span>samplesheet_ONT-SEQ-24_01-withreference.txt
+<a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a>+--<span class="w"> </span>ONT-SEQ-24_PA-02
+<a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>fastq_pass
+<a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>barcode01
+<a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>...
+<a id="__codelineno-48-15" name="__codelineno-48-15" href="#__codelineno-48-15"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>barcode24
+<a id="__codelineno-48-16" name="__codelineno-48-16" href="#__codelineno-48-16"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>reference.fa
+<a id="__codelineno-48-17" name="__codelineno-48-17" href="#__codelineno-48-17"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>report_axf308_20241022_1153_b65829bf.html
+<a id="__codelineno-48-18" name="__codelineno-48-18" href="#__codelineno-48-18"></a><span class="p">|</span><span class="w">   </span><span class="se">\-</span>-<span class="w"> </span>samplesheet_ONT-SEQ-24_02-withreference.txt
+<a id="__codelineno-48-19" name="__codelineno-48-19" href="#__codelineno-48-19"></a>+--<span class="w"> </span>ONT-SEQ-25_PA-04
+<a id="__codelineno-48-20" name="__codelineno-48-20" href="#__codelineno-48-20"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>fastq_pass
+<a id="__codelineno-48-21" name="__codelineno-48-21" href="#__codelineno-48-21"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>barcode01
+<a id="__codelineno-48-22" name="__codelineno-48-22" href="#__codelineno-48-22"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>...
+<a id="__codelineno-48-23" name="__codelineno-48-23" href="#__codelineno-48-23"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>barcode96
+<a id="__codelineno-48-24" name="__codelineno-48-24" href="#__codelineno-48-24"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>report_FBA60703_20250120_1336_292963a6.html
+<a id="__codelineno-48-25" name="__codelineno-48-25" href="#__codelineno-48-25"></a><span class="p">|</span><span class="w">   </span><span class="se">\-</span>-<span class="w"> </span>samplesheet_ONT-SEQ-25_04.txt
+<a id="__codelineno-48-26" name="__codelineno-48-26" href="#__codelineno-48-26"></a>+--<span class="w"> </span>ONT-SEQ-25_PA-05
+<a id="__codelineno-48-27" name="__codelineno-48-27" href="#__codelineno-48-27"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>fastq_pass
+<a id="__codelineno-48-28" name="__codelineno-48-28" href="#__codelineno-48-28"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>barcode01
+<a id="__codelineno-48-29" name="__codelineno-48-29" href="#__codelineno-48-29"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>...
+<a id="__codelineno-48-30" name="__codelineno-48-30" href="#__codelineno-48-30"></a><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>barcode48
+<a id="__codelineno-48-31" name="__codelineno-48-31" href="#__codelineno-48-31"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>report_FBA60703_20250128_1308_e2391328.html
+<a id="__codelineno-48-32" name="__codelineno-48-32" href="#__codelineno-48-32"></a><span class="p">|</span><span class="w">   </span><span class="se">\-</span>-<span class="w"> </span>samplesheet_ONT-SEQ-25_05.txt
+<a id="__codelineno-48-33" name="__codelineno-48-33" href="#__codelineno-48-33"></a>+--<span class="w"> </span>information
+<a id="__codelineno-48-34" name="__codelineno-48-34" href="#__codelineno-48-34"></a><span class="se">\-</span>-<span class="w"> </span>scripts
+</code></pre></div>
+<strong>fastq-pass folder</strong><br />
+Each <code>barcode</code> folder contains the reads for this particular barcode in <code>fastq.gz</code> format:  </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>../fastq_pass/barcode01<span class="nv">$tree</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>.
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>+--<span class="w"> </span>AMF003_pass_barcode01_c8d4ac6d_b8b1e3e8_0.fastq.gz
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>+--<span class="w"> </span>AMF003_pass_barcode01_c8d4ac6d_b8b1e3e8_10.fastq.gz
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>+--<span class="w"> </span>AMF003_pass_barcode01_c8d4ac6d_b8b1e3e8_11.fastq.gz
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>+--<span class="w"> </span>AMF003_pass_barcode01_c8d4ac6d_b8b1e3e8_12.fastq.gz
+<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a>+--<span class="w"> </span>AMF003_pass_barcode01_c8d4ac6d_b8b1e3e8_13.fastq.gz
+<a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a>+--<span class="w"> </span>AMF003_pass_barcode01_c8d4ac6d_b8b1e3e8_14.fastq.gz
+<a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a>+--<span class="w"> </span>AMF003_pass_barcode01_c8d4ac6d_b8b1e3e8_15.fastq.gz
+</code></pre></div>
+<p>4 Sequence experiments were performed on your samples: <em>ONT-SEQ-24_PA-0X</em>.<br />
+You can find more detailed list with extra information in the teams <em>General</em> channel:<br />
+<code>Document &gt; General &gt; Specieslist-overview</code>  </p>
+<ol>
+<li>ONT-SEQ-24_PA-01: 24 amplicons - ITS+LSU sequences <code>(*)</code> </li>
+<li>ONT-SEQ-24_PA-02: 24 amplicons - ITS+LSU sequences <code>(*)</code> </li>
+<li>ONT-SEQ-24_PA-04: 96 amplicons - ITS sequences  </li>
+<li>ONT-SEQ-24_PA-05: 48 amplicons - ITS  </li>
+</ol>
+<p><code>(*)</code> That means both ITS and LSU amplicon products for the <strong>same</strong> sample where mixed befor sequencing. The bioinformatic tool we will able to construct both ITS and LSU sequences at the same time.  </p>
+<p>The 2 other experiments (5 and 6) contain only ITS sequences per specimen.</p>
+<p><strong>Sequence folder</strong>    </p>
+<p>This folder contains the following:  </p>
+<ul>
+<li><code>fastq_pass</code> the passed fastq files i.e. your sequence reads  </li>
+<li><code>reference.fa</code> a reference file with an ITS and a LSU sequence, only for the reads from 1st and 2nd experiment  </li>
+<li><code>report...html</code> a sequence report file, general info on the sequence run (including all samples)  </li>
+<li><code>samplesheet_....txt</code>a samplesheet (with the MBB number and sequence barcode).  </li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>/ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01<span class="nv">$tree</span><span class="w"> </span>-L<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>.
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>+--<span class="w"> </span>fastq_pass
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>+--<span class="w"> </span>reference.fa
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>+--<span class="w"> </span>report_AMF003_20241018_1203_c8d4ac6d.html
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="se">\-</span>-<span class="w"> </span>samplesheet_ONT-SEQ-24_01-withreference.txt
+</code></pre></div>
+<p>Take a look inside the folder and the samplesheet file. 
+*Hint: use the command <code>cd</code>, <code>ls</code> and <code>cat</code><br />
+You will notice that opening a <code>html</code> file is not possible in the terminal.<br />
+To look at this file, you'll need to download it.  </p>
+<h3 id="22-practice-with-test-data">2.2 Practice with test data</h3>
+<p>Before we start with the actual field data, we first are going to run a test dataset, to see if everything runs smoothly.  </p>
+<p><strong>Download the test data set</strong>  </p>
+<ol>
+<li>Copy the folder <code>/ONT-SEQ_PA-Benin2024_Input-Data/test_data</code> to your home folder  </li>
+<li>Verify the content and check if you have the sequence folders, the samplesheet and the reference file (for variant mode).  </li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>vsc43352@gligar09:~<span class="nv">$ls</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>test_data
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>vsc43352@gligar09:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>test_data
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>vsc43352@gligar09:~$/test_data<span class="nv">$tree</span><span class="w"> </span>-L<span class="w"> </span><span class="m">2</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>.
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>+--<span class="w"> </span>consensus_mode
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>barcode01
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a><span class="p">|</span><span class="w">   </span>+--<span class="w"> </span>barcode02
+<a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a><span class="p">|</span><span class="w">   </span><span class="se">\-</span>-<span class="w"> </span>samplesheet_ONT-SEQ-25_05.txt
+<a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a><span class="se">\-</span>-<span class="w"> </span>variant_mode
+<a id="__codelineno-51-11" name="__codelineno-51-11" href="#__codelineno-51-11"></a><span class="w">    </span>+--<span class="w"> </span>barcode12
+<a id="__codelineno-51-12" name="__codelineno-51-12" href="#__codelineno-51-12"></a><span class="w">    </span>+--<span class="w"> </span>barcode14
+<a id="__codelineno-51-13" name="__codelineno-51-13" href="#__codelineno-51-13"></a><span class="w">    </span>+--<span class="w"> </span>reference.fa
+<a id="__codelineno-51-14" name="__codelineno-51-14" href="#__codelineno-51-14"></a><span class="w">    </span><span class="se">\-</span>-<span class="w"> </span>samplesheet_ONT-SEQ-24_02-withreference.txt
+<a id="__codelineno-51-15" name="__codelineno-51-15" href="#__codelineno-51-15"></a>
+<a id="__codelineno-51-16" name="__codelineno-51-16" href="#__codelineno-51-16"></a><span class="m">6</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">3</span><span class="w"> </span>files
+</code></pre></div>
+<h4 id="221-nanopack-quality-control">2.2.1 NanoPack: Quality Control</h4>
+<p>Nanopack is a tool set of different long read processing and analysis tools. With these tools you can assess the quality of your sequencerun and of 'individual' sequence reads.  </p>
+<p><strong>Tool</strong>: <a href="https://github.com/wdecoster/nanopack">https://github.com/wdecoster/nanopack</a><br />
+<strong>Publication</strong>: <a href="https://doi.org/10.1093/bioinformatics/bty149">NanoPack: visualizing and processing long-read sequencing data</a> </p>
+<blockquote>
+<p>Wouter De Coster, Svenn D’Hert, Darrin T Schultz, Marc Cruts, Christine Van Broeckhoven, NanoPack: visualizing and processing long-read sequencing dta, Bioinformatics, Volume 34, Issue 15, August 2018, Pages 2666–2669, https://doi.org/10.1093/bioinformatics/bty149  </p>
+</blockquote>
+<h4 id="222-run-nanopack-beginner">2.2.2 Run Nanopack: Beginner</h4>
+<p><strong>Exercise 1: Use the command <code>Nanostat</code> to check statistics on your sequence data.</strong><br />
+Generating Basic Statistics from a FASTQ File.<br />
+You are provided with a compressed FASTQ file (<code>reads.fastq.gz</code>). Generate a statistics report and save the output in a folder called <code>statreports</code> and filname <code>nanostats.out</code>.</p>
+<ol>
+<li>First navigate to the folder with your sequence reads in the folder ´/test_data/consensus_mode/barcode01´.<br />
+<em>Hint: these commands may come in handy ´cd´, ´pwd´ and ´ls´.</em></li>
+<li>Run the command.<br />
+<div class="highlight"><span class="filename">Command</span><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>NanoStat<span class="w"> </span>--fastq<span class="w"> </span>*fastq.gz<span class="w"> </span>--outdir<span class="w"> </span>statreports<span class="w"> </span>-n<span class="w"> </span>nanostats.out
+</code></pre></div>
+<em>Note: the ´</em>´ in the command is making sure the NanoStat command is beeing executed on all files present in this folder.</li>
+<li>Check the output in the newly created subfolder ´statsreports´<br />
+<div class="highlight"><span class="filename">OUTPUT</span><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>/test_data/consensus_mode/barcode01/statreports<span class="nv">$ls</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>nanostats.out
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>/test_data/consensus_mode/barcode01/statreports<span class="nv">$cat</span><span class="w"> </span>nanostats.out<span class="w"> </span>
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>General<span class="w"> </span>summary:<span class="w">         </span>
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>Mean<span class="w"> </span><span class="nb">read</span><span class="w"> </span>length:<span class="w">                 </span><span class="m">438</span>.6
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>Mean<span class="w"> </span><span class="nb">read</span><span class="w"> </span>quality:<span class="w">                 </span><span class="m">11</span>.6
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>Median<span class="w"> </span><span class="nb">read</span><span class="w"> </span>length:<span class="w">               </span><span class="m">425</span>.0
+<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>Median<span class="w"> </span><span class="nb">read</span><span class="w"> </span>quality:<span class="w">               </span><span class="m">12</span>.6
+<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a>Number<span class="w"> </span>of<span class="w"> </span>reads:<span class="w">               </span><span class="m">24</span>,302.0
+<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a>Read<span class="w"> </span>length<span class="w"> </span>N50:<span class="w">                  </span><span class="m">511</span>.0
+<a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a>STDEV<span class="w"> </span><span class="nb">read</span><span class="w"> </span>length:<span class="w">                </span><span class="m">154</span>.7
+<a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a>Total<span class="w"> </span>bases:<span class="w">               </span><span class="m">10</span>,659,020.0
+<a id="__codelineno-53-13" name="__codelineno-53-13" href="#__codelineno-53-13"></a>Number,<span class="w"> </span>percentage<span class="w"> </span>and<span class="w"> </span>megabases<span class="w"> </span>of<span class="w"> </span>reads<span class="w"> </span>above<span class="w"> </span>quality<span class="w"> </span>cutoffs
+<a id="__codelineno-53-14" name="__codelineno-53-14" href="#__codelineno-53-14"></a>&gt;Q10:<span class="w">   </span><span class="m">21811</span><span class="w"> </span><span class="o">(</span><span class="m">89</span>.7%<span class="o">)</span><span class="w"> </span><span class="m">10</span>.0Mb
+<a id="__codelineno-53-15" name="__codelineno-53-15" href="#__codelineno-53-15"></a>&gt;Q15:<span class="w">   </span><span class="m">2256</span><span class="w"> </span><span class="o">(</span><span class="m">9</span>.3%<span class="o">)</span><span class="w"> </span><span class="m">1</span>.4Mb
+<a id="__codelineno-53-16" name="__codelineno-53-16" href="#__codelineno-53-16"></a>&gt;Q20:<span class="w">   </span><span class="m">3</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.0%<span class="o">)</span><span class="w"> </span><span class="m">0</span>.0Mb
+<a id="__codelineno-53-17" name="__codelineno-53-17" href="#__codelineno-53-17"></a>&gt;Q25:<span class="w">   </span><span class="m">0</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.0%<span class="o">)</span><span class="w"> </span><span class="m">0</span>.0Mb
+<a id="__codelineno-53-18" name="__codelineno-53-18" href="#__codelineno-53-18"></a>&gt;Q30:<span class="w">   </span><span class="m">0</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.0%<span class="o">)</span><span class="w"> </span><span class="m">0</span>.0Mb
+<a id="__codelineno-53-19" name="__codelineno-53-19" href="#__codelineno-53-19"></a>Top<span class="w"> </span><span class="m">5</span><span class="w"> </span>highest<span class="w"> </span>mean<span class="w"> </span>basecall<span class="w"> </span>quality<span class="w"> </span>scores<span class="w"> </span>and<span class="w"> </span>their<span class="w"> </span><span class="nb">read</span><span class="w"> </span>lengths
+<a id="__codelineno-53-20" name="__codelineno-53-20" href="#__codelineno-53-20"></a><span class="m">1</span>:<span class="w">      </span><span class="m">21</span>.4<span class="w"> </span><span class="o">(</span><span class="m">530</span><span class="o">)</span>
+<a id="__codelineno-53-21" name="__codelineno-53-21" href="#__codelineno-53-21"></a><span class="m">2</span>:<span class="w">      </span><span class="m">21</span>.0<span class="w"> </span><span class="o">(</span><span class="m">705</span><span class="o">)</span>
+<a id="__codelineno-53-22" name="__codelineno-53-22" href="#__codelineno-53-22"></a><span class="m">3</span>:<span class="w">      </span><span class="m">20</span>.3<span class="w"> </span><span class="o">(</span><span class="m">585</span><span class="o">)</span>
+<a id="__codelineno-53-23" name="__codelineno-53-23" href="#__codelineno-53-23"></a><span class="m">4</span>:<span class="w">      </span><span class="m">19</span>.7<span class="w"> </span><span class="o">(</span><span class="m">274</span><span class="o">)</span>
+<a id="__codelineno-53-24" name="__codelineno-53-24" href="#__codelineno-53-24"></a><span class="m">5</span>:<span class="w">      </span><span class="m">19</span>.3<span class="w"> </span><span class="o">(</span><span class="m">467</span><span class="o">)</span>
+<a id="__codelineno-53-25" name="__codelineno-53-25" href="#__codelineno-53-25"></a>Top<span class="w"> </span><span class="m">5</span><span class="w"> </span>longest<span class="w"> </span>reads<span class="w"> </span>and<span class="w"> </span>their<span class="w"> </span>mean<span class="w"> </span>basecall<span class="w"> </span>quality<span class="w"> </span>score
+<a id="__codelineno-53-26" name="__codelineno-53-26" href="#__codelineno-53-26"></a><span class="m">1</span>:<span class="w">      </span><span class="m">999</span><span class="w"> </span><span class="o">(</span><span class="m">14</span>.6<span class="o">)</span>
+<a id="__codelineno-53-27" name="__codelineno-53-27" href="#__codelineno-53-27"></a><span class="m">2</span>:<span class="w">      </span><span class="m">970</span><span class="w"> </span><span class="o">(</span><span class="m">13</span>.0<span class="o">)</span>
+<a id="__codelineno-53-28" name="__codelineno-53-28" href="#__codelineno-53-28"></a><span class="m">3</span>:<span class="w">      </span><span class="m">943</span><span class="w"> </span><span class="o">(</span><span class="m">13</span>.1<span class="o">)</span>
+<a id="__codelineno-53-29" name="__codelineno-53-29" href="#__codelineno-53-29"></a><span class="m">4</span>:<span class="w">      </span><span class="m">902</span><span class="w"> </span><span class="o">(</span><span class="m">12</span>.9<span class="o">)</span>
+<a id="__codelineno-53-30" name="__codelineno-53-30" href="#__codelineno-53-30"></a><span class="m">5</span>:<span class="w">      </span><span class="m">888</span><span class="w"> </span><span class="o">(</span><span class="m">14</span>.9<span class="o">)</span>
+</code></pre></div>
+<em>Hint: These commands are usefull here ´cd´, ´ls´, ´cat´</em>  </li>
+</ol>
+<p><strong>Exercise 2: Use the command <code>NanoPlot</code> to create visual plots of your data.</strong>  </p>
+<ol>
+<li>First navigate to the folder with your sequence reads in the folder ´/test_data/consensus_mode/barcode01´.<br />
+<em>Hint: these commands may come in handy ´cd´, ´pwd´ and ´ls´.</em>  </li>
+<li>Run the Command<br />
+<div class="highlight"><span class="filename">Command</span><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>NanoPlot<span class="w">  </span>--fastq<span class="w"> </span>*.fastq.gz<span class="w"> </span>-o<span class="w"> </span>NanoPlot-output
+</code></pre></div></li>
+<li>Check the output<br />
+<div class="highlight"><span class="filename">OUTPUT</span><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>/test_data/consensus_mode/barcode01/NanoPlot-output<span class="nv">$ll</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>total<span class="w"> </span><span class="m">3265</span>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">  </span><span class="m">463602</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>LengthvsQualityScatterPlot_dot.html
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">   </span><span class="m">51397</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>LengthvsQualityScatterPlot_dot.png
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">  </span><span class="m">689449</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>LengthvsQualityScatterPlot_kde.html
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">  </span><span class="m">121391</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>LengthvsQualityScatterPlot_kde.png
+<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">6049</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>NanoPlot_20250424_1507.log
+<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w"> </span><span class="m">1362962</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>NanoPlot-report.html
+<a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">788</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>NanoStats.txt
+<a id="__codelineno-55-10" name="__codelineno-55-10" href="#__codelineno-55-10"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">8079</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>Non_weightedHistogramReadlength.html
+<a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">   </span><span class="m">30027</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>Non_weightedHistogramReadlength.png
+<a id="__codelineno-55-12" name="__codelineno-55-12" href="#__codelineno-55-12"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">8383</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>Non_weightedLogTransformed_HistogramReadlength.html
+<a id="__codelineno-55-13" name="__codelineno-55-13" href="#__codelineno-55-13"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">   </span><span class="m">31773</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>Non_weightedLogTransformed_HistogramReadlength.png
+<a id="__codelineno-55-14" name="__codelineno-55-14" href="#__codelineno-55-14"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">8102</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>WeightedHistogramReadlength.html
+<a id="__codelineno-55-15" name="__codelineno-55-15" href="#__codelineno-55-15"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">   </span><span class="m">28858</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>WeightedHistogramReadlength.png
+<a id="__codelineno-55-16" name="__codelineno-55-16" href="#__codelineno-55-16"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">8524</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>WeightedLogTransformed_HistogramReadlength.html
+<a id="__codelineno-55-17" name="__codelineno-55-17" href="#__codelineno-55-17"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">   </span><span class="m">30033</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>WeightedLogTransformed_HistogramReadlength.png
+<a id="__codelineno-55-18" name="__codelineno-55-18" href="#__codelineno-55-18"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">  </span><span class="m">167169</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>Yield_By_Length.html
+<a id="__codelineno-55-19" name="__codelineno-55-19" href="#__codelineno-55-19"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">   </span><span class="m">37288</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>Yield_By_Length.png
+</code></pre></div>
+<em>Note: You can download the NanoPlot-report.html file to your computer and open it locally.</em>  </li>
+</ol>
+<p><strong>Exercise 3: Use the command <code>Chopper</code> to filter data based on read quality.</strong>  </p>
+<ol>
+<li>First navigate to the folder with your sequence reads in the folder ´/test_data/consensus_mode/barcode01´.<br />
+<em>Hint: these commands may come in handy ´cd´, ´pwd´ and ´ls´.</em>  </li>
+<li>Locate and load the <code>chopper</code> Module. Check if is has been activated<br />
+<div class="highlight"><span class="filename">Commands to use</span><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>ml<span class="w"> </span>spider<span class="w"> </span>chopper
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>ml<span class="w"> </span>chopper/0.9.0-GCCcore-12.3.0
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>module<span class="w"> </span>list
+</code></pre></div></li>
+<li>Run the command<br />
+<div class="highlight"><span class="filename">COMMAND</span><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>cat<span class="w"> </span>*.fastq.gz<span class="w"> </span>&gt;<span class="w"> </span>allreads.fastq.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chopper<span class="w"> </span>-q<span class="w"> </span><span class="m">15</span><span class="w"> </span>-i<span class="w"> </span>allreads.fastq.gz<span class="w"> </span>&gt;<span class="w"> </span>Q15_filtered.reads.fastq
+</code></pre></div>
+Where:<ul>
+<li><code>cat *.fastq.gz &gt; allreads.fastq.gz</code> =&gt; Concatenate all fastq.gz files in the folder to one file <code>allreads.fastq.gz</code>.</li>
+<li><code>&amp;&amp;</code> =&gt; this can be used to peform 2 consecutive commands one after the other, but performs the 2nd only when the 1st is finished successfully.   </li>
+<li><code>chopper</code> takes the file allreads.fastq.gz, performs a quality filtering of Q15 and writes the reads to a new file Q15_filtered.reads.fastq</li>
+</ul>
+</li>
+<li>Check the output<br />
+<div class="highlight"><span class="filename">OUTPUT</span><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>/test_data/consensus_mode/barcode01<span class="nv">$cat</span><span class="w"> </span>*.fastq.gz<span class="w"> </span>&gt;<span class="w"> </span>allreads.fastq.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chopper<span class="w"> </span>-q<span class="w"> </span><span class="m">15</span><span class="w"> </span>-i<span class="w"> </span>allreads.fastq.gz<span class="w"> </span>&gt;<span class="w"> </span>Q15_filtered.reads.fastq<span class="w">                                                                                                                                                                                            </span>
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>Kept<span class="w"> </span><span class="m">2256</span><span class="w"> </span>reads<span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">24302</span><span class="w"> </span>reads
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>/test_data/consensus_mode/barcode01<span class="nv">$ls</span>
+<a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a>allreads.fastq.gz<span class="w">                                     </span>FBA60703_pass_barcode01_e2391328_167a61ad_3.fastq.gz<span class="w">  </span>FBA60703_pass_barcode01_e2391328_167a61ad_7.fastq.gz<span class="w">  </span>Q15_filtered.reads.fastq
+<a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a>FBA60703_pass_barcode01_e2391328_167a61ad_0.fastq.gz<span class="w">  </span>FBA60703_pass_barcode01_e2391328_167a61ad_4.fastq.gz<span class="w">  </span>FBA60703_pass_barcode01_e2391328_167a61ad_8.fastq.gz<span class="w">  </span>statreports
+<a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a>FBA60703_pass_barcode01_e2391328_167a61ad_1.fastq.gz<span class="w">  </span>FBA60703_pass_barcode01_e2391328_167a61ad_5.fastq.gz<span class="w">  </span>FBA60703_pass_barcode01_e2391328_167a61ad_9.fastq.gz<span class="w">  </span>
+<a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a>FBA60703_pass_barcode01_e2391328_167a61ad_2.fastq.gz<span class="w">  </span>FBA60703_pass_barcode01_e2391328_167a61ad_6.fastq.gz<span class="w">  </span>NanoPlot-output
+</code></pre></div>
+*Note: You should by now have these files and folders in your working directory /test_data/consensus_mode/barcode01  </li>
+</ol>
+<p><strong>Exercise 4: Use the command <code>NanoComp</code> to compare.</strong><br />
+<code>NanoComp</code> is an excellent tool to compare 2, or more, sequence files. In this example you will compare the original <code>allreads.fastq.gz</code> and the filtered reads <code>Q15_filtered.reads.fastq</code>.  </p>
+<ol>
+<li>First navigate to the folder with your sequence reads in the folder ´/test_data/consensus_mode/barcode01´.<br />
+<em>Hint: these commands may come in handy ´cd´, ´pwd´ and ´ls´.</em>  </li>
+<li>Run the command<br />
+<div class="highlight"><span class="filename">COMMAND</span><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>NanoComp<span class="w"> </span>--fastq<span class="w"> </span>allreads.fastq.gz<span class="w"> </span>Q15_filtered.reads.fastq<span class="w"> </span>--outdir<span class="w"> </span>compare_filtered<span class="w"> </span>--plot<span class="w"> </span>violin
+</code></pre></div></li>
+<li>Check the ouput<br />
+<div class="highlight"><span class="filename">OUTPUT</span><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>/test_data/consensus_mode/barcode01<span class="nv">$cd</span><span class="w"> </span>compare_filtered/
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>/test_data/consensus_mode/barcode01/compare_filtered<span class="nv">$ls</span>
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>NanoComp_20250424_1550.log<span class="w">       </span>NanoComp_N50.png<span class="w">                           </span>NanoComp_OverlayHistogram.png<span class="w">                 </span>NanoComp_OverlayLogHistogram.png<span class="w">            </span>NanoComp_total_throughput.html
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>NanoComp_lengths_violin.html<span class="w">     </span>NanoComp_number_of_reads.html<span class="w">              </span>NanoComp_OverlayHistogram_Weighted.html<span class="w">       </span>NanoComp_OverlayLogHistogram_Weighted.html<span class="w">  </span>NanoComp_total_throughput.png
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>NanoComp_lengths_violin.png<span class="w">      </span>NanoComp_number_of_reads.png<span class="w">               </span>NanoComp_OverlayHistogram_Weighted.png<span class="w">        </span>NanoComp_OverlayLogHistogram_Weighted.png<span class="w">   </span>NanoStats.txt
+<a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>NanoComp_log_length_violin.html<span class="w">  </span>NanoComp_OverlayHistogram.html<span class="w">             </span>NanoComp_OverlayLogHistogram.html<span class="w">             </span>NanoComp_quals_violin.html
+<a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a>NanoComp_log_length_violin.png<span class="w">   </span>NanoComp_OverlayHistogram_Normalized.html<span class="w">  </span>NanoComp_OverlayLogHistogram_Normalized.html<span class="w">  </span>NanoComp_quals_violin.png
+<a id="__codelineno-60-8" name="__codelineno-60-8" href="#__codelineno-60-8"></a>NanoComp_N50.html<span class="w">                </span>NanoComp_OverlayHistogram_Normalized.png<span class="w">   </span>NanoComp_OverlayLogHistogram_Normalized.png<span class="w">   </span>NanoComp-report.html
+</code></pre></div>
+*Note: You can dowlod the file <code>NanoComp-report.html</code> and open the file on your computer. See the difference?  </li>
+</ol>
+<h4 id="223-run-nanopack-advanced">2.2.3 Run Nanopack: Advanced</h4>
+<p>If you want to explore more features on the <code>NanoPack</code> program, you can visit the website:<br />
+<a href="https://passelma42.github.io/Field-Sequencing/Tutorial-NanoPack/">https://passelma42.github.io/Field-Sequencing/Tutorial-NanoPack/</a>.  </p>
+<p>!Important!:  </p>
+<ul>
+<li>Don't run the <code>conda</code> commands, no need when using the HPC  </li>
+<li>Focus on the Exercises and don't forget to activate the modules before running the commands  </li>
+<li>All test data can be downloaded here: <code>/ONT-SEQ_PA-Benin2024_Bioinfocourse/nanopack_Basics_exampledata</code>  </li>
+</ul>
+<h3 id="23-download-actual-dataset">2.3 Download Actual dataset</h3>
+<p>Each <em>ONT-SEQ-24_PA-0X</em> folder contains a samplesheet.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>../ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01<span class="nv">$cat</span><span class="w"> </span>samplesheet_ONT-SEQ-24_01-withreference.txt<span class="w"> </span>
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>
+<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a>barcode,alias,type,ref
+<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a>barcode01,MBB-24-001_barcode01_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
+<a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a>barcode02,MBB-24-002_barcode02_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
+<a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a>barcode03,MBB-24-003_barcode03_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
+<a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a>barcode04,MBB-24-004_barcode04_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
+<a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a>...
+</code></pre></div>
+In this samplesheet <code>ONT-SEQ-24_PA-01-withrefeence.txt</code> you can see that (for this sequence experiment only!)<br />
+<code>barcode01 = MBB-24-001</code>.  </p>
+<p>Have a look in the master species list in teams:<br />
+You can find more detailed list with extra information in the teams <em>General</em> channel:<br />
+<code>Document &gt; General &gt; Specieslist-overview</code>.  </p>
+<p><strong>Important: Sequence selection!</strong>  </p>
+<ul>
+<li>First decide from which sequence experiment you want to select samples  </li>
+<li>Then select no more than 10 (i.e. 10 barcode folders)</li>
+</ul>
+<p>Example workflow - commands to run: </p>
+<blockquote>
+<ul>
+<li>I want to select samples from sequence experiment <code>ONT-SEQ-24_PA-01</code>  </li>
+<li>I would like to build consensus sequences for barcode01 - 10<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$VSC_DATA</span><span class="w"> </span><span class="c1"># change directory to your VSC-DATA folder</span>
+<a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>$<span class="w"> </span>mkdir<span class="w"> </span>Analysis01<span class="w"> </span><span class="c1"># make a directory to copy your sequence reads to</span>
+<a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>Analysis01<span class="w"> </span><span class="c1"># change to the created folder</span>
+<a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>../ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01/barcode01<span class="w"> </span><span class="nv">$VSC_DATA</span>/Analysis01<span class="w"> </span><span class="c1"># copy the barcode01 folder form the 1st sequence experiment to your Analysis01 folder</span>
+<a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a>$<span class="w"> </span>ls<span class="w"> </span><span class="nv">$VSC_DATA</span>/Analysis01<span class="w"> </span><span class="c1"># check the content of the folder, the barcode01 folder should be copied to this Location**</span>
+</code></pre></div></li>
+<li>Don't forget to copy also the samplesheet from this <code>ONT-SEQ-24_PA-01</code> folder to your <code>$VSC_DATA/Analysis01</code> folder. Once copied over, you can delete the lines with the barcodes you don't use.  </li>
+</ul>
+</blockquote>
+<h2 id="3-epi2me-wf-amplicon">3. EPI2ME: wf-amplicon</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/passelma42"  target="_blank" rel="noopener">Pieter Asselman</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/passelma42" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pieterasselman/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.path", "navigation.top", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+    
+  </body>
+</html>
