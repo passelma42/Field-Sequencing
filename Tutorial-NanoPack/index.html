@@ -12,7 +12,7 @@
         <link rel="prev" href="../Tutorial-ONTdata/">
       
       
-        <link rel="next" href="../blast/">
+        <link rel="next" href="../Tutorial-Data-Analysis/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -307,6 +307,23 @@
   
   
     <li class="md-tabs__item">
+      <a href="../Tutorial-Data-Analysis/" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial Data Analysis
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../blast/" class="md-tabs__link">
         
   
@@ -330,23 +347,6 @@
     
   
   Essential Linux Commands
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../linuxtutorial/" class="md-tabs__link">
-        
-  
-    
-  
-  Linuxtutorial
 
       </a>
     </li>
@@ -778,6 +778,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../Tutorial-Data-Analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial Data Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../blast/" class="md-nav__link">
         
   
@@ -803,26 +823,6 @@
   
   <span class="md-ellipsis">
     Essential Linux Commands
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../linuxtutorial/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Linuxtutorial
   </span>
   
 
@@ -884,7 +884,7 @@ If you are using <a href="https://docs.anaconda.com/">conda</a> on your local ma
 <p class="admonition-title">Notes</p>
 <p>For more information on how to install miniconda on your system have a look here: https://docs.anaconda.com/miniconda/ </p>
 </div>
-<p>Following these instructions should craete a dedicated environment and install all necessary dependencies:  </p>
+<p>Following these instructions should create a dedicated environment and install all necessary dependencies:  </p>
 <ol>
 <li><strong>Download</strong> environment file
     <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>https://raw.githubusercontent.com/passelma42/conda-envs-VM/main/nanopack.yml
@@ -954,7 +954,7 @@ You are provided with a FASTA file (<code>reads.fasta.gz</code>). Generate a sta
 <p><strong>Exercise 1: Basic Quality Filtering</strong><br />
 You are provided with a FASTQ file (<code>reads.fastq</code>) and need to filter out reads with a Phred average quality score below 20. Use the default settings for other parameters.</p>
 <p><strong>Command</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>chopper<span class="w"> </span>-q<span class="w"> </span><span class="m">10</span><span class="w"> </span>-i<span class="w"> </span>./nanotest/reads.fastq.gz<span class="w"> </span>&gt;<span class="w"> </span>Q10_filtered.reads.fastq
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>chopper<span class="w"> </span>-q<span class="w"> </span><span class="m">20</span><span class="w"> </span>-i<span class="w"> </span>./nanotest/reads.fastq.gz<span class="w"> </span>&gt;<span class="w"> </span>Q20_filtered.reads.fastq
 </code></pre></div></p>
 <p><strong>Objective</strong>:
 - Learn how to filter reads based on minimum quality score.
