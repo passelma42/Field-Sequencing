@@ -602,13 +602,13 @@ But first let's have a look at the data structure and start with the test data.
 ### 2.1 Data structure  
 
 But first things first.  
-Have a look at the content of the data folder **PATH TO CHARED DATAFOLDER**. You should be able to navigate to this folder by now.  
+Have a look at the content of the input data folder **/ONT-SEQ_PA-Benin2024_Input-Data/**. You should be able to navigate to this folder by now.  
 *Hint: you can use the `ls` command, or `cd` to access the directory and use the command `tree` to create an overview of the content.*  
 
 **Main folder**  
 The structure looks like this:  
 ```bash
-path/to/inputdata/ONT-SEQ_PA-Benin2024_Input-Data/
+path/to/ONT-SEQ_PA-Benin2024_Input-Data/
 .
 +-- ONT-SEQ-24_PA-01
 |   +-- fastq_pass
@@ -739,12 +739,16 @@ You are provided with a compressed FASTQ file (`reads.fastq.gz`). Generate a sta
 
 1. First navigate to the folder with your sequence reads in the folder ´/test_data/consensus_mode/barcode01´.  
 *Hint: these commands may come in handy ´cd´, ´pwd´ and ´ls´.*
-2. Run the command.  
+2. When working on the HPC you first need to "activate" the Software  
+```bash
+$ module load NanoPack/20230602-foss-2023a
+```
+3. Run the command.  
 ```bash title="Command"  
 NanoStat --fastq *fastq.gz --outdir statreports -n nanostats.out
 ```  
 *Note: the ´*´ in the command is making sure the NanoStat command is beeing executed on all files present in this folder.
-3. Check the output in the newly created subfolder ´statsreports´  
+4. Check the output in the newly created subfolder ´statsreports´  
 ```bash title="OUTPUT"  
 /test_data/consensus_mode/barcode01/statreports$ls
 nanostats.out
@@ -871,47 +875,281 @@ If you want to explore more features on the `NanoPack` program, you can visit th
 !Important!:  
 
 - Don't run the `conda` commands, no need when using the HPC  
-- Focus on the Exercises and don't forget to activate the modules before running the commands  
-- All test data can be downloaded here: `/ONT-SEQ_PA-Benin2024_Bioinfocourse/nanopack_Basics_exampledata`  
+- Focus on the Exercises and don't forget to activate the necessary modules before running the commands  
+- All test data for the Advanced Nanopack exercises can be downloaded here: `/ONT-SEQ_PA-Benin2024_Bioinfocourse/nanopack_Advanced_exampledata`  
 
-### 2.3 Download Actual dataset  
-Each *ONT-SEQ-24_PA-0X* folder contains a samplesheet.
+## 3. EPI2ME: wf-amplicon  
 
+EPI2ME provides best practice bioinformatics analyses for nanopore sequencing. It offers bioinformatics for all levels of expertise and is designed by Oxford Nanopore especially to work on long read nanopore sequencing data.  
+There is a desktop version available, with all necessary software packaged in a single workflow. Depending on your research there are different workflows available tailored to your needs.  
+These workflows are also available on the command line. No need to install the bioinformatic tools yourself, except the necessary tools to load the workflows.  
+
+We will be using the wf-amplicon workflow. As mentioned before, when using this on your own computer, no need to install any bioinformatic tools except Nextflow, docker or singularity/apptainer.
+
+**FYI**  
+General info: [https://epi2me.nanoporetech.com/](https://epi2me.nanoporetech.com/)  
+Workflows Overview: [https://epi2me.nanoporetech.com/wfindex/](https://epi2me.nanoporetech.com/wfindex/)  
+Installation instructions: [https://epi2me.nanoporetech.com/epi2me-docs/installation/](https://epi2me.nanoporetech.com/epi2me-docs/installation/)  
+Amplicon Workflow: [https://github.com/epi2me-labs/wf-amplicon](https://github.com/epi2me-labs/wf-amplicon)  
+
+### 3.1 Set HPC environment  
+
+Before we can start using the `wf-amplicon` we need to prepare our HPC environment. For this you need to copy the script `singularity_environment_set.sh` and execute.  
+These are the steps to follow:  
+
+1. Change directory to your VSC-DATA folder
 ```bash
-../ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01$cat samplesheet_ONT-SEQ-24_01-withreference.txt 
+$ cd $VSC_DATA  
+```
+2. copy the folder scripts to your current location i.e. your VSC_DATA folder 
+```bash
+$ cp -r <path to>/ONT-SEQ_PA-Benin2024_Input-Data/scripts .
+```
+3. Change to the created folder 
+```bash
+$ cd scripts  
+```
+4. Give executable rights to the script
+```bash
+$ chmod  u+x  singularity_environment_set.sh
+```
+5. Execute the script using source which will allow the export commands affect your current shell environment
+```bash
+$ source singularity_environment_set.sh
+```
+6. Check if the singularity folder has been created and also if it contains the 3 subfolders `cache`, `tmp`, and `image` 
+```bash
+$ ll $VSC_SCRATCH/singularity 
+```
+7. Check if the environment is ready and set to go. These commands should give you the actual paths to the folders
+```bash
+echo $SINGULARITY_CACHEDIR
+echo $SINGULARITY_TMPDIR
+echo $NXF_SINGULARITY_CACHEDIR
+```
+
+### 3.2 Run Test - Consensus mode
+In the previous chapter you already worked on this data to pracktice the `Nanopack` tool. Now it is time to run the `wf-amplicon` pipeline.  
+
+#### 3.2.2 Check samplesheet  
+1. Navigate to the directory `/test_data/consensus_mode`  
+2. Take a look at the samplesheet  
+```bash title="SAMPLESHEET LAYOUT"
+/test_data/consensus_mode$cat samplesheet_ONT-SEQ-25_05.txt 
+barcode,alias,type
+barcode01,MBB-24-154_barcode01_ONT-SEQ-25_PA-05,test_sample
+barcode02,MBB-24-156_barcode02_ONT-SEQ-25_PA-05,test_sample
+```  
+This shows you 3 columns `barcode`, `alias` and `type`.  
+
+#### 3.2.3 Run the program  
+
+To run the workflow the only software we need to activate is `Nextflow`. Activating all other software will be taken care of automatically while running the workflow. 
+Make sure you are in the folder that contains all your `barcodexx` folders. In this case it should be `/test_data/consensus_mode`.  
+
+1. Activate the nextflow software
+```bash
+$ module load Nextflow/24.10.2
+```
+2. Navigate to the folder `/test_data/consensus_mode` which contains the `barcodexx` folders.
+3. Run the nextflow command to activate the `wf-amplicon`
+```bash title="consensus_mode command"
+nextflow run epi2me-labs/wf-amplicon \
+	--fastq ./consensus_mode \
+	--sample_sheet ./consensus_mode/samplesheet_ONT-SEQ-25_05.txt \
+	--out_dir output-consensus_mode \
+	-profile singularity
+```
+
+This analysis will pull the necessary containers with all needed software packages, then it will run the tools on your data.  
+You can monitor the progress on your terminal.  
+Because we work with a small test dataset it should not take more than 5 minutes to run.  
+
+#### 3.2.4 Analyse output  
+
+```bash title="OUTPUT CONSENSUS MODE"
+/test_data/output-consensus_mode$ll
+total 4776
+-rw-r--r-- 1 vsc43352 vsc43352    1448 Apr 30 12:05 all-consensus-seqs.fasta
+-rw-r--r-- 1 vsc43352 vsc43352     107 Apr 30 12:05 all-consensus-seqs.fasta.fai
+drwxr-xr-x 2 vsc43352 vsc43352    4096 Apr 30 12:05 execution
+drwxr-xr-x 4 vsc43352 vsc43352    4096 Apr 30 12:05 MBB-24-154_barcode01_ONT-SEQ-25_PA-05
+drwxr-xr-x 4 vsc43352 vsc43352    4096 Apr 30 12:05 MBB-24-156_barcode02_ONT-SEQ-25_PA-05
+-rw-r--r-- 1 vsc43352 vsc43352    1597 Apr 30 12:01 params.json
+-rw-r--r-- 1 vsc43352 vsc43352     138 Apr 30 12:01 sample_sheet.csv
+-rw-r--r-- 1 vsc43352 vsc43352     251 Apr 30 12:05 versions.txt
+-rw-r--r-- 1 vsc43352 vsc43352 2434136 Apr 30 12:05 wf-amplicon-report.html
+```
+
+Taking a look at the output:  
+
+| Title                                      | File path                                                          | Description                                                                                                                                                                                                                   | Per sample or aggregated |
+|-------------------------------------------|--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| Workflow report                            | `./wf-amplicon-report.html`                                        | Report for all samples.                                                                                                                                                                                                       | aggregated               |
+| Sanitized reference file                   | `./reference_sanitized_seqIDs.fasta`                               | Some programs used by the workflow don't like special characters (like colons) in the sequence IDs in the reference FASTA file. The reference is thus "sanitized" by replacing these characters with underscores. Only generated in variant calling mode. | aggregated               |
+| Sanitized reference index file             | `./reference_sanitized_seqIDs.fasta.fai`                           | FAI index for the sanitised reference FASTA file.                                                                                                                                                                              | aggregated               |
+| Alignments BAM file                        | `./{{ alias }}/alignments/{{ alias }}.aligned.sorted.bam`          | BAM file with alignments of input reads against the references (in variant calling mode) or the created consensus (in de-novo consensus mode).                                                                                | per-sample               |
+| Alignments index file                      | `./{{ alias }}/alignments/{{ alias }}.aligned.sorted.bam.bai`      | Index for alignments BAM file.                                                                                                                                                                                                | per-sample               |
+| De-novo consensus FASTQ file               | `./{{ alias }}/consensus/consensus.fastq`                          | Consensus sequence file generated by de-novo consensus pipeline.                                                                                                                                                              | per-sample               |
+| Consensus FASTA file                       | `./{{ alias }}/consensus/medaka.consensus.fasta`                   | Consensus sequence file generated by variant calling pipeline.                                                                                                                                                                | per-sample               |
+| Variants VCF file                          | `./{{ alias }}/variants/medaka.annotated.vcf.gz`                   | VCF file of variants detected against the provided reference.                                                                                                                                                                 | per-sample               |
+| Variants index file                        | `./{{ alias }}/variants/medaka.annotated.vcf.gz.csi`               | Index for variants VCF file.                                                                                                                                                                                                  | per-sample               |
+| Combined de-novo consensus sequences       | `./all-consensus-seqs.fasta`                                       | FASTA file containing all de-novo consensus sequences.                                                                                                                                                                        | aggregated               |
+| Combined de-novo consensus sequences index | `./all-consensus-seqs.fasta.fai`                                   | FAI index for the FASTA file with the combined de-novo consensus sequences.                                                                                                                                                   | aggregated               |
+| IGV config JSON file                       | `./igv.json`                                                       | JSON file with IGV config options to be used by the EPI2ME Desktop Application.                                                                                                                                                | aggregated               |
+
+Important for screening your results is the `wf-amplicon-report.html` and for downstream applications offcourse your `fasta` files.  
+
+### 3.3 Run Test - Variant mode
+Running in variant mode allows us to run the same analysis as before but since our test data contains reads from both ITS and LSU, we can bioinformatically construct consensus sequences per sample for both genes at the same time.  
+ 
+#### 3.3.2 Check samplesheet  
+1. Navigate to the directory `/test_data/variant_mode`  
+2. Take a look at the samplesheet  
+```bash title="SAMPLESHEET LAYOUT"
+/test_data/variant_mode$cat samplesheet_ONT-SEQ-24_02-withreference.txt 
+barcode,alias,type,ref
+barcode12,MBB-24-016_barcode12_ONT-SEQ-24_02,test_sample,ITS LSU
+barcode14,MBB-24-019_barcode14_ONT-SEQ-24_02,test_sample,ITS LSU
+```  
+This shows you 4 columns `barcode`, `alias`, `type` and `ref`.  
+3. Take a look at the reference file
+```bash title="REFERENCE FILE"
+/test_data/variant_mode$cat reference.fa 
+>ITS
+GAAGTAAA...
+>LSU
+TATCAAT...
+```  
+This file is a fasta file showing 2 sequences with IDs `ITS` and `LSU`, the same as in your samplesheet `ref` column. This reference file is used to "search" for ITS or LSU sequences in your sequence reads i.e. in the `barcodexx` folders.  
+
+#### 3.3.3 Run the program  
+
+To run the workflow the only software we need to activate is `Nextflow`. Activating all other software will be taken care of automatically while running the workflow. 
+Make sure you are in the folder that contains all your `barcodexx` folders. In this case it should be `/test_data/consensus_mode`.  
+
+1. Activate the nextflow software  
+```bash
+$ module load Nextflow/24.10.2
+```
+2. Run the nextflow command to activate the `wf-amplicon`
+```bash title="consensus_mode command"
+nextflow run epi2me-labs/wf-amplicon \
+	--fastq ./variant_mode \
+	--sample_sheet ./variant_mode/samplesheet_ONT-SEQ-24_02-withreference.txt \
+	--reference ./variant_mode/reference.fa \
+	--out_dir output-variant_mode \
+	-profile singularity
+```  
+
+This analysis will pull the necessary containers with all needed software packages, then it will run the tools on your data. You can monitor the progress on your terminal.  
+Since we work with a small test dataset it should not take more than 5 minutes to run.  
+
+#### 3.3.4 Analyse output  
+
+In variant-mode the output is slightly different. 
+
+```bash title="OUTPUT VARIANT MODE"
+/test_data/output-variant_mode$ll
+total 5001
+drwxr-xr-x 2 vsc43352 vsc43352    4096 Apr 30 12:23 execution
+drwxr-xr-x 5 vsc43352 vsc43352    4096 Apr 30 12:22 MBB-24-016_barcode12_ONT-SEQ-24_02
+drwxr-xr-x 5 vsc43352 vsc43352    4096 Apr 30 12:22 MBB-24-019_barcode14_ONT-SEQ-24_02
+-rw-r--r-- 1 vsc43352 vsc43352    1645 Apr 30 12:21 params.json
+-rw-r--r-- 1 vsc43352 vsc43352    1666 Apr 30 12:22 reference_sanitized_seqIDs.fasta
+-rw-r--r-- 1 vsc43352 vsc43352      38 Apr 30 12:22 reference_sanitized_seqIDs.fasta.fai
+-rw-r--r-- 1 vsc43352 vsc43352     152 Apr 30 12:21 sample_sheet.csv
+-rwxr--r-- 1 vsc43352 vsc43352    2286 Apr 30 12:35 variantmode-consensus-rename2.0.sh
+-rw-r--r-- 1 vsc43352 vsc43352    7072 Apr 30 12:41 variant-mode-consensus-sequences.fasta
+-rw-r--r-- 1 vsc43352 vsc43352     251 Apr 30 12:22 versions.txt
+-rw-r--r-- 1 vsc43352 vsc43352 2529804 Apr 30 12:23 wf-amplicon-report.html
+```  
+
+The main difference is that you're not only getting consensusfiles but also a vcf file. This file contains variants detected against the provided reference.  
+Can be usefull if you are working with closely related species and you are interested in Single Nucleotid Polymorphism (SNP) information.  
+In our case the sequences in the reference file were only a means to be able to sort out all ITS and LSU reads and assemble consensus sequences from both.  
+>More info on VCF files can be found here: 
+[https://en.wikipedia.org/wiki/Variant_Call_Format](https://en.wikipedia.org/wiki/Variant_Call_Format)  
+
+What we do miss here is a combined fasta file with all our ITS and LSU sequences and matching headers. This is something the workflow doesn't provide for us.  
+For this feature we will use the script `variantmode-consensus-rename2.0.sh`.  
+
+Follow these instructions to run the script and build a combined fasta file for all your consensus sequences:  
+
+1. Copy the script to your outputfolder  
+```bash
+$ cp <path-to>/scripts/variantmode-consensus-rename2.0.sh <path to>/test_data/output-variant_mode
+```
+2. Change permissions to be able to execute the script
+```bash
+$ cd <path-to>/test_data/output-variant_mode
+$ chmod u+x variantmode-consensus-rename2.0.sh
+```
+3. Make sure you are in the output folder and execute following command
+```bash
+for dir in ./MBB*/; do ./variantmode-consensus-rename2.0.sh "$dir" -o variant-mode-consensus-sequences.fasta -a; done
+```  
+This commmand will search for all **MBB-xx-xx_barcodexx_ONT-SEQ-xx_xx** in the output folder, find all consensus sequences per barcode and generate one combined fasta file called `variant-mode-consensus-sequences.fasta`.  
+
+### 3.4 Run with real data  
+Still with us? Time to put theory into practice. You can all start with your first analysis.  
+
+1. 10 samples are selected for you. Check the **Mycoblitz2024_specimenlist** on Teams to find out which samples are selected for you.
+2. Find and download your samples from the `<path to>/ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01` download folder.
+3. Run either the consensus-mode and/or variant-mode (only possible for experiments 1 and 2)
+4. Check the results  
+
+*Optional: If you finish earlier, you can try a 2nd analysis just for practice! Make sure to start a 2nd working folder Analysis2.*  
+
+**The samplesheet: have a look**   
+>Remember the structure of the dataset explained in Chapter **2.Nanopore data**.  
+Each *ONT-SEQ-2X_PA-0X* folder contains a different samplesheet.
+```bash title="EXAMPLE SAMPLE SHEET"
+<path to>/ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01$cat samplesheet_ONT-SEQ-24_01-withreference.txt 
 
 barcode,alias,type,ref
 barcode01,MBB-24-001_barcode01_ONT-SEQ-24_01,test_sample,ITS LSU
 barcode02,MBB-24-002_barcode02_ONT-SEQ-24_01,test_sample,ITS LSU
 barcode03,MBB-24-003_barcode03_ONT-SEQ-24_01,test_sample,ITS LSU
 barcode04,MBB-24-004_barcode04_ONT-SEQ-24_01,test_sample,ITS LSU
-...
-```
-In this samplesheet `ONT-SEQ-24_PA-01-withrefeence.txt` you can see that (for this sequence experiment only!)  
-`barcode01 = MBB-24-001`.  
-
-Have a look in the master species list in teams:  
-You can find more detailed list with extra information in the teams *General* channel:  
-`Document > General > Specieslist-overview`.  
-
-**Important: Sequence selection!**  
-
-- First decide from which sequence experiment you want to select samples  
-- Then select no more than 10 (i.e. 10 barcode folders)
-
-Example workflow - commands to run: 
- 
->- I want to select samples from sequence experiment `ONT-SEQ-24_PA-01`  
-- I would like to build consensus sequences for barcode01 - 10  
-```bash
-$ cd $VSC_DATA # change directory to your VSC-DATA folder
-$ mkdir Analysis01 # make a directory to copy your sequence reads to
-$ cd Analysis01 # change to the created folder
-$ cp -r ../ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01/barcode01 $VSC_DATA/Analysis01 # copy the barcode01 folder form the 1st sequence experiment to your Analysis01 folder
-$ ls $VSC_DATA/Analysis01 # check the content of the folder, the barcode01 folder should be copied to this Location**
 ```  
-- Don't forget to copy also the samplesheet from this `ONT-SEQ-24_PA-01` folder to your `$VSC_DATA/Analysis01` folder. Once copied over, you can delete the lines with the barcodes you don't use.  
+In this samplesheet `ONT-SEQ-24_PA-01-withreference.txt` you see that `barcode01 = MBB-24-001` (for this sequence experiment only!).  
+Now, have a look in the master species list in teams:  
+You can find the detailed list with sample information in the teams *General* channel:  
+`General > Files > Specieslist-overview > Mycoblitz2024-specimenlist.xlsx` 
 
+**Example workflow: Copy your selection to your Analysis folder.** 
+ 
+>- I want to download samples from sequence experiment `ONT-SEQ-24_PA-01`  
+- The selected barcodes for me are: barcode 01 up to 10  
+1.Change directory to your VSC-DATA folder
+```bash
+cd $VSC_DATA
+```
+2.Make a directory to copy your sequence reads to
+```bash
+mkdir Analysis01
+```
+3.Change to the created folder
+```bash
+cd Analysis01
+```
+4.Recursively copy the barcode01 folder to your Analysis01 folder
+```bash
+cp -r <path to>/ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01/barcode01 $VSC_DATA/Analysis01
+```
+5.Check the content of the folder, the barcode01 folder should be copied to this Location
+```bash
+ls $VSC_DATA/Analysis01
+```
 
-## 3. EPI2ME: wf-amplicon
+**REPEAT FOR THE 9 OTHER BARCODEFOLDERS YOU SELECTED**  
+*HINT: use a forloop to iterate over different barcode folders in one command*
+```bash
+for i in {01..10}; do cp -r <path to>/ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01/barcode$i "$VSC_DATA/Analysis01"; done
+```
 
+*Remark: Not only copy the `barcode` folders but also the `samplesheet` from the sequencing experiment you take the `barcodes` folders from.*  
+
+When this exercise is finishe, you can run a 2nd Analysis. Just pick 10 barcode folders from the same sequencing experiment and run the exercise again.  
+Be aware tha only experiments `ONT-SEQ-24_01` and `ONT-SEQ-24_02` allow you to run the wf-amplicon workflow in variant-mode! 
