@@ -1,1 +1,13 @@
-pandoc Tutorial-Data-Analysis-cleaned.md -o Tutorial-Data-Analysis-cleaned.pdf   --pdf-engine=xelatex   --highlight-style espresso   -V geometry=margin=1in   -V fontsize=11pt   -V mainfont="Noto Serif"   -V monofont="DejaVu Sans Mono"   --toc   --toc-depth=2
+pandoc Tutorial-Data-Analysis-HPC.md -o Tutorial-Data-Analysis-HPC.pdf   --pdf-engine=xelatex   --highlight-style espresso   -V geometry=margin=1in   -V fontsize=11pt   -V mainfont="Noto Serif"   -V monofont="DejaVu Sans Mono"   --toc   --toc-depth=2
+
+pandoc Tutorial-Data-Analysis-HPC.md -o Tutorial-Data-Analysis-HPC.pdf \
+--pdf-engine=xelatex \
+--highlight-style espresso \
+-V geometry:top=1in,bottom=1in,left=0.7in,right=0.7in \
+-V fontsize=10pt \
+-V mainfont="Noto Serif" \
+-V monofont="DejaVu Sans Mono" \
+-V papersize=a4paper \
+--columns=200 \
+--toc \
+--toc-depth=3
