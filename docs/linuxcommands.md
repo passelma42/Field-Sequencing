@@ -442,3 +442,79 @@ These tools and commands cover a broad range of archiving and compression needs,
   ```shell
   iostat
   ```
+## Navigation folders
+Here's a beginner-friendly explanation of the `.` and `..` notations in Linux:
+
+---
+
+**Understanding `.` and `..` in Linux**
+
+When you're navigating files and folders (directories) in Linux, you’ll often see `.` and `..`. These are **special directory notations** that help you move around more easily.
+
+**`.` — The Current Directory**
+
+* The single dot `.` refers to the **current directory**.
+* It’s like saying “right here.”
+
+**Example:**
+
+```bash
+ls .
+```
+
+This lists the contents of the current directory — the same as just running `ls`.
+
+**`..` — The Parent Directory**
+
+* The double dot `..` refers to the **parent directory** — the folder **one level up**.
+* It’s like saying “go up one folder.”
+
+**Example:**
+
+```bash
+cd ..
+```
+
+This moves you **up one level** in the folder structure.
+
+---
+
+**Visual Example:**
+
+Imagine your folder structure looks like this:
+
+```
+/home/pieter/documents/reports/
+```
+
+You're currently in:
+
+```
+/home/pieter/documents/reports/
+```
+
+* `.` refers to: `/home/pieter/documents/reports/`
+* `..` refers to: `/home/pieter/documents/`
+
+So:
+
+```bash
+cd ..
+```
+
+will move you to:
+
+```
+/home/pieter/documents/
+```
+
+And:
+
+```bash
+cd .
+```
+
+keeps you in the same folder.
+
+---
+
