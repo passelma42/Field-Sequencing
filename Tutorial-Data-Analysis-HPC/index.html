@@ -809,6 +809,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.4 Run with real data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-example-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Example workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1617,78 +1632,80 @@ Amplicon Workflow: <a href="https://github.com/epi2me-labs/wf-amplicon">https://
 These are the steps to follow:  </p>
 <ol>
 <li>Change directory to your VSC-DATA folder
-<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$VSC_DATA</span><span class="w">  </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$VSC_DATA</span><span class="w">  </span>
 </code></pre></div></li>
 <li>copy the folder scripts to your current location i.e. your VSC_DATA folder 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>&lt;path<span class="w"> </span>to&gt;/ONT-SEQ_PA-Benin2024_Input-Data/scripts<span class="w"> </span>.
-</code></pre></div></li>
-<li>Change to the created folder 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>scripts<span class="w">  </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>cp<span class="w"> </span>/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/ONT-SEQ_PA-Benin2024_Input-Data/scripts/singularity_environment_set.sh<span class="w"> </span>.
 </code></pre></div></li>
 <li>Give executable rights to the script
-<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>$<span class="w"> </span>chmod<span class="w">  </span>u+x<span class="w">  </span>singularity_environment_set.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>chmod<span class="w">  </span>u+x<span class="w">  </span>singularity_environment_set.sh
 </code></pre></div></li>
 <li>Execute the script using source which will allow the export commands affect your current shell environment
-<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>singularity_environment_set.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="nb">source</span><span class="w"> </span>singularity_environment_set.sh
 </code></pre></div></li>
 <li>Check if the singularity folder has been created and also if it contains the 3 subfolders <code>cache</code>, <code>tmp</code>, and <code>image</code> 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>$<span class="w"> </span>ll<span class="w"> </span><span class="nv">$VSC_SCRATCH</span>/singularity<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>ll<span class="w"> </span><span class="nv">$VSC_SCRATCH</span>/singularity<span class="w"> </span>
 </code></pre></div></li>
 <li>Check if the environment is ready and set to go. These commands should give you the actual paths to the folders
-<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$SINGULARITY_CACHEDIR</span>
-<a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$SINGULARITY_TMPDIR</span>
-<a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$NXF_SINGULARITY_CACHEDIR</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$SINGULARITY_CACHEDIR</span>
+<a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$SINGULARITY_TMPDIR</span>
+<a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$NXF_SINGULARITY_CACHEDIR</span>
 </code></pre></div></li>
 </ol>
 <h3 id="32-run-test-consensus-mode">3.2 Run Test - Consensus mode</h3>
 <p>In the previous chapter you already worked on this data to pracktice the <code>Nanopack</code> tool. Now it is time to run the <code>wf-amplicon</code> pipeline.  </p>
 <h4 id="322-check-samplesheet">3.2.2 Check samplesheet</h4>
-<ol>
-<li>Navigate to the directory <code>/test_data/consensus_mode</code>  </li>
-<li>Take a look at the samplesheet<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="c1"># SAMPLESHEET LAYOUT</span>
-<a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>/test_data/consensus_mode<span class="nv">$cat</span><span class="w"> </span>samplesheet_ONT-SEQ-25_05.txt<span class="w"> </span>
-<a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a>barcode,alias,type
-<a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a>barcode01,MBB-24-154_barcode01_ONT-SEQ-25_PA-05,test_sample
-<a id="__codelineno-69-5" name="__codelineno-69-5" href="#__codelineno-69-5"></a>barcode02,MBB-24-156_barcode02_ONT-SEQ-25_PA-05,test_sample
+<p>1.Go to $VSC_DATA
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$VSC_DATA</span>
 </code></pre></div>
-This shows you 3 columns <code>barcode</code>, <code>alias</code> and <code>type</code>.  </li>
-</ol>
+2.Download test data set
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>cp<span class="w"> </span>-r<span class="w"> </span>/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/ONT-SEQ_PA-Benin2024_Input-Data/test_data<span class="w"> </span>.
+</code></pre></div>
+<em>Note: If you have alreday the test_data set in your $VSC_DATA folder, you don't need to dowload it a second time, then you can skip this first step</em><br />
+3. Open the folder with the consensus data files
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="nb">cd</span><span class="w"> </span>./test_data/consensus_mode
+</code></pre></div>
+4. Take a look at the samplesheet
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>cat<span class="w"> </span>samplesheet_ONT-SEQ-25_05.txt
+</code></pre></div>
+This shows you 3 columns <code>barcode</code>, <code>alias</code> and <code>type</code>.  </p>
 <h4 id="323-run-the-program">3.2.3 Run the program</h4>
 <p>To run the workflow the only software we need to activate is <code>Nextflow</code>. Activating all other software will be taken care of automatically while running the workflow. 
 Make sure you are in the folder that contains all your <code>barcodexx</code> folders. In this case it should be <code>/test_data/consensus_mode</code>.  </p>
 <ol>
 <li>Activate the nextflow software
-<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Nextflow/24.10.2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>module<span class="w"> </span>load<span class="w"> </span>Nextflow/24.10.2
 </code></pre></div></li>
-<li>Navigate to the folder <code>/test_data/consensus_mode</code> which contains the <code>barcodexx</code> folders.</li>
+<li>Navigate to the folder <code>/test_data/consensus_mode</code> which contains the <code>barcodexx</code> folders.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="nb">cd</span><span class="w"> </span>/data/gent/433/vscxxxx/test_data/consensus_mode
+</code></pre></div>
+<em>Note: Don't forget to replace 'vscxxxx' with your own vsc account number.</em></li>
 <li>Run the nextflow command to activate the <code>wf-amplicon</code>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="c1"># consensus_mode command</span>
-<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a><span class="w">    </span>--fastq<span class="w"> </span>./consensus_mode<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a><span class="w">    </span>--sample_sheet<span class="w"> </span>./consensus_mode/samplesheet_ONT-SEQ-25_05.txt<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a><span class="w">    </span>--out_dir<span class="w"> </span>output-consensus_mode<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-71-6" name="__codelineno-71-6" href="#__codelineno-71-6"></a><span class="w">    </span>-profile<span class="w"> </span>singularity
+<div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a><span class="w">    </span>--fastq<span class="w"> </span>./<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a><span class="w">    </span>--sample_sheet<span class="w"> </span>./samplesheet_ONT-SEQ-25_05.txt<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a><span class="w">    </span>--out_dir<span class="w"> </span>output-consensus_mode<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a><span class="w">    </span>-profile<span class="w"> </span>singularity
 </code></pre></div></li>
 </ol>
 <p>This analysis will pull the necessary containers with all needed software packages, then it will run the tools on your data.<br />
 You can monitor the progress on your terminal.<br />
 Because we work with a small test dataset it should not take more than 5 minutes to run.  </p>
 <h4 id="324-analyse-output">3.2.4 Analyse output</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="c1"># OUTPUT CONSENSUS MODE</span>
-<a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a>/test_data/output-consensus_mode<span class="nv">$ll</span>
-<a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>total<span class="w"> </span><span class="m">4776</span>
-<a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">1448</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>all-consensus-seqs.fasta
-<a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">107</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>all-consensus-seqs.fasta.fai
-<a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>execution
-<a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a>drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>MBB-24-154_barcode01_ONT-SEQ-25_PA-05
-<a id="__codelineno-72-8" name="__codelineno-72-8" href="#__codelineno-72-8"></a>drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>MBB-24-156_barcode02_ONT-SEQ-25_PA-05
-<a id="__codelineno-72-9" name="__codelineno-72-9" href="#__codelineno-72-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">1597</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:01<span class="w"> </span>params.json
-<a id="__codelineno-72-10" name="__codelineno-72-10" href="#__codelineno-72-10"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">138</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:01<span class="w"> </span>sample_sheet.csv
-<a id="__codelineno-72-11" name="__codelineno-72-11" href="#__codelineno-72-11"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">251</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>versions.txt
-<a id="__codelineno-72-12" name="__codelineno-72-12" href="#__codelineno-72-12"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w"> </span><span class="m">2434136</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>wf-amplicon-report.html
+<div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a><span class="c1"># OUTPUT CONSENSUS MODE</span>
+<a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a>/data/gent/433/vscxxxx/test_data/consensus_mode/output-consensus_mode<span class="nv">$ll</span>
+<a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a>total<span class="w"> </span><span class="m">4776</span>
+<a id="__codelineno-75-4" name="__codelineno-75-4" href="#__codelineno-75-4"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">1448</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>all-consensus-seqs.fasta
+<a id="__codelineno-75-5" name="__codelineno-75-5" href="#__codelineno-75-5"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">107</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>all-consensus-seqs.fasta.fai
+<a id="__codelineno-75-6" name="__codelineno-75-6" href="#__codelineno-75-6"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>execution
+<a id="__codelineno-75-7" name="__codelineno-75-7" href="#__codelineno-75-7"></a>drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>MBB-24-154_barcode01_ONT-SEQ-25_PA-05
+<a id="__codelineno-75-8" name="__codelineno-75-8" href="#__codelineno-75-8"></a>drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>MBB-24-156_barcode02_ONT-SEQ-25_PA-05
+<a id="__codelineno-75-9" name="__codelineno-75-9" href="#__codelineno-75-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">1597</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:01<span class="w"> </span>params.json
+<a id="__codelineno-75-10" name="__codelineno-75-10" href="#__codelineno-75-10"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">138</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:01<span class="w"> </span>sample_sheet.csv
+<a id="__codelineno-75-11" name="__codelineno-75-11" href="#__codelineno-75-11"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">251</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>versions.txt
+<a id="__codelineno-75-12" name="__codelineno-75-12" href="#__codelineno-75-12"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w"> </span><span class="m">2434136</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>wf-amplicon-report.html
 </code></pre></div>
-<p>Taking a look at the output:  </p>
+<p>More info here at the output formats:  </p>
 <p>Check here for more info: <a href="https://github.com/epi2me-labs/wf-amplicon?tab=readme-ov-file#output-options">https://github.com/epi2me-labs/wf-amplicon?tab=readme-ov-file#output-options</a></p>
 <table>
 <thead>
@@ -1776,25 +1793,25 @@ Because we work with a small test dataset it should not take more than 5 minutes
 </table>
 <p>Important for screening your results is the <code>wf-amplicon-report.html</code> and for downstream applications offcourse your <code>fasta</code> files.  </p>
 <h3 id="33-run-test-variant-mode">3.3 Run Test - Variant mode</h3>
-<p>Running in variant mode allows us to run the same analysis as before but since our test data contains reads from both ITS and LSU, we can bioinformatically construct consensus sequences per sample for both genes at the same time.  </p>
+<p>Running in variant mode allows us to run the same analysis as before but since this test data contains reads from both ITS and LSU, we can bioinformatically construct consensus sequences per sample for both genes at the same time.  </p>
 <h4 id="332-check-samplesheet">3.3.2 Check samplesheet</h4>
 <ol>
-<li>Navigate to the directory <code>/test_data/variant_mode</code>  </li>
+<li>Navigate to the directory <code>/data/gent/433/vscxxxxx/test_data/variant_mode</code>  </li>
 <li>Take a look at the samplesheet<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="c1"># SAMPLESHEET LAYOUT</span>
-<a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a>/test_data/variant_mode<span class="nv">$cat</span><span class="w"> </span>samplesheet_ONT-SEQ-24_02-withreference.txt<span class="w"> </span>
-<a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a>barcode,alias,type,ref
-<a id="__codelineno-73-4" name="__codelineno-73-4" href="#__codelineno-73-4"></a>barcode12,MBB-24-016_barcode12_ONT-SEQ-24_02,test_sample,ITS<span class="w"> </span>LSU
-<a id="__codelineno-73-5" name="__codelineno-73-5" href="#__codelineno-73-5"></a>barcode14,MBB-24-019_barcode14_ONT-SEQ-24_02,test_sample,ITS<span class="w"> </span>LSU
+<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="c1"># SAMPLESHEET LAYOUT</span>
+<a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>/data/gent/433/vscxxxxx/test_data/variant_mode<span class="nv">$cat</span><span class="w"> </span>samplesheet_ONT-SEQ-24_02-withreference.txt<span class="w"> </span>
+<a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>barcode,alias,type,ref
+<a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>barcode12,MBB-24-016_barcode12_ONT-SEQ-24_02,test_sample,ITS<span class="w"> </span>LSU
+<a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a>barcode14,MBB-24-019_barcode14_ONT-SEQ-24_02,test_sample,ITS<span class="w"> </span>LSU
 </code></pre></div>
 This shows you 4 columns <code>barcode</code>, <code>alias</code>, <code>type</code> and <code>ref</code>.  </li>
 <li>Take a look at the reference file
-<div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="c1"># REFERENCE FILE</span>
-<a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>/test_data/variant_mode<span class="nv">$cat</span><span class="w"> </span>reference.fa<span class="w"> </span>
-<a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a>&gt;ITS
-<a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a>GAAGTAAA...
-<a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a>&gt;LSU
-<a id="__codelineno-74-6" name="__codelineno-74-6" href="#__codelineno-74-6"></a>TATCAAT...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="c1"># REFERENCE FILE</span>
+<a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>/data/gent/433/vscxxxxx/test_data/variant_mode<span class="nv">$cat</span><span class="w"> </span>reference.fa<span class="w"> </span>
+<a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>&gt;ITS
+<a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>GAAGTAAA...
+<a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a>&gt;LSU
+<a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>TATCAAT...
 </code></pre></div>
 This file is a fasta file showing 2 sequences with IDs <code>ITS</code> and <code>LSU</code>, the same as in your samplesheet <code>ref</code> column. This reference file is used to "search" for ITS or LSU sequences in your sequence reads i.e. in the <code>barcodexx</code> folders.  </li>
 </ol>
@@ -1803,36 +1820,39 @@ This file is a fasta file showing 2 sequences with IDs <code>ITS</code> and <cod
 Make sure you are in the folder that contains all your <code>barcodexx</code> folders. In this case it should be <code>/test_data/consensus_mode</code>.  </p>
 <ol>
 <li>Activate the nextflow software<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Nextflow/24.10.2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>$<span class="w"> </span>module<span class="w"> </span>load<span class="w"> </span>Nextflow/24.10.2
 </code></pre></div></li>
+<li>Navigate to the folder <code>/data/gent/433/vscxxxxx/test_data/variant_mode</code> which contains the <code>barcodexx</code> folders.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="nb">cd</span><span class="w"> </span>/data/gent/433/vscxxxxx/test_data/variant_mode
+</code></pre></div>
+<em>Note: Don't forget to replace 'vscxxxx' with your own vsc account number.</em></li>
 <li>Run the nextflow command to activate the <code>wf-amplicon</code>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="c1"># consensus_mode command</span>
-<a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a><span class="w">    </span>--fastq<span class="w"> </span>./variant_mode<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a><span class="w">    </span>--sample_sheet<span class="w"> </span>./variant_mode/samplesheet_ONT-SEQ-24_02-withreference.txt<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a><span class="w">    </span>--reference<span class="w"> </span>./variant_mode/reference.fa<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a><span class="w">    </span>--out_dir<span class="w"> </span>output-variant_mode<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a><span class="w">    </span>-profile<span class="w"> </span>singularity
+<div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>nextflow<span class="w"> </span>run<span class="w"> </span>epi2me-labs/wf-amplicon<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a><span class="w">    </span>--fastq<span class="w"> </span>./<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-80-3" name="__codelineno-80-3" href="#__codelineno-80-3"></a><span class="w">    </span>--sample_sheet<span class="w"> </span>./samplesheet_ONT-SEQ-24_02-withreference.txt<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-80-4" name="__codelineno-80-4" href="#__codelineno-80-4"></a><span class="w">    </span>--reference<span class="w"> </span>./reference.fa<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-80-5" name="__codelineno-80-5" href="#__codelineno-80-5"></a><span class="w">    </span>--out_dir<span class="w"> </span>output-variant_mode<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-80-6" name="__codelineno-80-6" href="#__codelineno-80-6"></a><span class="w">    </span>-profile<span class="w"> </span>singularity
 </code></pre></div></li>
 </ol>
 <p>This analysis will pull the necessary containers with all needed software packages, then it will run the tools on your data. You can monitor the progress on your terminal.<br />
 Since we work with a small test dataset it should not take more than 5 minutes to run.  </p>
 <h4 id="334-analyse-output">3.3.4 Analyse output</h4>
 <p>In variant-mode the output is slightly different. </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="c1"># OUTPUT VARIANT MODE</span>
-<a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>/test_data/output-variant_mode<span class="nv">$ll</span>
-<a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>total<span class="w"> </span><span class="m">5001</span>
-<a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:23<span class="w"> </span>execution
-<a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a>drwxr-xr-x<span class="w"> </span><span class="m">5</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:22<span class="w"> </span>MBB-24-016_barcode12_ONT-SEQ-24_02
-<a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>drwxr-xr-x<span class="w"> </span><span class="m">5</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:22<span class="w"> </span>MBB-24-019_barcode14_ONT-SEQ-24_02
-<a id="__codelineno-77-7" name="__codelineno-77-7" href="#__codelineno-77-7"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">1645</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:21<span class="w"> </span>params.json
-<a id="__codelineno-77-8" name="__codelineno-77-8" href="#__codelineno-77-8"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">1666</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:22<span class="w"> </span>reference_sanitized_seqIDs.fasta
-<a id="__codelineno-77-9" name="__codelineno-77-9" href="#__codelineno-77-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">      </span><span class="m">38</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:22<span class="w"> </span>reference_sanitized_seqIDs.fasta.fai
-<a id="__codelineno-77-10" name="__codelineno-77-10" href="#__codelineno-77-10"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">152</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:21<span class="w"> </span>sample_sheet.csv
-<a id="__codelineno-77-11" name="__codelineno-77-11" href="#__codelineno-77-11"></a>-rwxr--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">2286</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>variantmode-consensus-rename2.0.sh
-<a id="__codelineno-77-12" name="__codelineno-77-12" href="#__codelineno-77-12"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">7072</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:41<span class="w"> </span>variant-mode-consensus-sequences.fasta
-<a id="__codelineno-77-13" name="__codelineno-77-13" href="#__codelineno-77-13"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">251</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:22<span class="w"> </span>versions.txt
-<a id="__codelineno-77-14" name="__codelineno-77-14" href="#__codelineno-77-14"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w"> </span><span class="m">2529804</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:23<span class="w"> </span>wf-amplicon-report.html
+<div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a><span class="c1"># OUTPUT VARIANT MODE</span>
+<a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>/test_data/output-variant_mode<span class="nv">$ll</span>
+<a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a>total<span class="w"> </span><span class="m">5001</span>
+<a id="__codelineno-81-4" name="__codelineno-81-4" href="#__codelineno-81-4"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:23<span class="w"> </span>execution
+<a id="__codelineno-81-5" name="__codelineno-81-5" href="#__codelineno-81-5"></a>drwxr-xr-x<span class="w"> </span><span class="m">5</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:22<span class="w"> </span>MBB-24-016_barcode12_ONT-SEQ-24_02
+<a id="__codelineno-81-6" name="__codelineno-81-6" href="#__codelineno-81-6"></a>drwxr-xr-x<span class="w"> </span><span class="m">5</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:22<span class="w"> </span>MBB-24-019_barcode14_ONT-SEQ-24_02
+<a id="__codelineno-81-7" name="__codelineno-81-7" href="#__codelineno-81-7"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">1645</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:21<span class="w"> </span>params.json
+<a id="__codelineno-81-8" name="__codelineno-81-8" href="#__codelineno-81-8"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">1666</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:22<span class="w"> </span>reference_sanitized_seqIDs.fasta
+<a id="__codelineno-81-9" name="__codelineno-81-9" href="#__codelineno-81-9"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">      </span><span class="m">38</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:22<span class="w"> </span>reference_sanitized_seqIDs.fasta.fai
+<a id="__codelineno-81-10" name="__codelineno-81-10" href="#__codelineno-81-10"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">152</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:21<span class="w"> </span>sample_sheet.csv
+<a id="__codelineno-81-11" name="__codelineno-81-11" href="#__codelineno-81-11"></a>-rwxr--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">2286</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>variantmode-consensus-rename2.0.sh
+<a id="__codelineno-81-12" name="__codelineno-81-12" href="#__codelineno-81-12"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">    </span><span class="m">7072</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:41<span class="w"> </span>variant-mode-consensus-sequences.fasta
+<a id="__codelineno-81-13" name="__codelineno-81-13" href="#__codelineno-81-13"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w">     </span><span class="m">251</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:22<span class="w"> </span>versions.txt
+<a id="__codelineno-81-14" name="__codelineno-81-14" href="#__codelineno-81-14"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>vsc43352<span class="w"> </span>vsc43352<span class="w"> </span><span class="m">2529804</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">12</span>:23<span class="w"> </span>wf-amplicon-report.html
 </code></pre></div>
 <p>The main difference is that you're not only getting consensusfiles but also a vcf file. This file contains variants detected against the provided reference.<br />
 Can be usefull if you are working with closely related species and you are interested in Single Nucleotid Polymorphism (SNP) information.<br />
@@ -1845,24 +1865,41 @@ In our case the sequences in the reference file were only a means to be able to 
 For this feature we will use the script <code>variantmode-consensus-rename2.0.sh</code>.  </p>
 <p>Follow these instructions to run the script and build a combined fasta file for all your consensus sequences:  </p>
 <ol>
-<li>Copy the script to your outputfolder<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>$<span class="w"> </span>cp<span class="w"> </span>&lt;path-to&gt;/scripts/variantmode-consensus-rename2.0.sh<span class="w"> </span>&lt;path<span class="w"> </span>to&gt;/test_data/output-variant_mode
+<li>Navigate to the variantmode-consensus output directory you created before.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="nb">cd</span><span class="w"> </span>/data/gent/433/vscxxxx/test_data/variant_mode/output-variant_mode
+</code></pre></div>
+<em>Note: Make sure you change the 'vscxxxxx' in this command into your own vsc account number.</em></li>
+<li>Copy the script to this outputfolder<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>cp<span class="w"> </span>/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/ONT-SEQ_PA-Benin2024_Input-Data/scripts/variantmode-consensus-rename2.0.sh<span class="w"> </span>.
 </code></pre></div></li>
 <li>Change permissions to be able to execute the script
-<div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>&lt;path-to&gt;/test_data/output-variant_mode
-<a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>variantmode-consensus-rename2.0.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>variantmode-consensus-rename2.0.sh
 </code></pre></div></li>
-<li>Make sure you are in the output folder and execute following command
-<div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="k">for</span><span class="w"> </span>dir<span class="w"> </span><span class="k">in</span><span class="w"> </span>./MBB*/<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>./variantmode-consensus-rename2.0.sh<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$dir</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>variant-mode-consensus-sequences.fasta<span class="w"> </span>-a<span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<li>Make sure you are in the output folder
+<div class="highlight"><pre><span></span><code><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a><span class="nb">cd</span><span class="w"> </span>/data/gent/433/vscxxxx/test_data/variant_mode/output-variant_mode
+</code></pre></div></li>
+<li>and execute following command
+<div class="highlight"><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="k">for</span><span class="w"> </span>dir<span class="w"> </span><span class="k">in</span><span class="w"> </span>./MBB*/<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>./variantmode-consensus-rename2.0.sh<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$dir</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>variant-mode-consensus-sequences.fasta<span class="w"> </span>-a<span class="p">;</span><span class="w"> </span><span class="k">done</span>
 </code></pre></div>
-This commmand will search for all <strong>MBB-xx-xx_barcodexx_ONT-SEQ-xx_xx</strong> in the output folder, find all consensus sequences per barcode and generate one combined fasta file called <code>variant-mode-consensus-sequences.fasta</code>.  </li>
+This commmand will search for all <strong>MBB-xx-xx_barcodexx_ONT-SEQ-xx_xx</strong> in the output folder, find all consensus sequences per barcode and generate one combined fasta file called <code>variant-mode-consensus-sequences.fasta</code>.<br />
+This is a <code>for loop</code> in the shell. It runs the script variantmode-consensus-rename2.0.sh once for each folder that matches the pattern ./MBB<em>/.<br />
+</em><em>Breakdown of the command:</em>*
+<div class="highlight"><pre><span></span><code><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>| Part                                          | Meaning                                                                                   |
+<a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>| --------------------------------------------- | ----------------------------------------------------------------------------------------- |
+<a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a>| `for dir in ./MBB*/;`                         | Look at all folders starting with `MBB` in the current directory. Save each one as `dir`. |
+<a id="__codelineno-87-4" name="__codelineno-87-4" href="#__codelineno-87-4"></a>| `do`                                          | Start a block of commands to run for each `dir`.                                          |
+<a id="__codelineno-87-5" name="__codelineno-87-5" href="#__codelineno-87-5"></a>| `./variantmode-consensus-rename2.0.sh &quot;$dir&quot;` | Run the script and give it the current folder as input.                                   |
+<a id="__codelineno-87-6" name="__codelineno-87-6" href="#__codelineno-87-6"></a>| `-o variant-mode-consensus-sequences.fasta`   | Tell the script where to save output (in this file).                                      |
+<a id="__codelineno-87-7" name="__codelineno-87-7" href="#__codelineno-87-7"></a>| `-a`                                          | Append renamed sequences to the outputfile.                               |
+<a id="__codelineno-87-8" name="__codelineno-87-8" href="#__codelineno-87-8"></a>| `done`                                        | Marks the end of the loop.                                                                |
+</code></pre></div></li>
 </ol>
 <h3 id="34-run-with-real-data">3.4 Run with real data</h3>
-<p>Still with us? Time to put theory into practice. You can all start with your first analysis.  </p>
+<p>Time to put theory into practice. You can all start with your first analysis.  </p>
 <ol>
 <li>10 samples are selected for you. Check the <strong>Mycoblitz2024_specimenlist</strong> on Teams to find out which samples are selected for you.</li>
-<li>Find and download your samples from the <code>&lt;path to&gt;/ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01</code> download folder.</li>
-<li>Run either the consensus-mode and/or variant-mode (only possible for experiments 1 and 2)</li>
+<li>Find and download your samples from the <code>/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/wf-amplicon_DATA</code> download folder.</li>
+<li>Run either the consensus-mode and/or variant-mode (only possible for experiments 1 and 2). Most of the students will need to run the consensus mode.</li>
 <li>Check the results  </li>
 </ol>
 <p><em>Optional: If you finish earlier, you can try a 2nd analysis just for practice! Make sure to start a 2nd working folder Analysis2.</em>  </p>
@@ -1870,49 +1907,46 @@ This commmand will search for all <strong>MBB-xx-xx_barcodexx_ONT-SEQ-xx_xx</str
 <blockquote>
 <p>Remember the structure of the dataset explained in Chapter <strong>2.Nanopore data</strong>.<br />
 Each <em>ONT-SEQ-2X_PA-0X</em> folder contains a different samplesheet.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a><span class="c1"># EXAMPLE SAMPLE SHEET</span>
-<a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>&lt;path<span class="w"> </span>to&gt;/ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01<span class="nv">$cat</span><span class="w"> </span>samplesheet_ONT-SEQ-24_01-withreference.txt<span class="w"> </span>
-<a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a>
-<a id="__codelineno-81-4" name="__codelineno-81-4" href="#__codelineno-81-4"></a>barcode,alias,type,ref
-<a id="__codelineno-81-5" name="__codelineno-81-5" href="#__codelineno-81-5"></a>barcode01,MBB-24-001_barcode01_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
-<a id="__codelineno-81-6" name="__codelineno-81-6" href="#__codelineno-81-6"></a>barcode02,MBB-24-002_barcode02_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
-<a id="__codelineno-81-7" name="__codelineno-81-7" href="#__codelineno-81-7"></a>barcode03,MBB-24-003_barcode03_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
-<a id="__codelineno-81-8" name="__codelineno-81-8" href="#__codelineno-81-8"></a>barcode04,MBB-24-004_barcode04_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
+<div class="highlight"><pre><span></span><code><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a><span class="c1"># EXAMPLE SAMPLE SHEET</span>
+<a id="__codelineno-88-2" name="__codelineno-88-2" href="#__codelineno-88-2"></a>&lt;path<span class="w"> </span>to&gt;/ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01<span class="nv">$cat</span><span class="w"> </span>samplesheet_ONT-SEQ-24_01-withreference.txt<span class="w"> </span>
+<a id="__codelineno-88-3" name="__codelineno-88-3" href="#__codelineno-88-3"></a>
+<a id="__codelineno-88-4" name="__codelineno-88-4" href="#__codelineno-88-4"></a>barcode,alias,type,ref
+<a id="__codelineno-88-5" name="__codelineno-88-5" href="#__codelineno-88-5"></a>barcode01,MBB-24-001_barcode01_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
+<a id="__codelineno-88-6" name="__codelineno-88-6" href="#__codelineno-88-6"></a>barcode02,MBB-24-002_barcode02_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
+<a id="__codelineno-88-7" name="__codelineno-88-7" href="#__codelineno-88-7"></a>barcode03,MBB-24-003_barcode03_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
+<a id="__codelineno-88-8" name="__codelineno-88-8" href="#__codelineno-88-8"></a>barcode04,MBB-24-004_barcode04_ONT-SEQ-24_01,test_sample,ITS<span class="w"> </span>LSU
 </code></pre></div>
 In this samplesheet <code>ONT-SEQ-24_PA-01-withreference.txt</code> you see that <code>barcode01 = MBB-24-001</code> (for this sequence experiment only!).<br />
 Now, have a look in the master species list in teams:<br />
 You can find the detailed list with sample information in the teams <em>General</em> channel:<br />
 <code>General &gt; Files &gt; Specieslist-overview &gt; Mycoblitz2024-specimenlist.xlsx</code> </p>
 </blockquote>
-<p><strong>Example workflow: Copy your selection to your Analysis folder.</strong> </p>
-<blockquote>
-<ul>
-<li>I want to download samples from sequence experiment <code>ONT-SEQ-24_PA-01</code>  </li>
-<li>The selected barcodes for me are: barcode 01 up to 10<br />
-1.Change directory to your VSC-DATA folder
-<div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$VSC_DATA</span>
+<h4 id="341-example-workflow">3.4.1 Example workflow</h4>
+<ol>
+<li>Go to the <code>wf-amplicon_DATA</code> folder
+<div class="highlight"><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a><span class="nb">cd</span><span class="w"> </span>/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/wf-amplicon_DATA
 </code></pre></div>
-2.Make a directory to copy your sequence reads to
-<div class="highlight"><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>mkdir<span class="w"> </span>Analysis01
+Note: Here you see all folders, each folder contains barcode folders, sequencing report and a samplesheet. There is one for each student.  </li>
+<li>Make a directory in your $VSC_DATA folder for your first Analysis
+<div class="highlight"><pre><span></span><code><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>mkdir<span class="w"> </span>/data/gent/433/vscxxxxx/Analysis01
 </code></pre></div>
-3.Change to the created folder
-<div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="nb">cd</span><span class="w"> </span>Analysis01
+<em>Note: Make sure to change 'vscxxxxx' into your own vsc accountnumbe in the command above.</em>  </li>
+<li>Change to this directory
+<div class="highlight"><pre><span></span><code><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a><span class="nb">cd</span><span class="w"> </span>/data/gent/433/vscxxxxx/Analysis01
 </code></pre></div>
-4.Recursively copy the barcode01 folder to your Analysis01 folder
-<div class="highlight"><pre><span></span><code><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>cp<span class="w"> </span>-r<span class="w"> </span>&lt;path<span class="w"> </span>to&gt;/ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01/barcode01<span class="w"> </span><span class="nv">$VSC_DATA</span>/Analysis01
+<em>Note: Make sure to change 'vscxxxxx' into your own vsc accountnumbe in the command above.</em></li>
+<li>Copy your dataset to this folder
+<div class="highlight"><pre><span></span><code><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>cp<span class="w"> </span>-r<span class="w"> </span>/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/wf-amplicon_DATA/tom_waits<span class="w"> </span>.
 </code></pre></div>
-5.Check the content of the folder, the barcode01 folder should be copied to this Location
-<div class="highlight"><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>ls<span class="w"> </span><span class="nv">$VSC_DATA</span>/Analysis01
-</code></pre></div></li>
-</ul>
-</blockquote>
-<p><strong>REPEAT FOR THE 9 OTHER BARCODEFOLDERS YOU SELECTED</strong><br />
-<em>HINT: use a forloop to iterate over different barcode folders in one command</em>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">01</span>..10<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>&lt;path<span class="w"> </span>to&gt;/ONT-SEQ_PA-Benin2024_Input-Data/ONT-SEQ-24_PA-01/barcode<span class="nv">$i</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VSC_DATA</span><span class="s2">/Analysis01&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
-</code></pre></div></p>
-<p><em>Remark: Not only copy the <code>barcode</code> folders but also the <code>samplesheet</code> from the sequencing experiment you take the <code>barcodes</code> folders from.</em>  </p>
-<p>When this exercise is finishe, you can run a 2nd Analysis. Just pick 10 barcode folders from the same sequencing experiment and run the exercise again.<br />
-Be aware tha only experiments <code>ONT-SEQ-24_01</code> and <code>ONT-SEQ-24_02</code> allow you to run the wf-amplicon workflow in variant-mode! </p>
+<em>Note: This is an example, change 'tom_waits' into your own name maching the corresponding folder in</em><br />
+<code>/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/wf-amplicon_DATA</code></li>
+<li>Run the <code>wf-amplicon</code><br />
+<em>Note: Most of you have data from ONT-SEQ-25_04 or ONT-SEQ-25_05, this data should be ran in consensus-mode.</em></li>
+</ol>
+<p><strong>The commands to run the wf-amplicon pipeline are described in chapters 3.2 and 3.3.<br />
+MAKE SURE TO ADJUST THE COMMANDS TO THIS 'REAL DATA ANALYSIS' BEFORE YOU ISSUE ANY COMMANDS!</strong></p>
+<p>When this exercise is finished, you can run a 2nd Analysis. You could now pick barcode folders from <code>ONT-SEQ-24_02</code>. In this experiment both ITS and LSU sequences are present.<br />
+This allows you to run the wf-amplicon in variant-mode! </p>
 
 
 
