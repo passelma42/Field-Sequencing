@@ -878,6 +878,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#navigation-folders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation folders
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1290,6 +1299,52 @@
   <div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>iostat
 </code></pre></div></li>
 </ul>
+<h2 id="navigation-folders">Navigation folders</h2>
+<p>Here's a beginner-friendly explanation of the <code>.</code> and <code>..</code> notations in Linux:</p>
+<hr />
+<p><strong>Understanding <code>.</code> and <code>..</code> in Linux</strong></p>
+<p>When you're navigating files and folders (directories) in Linux, you’ll often see <code>.</code> and <code>..</code>. These are <strong>special directory notations</strong> that help you move around more easily.</p>
+<p><strong><code>.</code> — The Current Directory</strong></p>
+<ul>
+<li>The single dot <code>.</code> refers to the <strong>current directory</strong>.</li>
+<li>It’s like saying “right here.”</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>ls<span class="w"> </span>.
+</code></pre></div>
+<p>This lists the contents of the current directory — the same as just running <code>ls</code>.</p>
+<p><strong><code>..</code> — The Parent Directory</strong></p>
+<ul>
+<li>The double dot <code>..</code> refers to the <strong>parent directory</strong> — the folder <strong>one level up</strong>.</li>
+<li>It’s like saying “go up one folder.”</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<p>This moves you <strong>up one level</strong> in the folder structure.</p>
+<hr />
+<p><strong>Visual Example:</strong></p>
+<p>Imagine your folder structure looks like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>/home/pieter/documents/reports/
+</code></pre></div>
+<p>You're currently in:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>/home/pieter/documents/reports/
+</code></pre></div>
+<ul>
+<li><code>.</code> refers to: <code>/home/pieter/documents/reports/</code></li>
+<li><code>..</code> refers to: <code>/home/pieter/documents/</code></li>
+</ul>
+<p>So:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<p>will move you to:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>/home/pieter/documents/
+</code></pre></div>
+<p>And:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a><span class="nb">cd</span><span class="w"> </span>.
+</code></pre></div>
+<p>keeps you in the same folder.</p>
+<hr />
 
 
 

@@ -889,7 +889,7 @@ If you want to explore more features on the `NanoPack` program, you can visit th
 ## 3. EPI2ME: wf-amplicon  
 
 EPI2ME provides best practice bioinformatics analyses for nanopore sequencing. It offers bioinformatics for all levels of expertise and is designed by Oxford Nanopore especially to work on long read nanopore sequencing data.  
-There is a desktop version available, with all necessary software packaged in a single workflow. Depending on your research there are different workflows available tailored to your needs.  
+There is a desktop version available, with all necessary software packaged in a single workflow. Depending on your type of research there are different workflows available tailored to your needs.  
 These workflows are also available on the command line. No need to install the bioinformatic tools yourself, except the necessary tools to load the workflows.  
 
 We will be using the wf-amplicon workflow. As mentioned before, when using this on your own computer, no need to install any bioinformatic tools except Nextflow, docker or singularity/apptainer.
@@ -902,14 +902,15 @@ Amplicon Workflow: [https://github.com/epi2me-labs/wf-amplicon](https://github.c
 
 ### 3.1 Set HPC environment  
 
-Before we can start using the `wf-amplicon` we need to prepare our HPC environment. For this you need to copy the script `singularity_environment_set.sh` and execute.  
+Before we can start using the `wf-amplicon` we need to prepare our HPC environment.  
+For this you need to copy the script `singularity_environment_set.sh` and execute.  
 These are the steps to follow:  
 
 1. Change directory to your VSC-DATA folder
 ```bash
 cd $VSC_DATA  
 ```
-2. copy the folder scripts to your current location i.e. your VSC_DATA folder 
+2. copy the script `singularity_environment_set.sh` to your current location i.e. your VSC_DATA folder 
 ```bash
 cp /kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/ONT-SEQ_PA-Benin2024_Input-Data/scripts/singularity_environment_set.sh .
 ```
@@ -917,7 +918,7 @@ cp /kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/ONT-SEQ_PA-Benin2024_In
 ```bash
 chmod  u+x  singularity_environment_set.sh
 ```
-4. Execute the script using source which will allow the export commands affect your current shell environment
+4. Execute the script using `source` will allow the export commands affect your current shell environment
 ```bash
 source singularity_environment_set.sh
 ```
@@ -934,19 +935,20 @@ echo $NXF_SINGULARITY_CACHEDIR
 
 ### 3.2 Run Test - Consensus mode
 
-In the previous chapter you already worked on this data to pracktice the `Nanopack` tool. Now it is time to run the `wf-amplicon` pipeline.  
+In the previous chapter you already worked on this data to practice the `Nanopack` tool. Now it is time to run the `wf-amplicon` pipeline on the same data.  
 
 #### 3.2.2 Check samplesheet  
 
-1.Go to $VSC_DATA
+1. Go to $VSC_DATA
 ```bash
 cd $VSC_DATA
 ```
-2.Download test data set
+2. Download test data set  
+*Note: If you already have the `test_data` folder copied to your $VSC_DATA folder, you don't need to dowload it a second time, then you can skip this step.*
 ```bash
 cp -r /kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/ONT-SEQ_PA-Benin2024_Input-Data/test_data .
 ```  
-*Note: If you have alreday the test_data set in your $VSC_DATA folder, you don't need to dowload it a second time, then you can skip this first step*  
+  
 3. Open the folder with the consensus data files
 ```bash
 cd ./test_data/consensus_mode
@@ -960,7 +962,7 @@ This shows you 3 columns `barcode`, `alias` and `type`.
 #### 3.2.3 Run the program  
 
 To run the workflow the only software we need to activate is `Nextflow`. Activating all other software will be taken care of automatically while running the workflow. 
-Make sure you are in the folder that contains all your `barcodexx` folders. In this case it should be `/test_data/consensus_mode`.  
+Make sure you are in the folder that contains all the `barcodexx` folders. In this case it should be `/test_data/consensus_mode`.  
 
 1. Activate the nextflow software
 ```bash
@@ -980,7 +982,7 @@ nextflow run epi2me-labs/wf-amplicon \
 	-profile singularity
 ```
 
-This analysis will pull the necessary containers with all needed software packages, then it will run the tools on your data.  
+This analysis will pull the necessary containers with all necessary software packages, then it will run the tools on your data.  
 You can monitor the progress on your terminal.  
 Because we work with a small test dataset it should not take more than 5 minutes to run.  
 
@@ -1024,8 +1026,9 @@ Important for screening your results is the `wf-amplicon-report.html` and for do
 
 ### 3.3 Run Test - Variant mode
 
-Running in variant mode allows us to run the same analysis as before but since this test data contains reads from both ITS and LSU, we can bioinformatically construct consensus sequences per sample for both genes at the same time.  
- 
+Running in variant mode allows us to run the same analysis as before but since this test data contains reads from both ITS and LSU (each time from the same sample!), we can bioinformatically construct consensus sequences per sample for both genes at the same time.  
+Running in `variant-mode` is more or less similar than `consensus-mode` but additionaly to your fasq file, you give the program a reference file. this file contains sequences from multiple genes (ITS and LSU in this case). And the sample sheet has an extra column `ref`.  
+With these 2 changes the workflow `variant-mode` will be recognized and it will use the reference file to divide reads into ITS and LSU folders, based on sequence similarity, before it starts with generating consensus sequences.  
 
 #### 3.3.2 Check samplesheet  
 
@@ -1100,16 +1103,19 @@ drwxr-xr-x 5 vsc43352 vsc43352    4096 Apr 30 12:22 MBB-24-019_barcode14_ONT-SEQ
 
 The main difference is that you're not only getting consensusfiles but also a vcf file. This file contains variants detected against the provided reference.  
 Can be usefull if you are working with closely related species and you are interested in Single Nucleotid Polymorphism (SNP) information.  
-In our case the sequences in the reference file were only a means to be able to sort out all ITS and LSU reads and assemble consensus sequences from both.  
+In our case the sequences in the reference file were only a means to be able to sort out all ITS and LSU reads and assemble consensus sequences from both. Not for looking at SNP's in particular.   
 >More info on VCF files can be found here: 
 [https://en.wikipedia.org/wiki/Variant_Call_Format](https://en.wikipedia.org/wiki/Variant_Call_Format)  
 
-What we do miss here is a combined fasta file with all our ITS and LSU sequences and matching headers. This is something the workflow doesn't provide for us.  
-For this feature we will use the script `variantmode-consensus-rename2.0.sh`.  
+What we do miss here is a fasta file with all our ITS and LSU sequences and matching headers in one single file instead of multiple. This is something the workflow doesn't provide for us.  
+All these sequences are "hidden" in the individual generated "MBB" folders.  
+You could fetch all the sequences individually, but why work hard if you can also work smart?  
+For this feature we will use the script `variantmode-consensus-rename2.0.sh`. This script will look for these folders for you, take out the consensus sequences and put the MBB number in the header of each fasta file.    
+It will do this for each folder and each time it will append the newly fetched sequence to this single "masterfile".  
 
-Follow these instructions to run the script and build a combined fasta file for all your consensus sequences:  
+Follow these instructions to run the script and build a "master-fasta-file" that will contain all your generated consensus sequences:  
 
-1. Navigate to the variantmode-consensus output directory you created before.
+1. First navigate to the variantmode-consensus output directory you created before.
 ```bash
 cd /data/gent/433/vscxxxx/test_data/variant_mode/output-variant_mode
 ```
@@ -1130,8 +1136,8 @@ cd /data/gent/433/vscxxxx/test_data/variant_mode/output-variant_mode
 ```bash
 for dir in ./MBB*/; do ./variantmode-consensus-rename2.0.sh "$dir" -o variant-mode-consensus-sequences.fasta -a; done
 ```  
-This commmand will search for all **MBB-xx-xx_barcodexx_ONT-SEQ-xx_xx** in the output folder, find all consensus sequences per barcode and generate one combined fasta file called `variant-mode-consensus-sequences.fasta`.  
-This is a `for loop` in the shell. It runs the script variantmode-consensus-rename2.0.sh once for each folder that matches the pattern ./MBB*/.  
+This commmand will search for all **MBB-xx-xx_barcodexx_ONT-SEQ-xx_xx** in the output folder, find all consensus sequences per barcode and generate one "master" fasta file called `variant-mode-consensus-sequences.fasta`.  
+This is command is a `for loop` in the shell (again, work smart not hard :-) ). It runs the script `variantmode-consensus-rename2.0.sh` once for each folder that matches the pattern `./MBB*/`.  
 **Breakdown of the command:**
 ```
 | Part                                          | Meaning                                                                                   |
@@ -1146,7 +1152,8 @@ This is a `for loop` in the shell. It runs the script variantmode-consensus-rena
 
 ### 3.4 Run with real data  
 
-Time to put theory into practice. You can all start with your first analysis.  
+Time to put theory into practice. You are now ready to start with your first analysis. Using the data from samples you collected yourselves in Benin during the 2024 fieldtrip.  
+Here an overview of the steps to follow (see below `3.4.1` for further details).  
 
 1. 10 samples are selected for you. Check the **Mycoblitz2024_specimenlist** on Teams to find out which samples are selected for you.
 2. Find and download your samples from the `/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/wf-amplicon_DATA` download folder.
@@ -1155,7 +1162,7 @@ Time to put theory into practice. You can all start with your first analysis.
 
 *Optional: If you finish earlier, you can try a 2nd analysis just for practice! Make sure to start a 2nd working folder Analysis2.*  
 
-**The samplesheet: have a look**   
+**The samplesheet: take a closer look**   
 >Remember the structure of the dataset explained in Chapter **2.Nanopore data**.  
 Each *ONT-SEQ-2X_PA-0X* folder contains a different samplesheet.
 ```bash
@@ -1172,34 +1179,39 @@ In this samplesheet `ONT-SEQ-24_PA-01-withreference.txt` you see that `barcode01
 Now, have a look in the master species list in teams:  
 You can find the detailed list with sample information in the teams *General* channel:  
 `General > Files > Specieslist-overview > Mycoblitz2024-specimenlist.xlsx` 
+
 #### 3.4.1 Example workflow
+This is an example workflow, containing all the steps and commands to analyze the data in your pesonal data folder.  
+Adjust the commands to your needs.  
+Good luck!  
 
 1. Go to the `wf-amplicon_DATA` folder
 ```bash
 cd /kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/wf-amplicon_DATA
 ```
-Note: Here you see all folders, each folder contains barcode folders, sequencing report and a samplesheet. There is one for each student.  
+Note: Here you see all personalized folders. Each folder contains a selection of barcode folders, a sequencing report and a personalized samplesheet. There is one for each student.  
 2. Make a directory in your $VSC_DATA folder for your first Analysis
 ```bash
 mkdir /data/gent/433/vscxxxxx/Analysis01
 ```
 *Note: Make sure to change 'vscxxxxx' into your own vsc accountnumbe in the command above.*  
-3. Change to this directory
+3. Navigate to this directory
 ```bash
 cd /data/gent/433/vscxxxxx/Analysis01
 ```
 *Note: Make sure to change 'vscxxxxx' into your own vsc accountnumbe in the command above.*
 4. Copy your dataset to this folder
 ```bash
-cp -r /kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/wf-amplicon_DATA/tom_waits .
+cp -r /kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/wf-amplicon_DATA/nelson_mandela .
 ```
-*Note: This is an example, change 'tom_waits' into your own name maching the corresponding folder in*  
+*Note: This is an example, change 'nelson_mandela' into your own name maching the corresponding foldername you find in*  
 `/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/wf-amplicon_DATA`
 5. Run the `wf-amplicon`  
-*Note: Most of you have data from ONT-SEQ-25_04 or ONT-SEQ-25_05, this data should be ran in consensus-mode.*
+*Note: Most of you have been selected data from ONT-SEQ-25_04 or ONT-SEQ-25_05, this data should be ran in consensus-mode.*
 
 **The commands to run the wf-amplicon pipeline are described in chapters 3.2 and 3.3.  
+
 MAKE SURE TO ADJUST THE COMMANDS TO THIS 'REAL DATA ANALYSIS' BEFORE YOU ISSUE ANY COMMANDS!**
 
-When this exercise is finished, you can run a 2nd Analysis. You could now pick barcode folders from `ONT-SEQ-24_02`. In this experiment both ITS and LSU sequences are present.  
+When this exercise is finished, you can run a 2nd Analysis. An option is to pick barcode folders from sequencing experiment `ONT-SEQ-24_02`. In this experiment both ITS and LSU sequences are present.  
 This allows you to run the wf-amplicon in variant-mode! 
