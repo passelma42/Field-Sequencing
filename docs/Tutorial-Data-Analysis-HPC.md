@@ -910,17 +910,18 @@ These are the steps to follow:
 ```bash
 cd $VSC_DATA  
 ```
-2. copy the script `singularity_environment_set.sh` to your current location i.e. your VSC_DATA folder 
-```bash
-cp /kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/ONT-SEQ_PA-Benin2024_Input-Data/scripts/singularity_environment_set.sh .
+2. copy the script `433.sh` to your current location i.e. your VSC_DATA folder 
+```bash 
+#CHANGE 3 digets to your vsc account =  mine is vsc433
+cp /kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/ONT-SEQ_PA-Benin2024_Input-Data/scripts/433.sh .
 ```
 3. Give executable rights to the script
 ```bash
-chmod  u+x  singularity_environment_set.sh
+chmod  u+x  433.sh
 ```
 4. Execute the script using `source` will allow the export commands affect your current shell environment
 ```bash
-source singularity_environment_set.sh
+source 433.sh
 ```
 5. Check if the singularity folder has been created and also if it contains the 3 subfolders `cache`, `tmp`, and `image` 
 ```bash
