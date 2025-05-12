@@ -1635,14 +1635,15 @@ These are the steps to follow:  </p>
 <li>Change directory to your VSC-DATA folder
 <div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$VSC_DATA</span><span class="w">  </span>
 </code></pre></div></li>
-<li>copy the script <code>singularity_environment_set.sh</code> to your current location i.e. your VSC_DATA folder 
-<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>cp<span class="w"> </span>/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/ONT-SEQ_PA-Benin2024_Input-Data/scripts/singularity_environment_set.sh<span class="w"> </span>.
+<li>copy the script <code>433.sh</code> to your current location i.e. your VSC_DATA folder 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="c1">#CHANGE 3 digets to your vsc account =  mine is vsc433</span>
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>cp<span class="w"> </span>/kyukon/data/gent/courses/2024/mycoblitz_EXT001/input/ONT-SEQ_PA-Benin2024_Input-Data/scripts/433.sh<span class="w"> </span>.
 </code></pre></div></li>
 <li>Give executable rights to the script
-<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>chmod<span class="w">  </span>u+x<span class="w">  </span>singularity_environment_set.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>chmod<span class="w">  </span>u+x<span class="w">  </span><span class="m">433</span>.sh
 </code></pre></div></li>
 <li>Execute the script using <code>source</code> will allow the export commands affect your current shell environment
-<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="nb">source</span><span class="w"> </span>singularity_environment_set.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="nb">source</span><span class="w"> </span><span class="m">433</span>.sh
 </code></pre></div></li>
 <li>Check if the singularity folder has been created and also if it contains the 3 subfolders <code>cache</code>, <code>tmp</code>, and <code>image</code> 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>ll<span class="w"> </span><span class="nv">$VSC_SCRATCH</span>/singularity<span class="w"> </span>
