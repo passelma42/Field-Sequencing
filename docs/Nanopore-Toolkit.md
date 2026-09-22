@@ -532,5 +532,5 @@ You now have a reproducible Nanopore bioinformatics toolkit managed with Pixi. T
 - Assembly QC (QUAST)
 - Clustering and consensus tool (NGspeciesID)
 
-The entire [toolkit can be installed](git@github.com:passelma42/nanopore-toolkit.git), updated, shared, and reproduced using only `pixi.toml` and `pixi.lock`.  
+The entire [toolkit can be installed](https://github.com/passelma42/nanopore-toolkit.git), updated, shared, and reproduced using only `pixi.toml` and `pixi.lock`.  
 Adding tools to your liking is also straightforward by using the command ```pixi add <toolname>```. This enabels you to tailor your project environment to your needs.   
