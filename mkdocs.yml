@@ -1,24 +1,30 @@
 site_name: Field Sequencing
 nav:
-  - index.md
-  - system-build.md
-  - nanopore-tools.md
-  - installation.md
-  - Tutorial-ONTdata.md
-  - Tutorial-NanoPack.md
-  - Tutorial-Data-Analysis-HPC.md
-  - blast.md
-  - linuxcommands.md
-  - github.md
+- 🏠 Home: index.md
+- 🖥️ System Documentaion:
+  - System Build: system-build.md
+  - Software Installation_2026: software-installation_2026.md
+  - Minknow-troubleshooting: minknow-troubleshooting.md
+- 🧬 Bioinformatic Tools:
+  - Nanopore-Toolkit (pixi): Nanopore-Toolkit.md
+  - Nanopack (pyvenv): nanopack.md
+- 📚 Tutorials:
+  - Nanopack: Tutorial-nanopack.md
+  - ONTdata EPI2ME: Tutorial-ONTdata.md
+  - Blast: blast.md
+- 📖 References: 
+  - Linuxcommands: linuxcommands.md
+  - Github: github.md
 
 theme:
   name: material
   features:
-    - navigation.tabs
+#    - navigation.tabs
     - navigation.sections
     - navigation.path
     - navigation.top
-    - toc.integrate
+ #   - navigation.expand
+ #   - toc.integrate
     - search.suggest
     - search.highlight
     - content.tabs.link
@@ -36,7 +42,7 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode    
-      primary: deep deep
+      primary: deep blue
       accent: orange
 
 # Consolidated markdown_extensions

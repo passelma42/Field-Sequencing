@@ -1,38 +1,8 @@
-Nanopack is a tool set of different long read processing and analysis tools. Below you'll find elaborate exercises explaining all the different faeatures of this toolset.  
-The publischer also provided a *test-data* set which can be downloaded in preparation of this tutorial.
+# Nanopack using test data
+    
+Wheter you installed nanopack with ```Pixi``` or ```pyvenv``` or ```conda```, make sure you activate your workspace befor issueing the commands below.   
 
-**Tool**: [https://github.com/wdecoster/nanopack](https://github.com/wdecoster/nanopack)  
-**Download test data**: [https://github.com/wdecoster/nanotest](https://github.com/wdecoster/nanotest)  
-**Publication**: [NanoPack: visualizing and processing long-read sequencing data](https://doi.org/10.1093/bioinformatics/bty149) 
->Wouter De Coster, Svenn D’Hert, Darrin T Schultz, Marc Cruts, Christine Van Broeckhoven, NanoPack: visualizing and processing long-read sequencing dta, Bioinformatics, Volume 34, Issue 15, August 2018, Pages 2666–2669, https://doi.org/10.1093/bioinformatics/bty149  
-
-## Preparations   
-### Installation    
-Please follow the installation instructions on the [nanopack github website](https://github.com/wdecoster/nanopack?tab=readme-ov-file) for installing all the individual tools and modules.  
-If you are using [conda](https://docs.anaconda.com/) on your local machine for installing scientific software you can use a dedicated `nanopack.yml` file and follow the instructions below.  
-!!! NOTES
-	For more information on how to install miniconda on your system have a look here: https://docs.anaconda.com/miniconda/ 
-
-
-Following these instructions should create a dedicated environment and install all necessary dependencies:  
-
-1. **Download** environment file
-	```bash
-	wget https://raw.githubusercontent.com/passelma42/conda-envs-VM/main/nanopack.yml
-	```  
-2. **Create the environment and install all dependencies**  
-	```bash
-	conda env create -f nanopack.yml
-	```  
-3. **Activate the env**  
-	```bash
-	conda activate Nanopack
-	```  
-4. **Verify installation**  
-	```bash
-	conda list
-	```  
-### Download test data  
+## Download test data  
 Clone the git repo.  
 ```bash title="Example"
 git clone git@github.com:wdecoster/nanotest.git
@@ -102,10 +72,16 @@ NanoStat --fasta reads.fasta.gz --tsv --outdir tsv_report -n nanostat-tsv.out
 
 ---  
 
-## Chopper   
+## Chopper  
 **A rust implementation combining NanoLyse and NanoFilt into one faster tool for filtering, trimming, and removing contaminants.**  
 
 **Download test data:**  
+```shell
+git clone https://github.com/wdecoster/chopper.git
+cd chopper
+ls test-data
+``` 
+
 [https://github.com/wdecoster/chopper/tree/master/test-data](https://github.com/wdecoster/chopper/tree/master/test-data)
 
 **Exercise 1: Basic Quality Filtering**  
@@ -208,7 +184,8 @@ chopper -q 25 -l 100 --maxlength 1000 -t 8 -i large_reads.fastq > filtered_reads
 
 ---
 
-## NanoComp
+## NanoComp  
+
 **A tool for comparing multiple runs on read length and quality based on reads (fastq), alignments (bam) or albacore summary files.**  
 
 **Exercise 1: Comparing BAM Files**  
@@ -265,6 +242,7 @@ Explore different visualization methods by generating various types of plots.
 ---
 
 ## Cramino  
+
 **A rust replacement for NanoStat - much quicker summary creation of BAM or CRAM files.**   
 
 **Download test data:**  
@@ -313,7 +291,7 @@ cramino alignment.cram --min-read-len 500
 
 ---  
 
-## NanoPlot    
+## NanoPlot  
 **A tool for visualizing read data.**  
 
 **Exercise 1:**  
@@ -516,9 +494,10 @@ Wouter is like the David Lynch of plots. Please find below a short description o
 
 ![Dynamic Histogram of Percent Identity](images/nanoplot-bam/PercentIdentityHistogramDynamic_Histogram_percent_identity.png)  
 
-## Addendum  
+---  
 
-### PID VS MAPQ  
+## PID vs MAPQ 
+
 Percent Identity VS Mapping Quality. Both are important metrics used in analyzing sequencing data. But are NOT the same.
 
 **Percent Identity (PID)**  

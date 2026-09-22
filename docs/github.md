@@ -1,7 +1,7 @@
 # Github  
 For a more in depth overview [go to the official documentation](https://docs.github.com/en/get-started/using-github/github-flow).  
 
-## 1. Setting Up a Local Git Repository  
+## Chatper 1: Setting Up a Local Git Repository  
 
 1. **Initialize a new Git repository:**
 
@@ -29,7 +29,7 @@ For a more in depth overview [go to the official documentation](https://docs.git
 
     - **`git commit -m "Initial commit"`**: Commit the staged files with a message.
 
-## 2. Authenticating Using SSH Key  
+## Chapter 2: Authenticating Using SSH Key  
 
 1. **Generate an SSH key pair (if you don't have one):**
 
@@ -59,7 +59,7 @@ For a more in depth overview [go to the official documentation](https://docs.git
 
     - Go to your Git hosting service and add the SSH key to your account settings.
 
-## 3. Pushing the Local Repository to a Remote Repository  
+## Chapter 3: Pushing the Local Repository to a Remote Repository  
 
 1. **Add the remote repository:**
 
@@ -77,7 +77,7 @@ For a more in depth overview [go to the official documentation](https://docs.git
 
     - **`git push -u origin main`**: Push the local `main` branch to the `origin` remote repository and set it as the default upstream branch.
 
-## 4. Making Changes and Syncing Them  
+## Chapter 4: Making Changes and Syncing Them  
 
 1. **Make changes to your files.**
 
@@ -105,7 +105,7 @@ For a more in depth overview [go to the official documentation](https://docs.git
 
     - **`git push`**: Push the committed changes to the remote repository.
 
-## 5. Keeping Your Local Repository in Sync with the Remote  
+## Chapter 5: Keeping Your Local Repository in Sync with the Remote  
 
 1. **Fetch the latest changes from the remote repository:**
 
@@ -131,7 +131,7 @@ For a more in depth overview [go to the official documentation](https://docs.git
 
     - **`git pull`**: Fetch and merge the latest changes from the remote repository into your local branch.
 
-## Full Command Summary  
+## Summary  
 
 1. **Initialize Git repository:**
 

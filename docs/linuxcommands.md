@@ -1,520 +1,835 @@
-# Essential Linux Commands
+# Linux Command Reference Guide  
 
-## File and Directory Operations
-
-### Listing and Navigating
-- **`ls`**: List the contents of a directory.
-  ```shell
-  ls /path/to/directory
-  ```
-- **`cd`**: Change the current directory.
-  ```shell
-  cd /path/to/directory
-  ```
-- **`pwd`**: Display the current working directory.
-  ```shell
-  pwd
-  ```
-
-### Creating and Removing
-- **`mkdir`**: Create a new directory.
-  ```shell
-  mkdir new_directory
-  ```
-- **`rmdir`**: Remove an empty directory.
-  ```shell
-  rmdir empty_directory
-  ```
-- **`rm`**: Remove files or directories.
-  ```shell
-  rm file_name   # for files
-  rm -r directory_name   # for directories
-  ```
-
-### Copying and Moving
-- **`cp`**: Copy files or directories.
-  ```shell
-  cp /path/to/source/file /path/to/destination/
-  ```
-  Example:
-  ```shell
-  cp /home/user/file.txt /home/user/Documents/
-  ```
-  - Copy a directory and its contents:
-  ```shell
-  cp -r /path/to/source/directory /path/to/destination/
-  ```
-  Example:
-  ```shell
-  cp -r /home/user/folder /home/user/Documents/
-  ```
-- **`mv`**: Move or rename files or directories.
-  ```shell
-  mv /path/to/source/file /path/to/destination/
-  ```
-  Example:
-  ```shell
-  mv /home/user/file.txt /home/user/Documents/
-  ```
-
-### File Manipulation
-- **`touch`**: Create an empty file or update the timestamp of an existing file.
-  ```shell
-  touch file_name
-  ```
-- **`cat`**: Concatenate and display the content of files.
-  ```shell
-  cat file_name
-  ```
-
-### Advanced Copying with `rsync`
-- **`rsync`**: Synchronize directories and copy large amounts of data efficiently.
-  ```shell
-  rsync -av /path/to/source/ /path/to/destination/
-  ```
-  - `-a`: Archive mode, preserves permissions, times, symbolic links, etc.
-  - `-v`: Verbose, shows the progress of the transfer.
-
-## File Permissions and Ownership
-- **`chmod`**: Change the permissions of a file or directory.
-  ```shell
-  chmod 755 file_name
-  ```
-- **`chown`**: Change the ownership of a file or directory.
-  ```shell
-  chown user:group file_name
-  ```
-
-## File Viewing and Editing
-- **`nano`/`vim`**: Text editors for creating and editing files directly in the terminal.
-  ```shell
-  nano file_name
-  vim file_name
-  ```
-- **`less`**: Display the content of a file one screen at a time.
-  ```shell
-  less file_name
-  ```
-- **`head`**: Show the first few lines of a file.
-  ```shell
-  head -n 10 file_name   # shows the first 10 lines
-  ```
-- **`tail`**: Show the last few lines of a file.
-  ```shell
-  tail -n 10 file_name   # shows the last 10 lines
-  ```
-- **`grep`**: Search for a specific pattern within files.
-  ```shell
-  grep "pattern" file_name
-  ```
-
-## System Information
-- **`uname`**: Display basic information about the system.
-  ```shell
-  uname -a   # shows all system information
-  ```
-- **`df`**: Show disk space usage.
-  ```shell
-  df -h   # human-readable format
-  ```
-- **`du`**: Display the disk usage of files and directories.
-  ```shell
-  du -sh directory_name
-  ```
-- **`free`**: Show the amount of free and used memory in the system.
-  ```shell
-  free -h
-  ```
-- **`top`**: Display real-time system processes and resource usage.
-  ```shell
-  top
-  ```
-- **`ps`**: Display the currently running processes.
-  ```shell
-  ps aux
-  ```
-
-## Network Operations
-- **`ping`**: Test connectivity to a network host.
-  ```shell
-  ping google.com
-  ```
-- **`ifconfig`**: Display or configure network interfaces.
-  ```shell
-  ifconfig   # use `ip addr` in newer systems
-  ```
-- **`netstat`**: Show network connections, routing tables, and more.
-  ```shell
-  netstat -tuln   # shows listening ports
-  ```
-- **`ssh`**: Connect to another machine securely over the network.
-  ```shell
-  ssh user@hostname
-  ```
-
-## Process Management
-- **`kill`**: Send a signal to terminate a process.
-  ```shell
-  kill PID   # where PID is the process ID
-  ```
-- **`killall`**: Terminate all processes by name.
-  ```shell
-  killall process_name
-  ```
-- **`bg`**: Resume a suspended job in the background.
-  ```shell
-  bg job_number
-  ```
-- **`fg`**: Bring a job to the foreground.
-  ```shell
-  fg job_number
-  ```
-
-## User and Group Management
-- **`adduser`/`useradd`**: Add a new user to the system.
-  ```shell
-  adduser username
-  useradd username
-  ```
-- **`passwd`**: Change a user’s password.
-  ```shell
-  passwd username
-  ```
-- **`su`**: Switch to another user account.
-  ```shell
-  su - username
-  ```
-- **`sudo`**: Execute a command with superuser privileges.
-  ```shell
-  sudo command
-  ```
-
-## Package Management (Example: Debian-based systems)
-- **`apt-get update`**: Update the package lists.
-  ```shell
-  sudo apt-get update
-  ```
-- **`apt-get install`**: Install a new package.
-  ```shell
-  sudo apt-get install package_name
-  ```
-- **`apt-get upgrade`**: Upgrade all installed packages.
-  ```shell
-  sudo apt-get upgrade
-  ```
-
-## Text Manipulation
-- **`echo`**: Display a line of text.
-  ```shell
-  echo "Hello, World!"
-  ```
-- **`grep`**: Search for text patterns in files.
-  ```shell
-  grep "text" file_name
-  ```
-- **`sed`**: Stream editor for filtering and transforming text.
-  ```shell
-  sed 's/old/new/' file_name
-  ```
-- **`awk`**: A powerful text processing language.
-  ```shell
-  awk '{print $1}' file_name
-  ```
-
-## Expanded Section on Text Manipulation for FASTA, FASTQ, and BAM Files  
-When working with bioinformatics data formats like FASTA, FASTQ, and BAM files, text manipulation tools like `echo`, `grep`, `sed`, and `awk` become essential. Below are examples and explanations of how these tools can be used effectively.
-
-### FASTA Files
-
-**FASTA** files store nucleotide or protein sequences with a header line starting with `>` followed by sequence data. 
-
-**Examples:**  
-
-- **`grep`**: Extract sequence identifiers (headers) from a FASTA file.
-  ```shell
-  grep "^>" sequences.fasta
-  ```
-  This command searches for lines starting with `>` and outputs them, giving you all the headers in the file.
-
-- **`awk`**: Count the number of sequences in a FASTA file.
-  ```shell
-  awk '/^>/ {count++} END {print count}' sequences.fasta
-  ```
-  This `awk` script increments a counter for each header line and prints the total number of sequences at the end.
-
-- **`sed`**: Remove description from headers in a FASTA file.
-  ```shell
-  sed 's/\s.*$//' sequences.fasta > cleaned_sequences.fasta
-  ```
-  This command keeps only the identifier in each header line by deleting everything after the first space.
-
-### FASTQ Files
-
-**FASTQ** files contain sequence data with quality scores, commonly used in next-generation sequencing. 
-
-**Examples:**  
-
-- **`grep`**: Extract all sequence headers (lines starting with `@`).
-  ```shell
-  grep "^@" sequences.fastq
-  ```
-  This command will output all sequence headers in a FASTQ file.
-
-- **`awk`**: Calculate the total number of reads in a FASTQ file.
-  ```shell
-  awk '{s++} END {print s/4}' sequences.fastq
-  ```
-  Since each read spans four lines (header, sequence, plus, quality), dividing the total line count by four gives the number of reads.
-
-- **`sed`**: Convert sequence headers to uppercase (useful if headers have mixed cases).
-  ```shell
-  sed -e '1~4s/.*/\U&/' sequences.fastq > uppercased_headers.fastq
-  ```
-  This command converts the headers (every 4th line, starting from line 1) to uppercase.
-
-### BAM Files
-
-**BAM** files are binary versions of SAM files and store aligned sequence data. While binary, text manipulation often applies to the SAM format (BAM converted to SAM via `samtools view`).
-
-**Examples:**  
-
-- **`samtools` & `awk`**: Extract read names and count the total number of unique reads.
-  ```shell
-  samtools view -h file.bam | awk '{if($1 !~ /^@/) print $1}' | sort | uniq | wc -l
-  ```
-  This command extracts the read names from a BAM file, sorts them, filters out duplicates, and counts the unique entries.
-
-- **`grep`**: Filter reads mapped to a specific chromosome.
-  ```shell
-  samtools view file.bam | grep "^chr1" > chr1_reads.sam
-  ```
-  This filters out reads that are mapped to chromosome 1.
-
-- **`awk`**: Extract and count reads with a specific mapping quality.
-  ```shell
-  samtools view file.bam | awk '$5 >= 30' | wc -l
-  ```
-  This command counts the number of reads with a mapping quality of 30 or higher.
-
-### Combining Tools for Advanced Manipulation
-
-Combining `grep`, `awk`, and `sed` can provide powerful data extraction and manipulation. Here’s an example:
-
-- **Extracting and summarizing GC content from FASTA sequences**:
-  ```shell
-  awk '/^>/ {if (seqlen){print gc/seqlen*100}; print; gc=0; seqlen=0; next} {gc+=gsub(/[GgCc]/,""); seqlen+=length($0)} END {print gc/seqlen*100}' sequences.fasta
-  ```
-  This script calculates the GC content for each sequence and prints it after each sequence header.
-
-By mastering these commands, you can efficiently manipulate and analyze bioinformatics data files. Each tool offers specific advantages depending on the task, allowing for streamlined data processing in a command-line environment.
-
-## Archiving and Compression
-
-### **`tar`**  
-Archive files into a tarball, which can be compressed using various algorithms.
-  - **Create a tarball**: 
-    ```shell
-    tar -cvf archive_name.tar directory_name
-    ```
-  - **Create a compressed tarball with gzip**: 
-    ```shell
-    tar -czvf archive_name.tar.gz directory_name
-    ```
-  - **Create a compressed tarball with bzip2**: 
-    ```shell
-    tar -cjvf archive_name.tar.bz2 directory_name
-    ```
-  - **Create a compressed tarball with xz**: 
-    ```shell
-    tar -cJvf archive_name.tar.xz directory_name
-    ```
-  - **Extract a tarball**: 
-    ```shell
-    tar -xvf archive_name.tar
-    ```
-  - **Extract a gzip-compressed tarball**: 
-    ```shell
-    tar -xzvf archive_name.tar.gz
-    ```
-  - **Extract a bzip2-compressed tarball**: 
-    ```shell
-    tar -xjvf archive_name.tar.bz2
-    ```
-  - **Extract an xz-compressed tarball**: 
-    ```shell
-    tar -xJvf archive_name.tar.xz
-    ```
-
-### **`gzip`**  
-Compress files using the gzip algorithm.
-  - **Compress a file**: 
-    ```shell
-    gzip file_name
-    ```
-  - **Decompress a file**: 
-    ```shell
-    gunzip file_name.gz
-    ```
-  - **Compress a file while keeping the original**: 
-    ```shell
-    gzip -c file_name > file_name.gz
-    ```
-  - **List the contents of a gzip-compressed file**: 
-    ```shell
-    zcat file_name.gz
-    ```
-
-### **`bzip2`**  
-Compress files using the bzip2 algorithm, which typically achieves better compression than gzip.
-  - **Compress a file**: 
-    ```shell
-    bzip2 file_name
-    ```
-  - **Decompress a file**: 
-    ```shell
-    bunzip2 file_name.bz2
-    ```
-  - **Compress a file while keeping the original**: 
-    ```shell
-    bzip2 -c file_name > file_name.bz2
-    ```
-  - **List the contents of a bzip2-compressed file**: 
-    ```shell
-    bzcat file_name.bz2
-    ```
-		
-### **`zip`**  
-Create a ZIP archive, which can include multiple files and directories.
-  - **Create a ZIP archive**: 
-    ```shell
-    zip archive_name.zip file1 file2 directory_name
-    ```
-  - **Add files to an existing ZIP archive**: 
-    ```shell
-    zip archive_name.zip newfile
-    ```
-  - **Extract a ZIP archive**: 
-    ```shell
-    unzip archive_name.zip
-    ```
-  - **List the contents of a ZIP archive**: 
-    ```shell
-    unzip -l archive_name.zip
-    ```
-
-### **`7z`**  
-Use the 7-Zip compression tool for high compression ratios and support for many formats.
-  - **Create a 7z archive**: 
-    ```shell
-    7z a archive_name.7z file1 file2 directory_name
-    ```
-  - **Extract a 7z archive**: 
-    ```shell
-    7z x archive_name.7z
-    ```
-  - **List the contents of a 7z archive**: 
-    ```shell
-    7z l archive_name.7z
-    ```
-
-These tools and commands cover a broad range of archiving and compression needs, from simple file compression to handling more complex multi-file archives.
-
-## Finding Files
-- **`find`**: Search for files in a directory hierarchy.
-  ```shell
-  find /path -name "file_name"
-  ```
-- **`locate`**: Quickly find files by name using an indexed database.
-  ```shell
-  locate file_name
-  ```
-
-## System Monitoring and Performance
-- **`htop`**: Interactive process viewer (more user-friendly than `top`).
-  ```shell
-  htop
-  ```
-- **`vmstat`**: Report virtual memory statistics.
-  ```shell
-  vmstat 1   # refreshes every second
-  ```
-- **`iostat`**: Report CPU and I/O statistics.
-  ```shell
-  iostat
-  ```
-## Navigation folders
-Here's a beginner-friendly explanation of the `.` and `..` notations in Linux:
+A practical overview of essential Linux commands for file management, system administration, text processing, bioinformatics workflows, and data compression.
 
 ---
 
-**Understanding `.` and `..` in Linux**
+## Chapter1: File and Directory Operations  
 
-When you're navigating files and folders (directories) in Linux, you’ll often see `.` and `..`. These are **special directory notations** that help you move around more easily.
+### Listing and Navigating Directories
 
-**`.` — The Current Directory**
+#### `ls`
+Lists the contents of a directory.
 
-* The single dot `.` refers to the **current directory**.
-* It’s like saying “right here.”
+```bash
+ls /path/to/directory
+```
 
-**Example:**
+#### `cd`
+Changes the current working directory.
+
+```bash
+cd /path/to/directory
+```
+
+#### `pwd`
+Displays the current working directory.
+
+```bash
+pwd
+```
+
+---
+
+### Creating and Removing Files and Directories
+
+#### `mkdir`
+Creates a new directory.
+
+```bash
+mkdir new_directory
+```
+
+#### `rmdir`
+Removes an empty directory.
+
+```bash
+rmdir empty_directory
+```
+
+#### `rm`
+Removes files or directories.
+
+Remove a file:
+
+```bash
+rm file_name
+```
+
+Remove a directory recursively:
+
+```bash
+rm -r directory_name
+```
+
+> ⚠️ **Warning**
+>
+> The `rm` command permanently deletes files. Use it carefully, especially with the `-r` option.
+
+---
+
+### Copying and Moving Files
+
+#### `cp`
+Copies files or directories.
+
+Copy a file:
+
+```bash
+cp /path/to/source/file /path/to/destination/
+```
+
+Example:
+
+```bash
+cp /home/user/file.txt /home/user/Documents/
+```
+
+Copy a directory and all its contents:
+
+```bash
+cp -r /path/to/source/directory /path/to/destination/
+```
+
+Example:
+
+```bash
+cp -r /home/user/folder /home/user/Documents/
+```
+
+#### `mv`
+Moves or renames files and directories.
+
+```bash
+mv /path/to/source/file /path/to/destination/
+```
+
+Example:
+
+```bash
+mv /home/user/file.txt /home/user/Documents/
+```
+
+---
+
+### File Manipulation
+
+#### `touch`
+Creates an empty file or updates the timestamp of an existing file.
+
+```bash
+touch file_name
+```
+
+#### `cat`
+Displays the contents of a file.
+
+```bash
+cat file_name
+```
+
+---
+
+### Advanced File Synchronization with `rsync`
+
+#### `rsync`
+Efficiently synchronizes directories and transfers large amounts of data.
+
+```bash
+rsync -av /path/to/source/ /path/to/destination/
+```
+
+#### Common Options
+
+| Option | Description |
+|----------|-------------|
+| `-a` | Archive mode (preserves permissions, timestamps, symlinks, etc.) |
+| `-v` | Verbose mode (shows transfer progress) |
+
+> 💡 **Tip**
+>
+> `rsync` is often preferred over `cp` for backups and large data transfers.
+
+---
+
+## Chapter 2: File Permissions and Ownership
+
+### `chmod`
+Changes file or directory permissions.
+
+```bash
+chmod 755 file_name
+```
+
+### `chown`
+Changes file or directory ownership.
+
+```bash
+chown user:group file_name
+```
+
+---
+
+## Chapter 3: File Viewing and Editing
+
+### Text Editors
+
+#### `nano`
+
+```bash
+nano file_name
+```
+
+### `vim`
+
+```bash
+vim file_name
+```
+
+---
+
+### Viewing File Contents
+
+#### `less`
+
+View a file one screen at a time.
+
+```bash
+less file_name
+```
+
+#### `head`
+
+Show the first 10 lines.
+
+```bash
+head -n 10 file_name
+```
+
+#### `tail`
+
+Show the last 10 lines.
+
+```bash
+tail -n 10 file_name
+```
+
+#### `grep`
+
+Search for text patterns.
+
+```bash
+grep "pattern" file_name
+```
+
+---
+
+## Chapter 4: System Information
+
+### `uname`
+
+Display system information.
+
+```bash
+uname -a
+```
+
+### `df`
+
+Display disk space usage.
+
+```bash
+df -h
+```
+
+### `du`
+
+Display directory disk usage.
+
+```bash
+du -sh directory_name
+```
+
+### `free`
+
+Display memory usage.
+
+```bash
+free -h
+```
+
+### `top`
+
+Monitor running processes and system resources.
+
+```bash
+top
+```
+
+### `ps`
+
+Display running processes.
+
+```bash
+ps aux
+```
+
+---
+
+## Chapter 5: Network Operations
+
+### `ping`
+
+Test network connectivity.
+
+```bash
+ping google.com
+```
+
+### `ifconfig`
+
+Display or configure network interfaces.
+
+```bash
+ifconfig
+```
+
+> 💡 Modern Linux distributions often use:
+
+```bash
+ip addr
+```
+
+### `netstat`
+
+Display network connections and listening ports.
+
+```bash
+netstat -tuln
+```
+
+### `ssh`
+
+Connect securely to a remote system.
+
+```bash
+ssh user@hostname
+```
+
+---
+
+## Chapter 6: Process Management
+
+### `kill`
+
+Terminate a process using its PID.
+
+```bash
+kill PID
+```
+
+### `killall`
+
+Terminate all processes with a given name.
+
+```bash
+killall process_name
+```
+
+### `bg`
+
+Resume a stopped job in the background.
+
+```bash
+bg job_number
+```
+
+### `fg`
+
+Bring a background process to the foreground.
+
+```bash
+fg job_number
+```
+
+---
+
+## Chapter 7: User and Group Management
+
+### Add Users
+
+#### `adduser`
+
+```bash
+adduser username
+```
+
+#### `useradd`
+
+```bash
+useradd username
+```
+
+### Change Password
+
+#### `passwd`
+
+```bash
+passwd username
+```
+
+### Switch Users
+
+#### `su`
+
+```bash
+su - username
+```
+
+### Execute as Administrator
+
+#### `sudo`
+
+```bash
+sudo command
+```
+
+---
+
+## Chapter 8: Package Management (Debian-Based Systems)
+
+### Update Package Lists
+
+```bash
+sudo apt-get update
+```
+
+### Install Packages
+
+```bash
+sudo apt-get install package_name
+```
+
+### Upgrade Installed Packages
+
+```bash
+sudo apt-get upgrade
+```
+
+---
+
+## Chapter 9: Text Manipulation
+
+Linux provides several powerful tools for processing and manipulating text directly from the command line.
+
+### `echo`
+
+Display text.
+
+```bash
+echo "Hello, World!"
+```
+
+### `grep`
+
+Search for patterns.
+
+```bash
+grep "text" file_name
+```
+
+### `sed`
+
+Stream editor for text transformations.
+
+```bash
+sed 's/old/new/' file_name
+```
+
+### `awk`
+
+Advanced text processing.
+
+```bash
+awk '{print $1}' file_name
+```
+
+---
+
+## Chapter 10: Bioinformatics Applications: FASTA, FASTQ, and BAM Files
+
+Bioinformatics datasets are often manipulated using standard Linux text-processing tools.
+
+---
+
+### FASTA Files
+
+FASTA files contain nucleotide or protein sequences. Header lines begin with `>`.
+
+#### Extract Sequence Headers
+
+```bash
+grep "^>" sequences.fasta
+```
+
+#### Count Sequences
+
+```bash
+awk '/^>/ {count++} END {print count}' sequences.fasta
+```
+
+### Remove Header Descriptions
+
+```bash
+sed 's/\s.*$//' sequences.fasta >*cleaned_sequences.fasta
+```
+
+*--
+
+### FASTQ Files
+
+FASTQ*files store*sequencing reads*and quality scores.
+
+#### Extract H*aders
+
+```bash
+grep "^@" sequences*fastq
+```
+
+#### Count Reads
+
+```bash*awk '{s*+} END {print s/4}' sequences.fastq
+```
+
+Each FASTQ record consists of four lines:
+
+1. Header
+2. Sequence
+3. Separator (`@`)
+4. Quality string
+
+#### Convert Headers to Uppercase
+
+```bash
+sed -e '1~4s/.*/\U&/' sequences.fastq > uppercased_headers.fastq
+```
+
+*--
+
+### BAM Files
+
+BAM files are bi*ary versions of SAM files and are *ommonly processed with `samtools`.  
+
+#### Count Unique Reads
+
+```bash
+samtools view -h file.bam | awk '{if($1 !~ /^@/) print $1}' | sort | uniq | wc -l
+```
+
+#### Extract Chromosome-Specific Reads
+
+```bash
+samtools view file.bam | grep "^chr1" > chr1_reads.sam
+```
+
+#### Count Rea*s with Mapping Quality ≥ 30
+
+```bash
+samtools view file.bam | awk '$5 > 30' | wc -l
+```
+
+---
+
+### Example: Calculate GC Content in FASTA Files
+```shell
+awk '/^>/ {if (seqlen){print gc/seqlen*100}; print; gc=0; seqlen=0; next} {gc+=gsub(/[GgCc]/,""); seqlen+=length($0)} END {print gc/seqlen*100}' sequences.fasta
+```  
+
+---
+
+## Chapter 11: Archiving and Compression*
+### TAR Archives
+
+### Create a Tarball
+
+```bash
+tar -cvf archive_name.tar directory_name
+```
+
+### Create*a Gzip-Compressed Archive
+
+```bash
+tar -czvf archive_name.tar.gz directory_name
+```
+
+### Create a Bzip2-Compressed Archive
+```bash
+tar -cjvf archive_name.tar.bz2 directory_name
+```
+
+#### Create*an XZ-Compressed Archive
+
+```bash
+tar -cJvf archive_name.tar.xz directory_name
+```
+
+#### Extract Archive
+
+```bash
+tar -xvf archive_name.ta*
+tar -xzvf archive_name.tar.gz
+tar -xjvf archive_name.tar.bz2
+tar -xJvf archive_name.tar.xz
+```
+
+---
+
+### GZIP
+
+Compress:
+
+```bash
+zip file_name
+```
+
+Decompress:
+
+```bash
+gunzip file_name.gz
+```
+
+Keep original file:
+
+```bash
+gzip -c file_name > file_name.gz
+```
+
+View contents:
+
+```bash
+zcat file_name.gz
+```
+
+---
+
+### BZIP2
+
+Compress:
+
+```bash
+bzip2 file_name
+```
+
+Decompress:
+
+```bash
+bunzip2 file_name.bz2
+```
+
+Keep original:
+
+```bash
+bzip2 -c file_name > file_name.bz2
+```
+
+View contents:
+
+```bash
+bzct file_name.bz2
+```
+
+---
+
+### ZIP
+
+Create archive:
+
+```bash
+zip archive_name.zip file1 file2 directory_name
+```
+
+Add files:
+
+```bash
+zip archive_name.zip newfile
+```
+
+Extract:
+
+```bash
+unzip archive_name.zip
+```
+
+List contents:
+
+```bash
+unzip -l archive_name.zip
+```
+
+---
+
+### 7-Zip (`7z`)
+
+Create archive:
+
+```bash
+7z a archive_name.7z file1 file2 directory_name
+```
+
+Extract archive:
+
+```bash
+7z x archive_name.7z
+```
+
+List contents:
+
+```bash
+7z l archive_name.7z
+```
+
+---
+
+### Finding Files
+
+#### `find`
+
+Search for *files* within a directory hierarchy.
+
+```bash
+find /path -name "file_name"
+```
+
+#### `locate`
+
+Search using an indexed database.
+
+```bash
+locate file_name
+```
+
+💡 *`locate` is usually much faster than `find`, but relies on an updated index.*
+
+---
+
+## Chapter 12: System Monitoring and Performance
+
+### `htop`
+
+Interactive process viewer.
+
+```bash
+htop
+```
+
+### `vmstat`
+
+View virtual memory statistics.
+
+```bash
+vmstat 1
+```
+
+### `iostat`
+
+Display CPU and disk I/O statistics.
+
+```bash
+iostat
+```
+
+---
+
+#@ Navigation Shortcuts: `.` and `..`
+
+Understanding these two symbols makes Linux navigation much easier.
+
+### `.` (Current Directory)
+
+Represents the directory you are currently in.
+
+Example:
 
 ```bash
 ls .
 ```
 
-This lists the contents of the current directory — the same as just running `ls`.
-
-**`..` — The Parent Directory**
-
-* The double dot `..` refers to the **parent directory** — the folder **one level up**.
-* It’s like saying “go up one folder.”
-
-**Example:**
+Equivalent to:
 
 ```bash
-cd ..
+ls
 ```
-
-This moves you **up one level** in the folder structure.
 
 ---
 
-**Visual Example:**
+### `..` (Parent Directory)
 
-Imagine your folder structure looks like this:
+Represents the directory one level above the current location.
 
-```
-/home/pieter/documents/reports/
-```
-
-You're currently in:
-
-```
-/home/pieter/documents/reports/
-```
-
-* `.` refers to: `/home/pieter/documents/reports/`
-* `..` refers to: `/home/pieter/documents/`
-
-So:
+Example:
 
 ```bash
 cd ..
 ```
 
-will move you to:
+---
 
+### Visual Example
+
+Assume the current directory is:
+
+```text
+/home/pieter/documents/reports/
 ```
+
+| Symbol | Location |
+|----------|----------|
+| `.` | `/home/pieter/documents/reports/` |
+| `..` | `/home/pieter/documents/` |
+
+Move up one directory:
+
+```bash
+cd ..
+```
+
+Result:
+
+```text
 /home/pieter/documents/
 ```
 
-And:
+Stay in the current directory:
 
 ```bash
 cd .
 ```
 
-keeps you in the same folder.
+Result:
+
+```text
+/home/pieter/documents/reports/
+```
 
 ---
 
+## Chatper 13: Quick Reference Cheat Sheet
+
+| Task | Command |
+|--------|--------|
+| Current directory | `pwd` |
+| List files | `ls` |
+| Change directory | `cd` |
+| Create directory | `mkdir` |
+| Remove file | `rm file` |
+| Copy file | `cp source destination` |
+| Move file | `mv source destination` |
+| Search text | `grep` |
+| Search files | `find` |
+| View processes | `top` |
+| SSH connection | `ssh user@host` |
+| Update packages | `sudo apt-get update` |
+| Create tar archive | `tar -cvf archive.tar folder` |
+| Unzip archive | `unzip archive.zip` |
+
+> ✅ *Mastering these commands provides a strong foundation for Linux system administration, scripting, data analysis, and bioinformatics workflows.*

@@ -1,0 +1,2040 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../minknow-troubleshooting/">
+      
+      
+        <link rel="next" href="../nanopack/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Nanopore-Toolkit (pixi) - Field Sequencing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nanopore-toolkit-with-pixi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Field Sequencing" class="md-header__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Field Sequencing
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Nanopore-Toolkit (pixi)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-blue" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-blue" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Field Sequencing" class="md-nav__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Field Sequencing
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏠 Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🖥️ System Documentaion
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🖥️ System Documentaion
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-installation_2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Installation_2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minknow-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Minknow-troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧬 Bioinformatic Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🧬 Bioinformatic Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nanopore-Toolkit (pixi)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nanopore-Toolkit (pixi)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-1-install-pixi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 1: Install Pixi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 1: Install Pixi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-linux-and-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Linux and macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-windows-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Windows (PowerShell)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-2-create-your-first-pixi-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 2: Create Your First Pixi Workspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-3-understanding-the-pixi-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 3: Understanding the Pixi Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-4-building-the-nanopore-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 4: Building the Nanopore Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-5-install-all-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 5: Install All Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-6-inspect-installed-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 6: Inspect Installed Packages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-7-activate-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 7: Activate the Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-8-running-commands-without-activating-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 8: Running Commands Without Activating the Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-9-typical-nanopore-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 9: Typical Nanopore Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 9: Typical Nanopore Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-basecalling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Basecalling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-read-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Read Statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-read-quality-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Read Quality Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-fastq-subsampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 FASTQ Subsampling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-read-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Read Filtering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-genome-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6 Genome Assembly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97-read-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7 Read Mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#98-blast-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.8 BLAST Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#99-assembly-polishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.9 Assembly Polishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#910-assembly-quality-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.10 Assembly Quality Assessment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-10-updating-the-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 10: Updating the Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-11-sharing-the-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 11: Sharing the Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-12-download-the-nanopack-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 12: Download the nanopack-toolkit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-13-useful-daily-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 13: Useful Daily Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-14-co-installation-of-ngspeciesid-with-pixi-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 14: Co-Installation of NGSpeciesID with Pixi (macOS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nanopack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nanopack (pyvenv)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    📚 Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorial-nanopack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nanopack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tutorial-ONTdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ONTdata EPI2ME
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blast/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blast
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📖 References
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    📖 References
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linuxcommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linuxcommands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Github
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-1-install-pixi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 1: Install Pixi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 1: Install Pixi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-linux-and-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Linux and macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-windows-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Windows (PowerShell)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-2-create-your-first-pixi-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 2: Create Your First Pixi Workspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-3-understanding-the-pixi-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 3: Understanding the Pixi Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-4-building-the-nanopore-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 4: Building the Nanopore Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-5-install-all-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 5: Install All Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-6-inspect-installed-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 6: Inspect Installed Packages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-7-activate-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 7: Activate the Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-8-running-commands-without-activating-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 8: Running Commands Without Activating the Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-9-typical-nanopore-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 9: Typical Nanopore Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapter 9: Typical Nanopore Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-basecalling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Basecalling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-read-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Read Statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-read-quality-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Read Quality Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-fastq-subsampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 FASTQ Subsampling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-read-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Read Filtering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-genome-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6 Genome Assembly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97-read-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7 Read Mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#98-blast-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.8 BLAST Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#99-assembly-polishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.9 Assembly Polishing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#910-assembly-quality-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.10 Assembly Quality Assessment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-10-updating-the-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 10: Updating the Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-11-sharing-the-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 11: Sharing the Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-12-download-the-nanopack-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 12: Download the nanopack-toolkit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-13-useful-daily-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 13: Useful Daily Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-14-co-installation-of-ngspeciesid-with-pixi-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 14: Co-Installation of NGSpeciesID with Pixi (macOS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    🧬 Bioinformatic Tools
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="nanopore-toolkit-with-pixi">Nanopore Toolkit with Pixi</h1>
+<p>Oxford Nanopore sequencing workflows typically require many different bioinformatics tools for basecalling, quality control, assembly, taxonomic profiling, and downstream analysis. Managing these tools individually can be challenging because of dependency conflicts and version differences between systems.</p>
+<p><a href="https://pixi.sh">Pixi</a> provides a modern and reproducible way to manage software environments. A Pixi workspace stores all dependencies in a single project and creates a lock file (<code>pixi.lock</code>) that guarantees the same software versions can be installed again on any supported system. Pixi workspaces are based on a <code>pixi.toml</code> manifest that defines channels, platforms, dependencies, tasks, and project metadata.  </p>
+<p>This tutorial demonstrates how to:</p>
+<ol>
+<li>Install Pixi</li>
+<li>Create your first Pixi workspace</li>
+<li>Build a reusable Nanopore Toolkit environment</li>
+<li>Install commonly used Nanopore bioinformatics software</li>
+<li>Run tools through Pixi</li>
+</ol>
+<hr />
+<h2 id="chapter-1-install-pixi">Chapter 1: Install Pixi</h2>
+<p>Pixi can be installed on Linux, macOS, and Windows.</p>
+<h3 id="11-linux-and-macos">1.1 Linux and macOS</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://pixi.sh/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<p>After installation, restart your terminal or reload your shell profile:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify the installation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pixi<span class="w"> </span>--version
+</code></pre></div>
+<hr />
+<h3 id="12-windows-powershell">1.2 Windows (PowerShell)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">ByPass</span> <span class="n">-c</span> <span class="s2">"irm -useb https://pixi.sh/install.ps1 | iex"</span>
+</code></pre></div>
+<p>Verify installation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">pixi</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div>
+<p>You should see the installed Pixi version.</p>
+<p>Check the <code>.toml</code> file:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>MyComputer:~/nanopore-toolkit<span class="w"> </span>%<span class="w"> </span>cat<span class="w"> </span>pixi.toml<span class="w"> </span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="o">[</span>workspace<span class="o">]</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nv">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">"MyID &lt;Mymaol@mail.be&gt;"</span><span class="o">]</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nv">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">"conda-forge"</span><span class="o">]</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"nanopore-toolkit"</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nv">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">"osx-arm64"</span><span class="o">]</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.1.0"</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="o">[</span>tasks<span class="o">]</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="o">[</span>dependencies<span class="o">]</span>
+</code></pre></div>
+This tells me that I'm on a mac os platform, that looking for tools only searches in conda-forge channel. The latter might be a problem if your tool is not in the <code>conda-forge</code> channel but in <code>bioconda</code> like a lot of bioinformatic tools are. Let's add this channel too.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pixi<span class="w"> </span>project<span class="w"> </span>channel<span class="w"> </span>add<span class="w"> </span>bioconda
+</code></pre></div>
+Output should be: ✔ Added bioconda (https://conda.anaconda.org/bioconda/) 
+The <code>pixi.toml</code> file looks now like this:<br />
+Check the <code>.toml</code> file:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>MyComputer:~/nanopore-toolkit<span class="w"> </span>%<span class="w"> </span>cat<span class="w"> </span>pixi.toml<span class="w"> </span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">[</span>workspace<span class="o">]</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nv">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">"MyID &lt;Mymaol@mail.be&gt;"</span><span class="o">]</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nv">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">"conda-forge"</span>,<span class="w"> </span><span class="s2">"bioconda"</span><span class="o">]</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"nanopore-toolkit"</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nv">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">"osx-arm64"</span><span class="o">]</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.1.0"</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="o">[</span>tasks<span class="o">]</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="o">[</span>dependencies<span class="o">]</span>
+</code></pre></div></p>
+<hr />
+<h2 id="chapter-2-create-your-first-pixi-workspace">Chapter 2: Create Your First Pixi Workspace</h2>
+<p>A Pixi workspace is simply a directory containing a <code>pixi.toml</code> manifest file. The manifest describes all software, environments, and tasks associated with the project.  </p>
+<p>Create a new workspace:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pixi<span class="w"> </span>init<span class="w"> </span>nanopore-toolkit
+</code></pre></div>
+<p>Pixi creates a project structure similar to:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>nanopore-toolkit/
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>├── .gitattributes
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>├── .gitignore
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>└── pixi.toml
+</code></pre></div>
+<p>The <code>pixi.toml</code> file is the central configuration file for the workspace. </p>
+<p>Move into the workspace:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>nanopack-toolkit
+</code></pre></div>
+<hr />
+<h2 id="chapter-3-understanding-the-pixi-workflow">Chapter 3: Understanding the Pixi Workflow</h2>
+<p>Pixi automatically:</p>
+<ul>
+<li>Stores dependencies in <code>pixi.toml</code></li>
+<li>Resolves compatible package versions</li>
+<li>Creates a reproducible <code>pixi.lock</code> file</li>
+<li>Builds and installs the environment locally</li>
+</ul>
+<p>This ensures collaborators can reproduce the exact same software environment. </p>
+<p>Useful commands:  </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pixi<span class="w"> </span>add
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>pixi<span class="w"> </span>remove
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>pixi<span class="w"> </span>update
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>pixi<span class="w"> </span>install
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>pixi<span class="w"> </span>list
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>pixi<span class="w"> </span>shell
+</code></pre></div>
+<hr />
+<h2 id="chapter-4-building-the-nanopore-toolkit">Chapter 4: Building the Nanopore Toolkit</h2>
+<p>The Nanopore Toolkit contains software for:</p>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read QC</td>
+<td>NanoPack</td>
+</tr>
+<tr>
+<td>Polishing tool</td>
+<td>Medaka</td>
+</tr>
+<tr>
+<td>Polishing tool</td>
+<td>Racon</td>
+</tr>
+<tr>
+<td>FASTQ manipulation</td>
+<td>SeqKit</td>
+</tr>
+<tr>
+<td>FASTQ manipulation</td>
+<td>SeqTK</td>
+</tr>
+<tr>
+<td>Read filtering</td>
+<td>Fastp</td>
+</tr>
+<tr>
+<td>Assembly</td>
+<td>Flye</td>
+</tr>
+<tr>
+<td>Read mapping</td>
+<td>Minimap2</td>
+</tr>
+<tr>
+<td>BAM handling</td>
+<td>Samtools</td>
+</tr>
+<tr>
+<td>Sequence similarity search</td>
+<td>BLAST+</td>
+</tr>
+<tr>
+<td>Assembly quality assessment</td>
+<td>QUAST</td>
+</tr>
+<tr>
+<td>Compression</td>
+<td>Pigz</td>
+</tr>
+<tr>
+<td>Flow management system</td>
+<td>Snakemake</td>
+</tr>
+<tr>
+<td>Flow management system</td>
+<td>Nextflow</td>
+</tr>
+<tr>
+<td>Parallel execution</td>
+<td>GNU Parallel</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="chapter-5-install-all-dependencies">Chapter 5: Install All Dependencies</h2>
+<p>Add all required tools to the workspace:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pixi<span class="w"> </span>add<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span>nanopack<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span>seqkit<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span>seqtk<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span>fastp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span>flye<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span>minimap2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span>samtools<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span>blast<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span>quast<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span>pigz<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span>nextflow<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span>snakemake<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span>parallel
+</code></pre></div>
+<p>Pixi will:</p>
+<ol>
+<li>Update <code>pixi.toml</code></li>
+<li>Resolve dependencies</li>
+<li>Create <code>pixi.lock</code></li>
+<li>Install the environment</li>
+</ol>
+<p>This may take several minutes the first time.</p>
+<hr />
+<h2 id="chapter-6-inspect-installed-packages">Chapter 6: Inspect Installed Packages</h2>
+<p>Show all installed software:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>pixi<span class="w"> </span>list
+</code></pre></div>
+<hr />
+<h2 id="chapter-7-activate-the-environment">Chapter 7: Activate the Environment</h2>
+<p>Start a shell within the Pixi environment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>pixi<span class="w"> </span>shell
+</code></pre></div>
+<p>Once activated, all installed software is available directly from the command line. Pixi automatically configures the required environment variables and paths. </p>
+<p>Check a few tools:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>flye<span class="w"> </span>--version
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>minimap2<span class="w"> </span>--version
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>samtools<span class="w"> </span>--version
+</code></pre></div>
+<p>Exit the environment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">exit</span>
+</code></pre></div>
+<hr />
+<h2 id="chapter-8-running-commands-without-activating-the-environment">Chapter 8:  Running Commands Without Activating the Environment</h2>
+<p>Instead of activating a shell, commands can be executed directly with <code>pixi run</code>.</p>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>seqkit<span class="w"> </span>version
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>flye<span class="w"> </span>--version
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>samtools<span class="w"> </span>--version
+</code></pre></div>
+<hr />
+<h2 id="chapter-9-typical-nanopore-workflow">Chapter 9: Typical Nanopore Workflow</h2>
+<h3 id="91-basecalling">9.1 Basecalling</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>dorado<span class="w"> </span>model_directory<span class="w"> </span>pod5s/<span class="w"> </span>&gt;<span class="w"> </span>reads.fastq
+</code></pre></div>
+<hr />
+<h3 id="92-read-statistics">9.2 Read Statistics</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>seqkit<span class="w"> </span>stats<span class="w"> </span>reads.fastq
+</code></pre></div>
+<hr />
+<h3 id="93-read-quality-control">9.3 Read Quality Control</h3>
+<p>Generate NanoPlot reports:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>NanoPlot<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span>--fastq<span class="w"> </span>reads.fastq<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span>--outdir<span class="w"> </span>qc
+</code></pre></div>
+<hr />
+<h3 id="94-fastq-subsampling">9.4 FASTQ Subsampling</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>seqtk<span class="w"> </span>sample<span class="w"> </span>reads.fastq<span class="w"> </span><span class="m">10000</span><span class="w"> </span>&gt;<span class="w"> </span>subset.fastq
+</code></pre></div>
+<hr />
+<h3 id="95-read-filtering">9.5 Read Filtering</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>fastp<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span>-i<span class="w"> </span>reads.fastq<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span>-o<span class="w"> </span>filtered.fastq
+</code></pre></div>
+<hr />
+<h3 id="96-genome-assembly">9.6 Genome Assembly</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>flye<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">    </span>--nano-hq<span class="w"> </span>reads.fastq<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span>--genome-size<span class="w"> </span>5m<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span>--threads<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span>--out-dir<span class="w"> </span>assembly
+</code></pre></div>
+<hr />
+<h3 id="97-read-mapping">9.7 Read Mapping</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>minimap2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">    </span>-ax<span class="w"> </span>map-ont<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">    </span>assembly/assembly.fasta<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">    </span>reads.fastq<span class="w"> </span>&gt;<span class="w"> </span>alignment.sam
+</code></pre></div>
+<p>Convert to BAM:  </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>samtools<span class="w"> </span>view<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">    </span>-bS<span class="w"> </span>alignment.sam<span class="w"> </span>&gt;<span class="w"> </span>alignment.bam
+</code></pre></div>
+<p>Sort and index:  </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>samtools<span class="w"> </span>sort<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">    </span>alignment.bam<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">    </span>-o<span class="w"> </span>alignment.sorted.bam
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>pixi<span class="w"> </span>run<span class="w"> </span>samtools<span class="w"> </span>index<span class="w"> </span>alignment.sorted.bam
+</code></pre></div>
+<hr />
+<h3 id="98-blast-search">9.8 BLAST Search</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>blastn<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">    </span>-query<span class="w"> </span>assembly/assembly.fasta<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span>-db<span class="w"> </span>nt<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span>-out<span class="w"> </span>blast_results.txt
+</code></pre></div>
+<hr />
+<h3 id="99-assembly-polishing">9.9 Assembly Polishing</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>medaka_consensus<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">    </span>-i<span class="w"> </span>reads.fastq<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span>-d<span class="w"> </span>assembly/assembly.fasta<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span>-o<span class="w"> </span>medaka_results
+</code></pre></div>
+<hr />
+<h3 id="910-assembly-quality-assessment">9.10 Assembly Quality Assessment</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>quast<span class="w"> </span>assembly/assembly.fasta
+</code></pre></div>
+<hr />
+<h2 id="chapter-10-updating-the-toolkit">Chapter 10: Updating the Toolkit</h2>
+<p>Update all packages:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>pixi<span class="w"> </span>update
+</code></pre></div>
+<p>Upgrade packages to newer major versions if available:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>pixi<span class="w"> </span>upgrade
+</code></pre></div>
+Be carefull with this not to corrupt dependencies relying on specific versions.</p>
+<hr />
+<h2 id="chapter-11-sharing-the-toolkit">Chapter 11: Sharing the Toolkit</h2>
+<p>Typical structure:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>nanopore-toolkit/
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>├── pixi.toml
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>├── workflows-snakemake/
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>│   ├── species_id.smk
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>│   ├── assembly.smk
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>│   ├── polishing.smk
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>├── workflows-snextflow/
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>│   ├── main.nf # Discribes the workflow
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>│   ├── modules/
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>│       ├── flye.nf # How to execute the command in the workflow
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>│       └── medaka.nf
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>├── scripts/
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>│   ├── prepare_reads.py
+<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>│   ├── collect_metrics.py
+<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>│   └── make_consensus_report.py
+<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>├── config/
+<a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a>│   └── config.yaml
+<a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a>├── test_data/
+<a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a>└── results/
+</code></pre></div></p>
+<p>The key files that should be shared with collaborators are:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>pixi.toml
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>pixi.lock
+</code></pre></div>
+<p>Add the files to a github repo:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>git<span class="w"> </span>add<span class="w"> </span>pixi.toml<span class="w"> </span>pixi.lock
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add Pixi environment"</span>
+</code></pre></div></p>
+<p>A colleague can recreate the exact environment with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>git<span class="w"> </span>clone<span class="w"> </span>&lt;repository&gt;
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="nb">cd</span><span class="w"> </span>nanopore-toolkit
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>pixi<span class="w"> </span>install
+</code></pre></div>
+<p>Because the dependency versions are stored in <code>pixi.lock</code>, the resulting environment will be reproducible across systems. </p>
+<hr />
+<h2 id="chapter-12-download-the-nanopack-toolkit">Chapter 12: Download the nanopack-toolkit</h2>
+<p>Clone the Repository and Install the Pixi Environment</p>
+<p>Using SSH:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:passelma42/nanopore-toolkit.git
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nb">cd</span><span class="w"> </span>nanopore-toolkit
+</code></pre></div>
+<p>Alternatively, using HTTPS:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/passelma42/nanopore-toolkit.git
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="nb">cd</span><span class="w"> </span>nanopore-toolkit
+</code></pre></div>
+Go to the folder ./nanopack-tookit and issue the install command.  Pixi resolves all dependencies defined in <code>pixi.toml</code> and creates the project environment.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nb">cd</span><span class="w"> </span>/path/to/nanopack-toolkit
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>pixi<span class="w"> </span>install
+</code></pre></div>
+<p>Activate the Environment (still working from within the project directory).<br />
+Start a Pixi shell:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>pixi<span class="w"> </span>shell
+</code></pre></div>
+<p>You are now working inside the project environment with all dependencies available.</p>
+<h2 id="chapter-13-useful-daily-commands">Chapter 13: Useful Daily Commands</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>pixi<span class="w"> </span>shell<span class="w"> </span><span class="c1"># Activate the environment</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>pixi<span class="w"> </span>list<span class="w"> </span><span class="c1"># List installed packages</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>pixi<span class="w"> </span>update<span class="w"> </span><span class="c1">#Update dependencies</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>pixi<span class="w"> </span>install<span class="w"> </span><span class="c1"># Recreate the environment from the lock file</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>pixi<span class="w"> </span>remove<span class="w"> </span>&lt;package&gt;<span class="w"> </span><span class="c1"># Remove a package</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>pixi<span class="w"> </span>info<span class="w"> </span><span class="c1"># Display workspace information</span>
+</code></pre></div>
+<hr />
+<h2 id="chapter-14-co-installation-of-ngspeciesid-with-pixi-macos">Chapter 14: Co-Installation of NGSpeciesID with Pixi (macOS)</h2>
+<p><a href="https://github.com/ksahlin/NGSpeciesID">NGSpeciesID</a> is a tool for clustering and consensus forming of long-read amplicon sequencing data (has been used with both PacBio and Oxford Nanopore data). The repository is a modified version of isONclust, where consensus, primer-removal, and polishing feautures have been added.
+This tool can be a nice addition to your toolpack if you are focused on amplicon sequencing for instance and building consensus sequences.  </p>
+<p>NGSpeciesID now recommends installing its dependencies through Conda/Bioconda and then installing NGSpeciesID with <code>pip --no-deps</code>. This workflow can be reproduced with Pixi because Pixi uses the Conda ecosystem. </p>
+<p><strong><em>Recommended minimal Pixi Setup</em></strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>pixi<span class="w"> </span>init
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>pixi<span class="w"> </span>add<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">    </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="w">    </span>medaka<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">    </span>spoa<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="w">    </span>racon<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="w">    </span>minimap2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="w">    </span>samtools<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a><span class="w">    </span>pip
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a>
+<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a>pixi<span class="w"> </span>shell
+<a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a>
+<a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a>pip<span class="w"> </span>install<span class="w"> </span>--no-deps<span class="w"> </span>NGSpeciesID
+</code></pre></div>
+The key part is that <code>---no-deps</code> avoids pip trying to build/reinstall parasail and edlib, a common source of installation problems on Apple Silicon Macs.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you already built the nanopore toolkit you only need to add the SPOA to the project environment before running the pip install command to install NGSpeciesID with no dependencies.</p>
+</div>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>You now have a reproducible Nanopore bioinformatics toolkit managed with Pixi. The workspace contains tools for:</p>
+<ul>
+<li>Basecalling (Dorado)</li>
+<li>Read QC (NanoPack)</li>
+<li>FASTQ processing (SeqKit, SeqTK, Fastp)</li>
+<li>Assembly (Flye)</li>
+<li>Read mapping (Minimap2, Samtools)</li>
+<li>Similarity searching (BLAST+)</li>
+<li>Polishing (Medaka, Racon)</li>
+<li>Assembly QC (QUAST)</li>
+<li>Clustering and consensus tool (NGspeciesID)</li>
+</ul>
+<p>The entire <a href="git@github.com:passelma42/nanopore-toolkit.git">toolkit can be installed</a>, updated, shared, and reproduced using only <code>pixi.toml</code> and <code>pixi.lock</code>.<br />
+Adding tools to your liking is also straightforward by using the command <code>pixi add &lt;toolname&gt;</code>. This enabels you to tailor your project environment to your needs.   </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/passelma42"  target="_blank" rel="noopener">Pieter Asselman</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/passelma42" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/pieterasselman/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.path", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,10 +1,20 @@
-## Intro
-At UGent Botanic Garden we organized a field sequencing experiment. The setup was to mimick field conditions i.e. sampling fungi, DNA extraction and PCR on the bentolab followed by live sequencing and basecalling on the mk1B from Oxford nanopore.  
-Below you'll find an outline of the data analysis part of this setup including downloadlinks to the data icluding runcommands, so you can rerun the analysis and practice at your own pace.  
+## Botanic Garden field experiment
+
+At [UGent Botanic Garden](https://www.gum.gent/en/ghent-botanical-garden) we organized a field sequencing experiment. The setup was to mimick field conditions i.e. sampling fungi, DNA extraction and PCR on the bentolab followed by live sequencing and basecalling on the mk1B from Oxford nanopore.  
+
+Below you'll find an outline of the data analysis:  
+
+- Downloadlinks to test data
+- All necessary runcommands
+- Informative plots to describe the data output
+
+!!! note
+	Make sure you have all necessary software installed as discribed under "System Documentation" and have a working nanopack tool on your system.
 
 ## The data  
-The original data file consists of reads for 27 accessions collected from the area around Campus Sterra at UGhent.  
-All the QC examples below are taken from this data set. If you want to test the workflow I have provided a toy data set with reads for 3 accessions.  
+The original data file consists of reads for 27 fungi samples collected from the area around Campus Sterra at UGhent.  
+All the QC examples below are taken from this data set.  
+If you want to test the workflow I have provided a toy data set with reads for 3 accessions.  
 You can download the toy-data here:
 ```shell
 wget https://github.com/passelma42/Field-Sequencing/raw/main/toy-data.tar.gz
@@ -19,7 +29,8 @@ wget https://github.com/passelma42/Field-Sequencing/raw/main/toy-data.tar.gz
 **Data Analysis**: [wf-amplicon EPI2ME](https://github.com/epi2me-labs/wf-amplicon)  
 
 !!! NOTES		
-	The data and output described below was generated on the full data set. Because this is too large, I cannot share it on this platform. When you run the toy-data though you'll get for the analyzed barcodes the same output as you'll find them in the below plots.  
+	The data and output described below was generated on the full data set. Because this is too large, I cannot share it on this platform. Hence, the sequence_summary.txt file of our sequence run is not shared.  
+	When you run the downstream analyses (post QC sequence run) on the toy-data though you'll get for the analyzed barcodes the same output as you'll find them in the below plots.   
 	
 	
 We chose the RBK114 kit because this kit is best applicable in the field if you don't have access to a freezer or fridge.
@@ -28,6 +39,8 @@ In this [post](https://community.nanoporetech.com/posts/field-sequencing-kit-rep
 
 **The sequencing data folder**  
   
+  A standard sequence folder would look like this:  
+
 	20240506_1258_MN35631_ASX408_61292243/
 			├── barcode_alignment_ASX408_61292243_dc2466ae.tsv
 			├── fastq_fail
@@ -114,7 +127,7 @@ From these plots and stats we can confirm that we have nearly 500.000 reads with
  
 
 ## The Data Analysis  
-### QC data  
+### QC Sequence Reads
 In the previous chapter we performed a QC on the sequencerun to validate the success of failure of the minion sequencerun. Now it is time to have a deeper look because we want to know how well our samples have performed.  
 For this experiment we did ITS pcr on 27 samples collected at campus Sterre at UGhent. These samples have been assigned a barcode during the libraryprep and multiplexed into 1 single library to be sequenced.  
 This means the data has to be demultiplexed, each unique Barcode sequence is retreived bioinformatically and assigned to a designated barcode folder (see topology above). Equimolar pooling of our barcodes during the libraryprep allows for an equal amount of reads per barcode.  
@@ -135,9 +148,10 @@ $ ./nanocomp-allfastq.sh -h 			# Display help function
 The script will concatenate all fastq files per barcode folder and run nanocomp. After the analysis has finished you'll find a .nanocompout/ folder inside the input folder you issued in the command below (under the *-d* flag).
 ```shell title="Command"
 ./nanocomp-allfastq.sh -d ./fastq_pass/ -c
+		# ommit the -c flag if you would like to keep your concatenated file
 ```
 ```shell title="Output"
-(nanopack) passelma@grover:~/Analyses/wf-amplicon/ONT-field2-greenhouse/benin-field2-greenhouse-run/testrunQC/fastq_pass/.nanocompout$ tree
+(nanopack) My Computer :~/fastq_pass/.nanocomp.out$ tree
 .
 ├── NanoComp-report.html
 ├── NanoComp_20240823_1521.log
@@ -177,7 +191,7 @@ In this violin plot we can confirm all our reads per barcode are of good quality
 Except again BC63 is acting up... .  
 ![NanoComp_quals_violin](images/NanoComp_quals_violin.png)
 
-### Build a consensus  
+### Consensus Sequence: wf-amplicon 
 Now that we verified that we have sufficient reads per barcode and they are of good quality, it is time to start with our downstream analysis. It is time to get to buisiness!  
 Off course there are many workflows to have a go at this type of data, but in this tutorial we will be showcasing the EPI2ME tool called *wf-amplicon.*.  
 All necessary info on how to setup the necessary software and tools to run this workflow can be found on the 'installation' page of this website. In this section we will walk you through the process on how use the tool to build your consensus sequences from your raw nanopore reads.  
@@ -189,6 +203,31 @@ Running the tool in 'variant' mode it is possible to run more than one target (i
 But for this tutorial we will run in the *de novo* mode.  
 
 Installation guides for wf-amplicon can be found here: [wf-amplicon Installation guide](https://labs.epi2me.io/workflows/wf-amplicon/).  
+
+***wf-amplicon***  
+This workflow performs the analysis of reads generated from PCR amplicons. After some pre-processing, reads are either aligned to a reference (containing the expected sequence for each amplicon) for variant calling or the amplicon’s consensus sequence is generated *de novo*.  
+
+Installation guides for wf-amplicon can be found here: [wf-amplicon Installation guide](https://labs.epi2me.io/workflows/wf-amplicon/).  
+Run:
+
+```bash
+nextflow run epi2me-labs/wf-amplicon \
+  --fastq ./fastq \
+  --reference ./reference.fa \
+  --sample_sheet ./sample-sheet.csv \
+  -profile apptainer
+```
+
+Example sample sheet:
+
+```csv
+barcode,alias,type,ref
+barcode41,BC41,test_sample,ref1
+barcode42,BC42,test_sample
+barcode43,BC43,test_sample,ref2
+```
+
+
 
 **Run the workflow**  
 The workflow can handle different folder layouts. If you followed the above sections of this tutorial, we are working with structure (iii).   
@@ -245,8 +284,8 @@ nextflow run epi2me-labs/wf-amplicon \
 !!! NOTES
 	When not running variant mode a reference file is not necessary. Make sure to delete the ref column in the sample sheet and leave out the *--reference flag* from the command in that case.  
 	
-### Get your data out of here  
-Once the workflow has finished, the output can be found in a folder called *output-wf-apmlicon*.  
+### Extract working data  
+Once the workflow has finished, the output can be found in a folder called *output-wf-apmlicon*.  The consensus sequence itself is "hidden" deep inside the folderstructure.  
 ```shell title="Folder layout"
 .
 ├── output-wf-amplicon

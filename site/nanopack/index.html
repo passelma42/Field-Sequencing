@@ -9,26 +9,28 @@
       
       
       
+        <link rel="prev" href="../Nanopore-Toolkit/">
       
-        <link rel="next" href="system-build/">
+      
+        <link rel="next" href="../Tutorial-nanopack/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Field Sequencing</title>
+        <title>Nanopack (pyvenv) - Field Sequencing</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#nanopack" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Field Sequencing" class="md-header__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+    <a href=".." title="Field Sequencing" class="md-header__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🏠 Home
+              Nanopack (pyvenv)
             
           </span>
         </div>
@@ -214,7 +216,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Field Sequencing" class="md-nav__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
+    <a href=".." title="Field Sequencing" class="md-nav__button md-logo" aria-label="Field Sequencing" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -229,19 +231,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -257,7 +250,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -321,7 +313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="system-build/" class="md-nav__link">
+      <a href="../system-build/" class="md-nav__link">
         
   
   
@@ -349,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="software-installation_2026/" class="md-nav__link">
+      <a href="../software-installation_2026/" class="md-nav__link">
         
   
   
@@ -377,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="minknow-troubleshooting/" class="md-nav__link">
+      <a href="../minknow-troubleshooting/" class="md-nav__link">
         
   
   
@@ -409,8 +401,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -421,11 +415,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -446,7 +440,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -464,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Nanopore-Toolkit/" class="md-nav__link">
+      <a href="../Nanopore-Toolkit/" class="md-nav__link">
         
   
   
@@ -489,10 +483,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="nanopack/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nanopack (pyvenv)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -508,6 +529,115 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-using-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Using Pyenv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Using Pyenv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install Pyenv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-a-python-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install a Python Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nanopack-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nanopack pyenv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nanopack pyenv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-activate-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create &amp; Activate an Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-nanopack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install NanoPack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deactivate-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deactivate the Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -579,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Tutorial-nanopack/" class="md-nav__link">
+      <a href="../Tutorial-nanopack/" class="md-nav__link">
         
   
   
@@ -607,7 +737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Tutorial-ONTdata/" class="md-nav__link">
+      <a href="../Tutorial-ONTdata/" class="md-nav__link">
         
   
   
@@ -635,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blast/" class="md-nav__link">
+      <a href="../blast/" class="md-nav__link">
         
   
   
@@ -722,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="linuxcommands/" class="md-nav__link">
+      <a href="../linuxcommands/" class="md-nav__link">
         
   
   
@@ -750,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="github/" class="md-nav__link">
+      <a href="../github/" class="md-nav__link">
         
   
   
@@ -798,6 +928,103 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-using-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Using Pyenv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Using Pyenv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install Pyenv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-a-python-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install a Python Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nanopack-pyenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nanopack pyenv
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nanopack pyenv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-activate-an-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create &amp; Activate an Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-nanopack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install NanoPack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deactivate-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deactivate the Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -814,6 +1041,46 @@
   
 
 
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Nanopore-Toolkit/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    🧬 Bioinformatic Tools
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -821,32 +1088,82 @@
 
 
 
-<h1 id="introduction">Introduction</h1>
-<p>Field sequencing outside a traditional laboratory environment has become possible through portable sequencing technologies developed by  <a href="https://nanoporetech.com/">Nanoporetech</a>. Using a compact nanopore sequencer such as the <strong>MinION</strong> in combination with a modern laptop equipped with sufficient CPU and GPU resources, researchers can perform DNA sequencing and bioinformatics analyses directly in the field.</p>
-<p>Portable sequencing has opened new opportunities for biodiversity monitoring, environmental DNA (eDNA) studies, pathogen surveillance, conservation research, and rapid species identification. The ability to generate and analyse sequencing data in real time enables faster decision-making and reduces the need to transport samples to centralized laboratories.</p>
-<p>The aim of this website is to provide a practical guide for establishing a portable field sequencing workflow.<br />
-Topics covered include:</p>
+<h1 id="nanopack">Nanopack</h1>
+<p>Nanopack is a toolset of different long read processing and analysis tools. Below you'll find elaborate exercises explaining all the different faeatures of this toolset.<br />
+The publischer also provided a <em>test-data</em> set which can be downloaded in preparation of this tutorial.</p>
+<p><strong>Tool</strong>: <a href="https://github.com/wdecoster/nanopack">https://github.com/wdecoster/nanopack</a><br />
+<strong>Download test data</strong>: <a href="https://github.com/wdecoster/nanotest">https://github.com/wdecoster/nanotest</a><br />
+<strong>Publication</strong>: <a href="https://doi.org/10.1093/bioinformatics/bty149">NanoPack: visualizing and processing long-read sequencing data</a> </p>
+<blockquote>
+<p>Wouter De Coster, Svenn D’Hert, Darrin T Schultz, Marc Cruts, Christine Van Broeckhoven, NanoPack: visualizing and processing long-read sequencing dta, Bioinformatics, Volume 34, Issue 15, August 2018, Pages 2666–2669, https://doi.org/10.1093/bioinformatics/bty149  </p>
+</blockquote>
+<h2 id="installation-using-pyenv">Installation Using Pyenv</h2>
+<p>Please follow the installation instructions on the <a href="https://github.com/wdecoster/nanopack?tab=readme-ov-file">nanopack github website</a> for installing all the individual tools and modules.  </p>
+<p>NanoPack is a collection of tools for quality control and visualization of Oxford Nanopore sequencing data. Commonly used utilities include:</p>
 <ul>
-<li>Building and configuring a GPU-enabled analysis workstation</li>
-<li>Installing and configuring Oxford Nanopore sequencing software</li>
-<li>Processing and analysing nanopore sequencing data</li>
-<li>Using <code>BLAST</code> and reference databases for taxonomic identification</li>
-<li>Quality control and data visualization</li>
-<li>Field deployment considerations and best practices</li>
+<li><code>NanoPlot</code></li>
+<li><code>NanoComp</code></li>
+<li><code>NanoStat</code></li>
+<li><code>NanoFilt</code></li>
 </ul>
-<p>This website provides a step-by-step guide that will help researchers, students, and practitioners develop the skills required to perform both laboratory and bioinformatics workflows for field-based nanopore sequencing.</p>
-<div class="admonition info">
-<p class="admonition-title">What has changed since early nanopore workflows?</p>
-<p>Modern nanopore sequencing workflows increasingly use:</p>
-<ul>
-<li>Dorado for basecalling</li>
-<li>POD5 as the preferred raw data format</li>
-<li>GPU-accelerated data processing</li>
-<li>Adaptive sampling for targeted sequencing</li>
-<li>Reproducible workflows using containers and workflow managers</li>
-</ul>
-<p>Throughout this guide, current best practices are highlighted where appropriate.</p>
+<p>Using a dedicated Python environment is recommended to avoid dependency conflicts with your operating system or other bioinformatics software.</p>
+<hr />
+<h4 id="install-pyenv">Install Pyenv</h4>
+<p>If Pyenv is not yet installed, follow the official installation instructions:</p>
+<p><a href="https://github.com/pyenv/pyenv">https://github.com/pyenv/pyenv</a></p>
+<p>Verify the installation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pyenv<span class="w"> </span>--version
+</code></pre></div>
+<hr />
+<h4 id="install-a-python-version">Install a Python Version</h4>
+<p>List available Python versions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pyenv<span class="w"> </span>install<span class="w"> </span>--list
+</code></pre></div>
+<p>Install Python 3.12:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.12.3
+</code></pre></div>
+<p>Verify:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pyenv<span class="w"> </span>versions
+</code></pre></div>
+<hr />
+<h2 id="nanopack-pyenv">Nanopack pyenv</h2>
+<h3 id="create-activate-an-environment">Create &amp; Activate an Environment</h3>
+<p>Create a virtual environment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pyenv<span class="w"> </span>virtualenv<span class="w"> </span><span class="m">3</span>.12.3<span class="w"> </span>nanopack-env
+</code></pre></div>
+<p>Activate the environment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pyenv<span class="w"> </span>activate<span class="w"> </span>nanopack-env
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Your terminal prompt should now look similar to</p>
+<p>(nanopack-env) user@workstation:~$</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure that the envrionment is active before to continue with the following commands.<br />
+This to make sure you install nanopack in the environment and not in you OS python environment.</p>
+</div>
+<hr />
+<h3 id="install-nanopack">Install NanoPack</h3>
+<p>Upgrade pip first:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</code></pre></div>
+<p>Install NanoPack:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pip<span class="w"> </span>install<span class="w"> </span>NanoPack
+</code></pre></div>
+<p>Verify the installation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>NanoPlot<span class="w"> </span>--version
+</code></pre></div>
+<p>or:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>NanoStat<span class="w"> </span>--help
+</code></pre></div>
+<hr />
+<h3 id="deactivate-the-environment">Deactivate the Environment</h3>
+<p>After finishing your analysis:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pyenv<span class="w"> </span>deactivate
+</code></pre></div>
+<p>Your shell will return to the default Python environment.</p>
+<hr />
 
 
 
@@ -936,10 +1253,10 @@ Topics covered include:</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.path", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.path", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

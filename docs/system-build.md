@@ -1,152 +1,296 @@
-# System setup   
+# Building a GPU-Enabled Field Sequencing Workstation
 
-## Operating system  
+Modern nanopore sequencing workflows rely heavily on GPU acceleration for basecalling, demultiplexing, and downstream data analysis. A properly configured workstation enables real-time processing of sequencing data during field deployments and significantly reduces analysis times compared to CPU-only systems.
 
-**Release**: Ubuntu 22.04.4 LTS (Jammy Jellyfish)  
-Follow this link to learn [all you need to know on how to install ubuntu](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview).
+This guide describes how to build and configure a portable Linux workstation suitable for Oxford Nanopore sequencing and bioinformatics analyses. For more detailed information on installation and usage I refer to the official documentation or another chapters of this repo.
 
-## GPU & CUDA   
+---
+## Chapter 1: Hardware Recommendations
 
-GPU computational power increased ONT basecalling speed and enabled real-time data analysis.  
-Upon writing this documentation dorado 0.7 is the current basecaller  
-which is also incorperated in the sequencing operating software Minknow.  
-Before we get to the installation of dedicated sequencing software and other data analys packages we will focus on installing a GPU and the CUDA toolkit.  
-### Installation on Ubuntu  
+### 1.1 Minimum Configuration
+!!! info "IT requirements latest recommendations Nanopore"
+	[https://nanoporetech.com/communitylab-it-requirements](https://nanoporetech.com/communitylab-it-requirements)  
 
-- Add graphics drivers ppa repo  
-```shell
-sudo add-apt-repository ppa:graphics-drivers/ppa
+Suitable for training, demonstrations, and small sequencing runs.
+
+- Quad-core CPU
+- 16 GB RAM
+- NVIDIA RTX 4060 (8 GB VRAM)
+- 1 TB NVMe SSD
+- Ubuntu Linux
+
+### 1.2 Recommended Configuration
+
+Suitable for routine field sequencing and bioinformatics.
+
+- AMD Ryzen 7 / Intel i7 or better
+- 32 GB RAM
+- NVIDIA RTX 4070 or RTX 4080
+- 2 TB NVMe SSD
+- Ubuntu Linux
+- External backup SSD
+
+### 1.3 High-Performance Configuration
+
+Suitable for metagenomics, genome assembly, and intensive workflows.
+
+- AMD Ryzen 9 / Intel i9
+- 64 GB RAM
+- RTX 4090 or similar
+- 4 TB NVMe SSD
+- Multiple external backup drives
+
+---
+
+## Chapter 2: Operating System
+
+### 2.1 Ubuntu Linux
+
+**Recommended:** Ubuntu 24.04 LTS
+
+**Supported:** Ubuntu 22.04 LTS
+
+Ubuntu remains one of the most widely supported operating systems for bioinformatics software, NVIDIA drivers, and Oxford Nanopore analysis tools.
+
+**Ubuntu installation instructions:**
+
+<https://ubuntu.com/tutorials/install-ubuntu-desktop>
+
+---
+
+## Chapter 3: GPU  
+
+Why a GPU Matters?
+
+Modern nanopore analysis workflows are strongly accelerated by NVIDIA GPUs.
+
+GPU acceleration is used for:
+
+- Dorado basecalling
+- Duplex basecalling
+- Modified-base detection
+- Deep-learning models
+- Real-time field analysis
+
+Real-time basecalling during sequencing is generally only practical using a dedicated GPU.
+
+---
+
+## Chapter 4: Minknow  
+
+MinKNOW controls all Oxford Nanopore sequencing devices, performing several core tasks, including data acquisition, real-time analysis, basecalling, and data streaming.
+
+[link to MinKNOW installation guide](https://nanoporetech.com/document/experiment-companion-minknow)
+
+
+!!! Warning
+        MinKNOW might give you problems when installing or when updates are beeing made.  
+        For Minknow trouble shooting see Section:  
+                "System Documentaion/Minknow-troubleshooting"  
+        of this webpage.
+
+---  
+## Chapter 5: Dorado Basecalling
+
+### 5.1 What is Dorado?
+
+Dorado is the current Oxford Nanopore production basecaller. Dorado client is part of MinKNOW but you can use the software post-sequencing to rebasecall and ohter things.
+
+Capabilities include:
+
+- GPU acceleration
+- Duplex basecalling
+- Modified-base detection
+- Integrated demultiplexing
+- POD5 support
+
+Always download the latest release from:
+
+<https://github.com/nanoporetech/dorado>  
+<https://nanoporetech.com/software>
+
+---
+
+### 5.2 Dorado Performance Expectations
+
+Approximate simplex basecalling performance:
+
+| GPU | Typical Performance |
+|------|------|
+| RTX 4060 | Suitable for training and smaller projects |
+| RTX 4070 | Excellent field sequencing performance |
+| RTX 4080 | Excellent real-time sequenc*ng performance |
+| RTX 4090 | Ideal for intensive bioinfo*matics workflows |
+
+Actual performance depends on flowcell type, sequencing chemistry, modelselection, and available GPU resources.  
+
+For a broader performance overview checkout this comparison:  
+<https://github.com/Kirk3gaard/2025-Crowdsource-GPU-basecalling-stats>  
+
+---
+
+## Chapter 6: Storage Recommendations
+
+Nanopore datasets can rapidly become large.
+
+### 6.1 Minimum
+
+- 1 TB NVMe SSD
+
+### 6.2 Recommended
+
+- 2 TB NVMe SSD
+- 4 TB external SSD backup
+
+!!! warning
+        Avoid keeping the only copy of your sequencing data on a single device.
+
+---
+
+## Chapter 7: Memory (RAM)
+
+Recommended system memory:  
+
+| Application | RAM |
+|------------|------|
+| Basecalling | 16 GB |
+| Routine analysis | 32 GB |
+| Metagenomics | 64 GB |
+| Large assemblies | 64-128 GB |  
+
+----
+## Chapter 8: Installing BioInfo tools
+
+Installing Bioinformatic software can be a difficult feat in a linux environment. Below, we give a few examples to help you do this. Github repositories usually give you a good clue on how to get an installation going. Important is that you maintain a stable and reproducible environment where you run your analyses. Knowing Bioinformaticians can release new versions of their tools every few moments, this can be a problem. Below and in other sections of this website we will discuss tools and packagemanagers to help you in this regard.  
+
+### 8.1 Container Technologies
+
+Modern bioinformatics increasingly relies on containers. You can look at containers as a closed off, portable system where you have your software installed and together with your sequence data you can run Analyses in a reproducible way (i.e. if you are still using softwarepackage 1.0 but the latert downloadable version is 1.5 you still can run the old one).  
+
+#### 8.2 Docker
+
+Useful for local workstation deployment.  
+Go To: [Docker Documentation](https://www.docker.com/)  
+
+#### 8.3 Apptainer
+
+Preferred on many HPC systems and research infrastructures.  
+Go To: [Apptainer Documentation](https://apptainer.org/).  
+
+Advantages in using containers:
+
+- Reproducibility
+- Portable software environments
+- Easier software deployment
+- HPC compatibil*ty
+
+---
+
+### 8.4 Python Environments (pyenv)  
+
+pyenv is usually worth using because it allows you to maintain older pipeline-compatible Python versions while still using the latest Python releases for new development, without touching the system Python. A very common setup is:
+Avoid installing bioinformatics software directly into the operating system (which is also Python based). 
+Instead create dedidcated python environments to run pythonbased tools. This will help you to keep a clean and functional system.  
+
+See Pyenv extended documentation: [https://github.com/pyenv/pyenv](https://github.com/pyenv/pyenv).  
+
+This works well when:
+
+- You only need Python packages
+- Everything installs cleanly from PyPI
+- You don't need non-Python bioinformatics tools
+
+---
+
+### 8.5 Package managers  
+#### 8.5.1 Conda  
+
+Conda remains a popular package management system in bioinformatics.
+
+Install Miniforge:
+
+<https://conda-forge.org/miniforge/>
+
+Create a new environments and install using the appropriate ```conda install``` commands.
+An overview of available software to be installed through conda can be found here: [https://bioconda.github.io/conda-package_index.html](https://bioconda.github.io/conda-package_index.html). 
+
+#### 8.5.2 Pixi  
+
+Pixi manages different tools (nanopack, python, flye, samtools,...) all from a single project definition. It also generates a lock file for reproducibility. Pixi builds upon the foundation of the conda ecosystem, introducing a workspace-centric approach rather than focusing solely on environments. This shift towards workspaces offers a more organized and efficient way to manage dependencies and run code, tailored to modern development practices. It uses the same software index as ```conda forge```. So if you find it there it can be installed using pixi.   
+
+For more information Read the docs here: [https://pixi.prefix.dev/latest/](https://pixi.prefix.dev/latest/)
+
+---
+
+## Chapter 9: Mobile lab equipment
+
+### 9.1 Bento Lab
+
+[Bento Lab](https://bento.bio/) is a portable molecular biology workstation that combines a:
+
+- PCR thermocycler
+- Microcentrifuge
+- Gel electrophoresis system
+- Blue-light transilluminator
+
+into a single compact device suitable for laboratory and field-based molecular biology workflows. It can be used for DNA extraction, PCR amplification, gel electrophoresis, DNA barcoding, eDNA studies, and nanopore sequencing workflows.  
+For protocols, tutorials, user manuals, and field deployment examples, consult the Bento lab Knowledge Hub:  
+<https://bento.bio/resources/>
+
+---
+
+### 9.2 Power Requirements
+
+BentoLab reports a maximum power consumption of approximately: 140W
+
+Therefore, any battery solution should provide:
+
+- AC power output (110–240 V)
+- Minimum continuous output of 140 W
+
+A larger battery capacity is recommended for extended field deployments.
+
+---
+
+### 9.3 Batteries and Solar Panels
+
+For short field trips, a portable power station of approximately 150Wh may be sufficient for PCR-based workflows. For multi-day deployments, larger battery systems are recommended. Bento Bio has demonstrated the use of larger portable power stations that can be recharged using solar panels or vehicle power sources.
+
+Recommended setup:
+
+```text
+100–200 W Foldable Solar Panel
+            ↓
+Portable Power Station
+            ↓
+Bento Lab + Laptop + MinION
 ```
-- Install Ubuntu drivers app  
-```shell
-sudo apt install ubuntu-drivers-common
-```
-- Check available GPUs  
-```shell
-ubuntu-drivers devices
-```
-```shell title='Example output'
-== /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 ==
-modalias : pci:v000010DEd000027E0sv00001025sd0000166Cbc03sc00i00
-vendor   : NVIDIA Corporation
-driver   : nvidia-driver-545-open - distro non-free
-driver   : nvidia-driver-555-open - third-party non-free
-driver   : nvidia-driver-550 - third-party non-free
-driver   : nvidia-driver-550-open - third-party non-free
-driver   : nvidia-driver-545 - distro non-free
-driver   : nvidia-driver-535 - third-party non-free
-driver   : nvidia-driver-555 - third-party non-free recommended
-driver   : nvidia-driver-535-server - distro non-free
-driver   : nvidia-driver-535-open - distro non-free
-driver   : nvidia-driver-535-server-open - distro non-free
-driver   : nvidia-driver-525 - third-party non-free
-driver   : xserver-xorg-video-nouveau - distro free builtin
-```
-- Install latest Nvidia driver (change `555` with latest version available in your case)  
-```shell
-sudo apt install nvidia-driver-525
-```
-- Reboot your computer  
-- Check if Nvidia driver and CUDA is available after reboot  
-```shell
-nvidia-smi
-```
-```shell title='Example output'
-+---------------------------------------------------------------------------------------+
-| NVIDIA-SMI 545.29.06              Driver Version: 545.29.06    CUDA Version: 12.3     |
-|-----------------------------------------+----------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
-|                                         |                      |               MIG M. |
-|=========================================+======================+======================|
-|   0  NVIDIA GeForce RTX 4080 ...    Off | 00000000:01:00.0 Off |                  N/A |
-| N/A   45C    P8               1W /  90W |   1032MiB / 12282MiB |      0%      Default |
-|                                         |                      |                  N/A |
-+-----------------------------------------+----------------------+----------------------+
-                                                                                         
-+---------------------------------------------------------------------------------------+
-| Processes:                                                                            |
-|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
-|        ID   ID                                                             Usage      |
-|=======================================================================================|
-+---------------------------------------------------------------------------------------+
-```
 
-This output tells us we have a NVIDIA GeForce RTX 4080 running (12GB virtual RAM) and CUDA Version 12.3 has been co-installed.  
+This configuration enables extended off-grid operation for biodiversity monitoring, DNA barcoding, and eDNA projects.  
 
-### Purge Nvidia  
+!!! info "Example of our Power Setup in the field"
 
-On some occasions you'll need to perform a fresh installation of nvidia drivers. It is important to purge all currently installed NVIDIA/CUDA before installing anew.  
-Here is a step by step guide on how to do this:  
+    ![Solar panel](images/solar-panel-small.gif)
+    ![Bento battery](images/bento-setup-small.gif) 
 
-- List all packages  
-The dpkg -l command is used in Debian-based Linux distributions to list all the installed packages.  
-This command provides detailed information about each package, including its status, name, version, and a brief description.
-```shell 
-dpkg -l
-```
-The output of dpkg -l, the columns represent:  
+    **Solar panel:** BLUETTI MP200 (200W)  
+    **Portable power station:** BLUETTI AC180P (1.800W, 1.440Wh)  
+    **BentoLab:** for all necessary labwork (DNA extraction, PCR, NanoPore libprep and sequencing)
 
-> 1. Package status (e.g., "ii" for installed, "un" for uninstalled, etc.)  
-> 2. Package name  
-> 3. Version  
-> 4. Architecture  
-> 5. Description  
+## Chapter 10: Pre-Deployment Checklist
 
-- List and purge all NVIDIA/CUDA  
+Before leaving for the field:
 
-```shell
-sudo apt-get purge $(dpkg -l | grep '^ii.*nvidia'| awk '{print $2}')
-```
-``` title='Description'
-dpkg -l | grep '^ii.*nvidia'	# This command lists all installed packages (output of dpkg -l) that have "nvidia" in their names and are in the "installed" state (lines starting with "ii").  
-	
-awk '{print $2}'				# This command uses awk to print the second column (package names) from the output of the previous command.  
-	
-sudo apt-get purge $(...)		# This command uses command substitution to execute the inner command and pass its output (list of package names) as arguments to apt-get purge, which removes the specified packages.  
-```
+- [x] NVIDIA driver installed
+- [x] CUDA verified
+- [x] Dorado tested
+- [x] Required software installed
+- [x] SSD space checked
+- [x] Backup SSD available
+- [x] Power adapters packed
+- [x] Flow cells checked
+- [x] Basecalling test completed
+- [x] Internet-independent workflows verifiedÒ
 
-
-.
-## System Software  
-
-On Ubuntu system applications can be installed using the graphical user interface (GUI).  
-More information on how to install software on Ubuntu [click here](https://help.ubuntu.com/stable/ubuntu-help/addremove-install.html.en).  
-
-### Bioinformatic software  
-
-Usually bioinformatic software are opensource packages with installation instructions described on Github repositories.  
-First thing you can do is get yourself a github account and [get familiarized with github](https://github.com/git-guides).  
-Executable scripts are often found in the `/bin`folder, or can be installed in `/usr/local/bin` or in a dedicated bioinfo folder `/usr/local/bioinf/`.  
-In the next section I will explain how to install the basecalling tool *Dorado* in the `/bioinf`folder and put the script on `PATH`.  
-
-- Goto [DORADO GITHUB](https://github.com/nanoporetech/dorado)  
-- Download the relevant installer for your platform (like described in the instructions)  
-- Extract the archive to the desired location  
-```shell title='Extract and put on PATH'
-1. mkdir /usr/local/bioinf/
-2. cd /usr/local/bioinf/
-3. wget https://cdn.oxfordnanoportal.com/software/analysis/dorado-0.7.2-linux-x64.tar.gz
-4. tar -xzvf dorado-0.7.2-linux-x64.tar.gz
-	# after unzipping, the main folder will contain a /bin and /lib folder.
-5. cd bin  
-6. ls
-	# /usr/local/bioinf/dorado/bin/dorado => this is the Executable file 
-7. sudo ln -s /usr/local/bioinf/dorado/bin/dorado /usr/local/bin/dorado
-	# this will symlink the dorado script to /usr/local/bin/dorado
-8. echo 'export PATH=$PATH:/usr/local/bin' | sudo tee -a /etc/profile && export PATH=$PATH:/usr/local/bin
-	# put in path if not by default, you can check by `echo $PATH`
-```  
-Following these instructions you should have downloaded the dorado script and it's libraries in the designated `/usr/local/bioinf` folder. To make the executable file accessible for all users  
-you need to put it in PATH.
-
-### Python environments  
-
-When you need to install packages using the command `pip` it is adviced to do so in a separate python environment to avoid issues with the already existing python installation supporting your operating system.  
-Detailed information on python venv can be found [here](https://docs.python.org/3/library/venv.html).  
-
-### Conda  
-
-Yet another packaging and environmanagement tool is Conda. A lot of bioinformatic software has been made available in dedicated conda environments.
-Read all there is to know on [how to use conda here](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html). 
-
+!!! warning
+	MinKnow software needs an internet connection to be able to funcion. When operating in the field without internet connection, contact Nanopore to accomodate you and help you to setup an off-line version of MinKnow on your portable computer.  
